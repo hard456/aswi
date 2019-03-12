@@ -1,0 +1,24 @@
+<h1>Edit transliteration : <?php //echo get_bookandchapter_from_id_transliteration($id_transliteration)?></h1>
+<script src="<?php //echo $html->url('/javascript/inserttext.js')" .
+			echo $html->url('/transliteration/js_inserttext');
+		?>" type="text/javascript"></script>
+<script src="<?php echo $html->url('/javascript/keyboard.js')?>" type="text/javascript"></script>
+
+<form action="<?php echo $html->url('/transliteration/edit_transliteration_save')?>" method="post" enctype="multipart/form-data" id="edit-form">
+
+
+	<?php echo $this->renderElement('transliteration-data-edit', array(
+			'object_type_array' => $object_type_array,
+			'surface_type_array' => $surface_type_array,
+			'POST' => $POST,
+	)); ?>
+  <?php //require('tmpl/transliteration-data-edit-panel.tmpl.php');?>
+
+<div>
+<input type="hidden" name="id_transliteration" value="<?php echo $id_transliteration?>" />
+<input type="submit" name="actionButton" value="<?php echo  htmlspecialchars($button_label); ?>" />
+</div>
+</form>
+
+<?php include 'inc/keyboard-dnd.inc.php' ?>
+

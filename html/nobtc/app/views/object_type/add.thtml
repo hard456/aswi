@@ -1,0 +1,15 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>New Object Type</h2>
+<form action="<?php echo $html->url('/object_type/add'); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('ObjectType/object_type', 'Object Type');?>
+ 	<?php echo $html->input('ObjectType/object_type', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('ObjectType/object_type', 'Please enter the Object Type.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Object Type', '/object_type/index')?></li>
+</ul>

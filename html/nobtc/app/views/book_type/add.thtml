@@ -1,0 +1,15 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>New Book Type</h2>
+<form action="<?php echo $html->url('/book_type/add'); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('BookType/book_type', 'Book Type');?>
+ 	<?php echo $html->input('BookType/book_type', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('BookType/book_type', 'Please enter the Book Type.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Book Type', '/book_type/index')?></li>
+</ul>

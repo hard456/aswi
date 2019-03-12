@@ -1,0 +1,17 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Edit Book Type</h2>
+<form action="<?php echo $html->url('/book_type/edit/'.$html->tagValue('BookType/id_book_type')); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('BookType/book_type', 'Book Type');?>
+ 	<?php echo $html->input('BookType/book_type', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('BookType/book_type', 'Please enter the Book Type.');?>
+</div>
+<?php echo $html->hidden('BookType/id_book_type')?>
+<div class="submit">
+	<?php echo $html->submit('Save');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('Delete','/book_type/delete/' . $html->tagValue('BookType/id_book_type'), null, 'Are you sure you want to delete: id ' . $html->tagValue('BookType/id_book_type'));?>
+<li><?php echo $html->link('List Book Type', '/book_type/index')?></li>
+</ul>

@@ -1,0 +1,71 @@
+body  {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt; !important
+	color: #000000;
+	margin-left: 30px;
+}
+h1{
+	color: #32CD32;
+	text-align: center;
+	
+}
+h2{
+	color: #32CD32;
+	text-align: center;
+}
+
+.tlacitko {
+	cursor:hand;
+	color: #006400;
+	font-weight: bold;
+}
+
+.tlacitko2 {
+	cursor:hand;
+	font-weight: bold;
+	font-size:12pt;
+	color: #006400;
+	background-color:#FFFFEE;
+	height: 30;
+}
+
+A  {
+	color : #000000;
+	font-size : 11pt;
+	text-decoration : none;
+}
+
+A:hover  {
+	color : Red;
+	font-size : 11pt;
+}
+table {
+	border-collapse: collapse;
+}
+td  {
+	font-size : 10pt;
+	border : 1px solid Black;
+}
+
+input  {
+	font-size : 11pt;
+}
+
+select  {
+	font-size : 11pt;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	color : #000000;
+}
+
+.vstup {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11pt;
+	color:#000000;
+}
+.desk {
+	background-color: #D2D2DB;
+	xtext-align: center;
+}
+.desk td {
+	border: 0px;
+}

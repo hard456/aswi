@@ -1,0 +1,22 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Edit Origin</h2>
+<form action="<?php echo $html->url('/origin/edit/'.$html->tagValue('Origin/id_origin')); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('Origin/origin', 'Origin');?>
+ 	<?php echo $html->input('Origin/origin', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Origin/origin', 'Please enter the Origin.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Origin/old_name', 'Old Name');?>
+ 	<?php echo $html->input('Origin/old_name', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Origin/old_name', 'Please enter the Old Name.');?>
+</div>
+<?php echo $html->hidden('Origin/id_origin')?>
+<div class="submit">
+	<?php echo $html->submit('Save');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('Delete','/origin/delete/' . $html->tagValue('Origin/id_origin'), null, 'Are you sure you want to delete: id ' . $html->tagValue('Origin/id_origin'));?>
+<li><?php echo $html->link('List Origin', '/origin/index')?></li>
+</ul>

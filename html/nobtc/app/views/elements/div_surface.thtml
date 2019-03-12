@@ -1,0 +1,68 @@
+<?php //pr($surfaces[$object_type][$surface_type]) ?>
+      	<?php if(is_array($surfaces[$object_type][$surface_type])): ?>
+<div class="translitrow">
+					<img src="<?php echo $html->url('/img/line.gif')?>"  
+	      					class="noborder" alt="|" />
+					<img src="<?php echo $html->url('/img/line.gif')?>"  
+	      					class="noborder" alt="|" />
+		<?php $id_add = "$object_type_save-$surface_type_save-add-line" ?>
+      <a class="pacicka" title="Add line"
+           id="<?php echo $id_add?>">Add line</a>
+           <?php
+			$options['update'] = "$object_type_save-$surface_type_save-div";
+			$options['with'] = "Form.serialize('transliteration-form')";
+			$options['url'] = 'add_line/'
+				.$transliteration['Transliteration']['id_transliteration'].'/'
+				.$object_type_id.'/'.$surface_type_id.'/'.$id_surface;
+			echo $javascript->event("'$id_add'", 
+										"click", 
+										$ajax->remoteFunction($options));
+					?>
+</div>
+
+      	
+      		<?php $lines = $surfaces[$object_type][$surface_type]['lines']; ?>
+      		<?php $id_surface = $surfaces[$object_type][$surface_type]['id_surface']; ?>
+      		 <script type="text/javascript">
+		      	// <![CDATA[
+		       		showBranchOfTree = true;
+				// ]]>
+			 </script>
+      		<?php foreach ($lines as $id_line => $line): ?>
+	      		<div class="translitrow">
+					<img src="<?php echo $html->url('/img/line.gif')?>"  
+	      					class="noborder" alt="|" />
+					<img src="<?php echo $html->url('/img/line.gif')?>"  
+	      					class="noborder" alt="|" />
+					<input 	type="text" 
+							name="<?php echo "data[$object_type_save][$surface_type_save][lines][$id_line][line_number]"?>" 
+							size="2" 
+							title="Line number"
+							value="<?php echo  $line['line_number']?>" />
+					<input 	type="text" 
+							name="<?php echo "data[$object_type_save][$surface_type_save][lines][$id_line][transliteration]"?>" 
+							size="70" 
+							title="Line"
+							value="<?php echo  $line['transliteration']?>" />
+					<input 	type="hidden" 
+							name="<?php echo "data[$object_type_save][$surface_type_save][lines][$id_line][id_line]"?>" 
+							value="<?php echo  $id_line?>" />
+							
+							<?php $id_delete = "$object_type_save-$surface_type_save-delete-line-$id_line" ?>
+					<a class="pacicka input-del-line"
+						id="<?php echo $id_delete ?>" 
+						>Delete line</a>
+					<?php
+						$options['update'] = "$object_type_save-$surface_type_save-div";
+						$options['with'] = "Form.serialize('transliteration-form')";
+						$options['url'] = 'delete_line/'
+							.$transliteration['Transliteration']['id_transliteration'].'/'
+							.$id_surface.'/'.$id_line;
+						echo $javascript->event("'$id_delete'", 
+													"click", 
+													$ajax->remoteFunction($options));
+					?>
+				</div>
+      		<?php  endforeach;?>
+      	<?php endif; ?>
+      	

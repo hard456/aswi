@@ -1,0 +1,51 @@
+<a href="<?php
+
+$str = "";
+if(!empty($found1)) $str .= "/".urlencode($found1);
+if(!empty($found2)) $str .= "/".urlencode($found2);
+if(!empty($found3)) $str .= "/".urlencode($found3);
+
+echo $html->url('/transliteration/view/'.urlencode($id_transliteration).$str);?><?php
+
+?>">
+
+<?php echo $book_abrev.", ".$chapter; ?></a>
+  <?php if ($dots_before):?>
+	<div><span class="line"> ...</span></div>
+  <?php endif;?>
+  <?php if (!empty($array_lines_before) && is_array($array_lines_before)): ?>
+    <?php foreach($array_lines_before as $key => $value): ?>
+    <div>
+    <span class="lineno"><?php echo $key?>.</span>
+    <span class="line"><?php echo $value?> </span>
+    </div>
+    <?php endforeach; ?>
+  <?php endif;?>
+
+  <!-- main found line -->
+  <div>
+    <span class="lineno linefound"><?php echo $line_no?>.</span>
+    <span class="line"><?php
+    $found = array($found1, $found2, $found3);
+    echo ( highlight_found(htmlspecialchars($line_transliteration), $found));
+    ?></span>
+  </div>
+  <!-- end of main found line -->
+
+  <?php if (!empty($array_lines_after) && is_array($array_lines_after)): ?>
+    <?php foreach($array_lines_after as $key => $value): ?>
+    <div>
+    <span class="lineno"><?php echo $key?>.</span>
+    <span class="line"><?php echo $value?> </span>
+    </div>
+    <?php endforeach; ?>
+  <?php endif;?>
+
+  <?php if($dots_after):?>
+  <div><span class="line"> ...</span></div>
+  <?php endif;?>
+
+
+<hr />
+
+

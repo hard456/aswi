@@ -1,0 +1,1 @@
+a:3:{i:0;a:4:{s:4:"name";s:6:"id_tag";s:4:"type";s:7:"integer";s:4:"null";s:2:"NO";s:7:"default";s:35:"nextval('tag_id_tag_seq'::regclass)";}i:1;a:4:{s:4:"name";s:3:"tag";s:4:"type";s:6:"string";s:4:"null";s:3:"YES";s:7:"default";N;}i:2;a:4:{s:4:"name";s:7:"id_name";s:4:"type";s:7:"integer";s:4:"null";s:2:"NO";s:7:"default";N;}}

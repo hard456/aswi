@@ -1,0 +1,27 @@
+<h2>Administrace - seznam pravidel</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Role</th>
+	<th>Pořadí pravidla</th>
+	<th>Pravidlo</th>
+	<th>Povoleno</th>
+	<th>Akce</th>
+</tr>
+<?php foreach ($rules as $rule): ?>
+<tr>
+	<td><?php echo $rule['CakeGroup']['groupname']; ?></td>
+	<td><?php echo $rule['CakeRule']['rulenum']; ?></td>
+	<td><?php echo $rule['CakeRule']['action']; ?></td>
+	<td><?php echo bl($rule['CakeRule']['allow']); ?></td>
+	<td class="actions">
+		<?php echo $html->link('Uprav','/cake_rules/edit/' . $rule['CakeRule']['id'])?>
+		<?php echo $html->link('Smaž','/cake_rules/delete/' . $rule['CakeRule']['id'], null, 'Opravdu chcete vybrané pravidlo smazat?')?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('Přidej pravidlo', '/cake_rules/add'); ?></li>
+</ul>

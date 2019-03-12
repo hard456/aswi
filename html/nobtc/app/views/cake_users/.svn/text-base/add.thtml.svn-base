@@ -1,0 +1,43 @@
+<h2>Administrace - Nový uživatel</h2>
+
+<form action="<?php echo $html->url('/cake_users/add'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/username', 'Jméno uživatele');?>
+ 	<?php echo $html->input('CakeUser/username', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/username');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/login', 'Login');?>
+ 	<?php echo $html->input('CakeUser/login', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/login');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/passwd', 'Heslo');?>
+ 	<?php echo $html->password('CakeUser/passwd', array('size' => '20'));?>
+	<?php echo $error->showMessage('CakeUser/passwd');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/passwd1', 'Potvrzení hesla');?>
+ 	<?php echo $html->password('CakeUser/passwd1', array('size' => '20'));?>
+	<?php echo $error->showMessage('CakeUser/passwd1');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/security_level', 'Úroveň zabezpečení');?>
+ 	<?php echo $html->input('CakeUser/security_level', array('size' => '5'));?>
+	<?php echo '&nbsp;(rozsah: 0 až 99)'; ?>
+	<?php echo $error->showMessage('CakeUser/security_level');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('CakeUser/email', 'E-mail');?>
+ 	<?php echo $html->input('CakeUser/email', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/email');?>
+</div>
+
+<div class="submit">
+	<?php echo $html->submit('Přidej uživatele');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Seznam uživatelů', '/cake_users/index')?></li>
+</ul>

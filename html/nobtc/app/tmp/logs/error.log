@@ -1,0 +1,461 @@
+2007-10-25 10:09:26 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:09:26 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:09:47 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:09:47 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:10:46 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:10:46 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:12:27 Error: testuji uzivatel: jara
+ name:Pages
+ akce:display
+
+2007-10-25 10:12:27 Error: check: pages/display/
+<br/>
+2007-10-25 10:12:27 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:12:27 Error: nastavuji na 1
+<br/>
+2007-10-25 10:12:27 Error: OK
+2007-10-25 10:12:35 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:12:35 Error: check: cakerules/index/
+<br/>
+2007-10-25 10:12:35 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:12:35 Error: nastavuji na 1
+<br/>
+2007-10-25 10:12:35 Error: OK
+2007-10-25 10:12:40 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:12:40 Error: check: cakerules/add/
+<br/>
+2007-10-25 10:12:40 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:12:40 Error: nastavuji na 1
+<br/>
+2007-10-25 10:12:40 Error: OK
+2007-10-25 10:13:07 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:13:07 Error: check: cakerules/add/
+<br/>
+2007-10-25 10:13:07 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:13:07 Error: nastavuji na 1
+<br/>
+2007-10-25 10:13:07 Error: OK
+2007-10-25 10:13:07 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:13:07 Error: check: cakerules/index/
+<br/>
+2007-10-25 10:13:07 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:13:07 Error: nastavuji na 1
+<br/>
+2007-10-25 10:13:07 Error: OK
+2007-10-25 10:13:11 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:13:11 Error: PRESMEROVANI na anonym
+2007-10-25 10:13:11 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:13:11 Error: check: pages/display/
+<br/>
+2007-10-25 10:13:11 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:13:11 Error: nastavuji na 
+<br/>
+2007-10-25 10:13:11 Error: check: pages/display/
+<br/>
+2007-10-25 10:13:11 Error: pravidlo: /pages\/.*/
+<br/>
+2007-10-25 10:13:11 Error: nastavuji na 1
+<br/>
+2007-10-25 10:13:11 Error: OK
+2007-10-25 10:13:22 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:13:22 Error: check: pages/display/
+<br/>
+2007-10-25 10:13:22 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:13:22 Error: nastavuji na 1
+<br/>
+2007-10-25 10:13:22 Error: OK
+2007-10-25 10:13:26 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:13:26 Error: check: searchtext/index/
+<br/>
+2007-10-25 10:13:26 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:13:26 Error: nastavuji na 1
+<br/>
+2007-10-25 10:13:26 Error: OK
+2007-10-25 10:15:54 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:15:54 Error: PRESMEROVANI na anonym
+2007-10-25 10:15:55 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:15:55 Error: check: pages/display/
+<br/>
+2007-10-25 10:15:55 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:15:55 Error: nastavuji na 
+<br/>
+2007-10-25 10:15:55 Error: check: pages/display/
+<br/>
+2007-10-25 10:15:55 Error: pravidlo: /pages\/.*/
+<br/>
+2007-10-25 10:15:55 Error: nastavuji na 1
+<br/>
+2007-10-25 10:15:55 Error: OK
+2007-10-25 10:16:16 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:16:16 Error: check: pages/display/
+<br/>
+2007-10-25 10:16:16 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:16:16 Error: nastavuji na 1
+<br/>
+2007-10-25 10:16:16 Error: OK
+2007-10-25 10:19:54 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:19:54 Error: check: searchtext/index/
+<br/>
+2007-10-25 10:19:54 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:19:54 Error: nastavuji na 1
+<br/>
+2007-10-25 10:19:54 Error: OK
+2007-10-25 10:20:03 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:result
+
+2007-10-25 10:20:03 Error: check: searchtext/result/
+<br/>
+2007-10-25 10:20:03 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:20:03 Error: nastavuji na 1
+<br/>
+2007-10-25 10:20:03 Error: OK
+2007-10-25 10:20:48 Error: testuji uzivatel: jb01
+ name:Transliteration
+ akce:view
+
+2007-10-25 10:20:48 Error: check: transliteration/view/
+<br/>
+2007-10-25 10:20:48 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:20:48 Error: nastavuji na 1
+<br/>
+2007-10-25 10:20:48 Error: OK
+2007-10-25 10:29:56 Error: testuji uzivatel: jb01
+ name:Transliteration
+ akce:view
+
+2007-10-25 10:29:56 Error: check: transliteration/view/
+<br/>
+2007-10-25 10:29:56 Error: pravidlo: /.*\/.*/
+<br/>
+2007-10-25 10:29:56 Error: nastavuji na 1
+<br/>
+2007-10-25 10:29:56 Error: OK
+2007-10-25 10:30:16 Error: testuji uzivatel: jb01
+ name:InputNewText
+ akce:index
+
+2007-10-25 10:30:16 Error: OK
+2007-10-25 10:30:23 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:30:23 Error: OK
+2007-10-25 10:30:35 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:30:35 Error: OK
+2007-10-25 10:32:46 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:edit
+
+2007-10-25 10:32:46 Error: OK
+2007-10-25 10:32:50 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:edit
+
+2007-10-25 10:32:50 Error: OK
+2007-10-25 10:32:50 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:32:50 Error: OK
+2007-10-25 10:32:56 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:32:56 Error: OK
+2007-10-25 10:33:10 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:33:10 Error: OK
+2007-10-25 10:33:10 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:33:10 Error: OK
+2007-10-25 10:33:25 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:33:25 Error: OK
+2007-10-25 10:33:36 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:33:36 Error: OK
+2007-10-25 10:33:36 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:33:36 Error: OK
+2007-10-25 10:33:41 Error: testuji uzivatel: jb01
+ name:Catalogue
+ akce:index
+
+2007-10-25 10:33:41 Error: OK
+2007-10-25 10:33:51 Error: testuji uzivatel: jb01
+ name:Catalogue
+ akce:search
+
+2007-10-25 10:33:51 Error: OK
+2007-10-25 10:34:02 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:34:02 Error: OK
+2007-10-25 10:34:14 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:34:14 Error: OK
+2007-10-25 10:34:14 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:34:14 Error: OK
+2007-10-25 10:34:17 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:edit
+
+2007-10-25 10:34:17 Error: OK
+2007-10-25 10:34:20 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:34:20 Error: OK
+2007-10-25 10:34:37 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:34:37 Error: PRESMEROVANI na anonym
+2007-10-25 10:34:37 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:34:37 Error: OK
+2007-10-25 10:34:46 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:34:46 Error: OK
+2007-10-25 10:34:49 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:34:49 Error: OK
+2007-10-25 10:36:05 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:36:05 Error: OK
+2007-10-25 10:36:12 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:result
+
+2007-10-25 10:36:12 Error: OK
+2007-10-25 10:36:17 Error: testuji uzivatel: jb01
+ name:Transliteration
+ akce:view
+
+2007-10-25 10:36:17 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:36:44 Error: testuji uzivatel: jb01
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:36:44 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:36:50 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:36:50 Error: PRESMEROVANI na anonym
+2007-10-25 10:36:50 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:36:50 Error: OK
+2007-10-25 10:36:57 Error: testuji uzivatel: jara
+ name:Pages
+ akce:display
+
+2007-10-25 10:36:57 Error: OK
+2007-10-25 10:37:06 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:37:06 Error: OK
+2007-10-25 10:37:21 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:add
+
+2007-10-25 10:37:21 Error: OK
+2007-10-25 10:37:21 Error: testuji uzivatel: jara
+ name:CakeRules
+ akce:index
+
+2007-10-25 10:37:21 Error: OK
+2007-10-25 10:37:28 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:37:28 Error: PRESMEROVANI na anonym
+2007-10-25 10:37:28 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:37:28 Error: OK
+2007-10-25 10:37:34 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:37:34 Error: OK
+2007-10-25 10:37:42 Error: testuji uzivatel: jb01
+ name:Pages
+ akce:display
+
+2007-10-25 10:37:42 Error: OK
+2007-10-25 10:37:44 Error: testuji uzivatel: jb01
+ name:Catalogue
+ akce:index
+
+2007-10-25 10:37:44 Error: OK
+2007-10-25 10:37:51 Error: testuji uzivatel: jb01
+ name:Catalogue
+ akce:search
+
+2007-10-25 10:37:51 Error: OK
+2007-10-25 10:37:58 Error: testuji uzivatel: jb01
+ name:Catalogue
+ akce:search
+
+2007-10-25 10:37:58 Error: OK
+2007-10-25 10:38:01 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:38:01 Error: OK
+2007-10-25 10:38:06 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:result
+
+2007-10-25 10:38:06 Error: OK
+2007-10-25 10:38:11 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:result
+
+2007-10-25 10:38:11 Error: OK
+2007-10-25 10:38:15 Error: testuji uzivatel: jb01
+ name:Transliteration
+ akce:view
+
+2007-10-25 10:38:15 Error: OK
+2007-10-25 10:38:26 Error: testuji uzivatel: jb01
+ name:SearchText
+ akce:index
+
+2007-10-25 10:38:26 Error: OK
+2007-10-25 10:41:56 Error: testuji uzivatel: jb01
+ name:CakeUsers
+ akce:index
+
+2007-10-25 10:41:56 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:42:14 Error: testuji uzivatel: jb01
+ name:CakeUsers
+ akce:change_password
+
+2007-10-25 10:42:14 Error: PRESMEROVANI na login - pristup zamitnut
+2007-10-25 10:42:20 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:42:20 Error: PRESMEROVANI na anonym
+2007-10-25 10:42:20 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:42:20 Error: OK
+2007-10-25 10:42:29 Error: testuji uzivatel: jara
+ name:Pages
+ akce:display
+
+2007-10-25 10:42:29 Error: OK
+2007-10-25 10:43:01 Error: testuji uzivatel: jara
+ name:Pages
+ akce:display
+
+2007-10-25 10:43:01 Error: OK
+2007-10-25 10:43:16 Error: testuji uzivatel: 
+ name:Pages
+ akce:display
+
+2007-10-25 10:43:16 Error: PRESMEROVANI na anonym
+2007-10-25 10:43:16 Error: testuji uzivatel: anonymous
+ name:Pages
+ akce:display
+
+2007-10-25 10:43:16 Error: OK
+2007-10-25 10:45:05 Error: testuji uzivatel: jara
+ name:Pages
+ akce:display
+
+2007-10-25 10:45:05 Error: OK

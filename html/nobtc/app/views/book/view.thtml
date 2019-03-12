@@ -1,0 +1,38 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="book">
+<h2>View Book</h2>
+
+<dl>
+	<dt>Id Book</dt>
+	<dd>&nbsp;<?php echo $book['Book']['id_book']?></dd>
+	<dt>Book Abrev</dt>
+	<dd>&nbsp;<?php echo $book['Book']['book_abrev']?></dd>
+	<dt>Book Autor</dt>
+	<dd>&nbsp;<?php echo $book['Book']['book_autor']?></dd>
+	<dt>Book Description</dt>
+	<dd>&nbsp;<?php echo $book['Book']['book_description']?></dd>
+	<dt>Book Name</dt>
+	<dd>&nbsp;<?php echo $book['Book']['book_name']?></dd>
+	<dt>Place Of Pub</dt>
+	<dd>&nbsp;<?php echo $book['Book']['place_of_pub']?></dd>
+	<dt>Date Of Pub</dt>
+	<dd>&nbsp;<?php echo $book['Book']['date_of_pub']?></dd>
+	<dt>Pages</dt>
+	<dd>&nbsp;<?php echo $book['Book']['pages']?></dd>
+	<dt>Book Subtitle</dt>
+	<dd>&nbsp;<?php echo $book['Book']['book_subtitle']?></dd>
+	<dt>Volume</dt>
+	<dd>&nbsp;<?php echo $book['Book']['volume']?></dd>
+	<dt>Volume No</dt>
+	<dd>&nbsp;<?php echo $book['Book']['volume_no']?></dd>
+	<dt>Revision history</dt>
+	<dd>&nbsp;<?php echo nl2br($book['Book']['revision_history'])?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Book',   '/book/edit/' . $book['Book']['id_book']) ?> </li>
+	<li><?php echo $html->link('Delete Book', '/book/delete/' . $book['Book']['id_book'], null, 'Are you sure you want to delete: id ' . $book['Book']['id_book'] . '?') ?> </li>
+	<li><?php echo $html->link('List Book',   '/book/index') ?> </li>
+	<li><?php echo $html->link('New Book',	'/book/add') ?> </li>
+</ul>
+
+</div>

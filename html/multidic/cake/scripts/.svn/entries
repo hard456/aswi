@@ -1,0 +1,55 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/scripts
+svn://192.168.2.102
+
+
+
+2007-09-06T11:06:20.205674Z
+248
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+acl.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+acbf2e67735cc7873c7a6f09abb0b0f8
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+bake.php
+file
+
+
+
+
+2007-09-05T19:48:34.000000Z
+01566276aa37c09f6585b0fd4238112e
+2007-09-06T11:06:20.205674Z
+248
+jara
+
+templates
+dir
+

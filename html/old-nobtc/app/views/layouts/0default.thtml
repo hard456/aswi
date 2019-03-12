@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title dir="ltr" lang="cs">
+      Klinopis.cz
+    </title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="Old Babylonian, Akkadian, Text Corpus, Akkadian Dictionary, Old Babylonian cuneiform list, akkadisches Wörterbuch, altbabylonische Texte, Codex Hammurapi, mathematical texts, omina" name=Description>
+
+    <?php echo $html->css('cake.generic');?>
+    <?php echo $html->css('obtc');?>
+    <!--link rel="StyleSheet" href="<?php echo $this->webroot ?>css/obtc1.css" type="text/css" media="screen, print"-->
+
+  </head>
+  <body>
+    <div id="page">
+
+      <div id="header">
+
+        <table border="0" cellPadding="0" cellSpacing="0" width="100%">
+          <tr>
+            <td width="415">
+              <a class="noline" href="/utf/utf/staff.html">
+                <img alt="OBTC logo coloring by J. Pubal" width="180" height="80" src="<?php echo $this->webroot ?>img/OBTClogoJP.gif" /></a>
+            </td>
+            <td align="center" bgColor="#006666" vAlign="middle" height="100%" width="100%">
+              <font color="#ffffff" face="Arial" size="6">
+                Old Babylonian Text Corpus v. 2
+              </font>
+            </td>
+            <td>
+              <img alt="OBTC logo coloring by Z. Horakova" width="180" height="80" src="<?php echo $this->webroot ?>img/obtclogozh.gif" />
+            </td>
+          </tr>
+        </table>
+
+
+
+        <table bgColor="#ffffff" border="0" cellPadding="0" cellSpacing="0" width="100%">
+          <tr>
+            <td bgColor="#003366" width="9%">
+              <p align="center">
+                <a class="noline" href="search-text.php">
+                  <font color="#eeeecc" face="Arial" size="2">
+                    search &amp; edit texts
+                  </font></a>
+              </p>
+            </td>
+            <td align="center" bgColor="#003366" height="3" width="1%">
+              <span class="oddelovac">
+                |
+              </span>
+            </td>
+            <td bgColor="#003366" width="11%">
+              <p align="center">
+                <a class="noline" href="/utf/utf/sj.php" TARGET="_blank">
+                  <font color="#eeeecc" face="Arial" size="2">
+                    search dictionary
+                  </font></a>
+              </p>
+            </td>
+            <td align="center" bgColor="#003366" height="3" width="1%">
+              <span class="oddelovac">
+                |
+              </span>
+            </td>
+            <td bgColor="#003366" width="7%">
+              <p align="center">
+                <a class="noline" href="search-catalogue.php">
+                  <font color="#eeeecc" face="Arial" size="2">
+                    text catalogue
+                  </font></a>
+              </p>
+            </td>
+            <td align="center" bgColor="#003366" height="3" width="1%">
+              <span class="oddelovac">
+                |
+              </span>
+            </td>
+            <td align="center" bgColor="#003366" noWrap="noWrap" width="10%">
+              <a class="noline"             href="/utf/utf/signs.html" target="_blank">
+                <font             color="#eeeecc" face="Arial" size="2">
+                  catalogue of cuneiform signs
+                </font></a>
+            </td>
+            <td align="center" bgColor="#003366" height="3" width="1%">
+              <span class="oddelovac">
+                |
+              </span>
+            </td>
+            <td align="center" bgColor="#003366" width="10%">
+              <a class="noline"             href="/utf/utf/students.php"  target="_blank">
+                <font             color="#eeeecc" face="Arial" size="2">
+                  for our students in Czech
+                </font></a>
+            </td>
+            <td align="center" bgColor="#003366" height="3" width="1%">
+              <span class="oddelovac">
+                |
+              </span>
+            </td>
+            <td align="center" bgColor="#003366" width="4%">
+              <a class="noline"             href="/utf/utf/staff.html"              onmouseout="window.status=' '; return true;"              onmouseover="window.status='how to contact us'; return true;" target="_blank">
+                <font             color="#eeeecc" face="Arial" size="2">
+                  contact
+                </font></a>
+            </td>
+          </tr>
+        </table>
+
+        <div align="right">
+          <table border="0" cellPadding="0" cellSpacing="0">
+            <tr>
+              <td align="center" bgColor="#eeeecc" height="4" noWrap="noWrap" width="60">
+                <a class="noline" href="/utf/utf/staff.html" onmouseout="window.status=' '; return true;" onmouseover="window.status='about us'; return true;" target="_blank">
+                  <font color="blue" face="Arial" size="2">
+                    staff
+                  </font></a>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" width="1%">
+                <span class="oddelovac">
+                  |
+                </span>
+              </td>
+              <td align="center" bgColor="#eeeecc" width="60">
+                <a class="noline" href="/utf/utf/links.html" onmouseout="window.status=' '; return true;" onmouseover="window.status='internet links'; return true;" target="_blank">
+                  <font color="blue" face="Arial" size="2">
+                    links
+                  </font></a>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" width="1%">
+                <span class="oddelovac">
+                  |
+                </span>
+              </td>
+              <!--td align=center bgColor=#eeeecc width=120>
+                <a class=noline             href="/utf/utf/transrulesv1.php"              onmouseout="window.status=' '; return true;"              onmouseover="window.status='internet links'; return true;" target=_blank>
+                  <font             color=blue face=Arial size=2>
+                    transcription rules
+                  </font></a>
+              </td>
+              <td align=center bgColor=#eeeecc height=3 width="1%">
+                <span class="oddelovac">
+                  |
+                </span>
+              </td-->
+              <td align="center" bgColor="#eeeecc" height="3" noWrap="NoWrap" width="250">
+                <a class="noline" href="insert-new-text.php">
+                  <font             color="blue" face="Arial" size="2">
+                    input new text (for members only)
+                  </font></a>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" width="1%">
+                <span class="oddelovac">
+                  |
+                </span>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" nowrap="nowrap" width="50">
+                <a class="noline" href="admin.php">
+                  <font color="blue" face="Arial" size="2">
+                    admin
+                  </font></a>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" width="1%">
+                <span class="oddelovac">
+                  |
+                </span>
+              </td>
+              <td align="center" bgColor="#eeeecc" height="3" noWrap="noWrap" width="210">
+                <a class="noline" href="/utf/utf/howtobeamember.php" target="_blank">
+                  <font             color="blue" face="Arial" size="2">
+                    how to become a member
+                  </font></a>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--/td>
+        <td width="5%">
+        </td>
+        <td width="5%">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        </tr>
+        </table-->
+
+      </div>
+		<div id="content">
+			<?php if ($session->check('Message.flash'))
+					{
+						$session->flash();
+					}
+					echo $content_for_layout;
+			?>
+		</div>
+		</div>
+
+    <div class="clear">
+      &nbsp;
+      <!-- cistic -->
+    </div>
+    <div id="footer">
+      &#169; Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-<?php echo date('Y');?>
+    </div>
+
+  </body>
+</html>

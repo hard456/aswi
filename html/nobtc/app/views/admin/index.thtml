@@ -1,0 +1,2 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+

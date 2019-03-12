@@ -1,0 +1,21 @@
+<div class="tag">
+<h2>View Tag</h2>
+
+<dl>
+	<dt>Id Tag</dt>
+	<dd>&nbsp;<?php echo $tag['Tag']['id_tag']?></dd>
+	<dt>Tag</dt>
+	<dd>&nbsp;<?php echo $tag['Tag']['tag']?></dd>
+	<dt>Id Name</dt>
+	<dd>&nbsp;<?php echo $html->link($tag['Names']['name'], '/names/view/' .$tag['Names']['id_name'])?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Tag',   '/tag/edit/' . $tag['Tag']['id_tag']) ?> </li>
+	<li><?php echo $html->link('Delete Tag', '/tag/delete/' . $tag['Tag']['id_tag'], null, 'Are you sure you want to delete: id ' . $tag['Tag']['id_tag'] . '?') ?> </li>
+	<li><?php echo $html->link('List Tag',   '/tag/index') ?> </li>
+	<li><?php echo $html->link('New Tag',	'/tag/add') ?> </li>
+	<li><?php echo $html->link('List Names', '/names/index/')?> </li>
+	<li><?php echo $html->link('New Names', '/names/add/')?> </li>
+</ul>
+
+</div>

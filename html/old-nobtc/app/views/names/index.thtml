@@ -1,0 +1,32 @@
+<div class="names">
+<h2>List Names</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<!--th>Id Name</th-->
+	<th>Name</th>
+	<th>Description</th>
+	<th>Note</th>
+	<th>Divine Name</th>
+	<th>Actions</th>
+</tr>
+<?php foreach ($names as $name): ?>
+<tr>
+	<!--td><?php echo $name['Name']['id_name']; ?></td-->
+	<td><?php echo $name['Name']['name']; ?></td>
+	<td><?php echo $name['Name']['description']; ?></td>
+	<td><?php echo $name['Name']['note']; ?></td>
+	<td><?php echo $name['Name']['divine_name']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/names/view/' . $name['Name']['id_name'])?>
+		<?php echo $html->link('Edit','/names/edit/' . $name['Name']['id_name'])?>
+		<?php echo $html->link('Delete','/names/delete/' . $name['Name']['id_name'], null, 'Are you sure you want to delete  ' . $name['Name']['name'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<!--ul class="actions">
+	<li><?php echo $html->link('New Name', '/names/add'); ?></li>
+</ul-->
+</div>

@@ -1,0 +1,25 @@
+
+<?php  foreach($object_type_array as $object_type_object) :?>
+    <?php 	$object_type = $object_type_object['object_type'];
+    		$object_type_id = $object_type_object['id_object_type'];
+    		$object_type_save = Strtr($object_type_object['object_type'], " ", "_");?>
+    		<?php  foreach($surface_type_array as $surface_type_object) :?>
+		      <?php  $surface_type = $surface_type_object['surface_type'];
+		     		 $surface_type_id = $surface_type_object['id_surface_type'];
+		      		 $surface_type_save = Strtr($surface_type_object['surface_type'], " ", "_");
+		      		 $id_surface = $surface[$object_type][$surface_type]['id_surface']; ?>
+					<?php echo $this->renderElement('div_surface',
+					    				array(
+					    					'object_type' => $object_type,
+					    					'surface_type' => $surface_type,
+					    					'object_type_save' => $object_type_save,
+					    					'surface_type_save' => $surface_type_save,
+					    					'surfaces' => $surface,
+					    					'transliteration' => $transliteration,
+					    					'object_type_id' => $object_type_id,
+					    					'surface_type_id' => $surface_type_id,
+					    					'id_surface' => $id_surface,
+					    				) 
+					    			) ?>
+	<?php  endforeach;?>
+<?php  endforeach;?>

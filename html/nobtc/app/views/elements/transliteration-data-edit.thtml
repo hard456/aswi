@@ -1,0 +1,108 @@
+<div class="noname" id="transliteration-data">
+
+  <fieldset id="transliteration-data-fieldset">
+    <legend class="input-legend">Transliteration data</legend>
+
+    <?php//p_g($object_type_array) ?>
+
+    <?php  foreach($object_type_array as $object_type_object) :?>
+    <?php  $object_type = $object_type_object['object_type'];
+    	   $object_type_s = Strtr($object_type_object['object_type'], ' ', '_');?>
+    <script type="text/javascript">var showBranchOfTree = false;</script>
+    <div class="translitrow">
+    	<a href="#"
+	       title="Show or hide <?php echo $object_type?>"
+    	   id="show-hide-<?php echo $object_type_s?>"
+       	   onclick="return top.transliteration.showTree('<?php echo $object_type_s?>');">
+      		<img src="<?php echo $html->url('/img/plus.gif')?>" 
+      			 alt="List" 
+      			 title="plus" 
+      			 width="20" 
+      			 class="noborder" 
+      			 id="<?php echo $object_type_s?>-img" />
+    	</a> <?php echo $object_type?>
+    </div>
+    <!--br /-->
+    <div class="translitrow" id="<?php echo $object_type_s?>-div" style="display:none">
+
+      <?php  foreach($surface_type_array as $surface_type_object) :?>
+      <?php  $surface_type = $surface_type_object['surface_type']; 
+      		 $surface_type_s = Strtr($surface_type_object['surface_type'], ' ', '_'); ?>
+      		 
+      <div class="translitrow">
+      <input type="hidden"
+             name="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-count"
+             id="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-count"
+             value = "0" />
+      <input type="hidden"
+             name="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-id"
+             id="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-id"
+             value = "<?php echo $POST["$object_type-$surface_type-id"] ?>" />       
+
+      <img src="<?php echo $html->url('/img/line.gif')?>"  
+      		class="noborder" alt="|" />
+      <a href="#"
+         title="Show or hide surface <?php echo $surface_type?>"
+         id="show-hide-<?php echo $object_type_s?>-<?php echo $surface_type_s?>"
+         onclick="return top.transliteration.showTree('<?php echo $object_type_s?>-<?php echo $surface_type_s?>');">
+
+        <img src="<?php echo $html->url('/img/minus.gif')?>"
+             alt="List"
+             title="minus"
+             class="noborder"
+             width="20"
+             id="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-img" />
+      </a> <?php echo $surface_type?>
+      
+      <a href="#"
+           title="Add line"
+           id="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-adding-line"
+           onclick="return top.transliteration.addLine( '<?php echo $object_type_s?>-<?php echo $surface_type_s?>', '', '', 'Delete line', '');">Add line</a>
+      </div>
+
+      <div class="noname" id="<?php echo $object_type_s?>-<?php echo $surface_type_s?>-div" style="display:block">
+      
+        <!-- Space for javascript including of lines -->
+      </div>
+
+      <?php  if (!Empty($POST["$object_type-$surface_type-line-no"]) || !Empty($POST["$object_type-$surface_type-line"])): ?>
+      <script type="text/javascript">
+      // <![CDATA[
+      //onLoad - set all lines - correcting
+          var elemCount = top.utils.gEI('<?php echo "$object_type_s-$surface_type_s-count"?>');
+          elemCount.value = 0;
+        <?php 
+        //pr($POST);
+        for ($i = 0; $i < Count($POST["$object_type-$surface_type-line"]); $i++ ) :?>
+          top.transliteration.addLine('<?php echo $object_type_s?>-<?php echo $surface_type_s?>',
+                                      '<?php echo addslashes($POST["$object_type-$surface_type-line-no"][$i])?>',
+                                      "<?php echo ($POST["$object_type-$surface_type-line"][$i]) ?>",
+                                      'Delete line',
+                                      '<?php echo $POST["$object_type-$surface_type-line-broken"][$i]?>');
+          showBranchOfTree = true;
+        
+        <?php  endfor; ?>
+       // ]]>
+      </script>
+      <?php  for ($i = 0; $i < Count($POST["$object_type-$surface_type-line"]); $i++ ) : ?>
+      	<input type="hidden" 
+        	   name="<?php echo "$object_type_s-$surface_type_s-line-id[]" ?>"
+        	   value="<?php echo ($POST["$object_type-$surface_type-line-id"][$i]) ?>" />
+      <?php  endfor; ?>
+      <?php  endif; ?>
+
+      <?php  endforeach;?>
+
+    </div>
+    <script type="text/javascript">
+    	// <![CDATA[
+      //onLoad - display not epmty parts of tree
+      if (showBranchOfTree)
+        top.transliteration.showTree('<?php echo $object_type_s?>');
+      showBranchOfTree = false;
+      // ]]>
+    </script>
+    <?php  endforeach;?>
+
+  </fieldset>
+</div>

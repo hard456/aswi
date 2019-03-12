@@ -1,0 +1,61 @@
+<h1>Enter new transliteration : Step 1</h1>
+<script src="<?php echo $html->url('/javascript/inserttext.js');?>" type="text/javascript" language="JavaScript"></script>
+<script src="<?php echo $html->url('/javascript/keyboard.js');?>" type="text/javascript" language="JavaScript"></script>
+
+<form action="<?php echo $html->url('/input_new_text/preview');?>" method="post" enctype="multipart/form-data" id="insert-form">
+
+  <fieldset id="book-fieldset">
+    <legend class="input-legend">Book information</legend>
+    <input type="radio"
+           name="add-or-select-radio"
+           id="select-radio"
+           value="select"
+           onclick="javascript: top.book.changeAddOrSelect('select')" <?php echo ($POST['add-or-select-radio'] == 'select' || Empty($POST)) ? 'checked="checked"' : '';?>/>
+    <label for="select-radio">Existing book</label>
+    <input type="radio"
+           name="add-or-select-radio"
+           id="add-radio"
+           value="add"
+           onclick="javascript: top.book.changeAddOrSelect('add')" <?php echo ($POST['add-or-select-radio'] == 'add') ? 'checked="checked"' : '';?>/>
+    <label for="add-radio">New book</label>
+    <br />
+
+<?php require('tmpl/book-edit-panel.tmpl.php');?>
+
+    <div class="noname" id="book-info-select">
+      <table>
+        <tr title="Select book">
+          <td><label for="id_book">Book:</label></td>
+          <td><?php chooser_get_book($POST['id_book']); ?></td>
+      </tr>
+    </table>
+    </div>
+
+    <script type="text/javascript" language="JavaScript">
+      //onLoad
+      var selector = top.utils.gEI('add-radio');
+      var elem;
+      if (selector.checked == true)
+        elem = top.utils.gEI('book-info-select');
+      else
+        elem = top.utils.gEI('book-info-add');
+      elem.style.display = 'none';
+    </script>
+  </fieldset>
+
+<div class="noname" id="transliteration-info">
+
+  <fieldset id="transliteration-info-fieldset">
+    <legend class="input-legend">Transliteration information</legend>
+      <?php require('tmpl/transliteration-info-edit-panel.tmpl.php');?>
+  </fieldset>
+</div>
+
+<?php require('tmpl/transliteration-data-edit-panel.tmpl.php');?>
+
+<input type="submit" name="actionButton" value="<?php echo  htmlspecialchars($first_button_label); ?>" />
+
+</form>
+
+<?php include 'inc/keyboard-dnd.inc.php' ?>
+

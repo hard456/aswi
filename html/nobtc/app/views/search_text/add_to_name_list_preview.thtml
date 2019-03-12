@@ -1,0 +1,40 @@
+<h1>Add to
+<?php echo ($isDivine)? "divine":"personal"; ?>
+name list</h1>
+
+<form action="<?php echo $html->url('/search_text/add_to_name_list');?>" method="post" enctype="multipart/form-data">
+
+<label for="id_name">Choose <?php echo ($isDivine)? "divine":"personal"; ?> name to join: </label>
+<?php chooser_get_name($isDivine); ?>
+<br />
+<br />
+
+<?php
+
+ while($SearchText->next_record()) {
+    $res = $SearchText->getResult();
+	echo $this->renderElement('add_to_name_list',
+		array(
+			'id_transliteration'=> $res['id_transliteration'],
+			'book_abrev'=> $res['book_abrev'],
+			'chapter'=> $res['chapter'],
+			'line_no'=> $res['line_number'],
+			'line_transliteration'=> $res['transliteration'],
+			'id_line'=> $res['id_line'],
+			'found1'=> $_REQUEST["word1"],
+			'found2'=> $_REQUEST["word2"],
+			'found3'=> $_REQUEST["word3"],
+		)
+	);
+
+ }
+?>
+
+<input type="hidden" name="word1" value="<?php echo $_REQUEST["word1"]?>" />
+
+<input type="hidden" name="actione" value="add_to_list" />
+<input type="hidden" name="divine" value="<?php echo isDivine ?>" />
+
+<input type="submit" value="Add to list" />
+
+</form>

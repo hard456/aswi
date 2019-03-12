@@ -1,0 +1,109 @@
+<h1>Edit transliteration : </h1>
+
+<script src="<?php echo $html->url('/transliteration/js_inserttext');?>" type="text/javascript"></script>
+<script src="<?php echo $html->url('/javascript/keyboard.js')?>" type="text/javascript"></script>
+<script type="text/javascript">var showBranchOfTree = false;</script>
+<form action="<?php echo $html->url('')?>" method="post" enctype="multipart/form-data" id="transliteration-form">
+
+<div class="noname" id="transliteration-data">
+
+  <fieldset id="transliteration-data-fieldset">
+    <legend class="input-legend">Transliteration data</legend>
+    
+ <?php  foreach($object_type_array as $object_type_object) :?>
+    <?php 	$object_type = $object_type_object['object_type'];
+    		$object_type_id = $object_type_object['id_object_type'];
+    		$object_type_save = Strtr($object_type_object['object_type'], " ", "_");?>
+    <script type="text/javascript">var showBranchOfTree = false;</script>
+    <div class="translitrow">
+    	<a href="#"
+	       title="Show or hide <?php echo $object_type?>"
+    	   id="show-hide-<?php echo $object_type_save?>"
+       	   onclick="return top.transliteration.showTree('<?php echo $object_type_save?>');">
+      		<img src="<?php echo $html->url('/img/plus.gif')?>" 
+      			alt="List" 
+      			title="plus" 
+      			width="20" 
+      			class="noborder" 
+      			id="<?php echo $object_type_save?>-img" />
+    	</a> <?php echo $object_type?>
+    </div>
+    <!--br /-->
+    <div class="translitrow" 
+    		id="<?php echo $object_type_save?>-div" 
+    		style="display:none">
+
+      <?php  foreach($surface_type_array as $surface_type_object) :?>
+      <?php  $surface_type = $surface_type_object['surface_type'];
+     		 $surface_type_id = $surface_type_object['id_surface_type'];
+      		 $surface_type_save = Strtr($surface_type_object['surface_type'], " ", "_");
+      		 $id_surface = $surfaces[$object_type][$surface_type]['id_surface'];
+      		 ?>
+      <div class="translitrow">
+      <input type="hidden"
+             name="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-count"
+             id="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-count"
+             value = "0" />
+      <input type="hidden"
+             name="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-id"
+             id="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-id"
+             value = "<?php echo $POST["$object_type_save-$surface_type_save-id"] ?>" />       
+
+      <img src="<?php echo $html->url('/img/line.gif')?>"  
+      			class="noborder" alt="|" />
+      <a href="#"
+         title="Show or hide surface <?php echo $surface_type?>"
+         id="show-hide-<?php echo $object_type_save?>-<?php echo $surface_type_save?>"
+         onclick="return top.transliteration.showTree('<?php echo $object_type_save?>-<?php echo $surface_type_save?>');">
+
+        <img src="<?php echo $html->url('/img/minus.gif')?>"
+             alt="List"
+             title="minus"
+             class="noborder"
+             width="20"
+             id="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-img" />
+      </a> <?php echo $surface_type?>
+      
+      
+      </div>
+  <div class="noname" 
+      		id="<?php echo $object_type_save?>-<?php echo $surface_type_save?>-div" 
+      		style="display:block">
+    <?php echo $this->renderElement('div_surface',
+    				array(
+    					'object_type' => $object_type,
+    					'surface_type' => $surface_type,
+    					'object_type_save' => $object_type_save,
+    					'surface_type_save' => $surface_type_save,
+    					'surfaces' => $surfaces,
+    					'transliteration' => $transliteration,
+    					'object_type_id' => $object_type_id,
+    					'surface_type_id' => $surface_type_id,
+    					'id_surface' => $id_surface,
+    				) 
+    			) ?>
+	</div>
+
+      <?php  endforeach;?>
+
+    </div>
+    <script type="text/javascript">
+    	// <![CDATA[
+      //onLoad - display not epmty parts of tree
+      if (showBranchOfTree)
+        top.transliteration.showTree('<?php echo $object_type_save?>');
+      showBranchOfTree = false;
+      // ]]>
+    </script>
+    <?php  endforeach;?>
+
+  </fieldset>
+</div>
+<div>
+<input type="hidden" name="id_transliteration" value="<?php echo $transliteration['Transliteration']['id_transliteration']?>" />
+<input type="submit" name="actionButton" value=" SAVE " />
+</div>
+</form>
+
+<?php include 'inc/keyboard-dnd.inc.php' ?>
+

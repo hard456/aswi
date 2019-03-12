@@ -1,0 +1,29 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="origin">
+<h2>List Origin</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Id Origin</th>
+	<th>Origin</th>
+	<th>Old Name</th>
+	<th>Actions</th>
+</tr>
+<?php foreach ($origin as $origin): ?>
+<tr>
+	<td><?php echo $origin['Origin']['id_origin']; ?></td>
+	<td><?php echo $origin['Origin']['origin']; ?></td>
+	<td><?php echo $origin['Origin']['old_name']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/origin/view/' . $origin['Origin']['id_origin'])?>
+		<?php echo $html->link('Edit','/origin/edit/' . $origin['Origin']['id_origin'])?>
+		<?php echo $html->link('Delete','/origin/delete/' . $origin['Origin']['id_origin'], null, 'Are you sure you want to delete id ' . $origin['Origin']['id_origin'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Origin', '/origin/add'); ?></li>
+</ul>
+</div>

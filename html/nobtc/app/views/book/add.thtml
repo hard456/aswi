@@ -1,0 +1,60 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>New Book</h2>
+<form action="<?php echo $html->url('/book/add'); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('Book/book_abrev', 'Book Abrev');?>
+ 	<?php echo $html->input('Book/book_abrev', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/book_abrev', 'Please enter the Book Abrev.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/book_autor', 'Book Autor');?>
+ 	<?php echo $html->input('Book/book_autor', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/book_autor', 'Please enter the Book Autor.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag( 'Book/book_description', 'Book Description' );?>
+ 	<?php echo $html->textarea('Book/book_description', array('cols' => '60', 'rows' => '10'));?>
+	<?php echo $html->tagErrorMsg('Book/book_description', 'Please enter the Book Description.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/book_name', 'Book Name');?>
+ 	<?php echo $html->input('Book/book_name', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/book_name', 'Please enter the Book Name.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/place_of_pub', 'Place Of Pub');?>
+ 	<?php echo $html->input('Book/place_of_pub', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/place_of_pub', 'Please enter the Place Of Pub.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/date_of_pub', 'Date Of Pub');?>
+ 	<?php echo $html->input('Book/date_of_pub', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/date_of_pub', 'Please enter the Date Of Pub.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/pages', 'Pages');?>
+ 	<?php echo $html->input('Book/pages', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/pages', 'Please enter the Pages.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/book_subtitle', 'Book Subtitle');?>
+ 	<?php echo $html->input('Book/book_subtitle', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/book_subtitle', 'Please enter the Book Subtitle.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/volume', 'Volume');?>
+ 	<?php echo $html->input('Book/volume', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/volume', 'Please enter the Volume.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Book/volume_no', 'Volume No');?>
+ 	<?php echo $html->input('Book/volume_no', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Book/volume_no', 'Please enter the Volume No.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Book', '/book/index')?></li>
+</ul>

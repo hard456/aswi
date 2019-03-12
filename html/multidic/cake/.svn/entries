@@ -1,0 +1,121 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake
+svn://192.168.2.102
+
+
+
+2007-09-24T10:48:20.708360Z
+299
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+LICENSE.txt
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+fa8700bf4f832666805a414292e82882
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+VERSION.txt
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+57102e7cbb76ff93bf1010fc132dfcd1
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+bootstrap.php
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+64c5a3d86c5496dd27fc319a677ef9fb
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+config
+dir
+
+app_model.php
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+de5b2efc84a9f8a800625199f3d2bb4c
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+scripts
+dir
+
+libs
+dir
+
+app_controller.php
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+32e4009287fed71203d95a78fd8a51fa
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+basics.php
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+e61640091921e4603bbd6ef217c1769b
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+dispatcher.php
+file
+
+
+
+
+2007-07-02T11:17:54.000000Z
+0f950c12210f380b6e53882375eb2ae0
+2007-07-02T10:19:23.798500Z
+7
+jara
+

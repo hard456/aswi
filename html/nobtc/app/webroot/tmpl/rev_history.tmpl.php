@@ -1,0 +1,13 @@
+  <fieldset id="rev-history-fieldset">
+    <legend class="input-legend">Revision history</legend>
+    <div>
+      
+      
+      <br /> 
+      <?php foreach($rev_history as $id=>$his):  ?>
+      <?php echo $his['date'].' - '.$his['description']?>
+      <?php if(!empty($his['name'])) echo "  ".$his['name'] ?>
+      <br />
+      <?php endforeach; ?>
+    </div>
+  </fieldset>

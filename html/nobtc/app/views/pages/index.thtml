@@ -1,0 +1,92 @@
+<div id="indexcontent">
+<h2 style="float:left">Old Babylonian Text Corpus by Cuneiform Circle</h2>
+<div style="float:right">
+<a class="noline" href="<?php echo $html->url('/pages/encoding');?>" >
+   encoding - UTF8!</a>
+</div>
+<hr class="cleaner"/>
+	<div style="float:left;width:40%;padding-right:10%">
+		<p style="float:left">
+			OB motto:
+		</p>
+		<p style="float:right;width:70%">
+			a-na D:na-bi-um-ma-lik a-wi-lim dam-qí-im ša D:AMAR.UTU ù D:na-bi-um GI.DUB.BA-šu ú-še-še-ru (AbB 3,33,1-4)
+		</p>
+		<p class="cleaner blue smaller" style="width:380px">If you have interest in Old Babylonian Akkadian Texts, don't hesitate to join us! You are welcome!</p>
+
+	</div>
+	<div style="float:right;width:50%">
+	<form method="get" action="/utf/utf/show2boger.php" onclick="this.target='_blank'">
+          <p class="blue">
+            Input Borger's ABZ number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="td5" type="text" name="borger" size="3" value="333" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="tlacitko2" type="submit"  value=" find " />
+          </p>
+          <p class="blue">
+            This is a quick search to find variants of signs according to Borger's number from Old Babylonian Graphemic Analyses.
+            <a class="noline" href="/utf/utf/signs.html" onclick="this.target='_blank'">
+            Click here for an advanced search.</a>
+
+          </p>
+          <p>
+            <a class="noline" href="/utf/utf/signs.html" onclick="this.target='_blank'">
+              <img src="/img/gar3.gif" width="335" height="35" alt="signs" /></a>
+          </p>
+      </form>
+
+
+	</div>
+	<hr class="cleaner"/>
+
+	<div style="float:left;width:70%">
+
+		<p>
+		    Cuneiform Circle is a community of scholars engaged in the study of the Old Babylonian Akkadian. Our main goal is to create an Old Babylonian Text Corpus, an Old Babylonian Dictionary, and a List of Old Babylonian Cuneiform Signs.
+		</p>
+		<p>
+		    The Old Babylonian Text Corpus (OBTC) comprises a large text database of the Old Babylonian Akkadian Language (currently <?php
+		  include_once('functions-help.php');
+		  echo get_count_lines();
+		  ?> text lines, letters, documents, legal texts, royal inscriptions, omina, mathematical texts etc.).
+		  </p>
+		  <p class="vyznamne">
+		    All texts are available for search according to sign-chains (transliteration). The search engine in Old Babylonian Text Corpus verse 1 is available for everybody but the search is restricted to the following texts: Codex Hammurapi and AbB 5.
+		    The search in all <?php echo get_count_lines(); ?> lines of OBTC verse 2 is available for members only
+		    <a href="<?php echo $html->url('/pages/how-to-become-a-member');?>">
+		      (see how to become a member)</a>
+		    .
+		  </p>
+		  <br />
+		  <p class="vyznamne">
+		    Our service includes unique searchable lists of Old Babylonian Signs Variants as appearing in the hand copies selected for the graphemic analysis.
+		  </p>
+		  <p>
+		    The work on the project is in progress. We have started in 1988-89 and have accomplished significant advances since. We are currently working towards improving the quality and scope of our databases. The full access to all materials and sources is given to active members only (
+		    <a href="<?php echo $html->url('/pages/how-to-become-a-member');?>">
+		      see our policy</a>
+		    ).
+		  </p>
+
+	</div>
+	<div style="float:right;width:30%">
+		<p class="green vyznamne">
+			We are using UNICODE text encoding on this website. You may download the special font with special transliteration characters and a UNICODE text editor below:
+		</p>
+		<p class="gray">
+		 	a unicode font with the support of special characters for the transliteration and a unicode editor if you would like to join us
+		</p>
+		<div>
+
+  <ul>
+    <li>  <a href="<?php echo $html->url('/pages/encoding');?>">click to get a unicode font</a>
+    </li>
+    <li>  <a href="<?php echo $html->url('/pages/unipad');?>"> 	   click here to get more information about unicode editors (SC Unipad editor and others)  </a>
+    </li>
+  </ul>
+
+		</div>
+	</div>
+
+</div>
+

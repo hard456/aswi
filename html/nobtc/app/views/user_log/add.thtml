@@ -1,0 +1,36 @@
+<h2>New User Log</h2>
+<form action="<?php echo $html->url('/user_log/add'); ?>" method="post">
+<div class="optional"> 
+	<?php echo $form->labelTag('UserLog/logged', 'Logged');?>
+ 	<?php echo $html->dateTimeOptionTag('UserLog/logged', 'MDY' , '12', $html->tagValue('UserLog/logged'), array());?>
+	<?php echo $html->tagErrorMsg('UserLog/logged', 'Please select the Logged.');?>
+</div>
+<div class="optional"> 
+	<?php echo $form->labelTag('UserLog/ip', 'Ip');?>
+ 	<?php echo $html->input('UserLog/ip', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('UserLog/ip', 'Please enter the Ip.');?>
+</div>
+<div class="optional"> 
+	<?php echo $form->labelTag('UserLog/client', 'Client');?>
+ 	<?php echo $html->input('UserLog/client', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('UserLog/client', 'Please enter the Client.');?>
+</div>
+<div class="optional"> 
+	<?php echo $form->labelTag('UserLog/cookie', 'Cookie');?>
+ 	<?php echo $html->input('UserLog/cookie', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('UserLog/cookie', 'Please enter the Cookie.');?>
+</div>
+<div class="optional"> 
+	<?php echo $form->labelTag('UserLog/user_id', 'User');?>
+ 	<?php echo $html->selectTag('UserLog/user_id', $cakeUser, $html->tagValue('UserLog/user_id'), array(), array(), true);?>
+	<?php echo $html->tagErrorMsg('UserLog/user_id', 'Please select the User.') ?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List User Log', '/user_log/index')?></li>
+<li><?php echo $html->link('View Cake User', '/cake_user/index/');?></li>
+<li><?php echo $html->link('Add Cake User', '/cake_user/add/');?></li>
+</ul>

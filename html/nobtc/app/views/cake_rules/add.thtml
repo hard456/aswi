@@ -1,0 +1,32 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Administrace - Nové pravidlo</h2>
+<form action="<?php echo $html->url('/cake_rules/add'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeRule/group_id', 'Role');?>
+ 	<?php echost($html->selectTag('CakeRule/group_id', $groups, $html->tagValue('CakeRule/group_id'), array(), array(), false));?>
+	<?php echo $error->showMessage('CakeRule/group_id') ?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeRule/rulenum', 'Pořadí pravidla');?>
+ 	<?php echo $html->input('CakeRule/rulenum', array('size' => '5'));?>
+	<?php echo $error->showMessage('CakeRule/rulenum');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeRule/action', 'Pravidlo');?>
+ 	<?php echo $html->input('CakeRule/action', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeRule/action');?>
+</div>
+<div class="required">
+	<?php echo $html->checkbox('CakeRule/allow', null, array());?>
+	<?php echo $form->labelTag('CakeRule/allow', 'Povoleno');?>
+ 	<?php echo $error->showMessage('CakeRule/allow');?>
+</div>
+
+<div class="submit">
+	<?php echo $html->submit('Přidej pravidlo');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Seznam pravidel', '/cake_rules/index')?></li>
+</ul>

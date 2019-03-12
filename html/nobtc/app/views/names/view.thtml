@@ -1,0 +1,63 @@
+<?php //pr($tags)?>
+<?php //pr($names)?>
+
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="name">
+<h2>View Name</h2>
+
+<dl>
+	<dt>Id Name</dt>
+	<dd>&nbsp;<?php echo $names['Names']['id_name']?></dd>
+	<dt>Name</dt>
+	<dd>&nbsp;<?php echo $names['Names']['name']?></dd>
+	<dt>Description</dt>
+	<dd>&nbsp;<?php echo $names['Names']['description']?></dd>
+	<dt>Note</dt>
+	<dd>&nbsp;<?php echo $names['Names']['note']?></dd>
+	<!--dt>Divine Name</dt>
+	<dd>&nbsp;<?php echo $names['Names']['divine_name']?></dd-->
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Name',   '/names/edit/' . $names['Names']['id_name']) ?> </li>
+	<li><?php echo $html->link('Delete Name', '/names/delete/' . $names['Names']['id_name'], null, 'Are you sure you want to delete: id ' . $names['Names']['id_name'] . '?') ?> </li>
+	<li><?php echo $html->link('List Divine Names',   '/names/index/divine') ?> </li>
+	<li><?php echo $html->link('List Personal Names',   '/names/index/personal') ?> </li>
+	<li><?php echo $html->link('Add Subitem',   '/tag/add/' . $names['Names']['id_name']) ?> </li>
+	<!--li><?php echo $html->link('New Name',	'/names/add') ?> </li-->
+</ul>
+</div>
+<div class="related">
+<h3>Related Subitems</h3>
+<?php if(!empty($tags)):?>
+<?php //pr($tags) ?>
+<?php foreach($tags as $tag):?>
+<div>
+<span class="found"><?php echo $tag['Tag']['tag']?></span>
+		<?php echo $html->link('Delete', '/tag/delete/' . $tag['Tag']['id_tag'].'/'.$names['Names']['id_name'], null, 'Are you sure you want to delete tag: id ' . $tag['Tag']['tag'] . '?');?>
+		<?php echo $html->link('Edit', '/tag/edit/' . $tag['Tag']['id_tag'].'/'.$names['Names']['id_name']);?>
+</div>
+<?php  echo $this->renderElement('name_line_table',
+	        	array(
+	        		'lines'=> $tag['Lines'],
+	        		'name'=> $names,
+	        	)
+	        ); ?>
+
+<?php endforeach; ?>
+<?php endif; ?>
+
+</div>
+<div class="related">
+<h3>Related Lines without SubItem</h3>
+<?php //pr($names)?>
+<?php echo $this->renderElement('name_line_table',
+	        	array(
+	        		'lines'=> $lines,
+	        		'name'=> $names,
+	        	)
+	        ); ?>
+
+<!--ul class="actions">
+	<li><?php echo $html->link('New Line', '/line/add/');?> </li>
+</ul-->
+</div>

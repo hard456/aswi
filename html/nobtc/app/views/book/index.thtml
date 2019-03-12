@@ -1,0 +1,65 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="book">
+<h2>List Book</h2>
+
+<?php echo $this->renderElement('pagination'); // Render the pagination element ?>
+
+<?php
+	//render filtru
+	$filterArray = array(
+	/*		'mena' => array('' => 'Bez rozlišení měny',
+							'mena = \'euro\'' => 'Pouze v euro',
+							'mena = \'kc\'' => 'Pouze v kč')
+*/
+	);
+	$pagination->renderFilter($filterArray);
+?>
+
+<table cellpadding="0" cellspacing="0">
+<?php
+$pagination->setPaging($paging); // Initialize the pagination variables
+$up = $html->image('arrow_up.png');
+$down = $html->image('arrow_down.png');
+$th = array (
+			
+            $pagination->sortBy('book_abrev', 'Book Abrev', null, null, $up, $down),
+            $pagination->sortBy('book_autor', "Book Autor", null, null, $up, $down),
+            $pagination->sortBy('book_description', "Book Description", null, null, $up, $down),
+            $pagination->sortBy('book_name', "Book Name", null, null, $up, $down),
+            $pagination->sortBy('place_of_pub', "Place Of Pub", null, null, $up, $down),
+            $pagination->sortBy('date_of_pub', "Date Of Pub", null, null, $up, $down),
+            $pagination->sortBy('pages', "Pages", null, null, $up, $down),
+            $pagination->sortBy('book_subtitle', "Book Subtitle", null, null, $up, $down),
+            $pagination->sortBy('volume', "Volume", null, null, $up, $down),
+            $pagination->sortBy('volume_no', "Volume No", null, null, $up, $down),
+            "Actions"
+); // Generate the pagination sort links
+echo $html->tableHeaders($th); // Create the table headers with sort links if desired
+?>
+
+<?php foreach ($book as $book): ?>
+<tr>
+	<!-- td><?php echo $book['Book']['id_book']; ?></td-->
+	<td><?php echo $book['Book']['book_abrev']; ?></td>
+	<td><?php echo $book['Book']['book_autor']; ?></td>
+	<td><?php echo $book['Book']['book_description']; ?></td>
+	<td><?php echo $book['Book']['book_name']; ?></td>
+	<td><?php echo $book['Book']['place_of_pub']; ?></td>
+	<td><?php echo $book['Book']['date_of_pub']; ?></td>
+	<td><?php echo $book['Book']['pages']; ?></td>
+	<td><?php echo $book['Book']['book_subtitle']; ?></td>
+	<td><?php echo $book['Book']['volume']; ?></td>
+	<td><?php echo $book['Book']['volume_no']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/book/view/' . $book['Book']['id_book'])?>
+		<?php echo $html->link('Edit','/book/edit/' . $book['Book']['id_book'])?>
+		<?php echo $html->link('Delete','/book/delete/' . $book['Book']['id_book'], null, 'Are you sure you want to delete id ' . $book['Book']['id_book'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Book', '/book/add'); ?></li>
+</ul>
+</div>

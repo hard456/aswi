@@ -1,0 +1,35 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>New Name</h2>
+<form action="<?php echo $html->url('/names/add'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('Names/name', 'Name');?>
+ 	<?php echo $html->input('Names/name', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Names/name', 'Please enter the Name.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag( 'Names/description', 'Description' );?>
+ 	<?php echo $html->textarea('Names/description', array('cols' => '60', 'rows' => '10'));?>
+	<?php echo $html->tagErrorMsg('Names/description', 'Please enter the Description.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Names/note', 'Note');?>
+ 	<?php echo $html->input('Names/note', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Names/note', 'Please enter the Note.');?>
+</div>
+<div class="optional">
+	<?php echo $html->checkbox('Names/divine_name', null, array());?>
+	<?php echo $form->labelTag('Names/divine_name', 'Divine Name');?>
+ 	<?php echo $html->tagErrorMsg('Names/divine_name', 'Please check the Divine Name.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Line/Line', 'Related Lines');?>
+ 	<?php echo $html->selectTag('Line/Line', $lines, $selectedLines, array('multiple' => 'multiple', 'class' => 'selectMultiple'), array(), true);?>
+	<?php echo $html->tagErrorMsg('Line/Line', 'Please select the Related Lines.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Names', '/names/index')?></li>
+</ul>

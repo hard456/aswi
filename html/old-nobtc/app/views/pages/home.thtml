@@ -1,0 +1,16 @@
+<p class="notice">Your database configuration file is <?php echo  file_exists(CONFIGS.'database.php') ?' present.' . $filePresent = ' ' : ' not present.'; ?></p>
+<?php if (!empty($filePresent)):?>
+<?php uses('model' . DS . 'connection_manager'); $db = ConnectionManager::getInstance(); ?>
+<?php $connected = $db->getDataSource('default'); ?>
+<p class="notice">Cake<?php echo $connected->isConnected() ? ' is able to' : ' is not able to';?> connect to the database.</p>
+<br />
+<?php endif; ?>
+<h1>Sweet, "App" got Baked by CakePHP!</h1>
+<h2>Editing this Page</h2>
+<p>
+To change the content of this page, edit: E:\$erverII\KBS\pokus-klinopis-cake\app\views\pages\home.thtml.<br />
+To change its layout, edit: E:\$erverII\KBS\pokus-klinopis-cake\app\views\layouts\default.thtml.<br />
+You can also add some CSS styles for your pages at: E:\$erverII\KBS\pokus-klinopis-cake\app\webroot/css/.
+</p>
+
+

@@ -1,0 +1,17 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Edit Object Type</h2>
+<form action="<?php echo $html->url('/object_type/edit/'.$html->tagValue('ObjectType/id_object_type')); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('ObjectType/object_type', 'Object Type');?>
+ 	<?php echo $html->input('ObjectType/object_type', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('ObjectType/object_type', 'Please enter the Object Type.');?>
+</div>
+<?php echo $html->hidden('ObjectType/id_object_type')?>
+<div class="submit">
+	<?php echo $html->submit('Save');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('Delete','/object_type/delete/' . $html->tagValue('ObjectType/id_object_type'), null, 'Are you sure you want to delete: id ' . $html->tagValue('ObjectType/id_object_type'));?>
+<li><?php echo $html->link('List Object Type', '/object_type/index')?></li>
+</ul>

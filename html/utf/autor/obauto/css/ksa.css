@@ -1,0 +1,123 @@
+body		{	background-color:		white;
+			}
+
+td.header_nadpis	{	font-size:				22pt;
+						font-weight:			bold;
+						font-family:			"Verdana", sans-serif;
+						color:					navy;
+					}
+
+td.header_kontext	{	font-size:				12pt;
+						font-weight:			normal;
+						font-family:			"Verdana", sans-serif;
+						color:					black;
+					}
+
+td.zaznam			{	font-size:				8pt;
+						font-weight:			normal;
+						font-family:			"Verdana", sans-serif;
+						color:					black;
+					}
+
+td.popis			{	font-size:				8pt;
+						font-weight:			bold;
+						font-family:			"Verdana", sans-serif;
+						color:					black;
+					}
+
+td.poznamka			{	font-size:			10pt;
+						font-style:			italic;
+						font-weight:		normal;
+						font-family:		"Verdana", sans-serif;
+						color:				black }
+
+td.nazev			{	font-size:			10pt;
+						font-style:			normal;
+						font-weight:		normal;
+						font-family:		"Verdana", sans-serif;
+						color:				black }
+
+td.pnazev			{	font-size:			10pt;
+						font-style:			normal;
+						font-weight:		bold;
+						font-family:		"Verdana", sans-serif;
+						color:				black }
+
+
+h3.chyba			{	font-size:				12pt;
+						font-weight:			bold;
+						font-family:			"Verdana", sans-serif;
+						color:					red;
+					}
+
+h3.uspech			{	font-size:				12pt;
+						font-weight:			bold;
+						font-family:			"Verdana", sans-serif;
+						color:					black;
+					}
+
+h5.informace		{	font-size:				10pt;
+						font-weight:			bold;
+						font-family:			"Verdana", sans-serif;
+						color:					black;
+					}
+
+p					{	font-size:			10pt;
+						font-style:			normal;
+						font-weight:		normal;
+						font-family:		"Verdana", sans-serif;
+						color:				black }
+
+li					{	font-size:			8pt;
+						font-style:			normal;
+						font-weight:		normal;
+						font-family:		"Verdana", sans-serif;
+						color:				black }
+
+a:link					{color:				#3366CC}
+a:visited				{color:				#3366CC}
+a:hover					{color:				#6699CC}
+a:active				{color:				#6699CC}
+
+a				{	text-decoration:	none;
+					font-size:			8pt;	
+					font-family:		"Verdana", sans-serif	}
+
+span			{	text-decoration:	none;
+					font-size:			8pt;	
+					font-family:		"Verdana", sans-serif	}
+
+span.active				{	color:			#3366CC;
+							cursor:			default}
+span.hover				{	color:			#6699CC;
+							cursor:			default}
+span.passive			{	color:			black;
+							cursor:			text}
+a.active				{	cursor:			default}
+a.passive				{	cursor:			text}
+
+
+td.footer_right	{	font-size:			10pt;					
+					font-family:		"Verdana", sans-serif;
+					font-weight:		bold;}
+
+a.footer		{	font-weight:		bold;
+					font-family:		"Verdana", sans-serif;
+					font-size:			10pt	}
+
+
+input.submit	{	width:				44mm}
+
+.polozka		{	width:				90mm}
+
+td.menu			{	font-size:			8pt;
+					font-style:			normal;
+					font-weight:		normal;
+					font-family:		"Verdana", sans-serif;
+					color:				black }
+
+td.upozorneni	{	font-size:				8pt;
+					font-weight:			normal;
+					font-family:			"Verdana", sans-serif;
+					color:					black;
+				}

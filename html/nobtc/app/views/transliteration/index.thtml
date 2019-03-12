@@ -1,0 +1,59 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="transliteration">
+<h2>List Transliteration</h2>
+<?php echo $this->renderElement('pagination'); // Render the pagination element ?>
+
+<?php
+	//render filtru
+	$filterArray = array(
+			'book' => $bookArray,
+			'museum' => $museumArray,
+			'origin' => $originArray,
+			'book_type' => $bookTypeArray,
+	);
+	$pagination->renderFilter($filterArray);
+?>
+<table cellpadding="0" cellspacing="0">
+<?php
+$pagination->setPaging($paging); // Initialize the pagination variables
+$up = $html->image('arrow_up.png');
+$down = $html->image('arrow_down.png');
+$th = array (
+			$pagination->sortBy('book_abrev', "Book", 'Book', null, $up, $down),
+            $pagination->sortBy('chapter', 'Chapter', null, null, $up, $down),
+            $pagination->sortBy('museum', "Museum", 'Museum', null, $up, $down),
+            $pagination->sortBy('museum_no', "Museum No", null, null, $up, $down),
+            $pagination->sortBy('origin', "Origin", 'Origin', null, $up, $down),
+            $pagination->sortBy('book_type', "Book Type", 'BookType', null, $up, $down),
+            $pagination->sortBy('reg_no', "Reg No", null, null, $up, $down),
+            $pagination->sortBy('date', "Date", null, null, $up, $down),
+            "Actions"
+); // Generate the pagination sort links
+echo $html->tableHeaders($th); // Create the table headers with sort links if desired
+?>
+<?php foreach ($transliteration as $transliteration): ?>
+<?php if(!empty($transliteration['Origin']['id_origin']))
+		$origin = $transliteration['Origin']['old_name']." / ".$transliteration['Origin']['origin'];
+	else $origin = ""; ?>
+<tr> 
+	<td>&nbsp;<?php echo $html->link($transliteration['Book']['book_abrev'], '/book/view/' .$transliteration['Book']['id_book'])?></td>
+	<td><?php echo $transliteration['Transliteration']['chapter']; ?></td>
+	<td>&nbsp;<?php echo $html->link($transliteration['Museum']['museum'], '/museum/view/' .$transliteration['Museum']['id_museum'])?></td>
+	<td><?php echo $transliteration['Transliteration']['museum_no']; ?></td>
+	<td>&nbsp;<?php echo $html->link($origin, '/origin/view/' .$transliteration['Origin']['id_origin'])?></td>
+	<td>&nbsp;<?php echo $html->link($transliteration['BookType']['book_type'], '/book_type/view/' .$transliteration['BookType']['id_book_type'])?></td>
+	<td><?php echo $transliteration['Transliteration']['reg_no']; ?></td>
+	<td><?php echo $transliteration['Transliteration']['date']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/transliteration/view/' . $transliteration['Transliteration']['id_transliteration'])?>
+		<?php echo $html->link('Edit','/transliteration/edit/' . $transliteration['Transliteration']['id_transliteration'])?>
+		<?php echo $html->link('Delete','/transliteration/delete/' . $transliteration['Transliteration']['id_transliteration'], null, 'Are you sure you want to delete id ' . $transliteration['Transliteration']['id_transliteration'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Transliteration', '/transliteration/add'); ?></li>
+</ul>
+</div>

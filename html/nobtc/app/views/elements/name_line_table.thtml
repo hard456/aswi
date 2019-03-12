@@ -1,0 +1,27 @@
+<?php if(!empty($lines)):?>
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>transliteration</th>
+	<th>book and chapter</th>
+	<th>Actions</th>
+</tr>
+<?php $last = ""; ?>
+<?php foreach($lines as $line):?>
+<?php //pr($nameLine) ?>
+<tr>
+		<td><?php $current = $transliteration->getNameLine($line['transliteration'], $name['Names']['name']);
+		if (strcmp($current, $last) != 0) {
+			echo $current;
+		}
+		
+		?></td>
+		<td><?php echo $line['bach'].", ";
+				  echo $line['line_number']?></td>
+	<td class="actions">
+		<?php echo $html->link('Delete', '/name_line/delete/' . $line['id_name_line'], null, 'Are you sure you want to delete: id ' . $line['id_name_line'] . '?');?>
+	</td>
+</tr>
+<?php $last = $current; ?>
+<?php endforeach; ?>
+</table>
+<?php endif; ?>

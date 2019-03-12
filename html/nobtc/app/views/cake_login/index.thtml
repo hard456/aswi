@@ -1,0 +1,17 @@
+<h2>System authorization</h2>
+
+<form action="<?php echo $html->url('/cake_login/login/'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/login', 'Login');?>
+ 	<?php echo $html->input('CakeUser/login', array('size' => '20', 'tabindex' => '1'));?>
+	<?php echo $error->showMessage('CakeUser/login');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/passwd', 'Heslo');?>
+ 	<?php echo $html->password('CakeUser/passwd', array('size' => '20', 'tabindex' => '2'));?>
+	<?php echo $error->showMessage('CakeUser/passwd');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Send', array('tabindex' => '3'));?>
+</div>
+</form>

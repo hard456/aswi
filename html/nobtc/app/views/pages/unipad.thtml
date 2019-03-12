@@ -1,0 +1,17 @@
+<h2>Input of unicode characters</h2>
+<p>The Old Babylonian Text Corpus und related matter here are encoded in Unicode (tm).
+Usually if you only like to find something in the text corpus, dictionary or
+in the sign lists, there is a keyboard,
+which will be displayed by your web browser and it will enable the input of
+special characters in the Unicode format.
+<p align=justify>If you like to join us and add some OB textual material to the
+corpus, then you will
+need a permanent possibility to write and input unicode characters.
+We have a very good experience with the
+<a href="http://www.unipad.org" onClick="this.target=_blank">SC Unipad editor</a>.
+Using this editor any special characters used for transliteration of Old Babylonian
+and Sumerian could be easily entered.<br />
+You can get a free keyboard for use in SC Unipad editor, just ask us
+or prepare your own one according to your conventions.
+If you have a Unix X-System there is a usefull text editor called
+<a href="http://www.yudit.org/" onClick="this.target=_blank">Yudit</a>.</p>

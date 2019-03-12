@@ -1,0 +1,27 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="bookType">
+<h2>List Book Type</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Id Book Type</th>
+	<th>Book Type</th>
+	<th>Actions</th>
+</tr>
+<?php foreach ($bookType as $bookType): ?>
+<tr>
+	<td><?php echo $bookType['BookType']['id_book_type']; ?></td>
+	<td><?php echo $bookType['BookType']['book_type']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/book_type/view/' . $bookType['BookType']['id_book_type'])?>
+		<?php echo $html->link('Edit','/book_type/edit/' . $bookType['BookType']['id_book_type'])?>
+		<?php echo $html->link('Delete','/book_type/delete/' . $bookType['BookType']['id_book_type'], null, 'Are you sure you want to delete id ' . $bookType['BookType']['id_book_type'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Book Type', '/book_type/add'); ?></li>
+</ul>
+</div>

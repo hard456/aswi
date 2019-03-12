@@ -1,0 +1,189 @@
+<STYLE TYPE="text/css">
+<!--
+body {font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;}
+.tlacitko2 {cursor:hand;font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:100%;color:#000000;background-color:#FFFFEE}
+.vstup {font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:100%;color:#000000;background-color:#FFFFFF}
+.tlacitko1 {cursor:hand;font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:80%;color:#000000;background-color:#FFFFEE}
+
+DIV.main{
+	position:relative;
+	border:1px solid #848484;
+	background-color:#FFFFFF;
+	text-align: left;
+	width:900px;
+	left:50%;
+	margin-left:-450px;
+DIV.content {
+	position:relative;
+	text-align: justify;
+	width:800px;
+	height: auto;
+	left:10px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+        font-weight:normal;
+	color:#FFFFFF;
+}
+DIV.middleleft{
+	position:absolute;
+	border:0px solid #FFFFFF;
+	background-color:#000000;
+	text-align: left;
+	width:459px;
+	height: auto;
+	top:15px;
+	left:135px;
+	color:#666666;
+}
+DIV.middletext{
+	position:absolute;
+	text-align: justify;
+	width:800px;
+	height: auto;
+	top:260px;
+	left:10px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+        font-weight:normal;
+	color:#000000;
+}
+DIV.left{
+	position:absolute;
+	border:1px solid #000000;
+	background-color:#FFFFFF;
+	text-align: left;
+	width:263px;
+	height: auto;
+	top:15px;
+	left:135px;
+	color:#666666;
+	float:left;
+}
+
+DIV.midlegreen{
+	position:absolute;
+	border:0px solid #000000;
+	background-color:#FFFFFF;
+	text-align: justify;
+	width:196px;
+	top:15px;
+	left:402px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight:normal;
+	color:#666666;
+}
+DIV.nadpis{
+	position:absolute;
+	border:0px solid #000000;
+	text-align: left;
+	width:459px;
+	height: auto;
+	top:235px;
+	left:10px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:22px;
+        font-weight:bold;
+	color:#008B8B;
+}
+
+
+}
+
+IMG.graystrip{
+position:absolute;
+left:0px;
+top:0px;
+width:898px;
+height:10px;
+}
+
+IMG.mainim{
+position:absolute;
+left:0px;
+top:10px;
+width:798px;
+height:168px;
+}
+
+IMG.first{position:absolute;left:0px;top:178px;width:202px;height:22px;}
+IMG.blue{position:absolute;left:202px;top:178px;width:196px;height:22px;}
+IMG.inter1{position:absolute;left:398px;top:178px;width:4px;height:22px;}
+IMG.green{position:absolute;left:402px;top:178px;width:196px;height:22px;}
+IMG.inter2{position:absolute;left:598px;top:178px;width:4px;height:22px;}
+IMG.gray{position:absolute;left:602px;top:178px;width:196px;height:22px;}
+
+IMG.logozcu{
+position:absolute;
+left:728px;
+top:212px;
+width:68px;
+height:25px;
+}
+.menu{font-family : Arial, Helvetica, sans-serif;font-size : 11px;font-weight:normal;color:#666666;text-decoration:none;}
+A:HOVER.menu{color:#6C9894;}
+.menuSml{font-family : Arial, Helvetica, sans-serif;font-size : 10px;font-weight:normal;color:#666666;text-decoration:none;}
+A:HOVER.menuSml{color:#6C9894;}
+DIV.menu01{font-family : Arial, Helvetica, sans-serif;font-size : 11px;font-weight:normal;color:#666666;text-decoration:none;
+position: absolute;left:490px;top:160px;height:11px;background-image:url(../images/transparent.gif);}
+.nadpis {
+	position:relative;
+	text-align: left;
+	width:800px;
+	height: auto;
+	left:7px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:18px;
+        font-weight:bold;
+	color:#6C9894;
+}
+.title {
+	position:relative;
+	text-align: left;
+	width:800px;
+	height: auto;
+	left:7px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+        font-weight:bold;
+	color:#6C9894;
+}
+.subj {
+	position:relative;
+	text-align: left;
+	width:800px;
+	height: auto;
+	left:7px;
+        font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+        font-weight:normal;
+	color:#6C9894;
+}
+
+.akt{
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+	font-weight:bold;
+	color:#6C9894;
+}
+
+.aktDate{
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : 11px;
+	font-weight:bold;
+	color:#6C9894;
+}
+DIV.www{
+	position:absolute;
+	border:0px solid #000000;
+	background-color:#FFFFFF;
+	bottom:75px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	font-weight:normal;
+	color:#666666;
+	width:898px;
+	text-align: center;
+}
+-->
+</STYLE>

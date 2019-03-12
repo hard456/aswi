@@ -1,0 +1,49 @@
+
+		<div id="adminnavigacecontainer">
+	  		<ul class="horni navigace">
+	  			<li><a href="<?php echo $html->url('/cake_users');?>"
+	  					title="Users">
+	  					Users </a></li>
+	  			<li><a href="<?php echo $html->url('/cake_groups');?>"
+	  					title="Groups">
+	  					Groups </a></li>
+	  			<li><a href="<?php echo $html->url('/cake_rules');?>"
+	  					title="Rules">
+	  					Rules </a></li>
+	  			<li><a href="<?php echo $html->url('/names/index/divine');?>"
+	  					title="Divine names">
+	  					Divine&nbsp;names </a></li>
+	  			<li><a href="<?php echo $html->url('/names/index/personal');?>"
+	  					title="Personal names">
+	  					Personal&nbsp;names </a></li>
+
+	  			<li><a href="<?php echo $html->url('/book');?>"
+	  					title="Book">
+	  					Book </a></li>
+	  			<li><a href="<?php echo $html->url('/transliteration');?>"
+	  					title="Transliteration">
+	  					Transliteration </a></li>
+	  			<li><a href="<?php echo $html->url('/book_type');?>"
+	  					title="Book type">
+	  					Book type </a></li>
+	  			<li><a href="<?php echo $html->url('/object_type');?>"
+	  					title="Object type">
+	  					Object&nbsp;type </a></li>
+	  			<li><a href="<?php echo $html->url('/surface_type');?>"
+	  					title="Surface type">
+	  					Surface&nbsp;type </a></li>
+
+	  			<li><a href="<?php echo $html->url('/museum');?>"
+	  					title="Museum">
+	  					Museum </a></li>
+	  			<li><a href="<?php echo $html->url('/origin');?>"
+	  					title="Origin">
+	  					Origin </a></li>
+	  			<li><a href="<?php echo $html->url('/upload_texts');?>"
+	  					title="Upload">
+	  					Upload&nbsp;texts </a></li>
+	  			<li><a href="<?php echo $html->url('/replace');?>"
+	  					title="Replace">
+	  					Mass&nbsp;replace </a></li>
+	  		</ul>
+	  	</div>

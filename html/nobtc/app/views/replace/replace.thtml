@@ -1,0 +1,6 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2><?php echo $counter?> lines changed.</h2>
+
+You can find next <?php echo $MAX_LINES?> lines and correct it.
+Use this <a href="<?php
+echo $html->url('/replace/index');//.'?find='.htmlentities($find).'&replace='.htmlentities($new));?>">script again</a>.

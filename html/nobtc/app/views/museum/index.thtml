@@ -1,0 +1,29 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="museum">
+<h2>List Museum</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Id Museum</th>
+	<th>Museum</th>
+	<th>Place</th>
+	<th>Actions</th>
+</tr>
+<?php foreach ($museum as $museum): ?>
+<tr>
+	<td><?php echo $museum['Museum']['id_museum']; ?></td>
+	<td><?php echo $museum['Museum']['museum']; ?></td>
+	<td><?php echo $museum['Museum']['place']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/museum/view/' . $museum['Museum']['id_museum'])?>
+		<?php echo $html->link('Edit','/museum/edit/' . $museum['Museum']['id_museum'])?>
+		<?php echo $html->link('Delete','/museum/delete/' . $museum['Museum']['id_museum'], null, 'Are you sure you want to delete id ' . $museum['Museum']['id_museum'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Museum', '/museum/add'); ?></li>
+</ul>
+</div>

@@ -1,0 +1,20 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="museum">
+<h2>View Museum</h2>
+
+<dl>
+	<dt>Id Museum</dt>
+	<dd>&nbsp;<?php echo $museum['Museum']['id_museum']?></dd>
+	<dt>Museum</dt>
+	<dd>&nbsp;<?php echo $museum['Museum']['museum']?></dd>
+	<dt>Place</dt>
+	<dd>&nbsp;<?php echo $museum['Museum']['place']?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Museum',   '/museum/edit/' . $museum['Museum']['id_museum']) ?> </li>
+	<li><?php echo $html->link('Delete Museum', '/museum/delete/' . $museum['Museum']['id_museum'], null, 'Are you sure you want to delete: id ' . $museum['Museum']['id_museum'] . '?') ?> </li>
+	<li><?php echo $html->link('List Museum',   '/museum/index') ?> </li>
+	<li><?php echo $html->link('New Museum',	'/museum/add') ?> </li>
+</ul>
+
+</div>

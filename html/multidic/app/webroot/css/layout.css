@@ -1,0 +1,154 @@
+
+/*
+This file contains simple layout 
+*/
+
+#all {
+	text-align: center;
+}
+
+#center {
+	width: 920px;
+	text-align: left;
+	margin:11px auto 15px;
+	position:relative;
+	text-align:center;
+}
+#header {
+	text-align: left;
+}
+
+#header #navig {
+	position: relative;
+	top: 16px;
+	left: 179px;
+	width: 461px;
+	height: 90px;
+	float: left;
+}
+
+#header #login {
+   position:relative;
+	top:33px;
+	left:30px;
+	float: right;
+	width:220px;
+	text-align: left;
+}
+#menu {
+	display:inline;
+}
+
+#login label {
+	visibility: hidden;
+	display: none;
+}
+
+#login input {
+	width: 120px;
+}
+
+#desk {
+	width: 709px;
+	text-align: left;
+	margin: auto;
+}
+
+#flags ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+#flags ul li {
+	display:inline;
+	list-style-image:none;
+   list-style-position:outside;
+   list-style-type:none;
+}
+#flags ul li span {
+	display:block;
+	float: left;
+	height: 30px;
+	width: 122px;
+	background: url(zalozka.gif) no-repeat;
+	margin-left: 4px;
+	padding-top:15px;
+	margin-bottom: 0px !important;
+	text-align: center;
+}
+#flags ul li.chosen span{
+	width: 128px;
+	height: 33px;
+	padding-top:12px;
+	background: url(vybrana-zalozka.png) no-repeat;
+	font-weight:bold;
+}
+
+
+
+
+
+
+
+
+body {
+	background: url(pozadi.png);
+}
+
+#header {
+	background: url(hlavicka.png) no-repeat;
+	width: 914px;
+	height: 131px;
+	text-align: center;
+}
+#header ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	
+}
+#header ul li {
+	display:inline;
+}
+
+#header ul li a {
+	xborder: 0px;
+	xbackground-color: 0px;
+}
+
+#card {
+	background: #EEEFC9;
+	clear: both;
+	text-align: center;
+}
+
+#header a {
+	font-weight:bold;
+}
+
+.big {
+	font-size:40px;
+}
+.arabic {
+	direction:rtl;
+	text-align:right;
+}
+
+.sokrajem {
+	margin: 30px
+}
+.sinnerokrajem {
+	padding: 30px
+}
+
+.card {
+	background:White none repeat scroll 0%;
+	border-color:#555555;
+	border-style:solid;
+	border-width:1px 3px 3px 1px;
+	font-size:100%;
+	margin:12px auto;
+	padding:24px 10px 15px 7px;
+	text-align:center;
+	width:450px;
+}

@@ -1,0 +1,60 @@
+<HTML>
+<META http-equiv=Content-Type content=text/html; charset=utf-8>
+<head>
+  <title>Edit an item from the Old Babylonian dictionary</title>
+<STYLE TYPE="text/css">
+<!--
+body {font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;}
+.tlacitko2 {cursor:hand;font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:100%;color:#000000;background-color:#FFFFEE}
+.vstup {font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:100%;color:#000000;background-color:#FFFFFF}
+.tlacitko1 {cursor:hand;font-family:Arial Unicode MS,TITUS Cyberbit Basic,Code2000;font-weight:normal;font-size:80%;color:#000000;background-color:#FFFFEE}
+-->
+</STYLE>
+<SCRIPT>
+<!--
+function Add2Str(str){var str;document.form1.q.value+=str;document.form1.q.focus();}
+-->
+</SCRIPT>
+</head>
+
+<body>
+<FONT FACE='Verdana' Color="#9bbad6">
+<h3><center>Edit an item from OB dictionary</center></h3>
+</FONT>
+<FONT FACE='Verdana' SIZE=3>
+<?
+$status = true;
+do
+{
+  @$connection = Pg_Connect ("user=dbowner dbname=klinopis");
+  if (!$connection):
+    echo "Nepodaøilo se pøipojit k databázi!";
+    break;
+  endif;
+  @$result = Pg_Exec(
+		"select oid, item, text1, text2 from obdict WHERE oid='$co'");
+  if (!$result):
+    echo "Došlo k chybì pøi zpracování SQL dotazu!";
+    break;
+  endif;
+  echo "<small>if you input new text, please don't forget to mark a chain which belongs to the item, e.g. a-wa-tum with parenthesis: {a-wa-tum} la i-la-bi-ra-ma</small><BR><BR>";
+  echo "<small>if you need to mark bold, please use the following example and copy and paste it into text, e.g. &lt;b&gt;II.:&lt;/b&gt; </small><BR><BR>";
+  echo "<small>please be careful to input the citation in the same way, e.g. (AbB_4,51,20-22); ...  (AbB_2,97,1).</small><BR>";
+  echo "<BR>";
+  echo "<table border=1>";
+  echo "<tr><td><center><b> item </b></center></td><td><center><b> text1 </b></center></td></tr>";
+  echo "<FORM ACTION=\"/autor/obdict/obdictedit2.php\" METHOD=\"post\" ACCEPT-CHARSET=\"utf-8\" enctype=\"multipart/form-data\">";
+  for ($i=0; $i < Pg_NumRows($result); $i++):
+    $zaznam = Pg_Fetch_Array($result, $i);
+    echo ("<tr><td><p class=vstup>".$zaznam["item"]."</p></td><td><FONT FACE='Arial Unicode MS' SIZE=3><textarea  class=vstup name=text1 cols=90 rows=10>".$zaznam["text1"]."</textarea></FONT></td></tr><tr><td></td><td><FONT FACE='Arial Unicode MS' SIZE=3><textarea class=vstup name=text2 cols=70 rows=3>".$zaznam["text2"]."</textarea></font></td></tr>\n");
+  endfor;
+  echo "</table>";
+  echo "<input type=hidden name=co value=$co>";
+  echo "<BR><input type=submit value=\"send new version\">";
+  echo "</FORM>";
+  Pg_Close ($connection);
+} while (false);
+?>
+</FONT>
+</body>
+</html>

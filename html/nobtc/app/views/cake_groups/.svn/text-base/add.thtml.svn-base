@@ -1,0 +1,23 @@
+<h2>Administrace - Nová role</h2>
+
+<form action="<?php echo $html->url('/cake_groups/add'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeGroup/groupname', 'Název role');?>
+ 	<?php echo $html->input('CakeGroup/groupname', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeGroup/groupname');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeGroup/security_level', 'Úroveň zabezpečení');?>
+ 	<?php echo $html->input('CakeGroup/security_level', array('size' => '5'));?>
+ 	<?php echo '&nbsp;(rozsah: 0 až 99)'; ?>
+	<?php echo $error->showMessage('CakeGroup/security_level');?>
+</div>
+
+<div class="submit">
+	<?php echo $html->submit('Přidej roli');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Seznam rolí', '/cake_groups/index')?></li>
+</ul>

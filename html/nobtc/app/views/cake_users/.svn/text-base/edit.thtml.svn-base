@@ -1,0 +1,56 @@
+<h2>Administrace - Editace uživatele</h2>
+
+<p class="info">
+	Pro uložení jakékoli změny je nutné zadat původní heslo. Nové heslo zadávejte pouze v případě,
+	že chcete heslo změnit. V opačném případě toto pole nevyplňujte!
+</p>
+
+<form action="<?php echo $html->url('/cake_users/edit/'.$html->tagValue('CakeUser/id')); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/passwd_puvodni_zadano', 'Původní heslo');?>
+ 	<?php echo $html->password('CakeUser/passwd_puvodni_zadano', array('size' => '20'));?>
+	<?php echo $error->showMessage('CakeUser/passwd_puvodni_zadano');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/username', 'Jméno uživatele');?>
+ 	<?php echo $html->input('CakeUser/username', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/username');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/login', 'Login');?>
+ 	<?php echo $html->input('CakeUser/login', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/login');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('CakeUser/passwd_nove', 'Nové heslo');?>
+ 	<?php echo $html->password('CakeUser/passwd_nove', array('size' => '20'));?>
+	<?php echo $error->showMessage('CakeUser/passwd_nove');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('CakeUser/passwd_nove1', 'Potvrzení nového hesla');?>
+ 	<?php echo $html->password('CakeUser/passwd_nove1', array('size' => '20'));?>
+	<?php echo $error->showMessage('CakeUser/passwd_nove1');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUser/security_level', 'Úroveň zabezpečení');?>
+ 	<?php echo $html->input('CakeUser/security_level', array('size' => '5'));?>
+	<?php echo '&nbsp;(rozsah: 0 až 99)'; ?>
+	<?php echo $error->showMessage('CakeUser/security_level');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('CakeUser/email', 'E-mail');?>
+ 	<?php echo $html->input('CakeUser/email', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeUser/email');?>
+</div>
+
+<?php echo $html->hidden('CakeUser/passwd')?>
+<?php echo $html->hidden('CakeUser/id')?>
+<div class="submit">
+	<?php echo $html->submit('Ulož změny');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Smaž uživatele','/cake_users/delete/' . $html->tagValue('CakeUser/id'), null, 'Opravdu chcete uživatele smazat?');?>
+	<li><?php echo $html->link('Seznam uživatelů', '/cake_users/index')?></li>
+</ul>

@@ -1,0 +1,53 @@
+<h1>Search in catalog - Results</h1>
+
+<?php echo $Sorter_line;?>
+
+<?php if (Count($Transliterations) > 0): ?>
+    <?php
+    //p_g($Transliterations);
+      for($t = 0; $t < count($Transliterations); $t++):
+        $transliteration = $Transliterations[$t];
+        $found_cat = $Found_catc[$t];
+        $POST = $transliteration->getResult();
+        $rev_history = $transliteration->getRevHistory();
+        $photos = $transliteration->getPhotos();
+        $handcopies = $transliteration->getHandcopies();
+        $id_transliteration = $transliteration->id_transliteration;
+        //p_g($id_transliteration);
+        //p_g($found_cat);
+        //p_g($POST);
+        $Reference = new OldReference($id_transliteration);
+        $references = $Reference->getResult();
+
+        echo $this->renderElement('catalogue_card',
+        	array(
+        		'found_cat'=> $found_cat,
+        		'id_transliteration'=> $id_transliteration,
+        		'references'=> $references,
+        	)
+        );
+		if (!$only_catalogue) {
+	        echo $this->renderElement('transliteration_data_card',
+	        	array(
+	        		'id_transliteration'=> $id_transliteration,
+	        		'photos'=> $photos,
+	        		'handcopies'=> $handcopies,
+	        		'object_type_array' => $object_type_array,//
+	        		'surface_type_array' => $surface_type_array,
+	        		'POST' => $POST,
+	        	)
+	        );
+	
+	        echo $this->renderElement('rev_history',
+	        	array(
+	        		'rev_history'=> $rev_history,
+	        	)
+	        );
+		}
+		
+
+        ?>
+    <?php  endfor;   ?>
+<?php else:?>
+    Not found
+<?php endif;?>

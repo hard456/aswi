@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title dir="ltr" lang="cs">
+      Old Babylonian Text Corpus >> Klinopis.cz
+    </title>
+    <meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-control" content="no-cache" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <?php echo $html->charsetTag('UTF-8');?>
+
+    <meta content="Old Babylonian, Akkadian, Text Corpus, Akkadian Dictionary, Old Babylonian cuneiform list, akkadisches Wörterbuch, altbabylonische Texte, Codex Hammurapi, mathematical texts, omina" name="Description" />
+
+    <?php echo $html->css('cake.generic'); ?>
+    <?php echo $html->css('obtc'); ?>
+    
+     <?php echo $javascript->link('scriptaculous-js-1.7.0/lib/prototype.js') ?>
+     <?php echo $javascript->link('scriptaculous-js-1.7.0/src/scriptaculous.js?load=effects') ?>
+
+  </head>
+  <body>
+  	<div id="body">
+  	<div id="all">
+  	<div id="hlavicka">
+  		<div id="pruh">
+  		<img src="<?php echo $html->url('/img/obtclogozh.gif');?>" alt="logo" id="logo" />
+  		<div id="nadpiscontainer">
+			<h1 class="hlavni"><a href="<?php echo $html->url('/pages/index'); ?>">Old Babylonian Text Corpus v. 2</a></h1>
+		</div>
+
+		<!-- obrazky -->
+  		</div><!-- end of pruh -->
+  		<div id="horninavigacecontainer">
+	  		<ul class="horni navigace">
+	  			<li><a href="<?php echo $html->url('/search_text');?>" title="Text search in corpus">  search &amp; edit texts </a></li>
+	  			<li><a onclick="this.target='_blank'" href="/utf/utf/sj.php" title="search dictionary">  search dictionary </a></li>
+				<li><a href="<?php echo $html->url('/catalogue');?>" title="Search in text calalogue">  text catalogue </a></li>
+				<li><a onclick="this.target='_blank'" href="/utf/utf/signs.html" title="catalogue of cuneiform signs">  catalogue of cuneiform signs </a></li>
+
+				<li><a href="<?php echo $html->url('/pages/staff');?>" title="contact">  contact &amp; members </a></li>
+				<li><a href="<?php echo $html->url('/input_new_text');?>" title=" input new text"> input new text</a></li>
+
+
+				<li><a href="<?php echo $html->url('/admin');?>" title="Admin">  admin </a></li>
+	  		</ul>
+	  	</div>
+		<div id="dolninavigacecontainer">
+			<ul class="dolni navigace">
+				<li>User: <strong><?php echo $ac->username ?></strong>&nbsp;&nbsp;</li>
+
+				<?php if($ac->username != 'anonymous'):?>
+				<li><a href="<?php echo $html->url('/cake_login/logout');?>" title="logout">  logout </a></li>
+				<li><a href="<?php echo $html->url('/cake_users/change_my_password');?>" title="change password">  change password </a></li>
+				<!--li>Action:<?php echo $this->name ."/".$this->action ?></li-->
+				<?php else:?>
+
+					<li><a href="<?php echo $html->url('/cake_login/login');?>" title="login"> login </a></li>
+					<li><a href="<?php echo $html->url('/pages/how-to-become-a-member');?>" title=" how to become a member">   how to become a member </a></li>
+
+				<?php endif;?>
+			</ul>
+		</div>
+  	</div><!-- end of header -->
+  	<div style="clear:both"></div>
+
+	<div id="content">
+			<?php if ($session->check('Message.flash'))
+					{
+						$session->flash();
+					}
+					echo $content_for_layout;
+			?>
+		</div>
+	<div class="clear">
+      &nbsp;
+      <!-- cistic -->
+    </div>
+    <div id="footer">
+      &#169; Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-<?php echo date('Y');?>
+      <br />
+      Created by the kind support of Grant Agency of the Czech Republic 2005-2007 (No. 453/05/0533).
+    </div>
+	</div><!-- end of all -->
+
+	<?php if (!empty($this->data)) {
+	    pr($this->data);
+	}?>
+
+	<?php if (!empty($ac)) {
+	    pr($ac);
+	}?>
+
+	<?php //pr($_SESSION);?>
+	</div>
+  </body>
+</html>

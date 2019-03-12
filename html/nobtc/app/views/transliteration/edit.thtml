@@ -1,0 +1,104 @@
+<script src="<?php echo $html->url('/javascript/inserttext.js') ?>" type="text/javascript" ></script>
+
+
+<h2>Edit Transliteration</h2>
+<form action="<?php echo $html->url('/transliteration/edit/'.$html->tagValue('Transliteration/id_transliteration')); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/id_book', 'Book');?>
+ 	<?php echo $html->selectTag('Transliteration/id_book', $book, $html->tagValue('Transliteration/id_book'), array(), array(), true);?>
+	<?php echo $html->tagErrorMsg('Transliteration/id_book', 'Please select the Id Book.') ?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/chapter', 'Chapter');?>
+ 	<?php echo $html->input('Transliteration/chapter', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/chapter', 'Please enter the Chapter.');?>
+</div>
+
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/id_museum', 'Museum');?>
+ 	<?php echo $html->selectTag('Transliteration/id_museum', $museum, $html->tagValue('Transliteration/id_museum'), array(), array(), true);?>
+	<?php echo $html->tagErrorMsg('Transliteration/id_museum', 'Please select the Id Museum.') ?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/museum_no', 'Museum No');?>
+ 	<?php echo $html->input('Transliteration/museum_no', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/museum_no', 'Please enter the Museum No.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/reg_no', 'Reg No');?>
+ 	<?php echo $html->input('Transliteration/reg_no', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/reg_no', 'Please enter the Reg No.');?>
+</div>
+
+
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/id_origin', 'Origin');?>
+ 	<?php echo $html->selectTag('Transliteration/id_origin', $origin, $html->tagValue('Transliteration/id_origin'), array(), array(), true);?>
+	<?php echo $html->tagErrorMsg('Transliteration/id_origin', 'Please select the Id Origin.') ?>
+</div>
+<!--div class="optional">
+	<?php echo $form->labelTag('Transliteration/old_bookandchapter', 'Old Bookandchapter');?>
+ 	<?php echo $html->input('Transliteration/old_bookandchapter', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/old_bookandchapter', 'Please enter the Old Bookandchapter.');?>
+</div-->
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/id_book_type', 'Book Type');?>
+ 	<?php echo $html->selectTag('Transliteration/id_book_type', $bookType, $html->tagValue('Transliteration/id_book_type'), array(), array(), true);?>
+	<?php echo $html->tagErrorMsg('Transliteration/id_book_type', 'Please select the Id Book Type.') ?>
+</div>
+
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/date', 'Date');?>
+ 	<?php echo $html->input('Transliteration/date', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/date', 'Please enter the Date.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Transliteration/note', 'Note');?>
+ 	<?php echo $html->input('Transliteration/note', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Transliteration/note', 'Please enter the Note.');?>
+</div>
+<div class="optional">
+References<br /> (series, number, page)
+<div id="references-row" class="row">
+            <!-- Space for javascript including of references -->
+          </div>
+          <div id="references-link">
+            <a href="#"
+               title="Add reference"
+               id="adding-reference"
+               onclick="return top.references.addReference('', '', '', 'Delete');">
+                  Add reference</a>
+          </div>
+</div>
+<?php if (!Empty($POST['series']) && is_array($POST['series']) ):  ?>
+    <script type="text/javascript">
+      //onLoad
+      <?php for ($i = 0; $i < Count($POST['series']); $i++ ) : ?>
+      top.references.addReference('<?php echo $POST['series'][$i]?>', '<?php echo $POST['number'][$i]?>', '<?php echo $POST['page'][$i]?>', 'Delete');
+      <?php endfor; ?>
+    </script>
+    <?php endif; ?>
+
+
+<div class="submit">
+<?php echo $html->hidden('Transliteration/id_transliteration')?>
+	<?php echo $html->submit('Save');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link(
+	'Delete',
+	'/transliteration/delete/'.$html->tagValue('Transliteration/id_transliteration'), 
+	null, 
+	'Are you sure you want to delete: id ' . 
+	$html->tagValue('Transliteration/id_transliteration'));?></li>
+<li><?php echo $html->link('List Transliteration', '/transliteration/index')?></li>
+<li><?php echo $html->link('View Book', '/book/index/');?></li>
+<li><?php echo $html->link('Add Book', '/book/add/');?></li>
+<li><?php echo $html->link('View Museum', '/museum/index/');?></li>
+<li><?php echo $html->link('Add Museum', '/museum/add/');?></li>
+<li><?php echo $html->link('View Origin', '/origin/index/');?></li>
+<li><?php echo $html->link('Add Origin', '/origin/add/');?></li>
+<li><?php echo $html->link('View Book Type', '/book_type/index/');?></li>
+<li><?php echo $html->link('Add Book Type', '/book_type/add/');?></li>
+</ul>

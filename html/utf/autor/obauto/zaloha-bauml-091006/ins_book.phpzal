@@ -1,0 +1,41 @@
+<?
+include "autorizace.inc.php";
+ksa_authorize();
+if ($auth_level == 0) ksa_unauthorized();
+?>
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Script-Type" CONTENT="text/javascript">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<LINK REL=StyleSheet HREF="/utf/obtc1.css" TYPE="text/css" MEDIA="screen, print">
+<TITLE>---------- Insert -----------</TITLE>
+</HEAD>
+<BODY>
+<form METHOD="post" name=form1 ACTION="ins_book2.php">
+<table border=0>
+<tr><td width="100">type</td><td colcount="2"><select name=type><option>monograph</option><option>paper</option><option>photo</option></select></td></tr>
+<tr><td>enter subject</td><td><input type=text class=vstup size=25 name=subject value=""></td><td></td></tr>
+<tr><td></td><td>surname</td><td>first name</td></tr>
+<tr><td>author 1</td><td><input type=text class=vstup size=5 name=author[0][2] value=""></td><td><input type=text class=vstup size=5 name=author[0][1] value=""></td></tr>
+<tr><td>author 2</td><td><input type=text class=vstup size=5 name=author[1][2] value=""></td><td><input type=text class=vstup size=5 name=author[1][1] value=""></td></tr>
+<tr><td>author 3</td><td><input type=text class=vstup size=5 name=author[2][2] value=""></td><td><input type=text class=vstup size=5 name=author[2][1] value=""></td></tr>
+<tr><td>author 4</td><td><input type=text class=vstup size=5 name=author[3][2] value=""></td><td><input type=text class=vstup size=5 name=author[3][1] value=""></td></tr>
+<tr><td>author 5</td><td><input type=text class=vstup size=5 name=author[4][2] value=""></td><td><input type=text class=vstup size=5 name=author[4][1] value=""></td></tr>
+<tr><td>title</td><td colcount="2"><input type=text class=vstup size=12 name=title value=""></td></tr>
+<tr><td>subtitle</td><td colcount="2"><input type=text class=vstup size=12 name=subtitle value=""></td></tr>
+<tr><td>volume</td><td colcount="2"><input type=text class=vstup size=12 name=volume value=""></td></tr>
+<tr><td>number</td><td colcount="2"><input type=text class=vstup size=12 name=number value=""></td></tr>
+<tr><td>year</td><td colcount="2"><input type=text class=vstup size=12 name=year value=""></td></tr>
+<tr><td>place</td><td colcount="2"><input type=text class=vstup size=12 name=place value=""></td></tr>
+<tr><td>publisher</td><td colcount="2"><input type=text class=vstup size=12 name=publisher value=""></td></tr>
+<tr><td>directory</td><td colcount="2"><input type=text class=vstup size=12 name=directory value=""></td></tr>
+<tr><td>from page</td><td colcount="2"><input type=text class=vstup size=12 name=frompage value=""></td></tr>
+<tr><td>to page</td><td colcount="2"><input type=text class=vstup size=12 name=topage value=""></td></tr>
+<tr><td>rotate (degrees)</td><td colcount="2"><input type=text class=vstup size=12 name=rotate value=""></td></tr>
+</table>
+
+<? //include "key.inc.php" ?>
+<INPUT class=tlacitko2 TYPE="SUBMIT" value="  add biography record  " style="height:30;background-color:#EEFFEE">
+</FORM>
+</BODY>
+</HTML>

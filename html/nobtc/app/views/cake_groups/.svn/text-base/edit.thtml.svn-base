@@ -1,0 +1,24 @@
+<h2>Administrace - Editace role</h2>
+
+<form action="<?php echo $html->url('/cake_groups/edit/'.$html->tagValue('CakeGroup/id')); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeGroup/groupname', 'Název role');?>
+ 	<?php echo $html->input('CakeGroup/groupname', array('size' => '30'));?>
+	<?php echo $error->showMessage('CakeGroup/groupname');?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeGroup/security_level', 'Úroveň zabezpečení');?>
+ 	<?php echo $html->input('CakeGroup/security_level', array('size' => '5'));?>
+	<?php echo $error->showMessage('CakeGroup/security_level');?>
+</div>
+
+<?php echo $html->hidden('CakeGroup/id')?>
+<div class="submit">
+	<?php echo $html->submit('Ulož změny');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Smaž roli','/cake_groups/delete/' . $html->tagValue('CakeGroup/id'), null, 'Opravdu chcete vybranou roli smazat?');?>
+	<li><?php echo $html->link('Seznam rolí', '/cake_groups/index')?></li>
+</ul>

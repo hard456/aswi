@@ -1,0 +1,25 @@
+<h1>Search in texts - Results</h1>
+
+<?php
+echo $Sorter->getLine();
+while($SearchText->next_record()) {
+    $res = $SearchText->getResult();
+	//pr($res);
+	echo $this->renderElement('searchtext' ,
+		array(
+				'id_transliteration'=>$res['id_transliteration'],
+				'book_abrev'=> $res['book_abrev'],
+				 'chapter'=> $res['chapter'],
+				 'line_no'=> $res['line_number'],
+				 'line_transliteration'=> $res['transliteration'],
+				 'found1'=> $_REQUEST["word1"],
+				 'found2'=> $_REQUEST["word2"],
+				 'found3'=> $_REQUEST["word3"],
+				 'dots_before'=> $SearchText->getDotsBefore(),
+				 'array_lines_before'=>$SearchText->getLinesBefore() ,
+				 'array_lines_after'=>$SearchText->getLinesAfter(),
+				 'dots_after'=> $SearchText->getDotsAfter(),
+			)
+		);
+
+}

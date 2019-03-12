@@ -1,0 +1,20 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="surfaceType">
+<h2>View Surface Type</h2>
+
+<dl>
+	<dt>Id Surface Type</dt>
+	<dd>&nbsp;<?php echo $surfaceType['SurfaceType']['id_surface_type']?></dd>
+	<dt>Surface Type</dt>
+	<dd>&nbsp;<?php echo $surfaceType['SurfaceType']['surface_type']?></dd>
+	<dt>Sorter</dt>
+	<dd>&nbsp;<?php echo $surfaceType['SurfaceType']['sorter']?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Surface Type',   '/surface_type/edit/' . $surfaceType['SurfaceType']['id_surface_type']) ?> </li>
+	<li><?php echo $html->link('Delete Surface Type', '/surface_type/delete/' . $surfaceType['SurfaceType']['id_surface_type'], null, 'Are you sure you want to delete: id ' . $surfaceType['SurfaceType']['id_surface_type'] . '?') ?> </li>
+	<li><?php echo $html->link('List Surface Type',   '/surface_type/index') ?> </li>
+	<li><?php echo $html->link('New Surface Type',	'/surface_type/add') ?> </li>
+</ul>
+
+</div>

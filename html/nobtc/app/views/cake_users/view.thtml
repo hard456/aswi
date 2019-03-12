@@ -1,0 +1,55 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+
+<h2>Administrace - Detail uživatele</h2>
+
+<dl>
+	<dt>Jméno uživatele</dt>
+	<dd>&nbsp;<?php echo $user['CakeUser']['username']?></dd>
+	<dt>Login</dt>
+	<dd>&nbsp;<?php echo $user['CakeUser']['login']?></dd>
+	<dt>E-mail</dt>
+	<dd>&nbsp;<?php echo $user['CakeUser']['email']?></dd>
+</dl>
+
+<ul class="actions">
+	<li><?php echo $html->link('Uprav uživatele', '/cake_users/edit/' . $user['CakeUser']['id']) ?> </li>
+	<li><?php echo $html->link('Smaž uživatele', '/cake_users/delete/' . $user['CakeUser']['id'], null, 'Opravdu chcete uživatele smazat?') ?> </li>
+	<li><?php echo $html->link('Seznam uživatelů',   '/cake_users/index') ?> </li>
+	<li><?php echo $html->link('Přidej uživatele',	'/cake_users/add') ?> </li>
+</ul>
+
+<h3>Přidělené role</h3>
+<?php if (!empty($user['CakeGroup'])) : ?>
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Název role</th>
+	<th>Úroveň zabezpečení</th>
+	<th>Akce</th>
+</tr>
+<?php foreach ($user['CakeGroup'] as $group) : ?>
+<tr>
+	<td><?php echo $group['groupname']; ?></td>
+	<td><?php echo $group['security_level']; ?></td>
+	<td><?php echo $html->link('Odeber roli', '/cake_users/delete_role/' . $user['CakeUser']['id'] . '/' . $group['id'], null, 'Opravdu chcete uživateli odebrat vybranou roli?')?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php else : ?>
+	Uživatel nemá přidělenou žádnou roli.
+<?php endif; ?>
+
+<ul class="actions">
+	<li><?php echo $html->link('Přiřaď uživateli roli', '/cake_users/add_role'); ?></li>
+</ul>
+<h3>User's History</h3>
+<?php //pr($userLogData)?>
+<dl>
+	<dt>Last logged in</dt>
+	<dd>&nbsp;<?php echo $userLogData['last']?></dd>
+	<dt>Count</dt>
+	<dd>&nbsp;<?php echo $userLogData['count']?></dd>
+
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('View user log', '/user_log/index/'.$user['CakeUser']['id']); ?></li>
+</ul>

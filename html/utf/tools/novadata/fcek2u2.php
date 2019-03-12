@@ -1,0 +1,817 @@
+<?
+/* Vypis fci verze 06/2002
+30.01.03 pridany prehlasky a ostre ss
+KEILN2U2 
+*/
+function KEILN2U2 ($text)
+{
+	//nahrazeni ü;
+	while (($kde = StrPos ($text, "ü")))
+		$text = SubStr ($text, 0, $kde)."Ã¼".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ostre ß;
+	while (($kde = StrPos ($text, "ß")))
+		$text = SubStr ($text, 0, $kde)."ÃŸ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 039 &#x02BE;
+	while (($kde = StrPos ($text, "'")))
+		$text = SubStr ($text, 0, $kde)."Ê¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 185
+	while (($kde = StrPos ($text, "¹")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 152
+	while (($kde = StrPos ($text, "˜")))
+		$text = SubStr ($text, 0, $kde)."Ã¹".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 221 +1
+	while (($kde = StrPos ($text, "Ý")))
+		$text = SubStr ($text, 0, $kde)."Å ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 182
+	while (($kde = StrPos ($text, "¶")))
+		$text = SubStr ($text, 0, $kde)."Å˜".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ö;
+	while (($kde = StrPos ($text, "ö")))
+		$text = SubStr ($text, 0, $kde)."Ã¶".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 148
+	while (($kde = StrPos ($text, "”")))
+		$text = SubStr ($text, 0, $kde)."Ã¶".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni á
+	while (($kde = StrPos ($text, "€")))
+		$text = SubStr ($text, 0, $kde)."Ã¡".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni a3
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã ".SubStr ($text, $kde+1, StrLen ($text));
+
+	//nahrazeni 162
+	while (($kde = StrPos ($text, "¢")))
+		$text = SubStr ($text, 0, $kde)."Ã".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 164
+	while (($kde = StrPos ($text, "¤")))
+		$text = SubStr ($text, 0, $kde)."Ã‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ä;
+	while (($kde = StrPos ($text, "ä")))
+		$text = SubStr ($text, 0, $kde)."Ã¤".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ^a 131
+	while (($kde = StrPos ($text, "ƒ")))
+		$text = SubStr ($text, 0, $kde)."Ã¢".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 132
+	while (($kde = StrPos ($text, "„")))
+		$text = SubStr ($text, 0, $kde)."Ã¤".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni Ä;
+	while (($kde = StrPos ($text, "Ä")))
+		$text = SubStr ($text, 0, $kde)."Ã„".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 133
+	while (($kde = StrPos ($text, "…")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 170
+	while (($kde = StrPos ($text, "ª")))
+		$text = SubStr ($text, 0, $kde)."Ò".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 169
+	while (($kde = StrPos ($text, "©")))
+		$text = SubStr ($text, 0, $kde)."Äª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~i 142
+	while (($kde = StrPos ($text, "Ž")))
+		$text = SubStr ($text, 0, $kde)."Ä©".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~i 170 __ problem
+	while (($kde = StrPos ($text, "Ò")))
+		$text = SubStr ($text, 0, $kde)."ÃŽ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 134
+	while (($kde = StrPos ($text, "†")))
+		$text = SubStr ($text, 0, $kde)."Ã©".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 147
+	while (($kde = StrPos ($text, "“")))
+		$text = SubStr ($text, 0, $kde)."Ã´".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 135
+	while (($kde = StrPos ($text, "‡")))
+		$text = SubStr ($text, 0, $kde)."Ä“".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 153
+	while (($kde = StrPos ($text, "™")))
+		$text = SubStr ($text, 0, $kde)."Å©".SubStr ($text, $kde+1, StrLen ($text)-1);
+
+	//nahrazeni ^e 136
+	while (($kde = StrPos ($text, "ˆ")))
+		$text = SubStr ($text, 0, $kde)."Ãª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 178
+	while (($kde = StrPos ($text, "²")))
+		$text = SubStr ($text, 0, $kde)."Ãˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 154
+	while (($kde = StrPos ($text, "š")))
+		$text = SubStr ($text, 0, $kde)."Ã»".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 171
+	while (($kde = StrPos ($text, "«")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 223
+	while (($kde = StrPos ($text, "ß")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 155
+	while (($kde = StrPos ($text, "›")))
+		$text = SubStr ($text, 0, $kde)."Å«".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 137
+	while (($kde = StrPos ($text, "‰")))
+		$text = SubStr ($text, 0, $kde)."Ä›".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 173
+	while (($kde = StrPos ($text, "­")))
+		$text = SubStr ($text, 0, $kde)."Åª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 176
+	while (($kde = StrPos ($text, "°")))
+		$text = SubStr ($text, 0, $kde)."Ãœ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 174
+	while (($kde = StrPos ($text, "®")))
+		$text = SubStr ($text, 0, $kde)."Å°".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 172
+	while (($kde = StrPos ($text, "¬")))
+		$text = SubStr ($text, 0, $kde)."Ã™".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni i3 141
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã¬".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 140
+	while (($kde = StrPos ($text, "Œ")))
+		$text = SubStr ($text, 0, $kde)."Ã®".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 168
+	while (($kde = StrPos ($text, "¨")))
+		$text = SubStr ($text, 0, $kde)."ÃŒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 138
+	while (($kde = StrPos ($text, "Š")))
+		$text = SubStr ($text, 0, $kde)."Ã¨".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 139 +3
+	while (($kde = StrPos ($text, "‹")))
+		$text = SubStr ($text, 0, $kde)."áº½".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 143
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã­".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 144
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ä«".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 179
+	while (($kde = StrPos ($text, "³")))
+		$text = SubStr ($text, 0, $kde)."Ä’".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni o2 146
+	while (($kde = StrPos ($text, "’")))
+		$text = SubStr ($text, 0, $kde)."Ã³".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 149
+	while (($kde = StrPos ($text, "•")))
+		$text = SubStr ($text, 0, $kde)."Å‘".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 150
+	while (($kde = StrPos ($text, "–")))
+		$text = SubStr ($text, 0, $kde)."Å".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 151
+	while (($kde = StrPos ($text, "—")))
+		$text = SubStr ($text, 0, $kde)."Ãº".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 156
+	while (($kde = StrPos ($text, "œ")))
+		$text = SubStr ($text, 0, $kde)."Ã¼".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 165
+	while (($kde = StrPos ($text, "¥")))
+		$text = SubStr ($text, 0, $kde)."Ä€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 166
+	while (($kde = StrPos ($text, "¦")))
+		$text = SubStr ($text, 0, $kde)."Ã„".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 167
+	while (($kde = StrPos ($text, "§")))
+		$text = SubStr ($text, 0, $kde)."Ã".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 191 +3 TADY
+	while (($kde = StrPos ($text, "¿")))
+		$text = SubStr ($text, 0, $kde)."á¹­".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 226 TADYX OK
+	while (($kde = StrPos ($text, "â")))
+		$text = SubStr ($text, 0, $kde)."Å½".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 163 TADYX
+	while (($kde = StrPos ($text, "£")))
+		$text = SubStr ($text, 0, $kde)."Ã€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~a 130 TADYX
+	while (($kde = StrPos ($text, "‚")))
+		$text = SubStr ($text, 0, $kde)."Ã£".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 239 TADYX
+	while (($kde = StrPos ($text, "ï")))
+		$text = SubStr ($text, 0, $kde)."â‚€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 177 TADYX
+	while (($kde = StrPos ($text, "±")))
+		$text = SubStr ($text, 0, $kde)."Ã‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 181
+	while (($kde = StrPos ($text, "µ")))
+		$text = SubStr ($text, 0, $kde)."Ã–".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 192
+	while (($kde = StrPos ($text, "À")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 194 +3
+	while (($kde = StrPos ($text, "Â")))
+		$text = SubStr ($text, 0, $kde)."á¹¬".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 200
+	while (($kde = StrPos ($text, "È")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 204
+	while (($kde = StrPos ($text, "Ì")))
+		$text = SubStr ($text, 0, $kde)."ÃŸ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 209
+	while (($kde = StrPos ($text, "Ñ")))
+		$text = SubStr ($text, 0, $kde)."Åˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 211
+	while (($kde = StrPos ($text, "Ó")))
+		$text = SubStr ($text, 0, $kde)."Å¥".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 212
+	while (($kde = StrPos ($text, "Ô")))
+		$text = SubStr ($text, 0, $kde)."ÄŒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 214 +3
+	while (($kde = StrPos ($text, "Ö")))
+		$text = SubStr ($text, 0, $kde)."á¸«".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 217 +3
+	while (($kde = StrPos ($text, "Ù")))
+		$text = SubStr ($text, 0, $kde)."á¸ª".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 218
+	while (($kde = StrPos ($text, "Ú")))
+		$text = SubStr ($text, 0, $kde)."á¹£".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 220 +1
+	while (($kde = StrPos ($text, "Ü")))
+ 		$text = SubStr ($text, 0, $kde)."Å¡".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 222
+	while (($kde = StrPos ($text, "Þ")))
+		$text = SubStr ($text, 0, $kde)."á¹¢".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 224
+	while (($kde = StrPos ($text, "à")))
+		$text = SubStr ($text, 0, $kde)."Å¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 229
+	while (($kde = StrPos ($text, "å")))
+		$text = SubStr ($text, 0, $kde)."Ã½".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 230 cisla 1 under
+	while (($kde = StrPos ($text, "æ")))
+		$text = SubStr ($text, 0, $kde)."â‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 231 + 3
+	while (($kde = StrPos ($text, "ç")))
+		$text = SubStr ($text, 0, $kde)."â‚‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 232
+	while (($kde = StrPos ($text, "è")))
+		$text = SubStr ($text, 0, $kde)."â‚ƒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 233
+	while (($kde = StrPos ($text, "é")))
+		$text = SubStr ($text, 0, $kde)."â‚„".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 234
+	while (($kde = StrPos ($text, "ê")))
+		$text = SubStr ($text, 0, $kde)."â‚…".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 235
+	while (($kde = StrPos ($text, "ë")))
+		$text = SubStr ($text, 0, $kde)."â‚†".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 236
+	while (($kde = StrPos ($text, "ì")))
+		$text = SubStr ($text, 0, $kde)."â‚‡".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 237
+	while (($kde = StrPos ($text, "í")))
+		$text = SubStr ($text, 0, $kde)."â‚ˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 238
+	while (($kde = StrPos ($text, "î")))
+		$text = SubStr ($text, 0, $kde)."â‚‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 240
+	while (($kde = StrPos ($text, "ð")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 241
+	while (($kde = StrPos ($text, "ñ")))
+		$text = SubStr ($text, 0, $kde)."Å™".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 243
+	while (($kde = StrPos ($text, "ó")))
+		$text = SubStr ($text, 0, $kde)."Å¯".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 244
+	while (($kde = StrPos ($text, "ô")))
+		$text = SubStr ($text, 0, $kde)."Äœ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 245
+	while (($kde = StrPos ($text, "õ")))
+		$text = SubStr ($text, 0, $kde)."ï½˜".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 246 ajn
+	while (($kde = StrPos ($text, "ö")))
+		$text = SubStr ($text, 0, $kde)."Ê¿".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 247
+	while (($kde = StrPos ($text, "÷")))
+		$text = SubStr ($text, 0, $kde)."Ê¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 249
+	while (($kde = StrPos ($text, "ù")))
+		$text = SubStr ($text, 0, $kde)."Â§".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 250
+	while (($kde = StrPos ($text, "ú")))
+		$text = SubStr ($text, 0, $kde)."Ä¹".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 252 prava polovicni bylo tu â”
+	while (($kde = StrPos ($text, "ü")))
+		$text = SubStr ($text, 0, $kde)."âŒ‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 253 leva polovicni â”Œ
+	while (($kde = StrPos ($text, "ý")))
+		$text = SubStr ($text, 0, $kde)."âŒˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 254 prava polovicni bylo tu â”
+	while (($kde = StrPos ($text, "þ")))
+		$text = SubStr ($text, 0, $kde)."âŒ‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	return ($text);
+}
+
+function SSLH ($text)
+{
+	//nahrazeni 039 &#x02BE;
+	while (($kde = StrPos ($text, "'")))
+		$text = SubStr ($text, 0, $kde)."Ê¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 185
+	while (($kde = StrPos ($text, "¹")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 152
+	while (($kde = StrPos ($text, "˜")))
+		$text = SubStr ($text, 0, $kde)."Ã¹".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 221 +1
+	while (($kde = StrPos ($text, "Ý")))
+		$text = SubStr ($text, 0, $kde)."Å ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 182
+	while (($kde = StrPos ($text, "¶")))
+		$text = SubStr ($text, 0, $kde)."Å˜".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 148
+	while (($kde = StrPos ($text, "”")))
+		$text = SubStr ($text, 0, $kde)."Ã¶".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni á
+	while (($kde = StrPos ($text, "€")))
+		$text = SubStr ($text, 0, $kde)."Ã¡".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni a3
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã ".SubStr ($text, $kde+1, StrLen ($text));
+
+	//nahrazeni 162
+	while (($kde = StrPos ($text, "¢")))
+		$text = SubStr ($text, 0, $kde)."Ã".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 164
+	while (($kde = StrPos ($text, "¤")))
+		$text = SubStr ($text, 0, $kde)."Ã‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ^a 131
+	while (($kde = StrPos ($text, "ƒ")))
+		$text = SubStr ($text, 0, $kde)."Ã¢".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 132
+	while (($kde = StrPos ($text, "„")))
+		$text = SubStr ($text, 0, $kde)."Ã¤".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 133
+	while (($kde = StrPos ($text, "…")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 170
+	while (($kde = StrPos ($text, "ª")))
+		$text = SubStr ($text, 0, $kde)."Ò".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 169
+	while (($kde = StrPos ($text, "©")))
+		$text = SubStr ($text, 0, $kde)."Äª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~i 142
+	while (($kde = StrPos ($text, "Ž")))
+		$text = SubStr ($text, 0, $kde)."Ä©".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~i 170 __ problem
+	while (($kde = StrPos ($text, "Ò")))
+		$text = SubStr ($text, 0, $kde)."ÃŽ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 134
+	while (($kde = StrPos ($text, "†")))
+		$text = SubStr ($text, 0, $kde)."Ã©".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 147
+	while (($kde = StrPos ($text, "“")))
+		$text = SubStr ($text, 0, $kde)."Ã´".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 135
+	while (($kde = StrPos ($text, "‡")))
+		$text = SubStr ($text, 0, $kde)."Ä“".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 153
+	while (($kde = StrPos ($text, "™")))
+		$text = SubStr ($text, 0, $kde)."Å©".SubStr ($text, $kde+1, StrLen ($text)-1);
+
+	//nahrazeni ^e 136
+	while (($kde = StrPos ($text, "ˆ")))
+		$text = SubStr ($text, 0, $kde)."Ãª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 178
+	while (($kde = StrPos ($text, "²")))
+		$text = SubStr ($text, 0, $kde)."Ãˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 154
+	while (($kde = StrPos ($text, "š")))
+		$text = SubStr ($text, 0, $kde)."Ã»".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 171
+	while (($kde = StrPos ($text, "«")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 223
+	while (($kde = StrPos ($text, "ß")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 155
+	while (($kde = StrPos ($text, "›")))
+		$text = SubStr ($text, 0, $kde)."Å«".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 137
+	while (($kde = StrPos ($text, "‰")))
+		$text = SubStr ($text, 0, $kde)."Ä›".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 173
+	while (($kde = StrPos ($text, "­")))
+		$text = SubStr ($text, 0, $kde)."Åª".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 176
+	while (($kde = StrPos ($text, "°")))
+		$text = SubStr ($text, 0, $kde)."Ãœ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 174
+	while (($kde = StrPos ($text, "®")))
+		$text = SubStr ($text, 0, $kde)."Å°".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 172
+	while (($kde = StrPos ($text, "¬")))
+		$text = SubStr ($text, 0, $kde)."Ã™".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni i3 141
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã¬".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 140
+	while (($kde = StrPos ($text, "Œ")))
+		$text = SubStr ($text, 0, $kde)."Ã®".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 168
+	while (($kde = StrPos ($text, "¨")))
+		$text = SubStr ($text, 0, $kde)."ÃŒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 138
+	while (($kde = StrPos ($text, "Š")))
+		$text = SubStr ($text, 0, $kde)."Ã¨".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 139 +3
+	while (($kde = StrPos ($text, "‹")))
+		$text = SubStr ($text, 0, $kde)."áº½".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 143
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ã­".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 144
+	while (($kde = StrPos ($text, "")))
+		$text = SubStr ($text, 0, $kde)."Ä«".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 179
+	while (($kde = StrPos ($text, "³")))
+		$text = SubStr ($text, 0, $kde)."Ä’".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni o2 146
+	while (($kde = StrPos ($text, "’")))
+		$text = SubStr ($text, 0, $kde)."Ã³".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 149
+	while (($kde = StrPos ($text, "•")))
+		$text = SubStr ($text, 0, $kde)."Å‘".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 150
+	while (($kde = StrPos ($text, "–")))
+		$text = SubStr ($text, 0, $kde)."Å".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 151
+	while (($kde = StrPos ($text, "—")))
+		$text = SubStr ($text, 0, $kde)."Ãº".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 156
+	while (($kde = StrPos ($text, "œ")))
+		$text = SubStr ($text, 0, $kde)."Ã¼".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 165
+	while (($kde = StrPos ($text, "¥")))
+		$text = SubStr ($text, 0, $kde)."Ä€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 166
+	while (($kde = StrPos ($text, "¦")))
+		$text = SubStr ($text, 0, $kde)."Ã„".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 167
+	while (($kde = StrPos ($text, "§")))
+		$text = SubStr ($text, 0, $kde)."Ã".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 191 +3 TADY
+	while (($kde = StrPos ($text, "¿")))
+		$text = SubStr ($text, 0, $kde)."á¹­".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 226 TADYX OK
+	while (($kde = StrPos ($text, "â")))
+		$text = SubStr ($text, 0, $kde)."Å½".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 163 TADYX
+	while (($kde = StrPos ($text, "£")))
+		$text = SubStr ($text, 0, $kde)."Ã€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ~a 130 TADYX
+	while (($kde = StrPos ($text, "‚")))
+		$text = SubStr ($text, 0, $kde)."Ã£".SubStr ($text, $kde+1, StrLen ($text)+1);
+
+	//nahrazeni 239 TADYX
+	while (($kde = StrPos ($text, "ï")))
+		$text = SubStr ($text, 0, $kde)."â‚€".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 177 TADYX
+	while (($kde = StrPos ($text, "±")))
+		$text = SubStr ($text, 0, $kde)."Ã‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 181
+	while (($kde = StrPos ($text, "µ")))
+		$text = SubStr ($text, 0, $kde)."Ã–".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 192
+	while (($kde = StrPos ($text, "À")))
+		$text = SubStr ($text, 0, $kde)."Ãš".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 194 +3
+	while (($kde = StrPos ($text, "Â")))
+		$text = SubStr ($text, 0, $kde)."á¹¬".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 200
+	while (($kde = StrPos ($text, "È")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 204
+	while (($kde = StrPos ($text, "Ì")))
+		$text = SubStr ($text, 0, $kde)."ÃŸ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 209
+	while (($kde = StrPos ($text, "Ñ")))
+		$text = SubStr ($text, 0, $kde)."Åˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 211
+	while (($kde = StrPos ($text, "Ó")))
+		$text = SubStr ($text, 0, $kde)."Å¥".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 212
+	while (($kde = StrPos ($text, "Ô")))
+		$text = SubStr ($text, 0, $kde)."ÄŒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 214 +3
+	while (($kde = StrPos ($text, "Ö")))
+		$text = SubStr ($text, 0, $kde)."á¸«".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 217 +3
+	while (($kde = StrPos ($text, "Ù")))
+		$text = SubStr ($text, 0, $kde)."á¸ª".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 218
+	while (($kde = StrPos ($text, "Ú")))
+		$text = SubStr ($text, 0, $kde)."á¹£".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 220 +1
+	while (($kde = StrPos ($text, "Ü")))
+ 		$text = SubStr ($text, 0, $kde)."Å¡".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 222
+	while (($kde = StrPos ($text, "Þ")))
+		$text = SubStr ($text, 0, $kde)."á¹¢".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 224
+	while (($kde = StrPos ($text, "à")))
+		$text = SubStr ($text, 0, $kde)."Å¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 229
+	while (($kde = StrPos ($text, "å")))
+		$text = SubStr ($text, 0, $kde)."Ã½".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 230 cisla 1 under
+	while (($kde = StrPos ($text, "æ")))
+		$text = SubStr ($text, 0, $kde)."â‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 231 + 3
+	while (($kde = StrPos ($text, "ç")))
+		$text = SubStr ($text, 0, $kde)."â‚‚".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 232
+	while (($kde = StrPos ($text, "è")))
+		$text = SubStr ($text, 0, $kde)."â‚ƒ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 233
+	while (($kde = StrPos ($text, "é")))
+		$text = SubStr ($text, 0, $kde)."â‚„".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 234
+	while (($kde = StrPos ($text, "ê")))
+		$text = SubStr ($text, 0, $kde)."â‚…".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 235
+	while (($kde = StrPos ($text, "ë")))
+		$text = SubStr ($text, 0, $kde)."â‚†".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 236
+	while (($kde = StrPos ($text, "ì")))
+		$text = SubStr ($text, 0, $kde)."â‚‡".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 237
+	while (($kde = StrPos ($text, "í")))
+		$text = SubStr ($text, 0, $kde)."â‚ˆ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 238
+	while (($kde = StrPos ($text, "î")))
+		$text = SubStr ($text, 0, $kde)."â‚‰".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 240
+	while (($kde = StrPos ($text, "ð")))
+		$text = SubStr ($text, 0, $kde)."Ä".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 241
+	while (($kde = StrPos ($text, "ñ")))
+		$text = SubStr ($text, 0, $kde)."Å™".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni 243
+	while (($kde = StrPos ($text, "ó")))
+		$text = SubStr ($text, 0, $kde)."Å¯".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 244
+	while (($kde = StrPos ($text, "ô")))
+		$text = SubStr ($text, 0, $kde)."Äœ".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 245
+	while (($kde = StrPos ($text, "õ")))
+		$text = SubStr ($text, 0, $kde)."ï½˜".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 246 ajn
+	while (($kde = StrPos ($text, "ö")))
+		$text = SubStr ($text, 0, $kde)."Ê¿".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 247
+	while (($kde = StrPos ($text, "÷")))
+		$text = SubStr ($text, 0, $kde)."Ê¾".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 249
+	while (($kde = StrPos ($text, "ù")))
+		$text = SubStr ($text, 0, $kde)."Â§".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 250
+	while (($kde = StrPos ($text, "ú")))
+		$text = SubStr ($text, 0, $kde)."Ä¹".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 252 prava polovicni bylo tu â”
+	while (($kde = StrPos ($text, "ü")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni 253 leva polovicni â”Œ
+	while (($kde = StrPos ($text, "ý")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+	
+	//nahrazeni [ 091
+	while (($kde = StrPos ($text, "[")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ] 093
+	while (($kde = StrPos ($text, "]")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni < 060
+	while (($kde = StrPos ($text, "<")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni < &lt;
+	while (($kde = StrPos ($text, "&lt;")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+
+	//nahrazeni > &gt;
+	while (($kde = StrPos ($text, "&gt;")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ( 040 
+	while (($kde = StrPos ($text, "(")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ) 041 
+	while (($kde = StrPos ($text, ")")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni / 047
+	while (($kde = StrPos ($text, "þ")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni \ 092
+//	while (($kde = StrPos ($text, "\")))
+//		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ! 
+	while (($kde = StrPos ($text, "!")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ?
+	while (($kde = StrPos ($text, "?")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni *
+	while (($kde = StrPos ($text, "*")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ceskych znaku nasleduje uuu
+	while (($kde = StrPos ($text, "ù")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ceskych znaku r
+	while (($kde = StrPos ($text, "ø")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ceskych znaku nasleduje
+	while (($kde = StrPos ($text, "ž")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	//nahrazeni ceskych znaku nasleduje
+	while (($kde = StrPos ($text, "ò")))
+		$text = SubStr ($text, 0, $kde)."".SubStr ($text, $kde+1, StrLen ($text)-2);
+
+	return ($text);
+}
+
+?>

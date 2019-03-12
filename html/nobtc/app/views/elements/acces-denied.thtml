@@ -1,0 +1,12 @@
+<div class="accesdenied">
+Texts in transliteration are available only for members who contributed
+new texts into corpus.
+
+  <ul>
+    <li><a href="<?php echo $html->url('/cake_login/login');?>" title="login">login</a>
+    </li>
+    <li><a href="<?php echo $html->url('/pages/how-to-become-a-member');?>" title=" how to become a member"> how to become a member</a>
+    </li>
+  </ul>
+
+</div>

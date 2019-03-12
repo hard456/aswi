@@ -1,0 +1,324 @@
+body {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	background-color: #FFFFEE;
+}
+h1 {
+	padding: 0;
+	margin: 0;
+	font-size: 15pt;
+}
+h3 {
+	font-family: Verdana, Arial;
+	font-size: 150%;
+	color: #9bbad6
+}
+h4 {
+	font-family: Verdana, Arial;
+	font-size: 14pt;
+	color: #9bbad6
+}
+hr {
+	color: #003366;
+}
+input {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+}
+.text1 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 100%;
+	color: #000;
+}
+.tlacitko1 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 80%;
+	color: #000000;
+	background-color: #FFFFEE
+}
+.tlacitko2 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 100%;
+	color: #000000;
+	background-color: #FFFFEE
+}
+.td1 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 80%;
+	color: #8080ff;
+	background-color: #ecece6
+}
+.td2 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 80%;
+	color: blue;
+	background-color: #ecece6
+}
+.td3 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 70%;
+	color: black;
+	background-color: #FFFFEE
+}
+.td4 {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 90%;
+	color: black;
+	background-color: #ecece6
+}
+.td5 {
+	COLOR: blue;
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 7pt
+}
+.vstup {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, sans-serif;
+	font-weight: normal;
+	font-size: 100%;
+	color: #000000;
+	background-color: #FFFFFF
+}
+span.span01 {
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 8pt;
+	text-align: justify
+}
+span.span01b {
+	FONT-FAMILY: Arial Unicode MS, Code2000, Titus Cyberbit Basic, sans-serif;
+	FONT-SIZE: 8pt
+}
+span.span02 {
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 10pt;
+}
+span.span04 {
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 8pt;
+	FONT-WEIGHT: bold
+}
+span.span03 {
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 9pt;
+	FONT-WEIGHT: bold
+}
+span.span05 {
+	COLOR: #ffffff;
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 10pt;
+	FONT-WEIGHT: bold
+}
+span.span06 {
+	COLOR: #eeeecc;
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 8pt
+}
+span.span07 {
+	COLOR: blue;
+	FONT-FAMILY: Verdana, Tahoma, Arial;
+	FONT-SIZE: 8pt
+}
+a:link {
+	text-decoration: none
+}
+a:visited {
+	text-decoration: none
+}
+a:active {
+	text-decoration: none
+}
+a.noline {
+	TEXT-DECORATION: none
+}
+
+
+.separator {
+	color: #cc9900;
+}
+.clear {
+	clear: both;
+}
+#footer {
+	clear: both;
+	width: 100%;
+	background-color: #003366;
+	color: #eeeecc;
+	text-align: center;
+	font-size: 13px;
+}
+#page {
+	position: relative;
+	width: 100%;
+	text-align: left;
+	padding: 0;
+}
+#header {
+	color: White;
+	width: 100%;
+	
+}
+#header-left{
+	float: left;
+}
+#header-right{
+	float: right;
+}
+#header-center{
+	float: none;
+}
+
+/* FORM */
+form{margin:0;}
+fieldset,legend{border:1px solid #003366;}
+fieldset{margin:10px 0; padding:10px; background:#f7f7dd;}
+legend{padding:3px 7px; background:#003366;}
+
+.input-legend{
+	color: White;
+	font-size: 10px;
+}
+
+.noborder, .noname {
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.note {
+	position: relative;
+	top: 0;
+	right: 0;
+	width: 425px;
+	background-color: #f7f7dd;
+	z-index: 99;
+	border: 1px solid #003366
+}
+.note h2 {
+	position: absolute;
+	font-size: 11px;
+	background: #003366;
+	color: #fff;
+	margin: 0;
+	padding: 0.3em 0.7em;
+	text-align: center;
+}
+.note .cont {
+	padding: 30px 10px 10px 10px;
+}
+
+
+.note .close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	margin: 0
+}
+
+.raditko {
+	font-size: 65%;
+}
+.raditko .aktualni {
+	font-size: 140%;
+}
+.raditko a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.linefound {
+	border-bottom: dotted;
+	font-weight: bold;
+}
+
+.title {
+	font-weight: bold;
+	font-size: smaller;
+}
+.rightcorner {
+	position: absolute;
+	top: 100px;
+	right: 5px;
+	width: 50px;
+	height: 20px;
+	cursor: pointer;
+	_cursor: hand;
+	margin: 0
+}
+
+#pageadmin {
+	position: relative;
+	/*width: 950px;*/
+	text-align: left;
+	margin: 0 auto 0.5em;
+	padding: 0;
+}
+#contentadmin {
+	margin: 5px;
+	width: 950px;
+}
+#left {
+	float: left;
+	width: 160px;
+	margin: 5px;
+}
+#main, #mainadmin {
+	float: right;
+	width: 565px;
+}
+#mainadmin {
+	width: 765px;
+}
+.slouptitle {
+	font-weight: bold;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #f7f7dd;
+	border: #003366 1px solid;
+	border-right: #003366 2px solid;
+	border-bottom: #003366 2px solid;
+	margin-bottom: 10px;
+	margin-top: 16px;
+}
+.nadpissekce {
+	font-size: 80%;
+	padding: 2px 0 3px 17px;
+	background: #f7f7dd;
+	border-bottom: 1px solid #003366;
+	border-right: #003366 1px solid;
+}
+tr.akt{
+
+	text-align: justify;
+	background: #fff;
+	border-bottom: 1px dotted Black;
+}
+
+tr.akt:hover{
+	background: #B9B9FF;
+}
+.oram {
+		border: 1px solid Silver;
+}
+.found {
+	color: Green;
+	font-weight: bold;
+}
+
+.thumbnail
+{
+	float: left;
+	width: 60px;
+	border: 1px solid #999;
+	margin: 0 15px 15px 0;
+	padding: 5px;
+}
+.thumbnail a img {
+	border: 0px;
+}

@@ -1,0 +1,62 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Administrace - Detail role</h2>
+
+<dl>
+	<dt>Název role</dt>
+	<dd>&nbsp;<?php echo $group['CakeGroup']['groupname']?></dd>
+	<dt>Úroveň zabezpečení</dt>
+	<dd>&nbsp;<?php echo $group['CakeGroup']['security_level']?></dd>
+</dl>
+
+<ul class="actions">
+	<li><?php echo $html->link('Uprav roli', '/cake_groups/edit/' . $group['CakeGroup']['id']) ?> </li>
+	<!--li><?php echo $html->link('Smaž roli', '/cake_groups/delete/' . $group['CakeGroup']['id'], null, 'Opravdu chcete vybranou roli smazat?') ?> </li-->
+	<li><?php echo $html->link('Seznam rolí', '/cake_groups/index') ?> </li>
+</ul>
+
+<h3>Seznam pravidel pro roli</h3>
+<?php if (!empty($group['CakeRule'])) : ?>
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Pořadí pravidla</th>
+	<th>Pravidlo</th>
+	<th>Povolení</th>
+	<th>Akce</th>
+</tr>
+<?php foreach ($group['CakeRule'] as $rule) : ?>
+<tr>
+	<td><?php echo $rule['rulenum']; ?></td>
+	<td><?php echo $rule['action']; ?></td>
+	<td><?php echo bl($rule['allow']); ?></td>
+	<td class="actions">
+		<?php echo $html->link('Uprav','/cake_rules/edit/' . $rule['id'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php else : ?>
+	Roli nejsou přiřazená žádná pravidla.
+<?php endif; ?>
+
+
+<h3>Seznam uživatelů v roli</h3>
+<?php if (!empty($group['CakeUser'])) : ?>
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Uživatel</th>
+	<th>Login</th>
+	<th>Heslo</th>
+	<th>E-mail</th>
+</tr>
+<?php foreach ($group['CakeUser'] as $user) : ?>
+<tr>
+	<td><?php echo $user['username']; ?></td>
+	<td><?php echo $user['login']; ?></td>
+	<td><?php echo '*****'; ?></td>
+	<td><?php echo $user['email']; ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+<?php else : ?>
+	K roli není přiřazen žádný uživatel.
+<?php endif; ?>

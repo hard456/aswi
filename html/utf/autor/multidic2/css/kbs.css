@@ -1,0 +1,383 @@
+
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12;
+	color: Black;
+	background-color: #B5B5B5;
+}
+
+/* formatovani indexu (vstupni stranky) */
+#page {
+  width: 990px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0em;
+  z-index: 4;
+  text-align: left;
+}
+#contenti {
+	width: 990px;
+	margin: 5px 0 0 0;
+}
+#envelope {
+	float: right;
+	width: 785px;
+}
+#main {
+	float: left;
+   width: 585px;
+	text-align: center;
+	
+}
+#righti {
+	float: right;
+	width: 190px;
+}
+#lefti {
+	float: left;
+	width: 190px;
+	padding: 4px;
+	border-right:  1px dashed #D9D9D9;
+}
+#foot {
+	text-align: center;
+}
+
+
+.menu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 1.6em;
+}
+a:hover.menu {
+	color: #6C9894;
+}
+.menusml {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+}
+a:hover.menusml {
+	color: #6C9894;
+}
+div.menu01 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+	position: absolute;
+	left: 490px;
+	top: 160px;
+	height: 11px;
+	background-image: url(transpar.gif);
+}
+.nadpis {
+	position: relative;
+	text-align: left;
+	height: auto;
+	left: 7px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #6C9894;
+}
+.akt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: justify;
+}
+.aktdate {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}
+a {
+	text-decoration: none;
+	color: #3D4E5E;
+	font-weight: bold;
+}
+a.hover {
+	text-decoration: underline;
+	color: #3D4E5E;
+	font-weight: bold;
+}
+.nadpis2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #3D4E5E;
+}
+.nadpis3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #3D4E5E;
+}
+td.poznamka {
+	font-size: 8pt;
+	font-style: italic;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: black
+}
+td.header_nadpis {
+	font-size: 22pt;
+	font-weight: bold;
+	font-family: "Verdana", sans-serif;
+	color: #0000CC;
+}
+td.header_kontext {
+	font-size: 12pt;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: #0000EE;
+}
+td.zaznam {
+	font-size: 8pt;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: black;
+}
+td.poznamka {
+	font-size: 8pt;
+	font-style: italic;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: black;
+	text-align: justify;
+}
+td.nazev {
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: black
+}
+td.pnazev {
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: bold;
+	font-family: "Verdana", sans-serif;
+	color: black
+}
+h3.chyba {
+	font-size: 12pt;
+	font-weight: bold;
+	font-family: "Verdana", sans-serif;
+	color: red;
+}
+h3.uspech {
+	font-size: 12pt;
+	font-weight: bold;
+	font-family: "Verdana", sans-serif;
+	color: black;
+}
+p.zivotopis {
+	font-size: 10pt;
+	font-style: normal;
+	font-weight: normal;
+	font-family: "Verdana", sans-serif;
+	color: black
+}
+td.footer_right {
+	font-size: 10pt;
+	font-family: "Verdana", sans-serif;
+	font-weight: bold;
+}
+td.footer_left {
+	font-size: 8pt;
+	font-family: "Verdana", sans-serif;
+	font-style: italic;
+	font-weight: normal;
+	color: #0000EE;
+}
+select {
+	font-size: 10;
+	font-family: Arial;
+	color: Black;
+}
+
+td.data {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12;
+	color: Black;
+}
+td {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12;
+	color: Black;
+}
+#left,  #right {
+	position: absolute;
+}
+#left {
+	top: 0;
+	left: 0;
+}
+#right {
+	top: 100;
+	left: 100;
+}
+#left {
+	width: 185px;
+	border-right: 1px dashed #D9D9D9;
+	border-bottom: 1px dashed #D9D9D9;
+/**/
+}
+#right {
+	width: 185px;
+	border-left: 1px dashed #D9D9D9;
+	border-bottom: 1px dashed #D9D9D9;
+}
+#content {
+	padding: 0 0 0 190px;
+}
+.content_home {
+	margin-right: 15px;
+}
+.content_home div.hack {
+	width: 100%;
+}
+.content_home_thin {
+	margin-right: 15px;
+	width: 530px;
+}
+.adress ul, .adress li {
+	list-style: none;
+	display: inline;
+	padding: 0 0 0 0;
+	margin: 0;
+}
+/* NAV + VLEVO */
+#okynko {
+	position: absolute;
+	top: 230px;
+	left: 200px;
+	visibility: hidden;
+}
+.nadpis_sekce {
+	font-size: 70%;
+	font-weight: bold;
+	padding: 2px 0 3px 17px;
+	background: #959595;
+	border-bottom: 1px solid #555555;
+}
+.card {
+	font-size: 70%;
+	padding: 24px 10px 15px 7px;
+	background: White;
+	border-bottom: 3px solid #555555;
+	border-top: 1px solid #555555;
+	border-right: 3px solid #555555;
+	border-left: 1px solid #555555;
+	width: 450px;
+	margin: 12px;
+	text-align: center;
+}
+
+.articlecard {
+   font-size: 60%;
+	background: White;
+	border-bottom: 3px solid #555555;
+	border-top: 1px solid #555555;
+	border-right: 3px solid #555555;
+	border-left: 1px solid #555555;
+	text-align: right;
+	margin: 15px;
+	padding: 20px;
+}
+
+
+.copyright {
+	font-size: 70%;
+	font-weight: bold;
+	text-align: center;
+}
+a:hover, a:hover.active, li li li a:hover.active {
+	text-decoration: underline;
+	color: #555;
+	border-left-color: #D93300;
+}
+a.active {
+	font-size: 70%;
+	text-decoration: underline;
+	color: #000;
+	border-left-color: #FFB453;
+}
+table {
+	font-size: 100%;
+	margin: 5px 0 15px 0;
+	border: none;
+	border-collapse: collapse;
+}
+td {
+	padding: 3px 10px;
+	border: 1px solid #D9D9D9;
+}
+tr.akt:hover {
+	background: #eee;
+}
+.cervene {
+	color: Red;
+}
+h3 {
+	font-size: 18px;
+	color: 3D4E5E;
+}
+.arabic {
+	font-size: 40px;
+	direction: rtl;
+	text-align: right;
+}
+#obrazek, #obrazekuvod {
+	left: 780px;
+	width: 175px;
+	position: absolute;
+	top: 55px;
+	height: 127px;
+	/*visibility: hidden;
+*/
+}
+#obrazekuvod {
+	left: 880px;
+	width: 300px;
+}
+.small_button {
+	font-size: 90%;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+.tlacitko1 {
+	cursor: hand;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 80%;
+	color: #000000;
+	background-color: #FFFFEE;
+	height:25;
+	width:25;
+}
+.tlacitko2 {
+	cursor: hand;
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 100%;
+	color: #000000;
+	background-color: #FFFFEE;
+	height:25;
+	width:25;
+}
+.akkad {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, Arial, Helvetica, sans-serif;
+}

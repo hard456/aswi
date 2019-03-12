@@ -1,0 +1,24 @@
+<h2>Administrace - Role</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Náze role</th>
+	<th>Úroveň zabezpečení</th>
+	<th>Akce</th>
+</tr>
+<?php foreach ($groups as $group): ?>
+<tr>
+	<td><?php echo $group['CakeGroup']['groupname']; ?></td>
+	<td><?php echo $group['CakeGroup']['security_level']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('Detail', '/cake_groups/view/' . $group['CakeGroup']['id'])?>
+		<?php echo $html->link('Uprav', '/cake_groups/edit/' . $group['CakeGroup']['id'])?>
+		<?php echo $html->link('Smaž', '/cake_groups/delete/' . $group['CakeGroup']['id'], null, 'Opravdu chcete vybranou roli smazat?')?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('Přidej roli', '/cake_groups/add'); ?></li>
+</ul>

@@ -1,0 +1,135 @@
+<h1>Search in transliterations</h1>
+<?php
+  
+  function get_line_choose($name)
+  { // BEGIN function get_line_choose
+  	return '
+    <select name="'.$name.'-count">
+      <option value="0" selected="selected">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+    </select>    
+    ';
+  }
+  
+  function get_line_choose2($name)
+  { // BEGIN function get_line_choose
+  	return '
+    <select name="'.$name.'">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="5" selected="selected">5</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="30">30</option>
+    </select>    
+    ';
+  } // END function get_line_choose
+  function get_word_cond_choose($name)
+  {
+    return '<select name="'.$name.'">
+        <option value="">- NOT USED -</option>
+        <option value="and">AND</option>
+        <option value="or">OR</option>
+        <option value="not">AND NOT</option>
+      </select>';
+  }
+?>
+<form action="<?php echo $PHP_SELF?>" method="post" enctype="multipart/form-data">
+<script src="javascript/keyboard.js" type="text/javascript" language="JavaScript"></script>
+<fieldset id="text-fieldset">
+    <legend class="input-legend">Search in transliterations</legend>
+    <table>
+  <tr>
+    <td>Word 1:</td>
+    <td></td>
+    <td>Word 2:
+    <td></td>
+    <td>Word 3:
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="text" name="word1" onFocus="javascript:top.keyboard.setListener(this);" /></td>
+    <td>
+      <?php echo get_word_cond_choose('word2-op'); ?>
+    </td>
+    <td><input type="text" name="word2" onFocus="javascript:top.keyboard.setListener(this);" /></td>
+    <td>
+      <?php echo get_word_cond_choose('word3-op'); ?>
+    </td>
+    <td><input type="text" name="word3" onFocus="javascript:top.keyboard.setListener(this);" /></td>
+  </tr>
+</table>
+ <input name="exact-match" id="exact-match" type="checkbox" />
+ <label for="exact-match">Exact Match</label>
+ <br />
+ <input name="work-with-lists" id="work-with-lists" type="checkbox" />
+ <label for="work-with-lists">Work with a list of names: </label>
+ <input type="radio" 
+           name="list-of-names-radio" 
+           id="personal-radio" 
+           value="personal" /> 
+    <label for="personal-radio">Personal names</label> 
+    <input type="radio" 
+           name="list-of-names-radio" 
+           id="divine-radio" 
+           value="divine" /> 
+    <label for="divine-radio">Divine names</label>
+<hr />
+    
+<table>
+  <tr>
+    <td>Book</td>
+    <td><?php echo get_contain_chooser('book')?> </td>
+    <td><input type="text" name="book" /></td>
+  </tr>
+  <tr>
+    <td>Museum number</td>
+    <td><?php echo get_contain_chooser('museum-no')?> </td>
+    <td><input type="text" name="museum-no" /></td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td><?php echo get_is_or_isnot('book-type')?> </td>
+    <td>
+      <?php chooser_get_book_type($POST['id_book_type']); ?>
+    </td>
+  </tr>
+  <tr>
+    <td>Origin</td>
+    <td><?php echo get_is_or_isnot('origin')?> </td>
+    <td>
+      <?php chooser_get_origin($POST['id_origin']); ?>
+    </td>
+  </tr>
+  <tr>
+    <td>Registration / Ex. number</td>
+    <td><?php echo get_contain_chooser('reg_no')?> </td>
+    <td><input type="text" name="reg_no" /></td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td><?php echo get_contain_chooser('date')?> </td>
+    <td><input type="text" name="date" /></td>
+  </tr>
+</table>
+<hr />
+Representation of search result:
+<ul>
+  <li>Print <?php echo get_line_choose('line');?> lines before and after found line.</li>
+  <li>Show <?php echo get_line_choose2('r_limit');?> found transliteration per site.</li>
+</ul>  
+<input type="hidden" name="actione" value="search" />
+
+<input type="submit" value="Search" />
+    
+</fieldset>
+</form>
+<?php include 'inc/keyboard-dnd.inc.php' ?>

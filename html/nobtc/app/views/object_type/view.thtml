@@ -1,0 +1,18 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="objectType">
+<h2>View Object Type</h2>
+
+<dl>
+	<dt>Id Object Type</dt>
+	<dd>&nbsp;<?php echo $objectType['ObjectType']['id_object_type']?></dd>
+	<dt>Object Type</dt>
+	<dd>&nbsp;<?php echo $objectType['ObjectType']['object_type']?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Object Type',   '/object_type/edit/' . $objectType['ObjectType']['id_object_type']) ?> </li>
+	<li><?php echo $html->link('Delete Object Type', '/object_type/delete/' . $objectType['ObjectType']['id_object_type'], null, 'Are you sure you want to delete: id ' . $objectType['ObjectType']['id_object_type'] . '?') ?> </li>
+	<li><?php echo $html->link('List Object Type',   '/object_type/index') ?> </li>
+	<li><?php echo $html->link('New Object Type',	'/object_type/add') ?> </li>
+</ul>
+
+</div>

@@ -1,0 +1,100 @@
+(AbB_19,4,^25^ li-ib-lu-nim^
+(AbB_19,4,^26^ ò &lt;DI›:&gt;ri-im-D:I›KUR^
+(AbB_19,4,^27^ li-il-li-kam^
+(AbB_19,5,^1^ a-na &lt;DI›:&gt;nu-ór-D:UTU^
+(AbB_19,5,^2^ qè-bè-ma^
+(AbB_19,5,^3^ um-ma &lt;DI›:&gt;D:EN.ZU-be-el-ap-lim-ma^
+(AbB_19,5,^4^ D:UTU li-ba-al-li-iø-ka^
+(AbB_19,5,^5^ UÌ.UDU.ŸI.A &lt;DI›:&gt;DUMU-D:I›KUR &lt;B:&gt;DAM.[x]^
+(AbB_19,5,^6^ ‹a-ó-ma-an-ni-KUM?^
+(AbB_19,5,^7^ &lt;te&gt;&TA!$-er-‹um^
+(AbB_19,5,^8^ 1 UDU la-a i-ma-øi^
+(AbB_19,6,^1^ a-na &lt;DI›:&gt;D:EN.ZU-i-din-nam^
+(AbB_19,6,^2^ qè-bè-ma^
+(AbB_19,6,^3^ um-ma &lt;DI›:&gt;D:AMAR.U[TU]-mu-‹a-lim-ma^
+(AbB_19,6,^4^ D:UTU ò D:AMAR.U[TU] li-ba-al-li-øó-ka^
+(AbB_19,6,^5^ ki-ma ti-du-ó &lt;DI›:&gt;[⁄]èl-lè-D:UTU &lt;B:&gt;UGULA_só-ti-i-im^
+(AbB_19,6,^6^ e-pè-i‹ ⁄[è]-bu-ti-ia^
+(AbB_19,6,^7^ i-nu-ma a-‹a-pa-ru-‹um^
+(AbB_19,6,^8^ ⁄i-bu-ti ma-di-i‹ i-pu-u‹^
+(AbB_19,6,^9^ a-wa-ti-‹u ma÷-ri-ka^
+(AbB_19,6,^10^ li-i‹-ku-un-ma^
+(AbB_19,6,^11^ di-nam ki-ma ⁄i-im-da-at be-li-ia^
+(AbB_19,6,^12^ i-‹a-ri-i‹ ‹u-÷i-iz-zu^
+(AbB_19,7,^1^ a-na &lt;DI›:&gt;BAL.A^
+(AbB_19,7,^2^ qè-bè-ma^
+(AbB_19,7,^3^ um-ma &lt;DI›:&gt;ku-ub-bu-ti-ia-ma^
+(AbB_19,7,^4^ D:UTU li-ba-al-li-iø-ka^
+(AbB_19,7,^5^ a-di a-al-la-ka-ak-kum^
+(AbB_19,7,^6^ DI›:ta-ri-ba-tum^
+(AbB_19,7,^7^ la tu-da-ab-ba-a[b]^
+(AbB_19,8,^1^ a-na &lt;DI›:&gt;‹u-mu-um-DINGIR^
+(AbB_19,8,^2^ qè-bè-ma^
+(AbB_19,8,^3^ um-ma &lt;DI›:&gt;‹u-mu-um-li-ib-‹i-ma^
+(AbB_19,8,^4^ D:UTU li-ba-al-li-iø-ka^
+(AbB_19,8,^5^ 0,2 ‹e-a-am ^
+(AbB_19,8,^6^ a-na DI›:ç-lè-i-din-nam^
+(AbB_19,8,^7^ i-di-in^
+(AbB_19,8,^8^ ‹e-um a-na sÅ-bu-tim^
+(AbB_19,8,^9^ la ta-ka-la-‹u^
+(AbB_19,9,^1^ a-na &lt;DI›:&gt;D:EN.ZU-i-ri-ba-am^
+(AbB_19,9,^2^ qè-bè-ma^
+(AbB_19,9,^3^ um-ma &lt;DI›:&gt;D:UTU-ma-gir-m[˝a˛]^
+(AbB_19,9,^4^ D:UTU a‹-‹um-mi-ia^
+(AbB_19,9,^5^ MU.3600.KAM li-ba-al-li-iø-ka^
+(AbB_19,9,^6^ ma-ar-ti a-na mu-ti-im^
+(AbB_19,9,^7^ a-na-di-im-ma^
+(AbB_19,9,^8^ mi-im-ma ‹a a-na-di-[n]u-ó^
+(AbB_19,9,^9^ ó-la i-‹u^
+(AbB_19,9,^10^ a-nu-um-ma a-n[˝a˛] ⁄[e]-ri-ka^
+(AbB_19,9,^11^ DI›:D:UTU-÷a-zi-ir^
+(AbB_19,9,^12^ DI›:D:EN.ZU-ma-lik^
+(AbB_19,9,^13^ ò &lt;DI›:&gt;Ü-ra-ra-RA!&lt;-BI&gt;^
+(AbB_19,9,^14^ qÄ-du-˝u˛[m] [x-x-x]^
+(AbB_19,9,^15^ aø-øa-˝a˛[r-d]a-ku\^
+(AbB_19,9,^16^ -‹u-nu-ti ˝i˛-[n]˝a˛ ó-mi-im^
+(AbB_19,9,^17^ ‹a pa-ni-‹u-nu-ó^
+(AbB_19,9,^18^ ta-ma-ru [x.]UD ‹a qÄ-ti^
+(AbB_19,9,^19^ le-qç-e-ma^
+(AbB_19,9,^20^ 2 SAG:®R^
+(AbB_19,9,^21^ 3 SAG:G±ME^
+(AbB_19,9,^22^ ‹a-ma-am-ma ‹u-bi-la-am^
+(AbB_19,9,^23^ ap-pu-tum ^
+(AbB_19,10,^1^ a-na &lt;DI›:&gt;wa-tar-D:UTU^
+(AbB_19,10,^2^ qè-bè-ma^
+(AbB_19,10,^3^ um-ma &lt;DI›:&gt;DINGIR-‹u-ib-ni-‹u-ma^
+(AbB_19,10,^4^ D:UTU li-ba-al-li-iø-ka^
+(AbB_19,10,^5^ a-nu-um-ma a-na &lt;DI›:&gt;D:EN.ZU-mu-u‹-ta-al^
+(AbB_19,10,^6^ øup-pè u‹-ta-bi-lam^
+(AbB_19,10,^7^ &lt;B:&gt;DAM.G£R.ME› ‹a il-li-ku-nim^
+(AbB_19,10,^8^ pa-ni-‹u-nu^
+(AbB_19,10,^9^ ⁄a-ab-ta-am-ma^
+(AbB_19,10,^10^ a-la-kam li-pu-‹u-nim^
+(AbB_19,11,^1^ a-na &lt;DI›:&gt;na-bi-D:U[TU qè-bè-ma]^
+(AbB_19,11,^2^ um-ma &lt;DI›:&gt;D:L£[L-na-⁄i-ir-ma]^
+(AbB_19,11,^3^ D:UTU ò D:AMAR.UTU l[i-ba-al-li-ø]ó-ka^
+(AbB_19,11,^4^ a‹-‹um 1/2 MA.NA K[¨.BABBAR ...]-ia^
+(AbB_19,11,^5^ a-na ®.GI› ‹a-[mi-˝i˛]m^
+(AbB_19,11,^6^ ó-‹a-bi-la-a[k-k]um-m[a]^
+(AbB_19,11,^7^ øup-pa-ka ‹a t[u-‹]a-bi-lam e‹-[me]^
+(AbB_19,11,^8^ i‹-tu-ma ®.GI[›] ta-Äs-÷u-r[u-ma]^
+(AbB_19,11,^9^ la ta-mu-ru K¨.BABBAR ‹u-a-ti^
+(AbB_19,11,^10^ i-na qÄ-ti-ka-ma ó-⁄ó-ur^
+(AbB_19,11,^11^ a-na K¨.BABBAR na-⁄a-ri-im^
+(AbB_19,11,^12^ la te-eg-gu^
+(AbB_19,11,^13^ k[˝i˛-m]˝a˛ [a‹]-pu-ra-ak-kum^
+(AbB_19,11,^14^ [..›E.G]I›.® i-na bi-tim^
+(AbB_19,11,^15^ [e-zi-i]m-ma^
+(AbB_19,11,^16^ [‹i-t]a-at ›E.GI›.® ‹[a ...]^
+(AbB_19,11,^17^ ò ‹a i‹-tu &lt;ON:&gt;sa-a[m-ni-i:KI]^
+(AbB_19,11,^18^ ub-lu-ni-ik-ku[m]^
+(AbB_19,11,^19^ i-nu-ma a-na 1 GUR ›E.GI›.® ⁄a-÷a-tim^
+(AbB_19,11,^20^ [‹]a 1/2 GßN K¨.BABBAR ‹e-am^
+(AbB_19,11,^21^ [t]˝a˛-na-ad-di-nu^
+(AbB_19,11,^22^ [..x] ›E.GI›.® ‹a a‹-pu-ra-ak-kum^
+(AbB_19,11,^23^ [i-n]a bi-tim e-zi-im-ma^
+(AbB_19,11,^24^ [g]a-me-er ›E.GI›.®^
+(AbB_19,11,^25^ a-na ⁄a-÷a-tim i-di-in^
+(AbB_19,11,^26^ lu ti-de ò øeÈ-em ›E.GI›.®^
+(AbB_19,11,^27^ ma-la a-na ⁄a-÷a-tim^
+(AbB_19,11,^28^ ta-na-ad-di-nu^

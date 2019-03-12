@@ -1,0 +1,70 @@
+8
+
+dir
+374
+svn://192.168.2.102/zihos/trunk/app/webroot/js/scriptaculous-js-1.7.0/test
+svn://192.168.2.102
+
+
+
+2007-08-09T07:15:29.237140Z
+105
+icebat
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+unit
+dir
+
+functional
+dir
+
+test.css
+file
+
+
+
+
+2007-08-09T09:06:28.000000Z
+b01684fb1facf401bd7e298305236037
+2007-08-09T07:15:29.237140Z
+105
+icebat
+
+run_unit_tests.html
+file
+
+
+
+
+2007-08-09T09:06:28.000000Z
+c18e2b877f1f7b281ea9db7f2083a2b7
+2007-08-09T07:15:29.237140Z
+105
+icebat
+
+run_functional_tests.html
+file
+
+
+
+
+2007-08-09T09:06:28.000000Z
+4613b293901bd902f08dd2e0a0b9d3bd
+2007-08-09T07:15:29.237140Z
+105
+icebat
+

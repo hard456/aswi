@@ -1,0 +1,306 @@
+/* obecne */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial Unicode MS, Lucida Sans Unicode, TITUS Cyberbit Basic, Code2000, Arial, sans-serif;
+	background-color: #FFFFEE;
+	text-align: left;
+	font-size: 85%;
+}
+
+h2 {
+	color: #cadaef;
+}
+
+.cleaner {
+	clear: both;
+}
+
+.accesdenied {
+	border: 1px solid black;
+	margin: 0.5em;
+	padding: 1em;
+	width: 50%;
+	background-color: rgb(212, 1, 4);
+	color: black;
+}
+
+p {
+	padding: 0.3em;
+}
+
+hr {
+	color: #0A246A;
+	background-color: #0A246A;
+	margin: 1.5em;
+	height: 1px;
+	size: 1px;
+	border: 0px;
+}
+
+/* obal div */
+#all {
+	margin: 5px;
+}
+/* hlavicka */
+#pruh {
+	background: url(../img/OBTClogoJP.gif) left top no-repeat #006666;
+	padding-left: 180px; /*podle obrazku*/
+	min-height: 80px;height: 80px;overflow: visible;
+}
+#nadpiscontainer {
+	text-align: center;
+}
+#logo {
+	float: right;
+}
+
+h1.hlavni {
+	font-size: 250%;
+	color: White;
+	padding-top: 20px;
+	margin: 0;
+}
+h1.hlavni a {
+	text-decoration: none;
+	color: White;
+}
+
+
+/* dve menu pod hlavickou */
+#horninavigacecontainer {
+	padding: .2em 0;
+	margin: 0;
+	background-color: #036;
+	color: White;
+	width: 100%;
+	text-align: center;
+}
+#dolninavigacecontainer {
+	padding: .2em 0;
+	margin: 0;
+	background-color: #EEEECC;
+	color: Black;
+	width: 48em;
+	float: right;
+	text-align: right;
+}
+#adminnavigacecontainer {
+	padding: .2em 0;
+	margin: 0;
+	background-color: #036;
+	color: White;
+	/*width: 110%;*/
+	text-align: center;
+	position: relative;
+	/*left: -40px;*/
+}
+
+.navigace {
+	list-style-type: none;
+}
+.navigace li {
+	display: inline;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+.horni li a {
+	color: White;
+	text-decoration: none;
+}
+.horni li a:visited {
+	color: #EEE8AA;
+}
+.horni li a:hover {
+	color: #E6E6FA;
+}
+.dolni li a {
+	color: Blue;
+	text-decoration: none;
+}
+.dolni li a:visited {
+	color: #9400D3;
+}
+.dolni li a:hover {
+	color: Black;
+}
+
+/* importovano ze starych stylu */
+
+/* FORM */
+form{margin:0;}
+fieldset,legend{border:1px solid #003366;}
+fieldset{margin:10px 0; padding:10px; background:#f7f7dd;}
+legend{padding:3px 7px; background:#003366;}
+
+.input-legend{
+	color: White;
+	font-size: 10px;
+}
+
+.noborder, .noname {
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.note {
+	position: relative;
+	top: 0;
+	right: 0;
+	width: 425px;
+	background-color: #f7f7dd;
+	z-index: 99;
+	border: 1px solid #003366
+}
+.note h2 {
+	position: absolute;
+	font-size: 11px;
+	background: #003366;
+	color: #fff;
+	margin: 0;
+	padding: 0.3em 0.7em;
+	text-align: center;
+}
+.note .cont {
+	padding: 30px 10px 10px 10px;
+}
+
+
+.note .close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	margin: 0
+}
+/*  konec importu */
+
+.note table, tr, td {
+	border: 0px;
+	border-right: 0px;
+	background-color: #F7F7DD;
+}
+
+/* paticka */
+#footer {
+	clear: both;
+	width: 97%;
+	background-color: #003366;
+	color: #eeeecc;
+	text-align: center;
+	margin-top: 6em;
+}
+
+
+/* titulka */
+
+.blue {
+	color: Blue;
+}
+
+.smaller {
+	font-size: 80%;
+}
+
+#indexcontent input, textarea {
+	display:inline;
+}
+
+#indexcontent p {
+	font-size: 90%;
+}
+
+#indexcontent p.vyznamne {
+	font-weight:bold;
+	font-stretch: wider;
+}
+
+#indexcontent p.green {
+	background-color: #006666;
+	color: White;
+}
+
+#indexcontent p.gray {
+	background-color: #EEEECC;
+}
+
+/* formy  */
+fieldset table tr td {
+	border:0px;
+	text-align:left;
+}
+
+fieldset table {
+
+	background-color: #F7F7DD;
+	border: 0px;
+	width: auto;
+	margin: 0em;
+}
+
+fieldset input, textarea {
+	display: inline;
+}
+
+fieldset label {
+	display: inline;
+	float:none;
+}
+
+fieldset hr {
+	margin: 0.4em;
+}
+
+/* tridy */
+
+.line {
+
+}
+
+.lineno {
+
+}
+
+.linefound {
+	border-bottom:medium dotted;
+	font-weight:bold;
+}
+
+.found {
+	color:Green;
+	font-weight:bold;
+}
+
+/* raditko - strankovani */
+
+.raditko {
+	font-size: 75%;
+}
+.raditko .aktualni {
+	font-size: 180%;
+}
+.raditko .okoloakt {
+	font-size: 130%;
+}
+.raditko a {
+	font-weight: bold;
+	text-decoration: none;
+	color: Blue;
+}
+.raditko a:visited {
+	color: Maroon;
+}
+
+.translitrow {
+	margin:0px;
+	padding: 0px;
+}
+
+.pacicka {
+	cursor: pointer;
+}

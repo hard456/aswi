@@ -1,0 +1,163 @@
+<?
+include "autorizace.inc.php";
+
+function print_line($t_translation, $t_item, $t_class, $t_context, $t_source)
+{
+    global $p_translation, $p_item, $p_class, $p_context;
+
+        	    echo "<tr>";
+				if ($t_translation == $p_translation) {
+					$t_translation = "";
+					if ($t_item == $p_item) {
+						$t_item = "";
+						if ($t_class == $p_class) {
+							$t_class = "";
+							if ($t_context == $p_context) {
+								$t_context = "";
+							}
+							else {
+								$p_context = $t_context;
+							}
+						}
+						else {
+							$p_class = $t_class;
+							$p_context = $t_context;
+						}
+					}
+					else {
+						$p_item = $t_item;
+						$p_class = $t_class;
+						$p_context = $t_context;
+					}
+				}
+				else {
+					$p_translation = $t_translation;
+					$p_item = $t_item;
+					$p_class = $t_class;
+					$p_context = $t_context;
+				}
+	            echo "<td><FONT size=4 color=\"#9bbad6\"><b>$t_translation</b></font></td>";    
+    	        echo "<td><i>$t_item</i></td>";    
+        	    echo "<td>$t_class</td>";    
+	            echo "<td>$t_context</td>";    
+    	        echo "<td>$t_source</td>";    
+        	    echo "</tr>";    
+
+}
+
+ksa_authorize();
+if ($auth_level == 0) ksa_unauthorized();
+?>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <LINK REL=StyleSheet HREF="/utf/obtc1.css" TYPE="text/css" MEDIA="screen, print">
+  <title>English - Old Babylonian Dictionary</title>
+</head>
+<body>
+<?
+do
+{
+  @$connection = Pg_Connect ("user=dbowner dbname=klinopis");
+  if (!$connection):
+    echo "Database reported: I am lazy and busy!";
+    break;
+  endif;
+  echo "<H4 align=center>English - Old Babylonian Dictionary</H4>";
+  @$result = @Pg_Exec ("SELECT * FROM c_autor ORDER BY menu, kod");
+	if (($pocethesel = @Pg_NumRows ($result)) > 0)
+	{
+ 	 echo ("Authors of the dictionary and members of the Cuneiform Circle:");
+		for ($i = 0; $i < $pocethesel; $i++)
+				{
+				List ($kod, $autor) = Pg_Fetch_Row ($result, $i);
+				echo "$autor = <A HREF=\"/utf/utf/staff.html#$kod\">$kod</A>";
+				}
+				echo "</table>";
+	}
+		else
+		echo "really no authors?";
+//	}
+  echo "<H4 align=center><small>English - Old Babylonian Dictionary</small></H4>";
+ $dotaz = "select id_translation, translation from translation where translation LIKE '$chain%' AND translation != '' ORDER BY translation";
+  $result_trans = pg_exec($dotaz);
+  $rows_i = Pg_NumRows($result_trans);
+  if ($rows_i > 0) {
+    echo "<table  bgcolor=\"#ecece6\" border=1>\n";
+    echo "<tr>\n<td class=td3>translation</td>\n<td class=td3>item</td>\n<td class=td3>classification</td>\n<td class=td3>context</td>\n<td class=td3>source</td></tr>\n";
+	$p_translation = "";
+	$p_item = "";
+	$p_class = "";
+	$p_context = "";
+  	for ($i = 0 ; $i < $rows_i; $i++) {
+      List($id_translation, $translation)= Pg_Fetch_Row ($result_trans, $i, PGSQL_NUM);
+      $dotaz = "select WORD.id_word, item, ref_word from MEANING left join WORD on (MEANING.id_word = WORD.id_word) where id_translation = $id_translation order by item";
+      //echo $dotaz;
+      $result_word = pg_exec($dotaz);
+      $rows_j = Pg_NumRows($result_word);
+	  for ($j = 0; $j < $rows_j; $j++) {
+          List($id_word, $item, $ref_word)= Pg_Fetch_Row ($result_word, $j, PGSQL_NUM);
+          $dotaz = "select CLASSIFICATION.id_classification, class, context, source from CLASSIFICATION left join CONTEXT on (CLASSIFICATION.id_classification = CONTEXT.id_classification) left join SOURCE on (CONTEXT.id_context = SOURCE.id_context) where id_word = $id_word order by class, context, source";
+	      $result_class = pg_exec($dotaz);
+	      $rows_k = Pg_NumRows($result_class);
+		  if ($rows_k > 0) {
+		  	  for ($k = 0; $k < $rows_k; $k++) {
+		      	List($id_classification, $class, $context, $source)= Pg_Fetch_Row ($result_class, $k, PGSQL_NUM);
+				$t_translation = $translation;
+				$t_item = $item;
+				$t_class = $class;
+				$t_context = $context;
+				print_line($t_translation, $t_item, $t_class, $t_context, $source);
+			  }
+		  }
+		  else {
+				$t_translation = $translation;
+				$t_item = $item;
+				$t_class = "";
+				$t_context = "";
+				print_line($t_translation, $t_item, $t_class, $t_context, "");
+		  }
+          $dotaz = "select item from WORD where ref_word = $id_word order by item";
+	      $result_ref = pg_exec($dotaz);
+          $rows_k = Pg_NumRows($result_ref);
+		  if ($rows_k > 0) {
+		  	  for ($k = 0; $k < $rows_k; $k++) {
+		      	List($ref_item)= Pg_Fetch_Row ($result_ref, $k, PGSQL_NUM);
+				$t_translation = $translation;
+				$t_item = $ref_item;
+				$t_class = "";
+				$t_context = "";
+				print_line($t_translation, $t_item, $t_class, $t_context, "");
+			  }
+		  }
+
+	  }
+
+      $dotaz = "select WORD.id_word, item, ref_word, id_classification, class from CLASSIFICATION left join WORD on (CLASSIFICATION.id_word = WORD.id_word) where id_translation = $id_translation AND id_translation != 0 order by item, class";
+      //echo $dotaz;
+	  $result_word = pg_exec($dotaz);
+      $rows_j = Pg_NumRows($result_word);
+	  for ($j = 0; $j < $rows_j; $j++) {
+          List($id_word, $item, $ref_word, $id_classification, $class)= Pg_Fetch_Row ($result_word, $j, PGSQL_NUM);
+          $dotaz = "select CLASSIFICATION.id_classification, class, context, source, phrase from CLASSIFICATION left join CONTEXT on (CLASSIFICATION.id_classification = CONTEXT.id_classification) left join SOURCE on (CONTEXT.id_context = SOURCE.id_context) where CLASSIFICATION.id_classification = $id_classification order by class, context, source";
+	      $result_class = pg_exec($dotaz);
+	      $rows_k = Pg_NumRows($result_class);
+	  	  for ($k = 0; $k < $rows_k; $k++) {
+	      	List($id_classification, $class, $context, $source, $phrase)= Pg_Fetch_Row($result_class, $k, PGSQL_NUM);
+
+			$t_translation = $translation;
+	        if ($phrase != "") $t_item = "$item, $phrase";
+		    else $t_item = $item;
+			$t_class = $class;
+			$t_context = $context;
+				print_line($t_translation, $t_item, $t_class, $t_context, $source);
+		  }
+	  }
+    }
+  }
+  Pg_Close ($connection);
+} while(false); 
+?>
+</table>
+</body>
+</html>

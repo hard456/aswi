@@ -1,0 +1,27 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="objectType">
+<h2>List Object Type</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Id Object Type</th>
+	<th>Object Type</th>
+	<th>Actions</th>
+</tr>
+<?php foreach ($objectType as $objectType): ?>
+<tr>
+	<td><?php echo $objectType['ObjectType']['id_object_type']; ?></td>
+	<td><?php echo $objectType['ObjectType']['object_type']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('View','/object_type/view/' . $objectType['ObjectType']['id_object_type'])?>
+		<?php echo $html->link('Edit','/object_type/edit/' . $objectType['ObjectType']['id_object_type'])?>
+		<?php echo $html->link('Delete','/object_type/delete/' . $objectType['ObjectType']['id_object_type'], null, 'Are you sure you want to delete id ' . $objectType['ObjectType']['id_object_type'])?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('New Object Type', '/object_type/add'); ?></li>
+</ul>
+</div>

@@ -1,0 +1,28 @@
+<div class="userLog">
+<h2>List User Log for user: <?php echo $html->link($userLog[0]['CakeUser']['username'], '/cake_users/view/' .$userLog[0]['CakeUser']['id'])?></h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Logged</th>
+	<th>Ip</th>
+	<th>Client</th>
+	<th>Cookie</th>
+	<!--th>User</th-->
+
+</tr>
+<?php foreach ($userLog as $user_Log): ?>
+<tr>
+	<td><?php echo $user_Log['UserLog']['logged']; ?></td>
+	<td><?php echo $user_Log['UserLog']['ip']; ?></td>
+	<td><?php echo $user_Log['UserLog']['client']; ?></td>
+	<td><?php echo $user_Log['UserLog']['cookie']; ?></td>
+	<!--td>&nbsp;<?php echo $html->link($user_Log['CakeUser']['username'], '/cake_users/view/' .$user_Log['CakeUser']['id'])?></td-->
+
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<?php echo $html->link("Back to user: ".$userLog[0]['CakeUser']['username'], '/cake_users/view/' .$userLog[0]['CakeUser']['id'])?>
+</ul>
+</div>

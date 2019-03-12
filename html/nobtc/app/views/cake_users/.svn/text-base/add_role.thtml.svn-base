@@ -1,0 +1,22 @@
+<h2>Administrace - Přidělení role uživateli</h2>
+
+<form action="<?php echo $html->url('/cake_users/add_role'); ?>" method="post">
+<div class="required">
+	<?php echo $form->labelTag('CakeUserGroup/user_id', 'Uživatel');?>
+ 	<?php echost($html->selectTag('CakeUserGroup/user_id', $users, $html->tagValue('CakeUserGroup/user_id'), array(), array(), false));?>
+	<?php echo $error->showMessage('CakeUserGroup/user_id') ?>
+</div>
+<div class="required">
+	<?php echo $form->labelTag('CakeUserGroup/group_id', 'Role');?>
+ 	<?php echost($html->selectTag('CakeUserGroup/group_id', $groups, $html->tagValue('CakeUserGroup/group_id'), array(), array(), false));?>
+	<?php echo $error->showMessage('CakeUserGroup/group_id') ?>
+</div>
+
+<div class="submit">
+	<?php echo $html->submit('Přiřaď roli');?>
+</div>
+</form>
+
+<ul class="actions">
+	<li><?php echo $html->link('Seznam uživatelů', '/cake_users/index')?></li>
+</ul>

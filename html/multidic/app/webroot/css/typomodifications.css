@@ -1,0 +1,93 @@
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	background-color: #fff;
+	/*font-size: 93%;*/
+   font-size: 83%;
+	/*color: #555753;*/ 
+	color: #252723;
+}
+
+/* odkazy */
+a {
+	text-decoration: none;
+	color: #000;
+	xborder-bottom: Black dotted 1px;
+	xborder-top: #FFFFC8 solid 1px;
+	xbackground-color: #FFFFC8;
+	padding: 0px 5px 0px 5px;
+	line-height: 1em;
+	/*white-space: nowrap;*/
+}
+
+a[href ^="https://"],
+a[href ^="http://"],
+a.external {
+	background: url(external.png) no-repeat center right;
+	padding-right: 16px;
+}
+a[href ^="mailto:"] {
+	background: url(mail.png) no-repeat center right;
+	padding-right: 16px;
+}
+
+a:link {}
+a:visited {
+   xborder-bottom: Navy dotted 1px;
+	xbackground-color: #F7F6EB;
+}
+a:active {}
+a:hover {
+	text-decoration: none;
+	xborder-bottom: Navy solid 1px;
+	xborder-top: 1px solid Navy;
+	background-color: #DCE3F6;
+}
+blockquote a {
+   /*border-top: Red dotted 1px;*/
+	background-color: #F7F6EB;
+}
+
+
+/* modifikace*/
+
+h1 {
+	text-align: center;
+	font-variant: small-caps;
+	margin-bottom: 3%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: georgia, "Times New Roman", Times, serif;
+}
+
+p {
+	padding-left: 1em;
+}
+
+h1 + p:first-letter,
+h2 + p:first-letter,
+h2 + div + p:first-letter,
+h3 + p:first-letter, 
+h4 + p:first-letter, 
+h5 + p:first-letter, 
+h6 + p:first-letter,
+blockquote:first-letter
+{
+	font-size: 120%;
+	font-weight: bold;
+	font-family: georgia, "Times New Roman", Times, serif;
+}
+
+
+blockquote {
+	margin: 2em;
+	padding: 2em;
+	background: #F7F6EB;
+	font-style: italic;
+}
+
+pre {
+	border-left: 22px solid #F7F6EB;
+	margin-left: 1em;
+	padding-left: 1em;
+}

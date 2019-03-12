@@ -1,0 +1,100 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/scripts/templates/skel
+svn://192.168.2.102
+
+
+
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+tmp
+dir
+
+vendors
+dir
+
+plugins
+dir
+
+webroot
+dir
+
+models
+dir
+
+config
+dir
+
+controllers
+dir
+
+app_model.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+0761764507d02ef40622f215910d1798
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+app_controller.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+9ed64d72deb85ebdabd5a082bf2d4ac8
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+.htaccess
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+e736a3030bfb05ba3a5198af35359fc3
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+views
+dir
+
+index.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+61ede3450fff80fdd3e3d34abf55ff59
+2007-07-02T10:19:23.798500Z
+7
+jara
+

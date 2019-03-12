@@ -1,0 +1,18 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<div class="bookType">
+<h2>View Book Type</h2>
+
+<dl>
+	<dt>Id Book Type</dt>
+	<dd>&nbsp;<?php echo $bookType['BookType']['id_book_type']?></dd>
+	<dt>Book Type</dt>
+	<dd>&nbsp;<?php echo $bookType['BookType']['book_type']?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit Book Type',   '/book_type/edit/' . $bookType['BookType']['id_book_type']) ?> </li>
+	<li><?php echo $html->link('Delete Book Type', '/book_type/delete/' . $bookType['BookType']['id_book_type'], null, 'Are you sure you want to delete: id ' . $bookType['BookType']['id_book_type'] . '?') ?> </li>
+	<li><?php echo $html->link('List Book Type',   '/book_type/index') ?> </li>
+	<li><?php echo $html->link('New Book Type',	'/book_type/add') ?> </li>
+</ul>
+
+</div>

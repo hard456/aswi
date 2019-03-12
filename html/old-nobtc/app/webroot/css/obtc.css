@@ -1,0 +1,89 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	text-align: left;
+}
+
+#all {
+	margin: 5px;	
+}
+
+
+/* hlavicka */
+#pruh {
+	background: url(../img/OBTClogoJP.gif) left top no-repeat #006666;
+	padding-left: 180px; /*podle obrazku*/
+	min-height: 80px;height: 80px;overflow: visible;
+}
+#nadpiscontainer {
+	text-align: center;
+}
+#logo {
+	float: right;
+}
+
+h1.hlavni {
+	font-size: 250%;
+	color: White;
+	padding-top: 20px;
+	margin: 0;
+}
+
+
+/* dve menu pod hlavickou */
+#horninavigacecontainer {
+	padding: .2em 0;
+	margin: 0;
+	background-color: #036;
+	color: White;
+	width: 100%;
+	text-align: center;
+}
+#dolninavigacecontainer {
+	padding: .2em 0;
+	margin: 0;
+	background-color: #EEEECC;
+	color: Black;
+	width: 48em;
+	float: right;
+	text-align: right;
+}
+.navigace {
+	list-style-type: none;
+}
+.navigace li {
+	display: inline;
+}
+.horni li a {
+	color: White;
+	text-decoration: none;
+}
+.horni li a:visited {
+	color: #EEE8AA;
+}
+.horni li a:hover {
+	color: #E6E6FA;
+}
+.dolni li a {
+	color: Blue;
+	text-decoration: none;
+}
+.dolni li a:visited {
+	color: #9400D3;
+}
+.dolni li a:hover {
+	color: Black;
+}
+
+
+/* paticka */
+#footer {
+	clear: both;
+	width: 97%;
+	background-color: #003366;
+	color: #eeeecc;
+	text-align: center;
+}

@@ -1,0 +1,27 @@
+<h2>Administrace - Seznam uživatelů</h2>
+
+<table cellpadding="0" cellspacing="0">
+<tr>
+	<th>Uživatel</th>
+	<th>Login</th>
+	<th>Email</th>
+	<th>Akce</th>
+</tr>
+<?php foreach ($users as $user): ?>
+<tr>
+	<td><?php echo $user['CakeUser']['username']; ?></td>
+	<td><?php echo $user['CakeUser']['login']; ?></td>
+	<td><?php echo $user['CakeUser']['email']; ?></td>
+	<td class="actions">
+		<?php echo $html->link('Detail', '/cake_users/view/' . $user['CakeUser']['id'])?>
+		<?php echo $html->link('Uprav', '/cake_users/edit/' . $user['CakeUser']['id'])?>
+		<?php echo $html->link('Smaž', '/cake_users/delete/' . $user['CakeUser']['id'], null, 'Opravdu chcete uživatele smazat?')?>
+	</td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<ul class="actions">
+	<li><?php echo $html->link('Přidej uživatele', '/cake_users/add'); ?></li>
+	<li><?php echo $html->link('Přiřaď uživateli roli', '/cake_users/add_role'); ?></li>
+</ul>

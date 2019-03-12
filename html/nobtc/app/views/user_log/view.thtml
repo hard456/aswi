@@ -1,0 +1,27 @@
+<div class="userLog">
+<h2>View User Log</h2>
+
+<dl>
+	<dt>Id</dt>
+	<dd>&nbsp;<?php echo $userLog['UserLog']['id']?></dd>
+	<dt>Logged</dt>
+	<dd>&nbsp;<?php echo $userLog['UserLog']['logged']?></dd>
+	<dt>Ip</dt>
+	<dd>&nbsp;<?php echo $userLog['UserLog']['ip']?></dd>
+	<dt>Client</dt>
+	<dd>&nbsp;<?php echo $userLog['UserLog']['client']?></dd>
+	<dt>Cookie</dt>
+	<dd>&nbsp;<?php echo $userLog['UserLog']['cookie']?></dd>
+	<dt>User</dt>
+	<dd>&nbsp;<?php echo $html->link($userLog['CakeUser']['username'], '/cake_user/view/' .$userLog['CakeUser']['id'])?></dd>
+</dl>
+<ul class="actions">
+	<li><?php echo $html->link('Edit User Log',   '/user_log/edit/' . $userLog['UserLog']['id']) ?> </li>
+	<li><?php echo $html->link('Delete User Log', '/user_log/delete/' . $userLog['UserLog']['id'], null, 'Are you sure you want to delete: id ' . $userLog['UserLog']['id'] . '?') ?> </li>
+	<li><?php echo $html->link('List User Log',   '/user_log/index') ?> </li>
+	<li><?php echo $html->link('New User Log',	'/user_log/add') ?> </li>
+	<li><?php echo $html->link('List Cake User', '/cake_user/index/')?> </li>
+	<li><?php echo $html->link('New Cake User', '/cake_user/add/')?> </li>
+</ul>
+
+</div>

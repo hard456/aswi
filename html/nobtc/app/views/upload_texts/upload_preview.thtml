@@ -1,0 +1,32 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<form action="<?php echo $html->url('/upload_texts/upload'); ?>"  method="post" enctype="multipart/form-data">
+<h3>Analisys of file <?php echo $soubor_name ?></h3>
+<h3>Please check out all data!!!</h3>
+<h3>If any mistakes, please do not save to database.</h3>
+
+Total: <?php echo count($transliterations['translits']) ?> transliteration(s).<br />
+
+<?php
+$preview = true;
+foreach($transliterations['translits'] as $key=>$POST ) {
+  //p_g($POST);
+  echo "Book and chapter: $key <br /> \n";
+  echo $this->renderElement('transliteration_data_card',
+  				array('POST' => $POST)
+  );
+  echo "<br /><br />";
+}
+
+//p_g($transliterations);
+
+echo get_array_of_hiddens_html($transliterations);
+
+//pole hidnu
+?>
+
+
+<input type="submit" name="actionButton" value="<?php echo  htmlspecialchars('Next Step ->'); ?>" />
+
+</form>
+
+<?php echo pr($transliterations)?>

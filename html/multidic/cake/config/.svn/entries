@@ -1,0 +1,52 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/config
+svn://192.168.2.102
+
+
+
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+paths.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+a95e1f2e7368ed8e18d27e56b667f436
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+config.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+c2b1d80bd9b68de76eb9b428481e4bd0
+2007-07-02T10:19:23.798500Z
+7
+jara
+

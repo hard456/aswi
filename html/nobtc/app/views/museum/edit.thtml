@@ -1,0 +1,22 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>Edit Museum</h2>
+<form action="<?php echo $html->url('/museum/edit/'.$html->tagValue('Museum/id_museum')); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('Museum/museum', 'Museum');?>
+ 	<?php echo $html->input('Museum/museum', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Museum/museum', 'Please enter the Museum.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Museum/place', 'Place');?>
+ 	<?php echo $html->input('Museum/place', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Museum/place', 'Please enter the Place.');?>
+</div>
+<?php echo $html->hidden('Museum/id_museum')?>
+<div class="submit">
+	<?php echo $html->submit('Save');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('Delete','/museum/delete/' . $html->tagValue('Museum/id_museum'), null, 'Are you sure you want to delete: id ' . $html->tagValue('Museum/id_museum'));?>
+<li><?php echo $html->link('List Museum', '/museum/index')?></li>
+</ul>

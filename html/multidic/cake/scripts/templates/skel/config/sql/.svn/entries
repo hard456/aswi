@@ -1,0 +1,52 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/scripts/templates/skel/config/sql
+svn://192.168.2.102
+
+
+
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+db_acl.sql
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+3b37d5df854471d46753082ce3eba593
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+sessions.sql
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+e506979988d92a868da25c5707f97cc0
+2007-07-02T10:19:23.798500Z
+7
+jara
+

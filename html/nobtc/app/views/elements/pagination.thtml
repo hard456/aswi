@@ -1,0 +1,27 @@
+<div id='pagination'>
+<?php
+	$result = $pagination->setPaging($paging);
+	if ($paging['total'] == 0) {
+		echo 'No Records';
+	}
+    else if ($result) {
+    	//$leftArrow = $html->image("nav/arrowleft.gif", Array('height'=>15));
+	    //$rightArrow = $html->image("nav/arrowright.gif", Array('height'=>15));
+    	$leftArrow = "<<";
+    	$rightArrow = ">>";
+
+    	$prev = $pagination->prevPage($leftArrow,false);
+    	$prev = $prev?$prev:$leftArrow;
+    	$next = $pagination->nextPage($rightArrow,false);
+    	$next = $next?$next:$rightArrow;
+
+	    $pages = $pagination->pageNumbers(" | ");
+
+    	echo '<span class="floatLeft">';
+    	echo $pagination->resultsPerPage('Records per page: ', ' ').'<br />';
+    	echo $pagination->result("Listed: ", " of ")."<br />";
+    	echo $prev." ".$pages." ".$next;//."<br />";
+    	echo '</span>';
+    }
+?>
+</div>

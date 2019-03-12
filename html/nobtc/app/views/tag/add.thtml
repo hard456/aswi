@@ -1,0 +1,22 @@
+<h2>New Tag</h2>
+<form action="<?php echo $html->url('/tag/add/'.$selectedName); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('Tag/id_name', 'Name');?>
+ 	<?php echo $html->selectTag('Tag/id_name_neco', $names, $selectedName, array('disabled'=>'disabled'), array(), false);?>
+ 	<?php echo $html->hidden('Tag/id_name', array('value'=>$selectedName));?>
+	<?php echo $html->tagErrorMsg('Tag/id_name', 'Please select the Id Name.') ?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('Tag/tag', 'Tag');?>
+ 	<?php echo $html->input('Tag/tag', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('Tag/tag', 'Please enter the Tag.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Tag', '/tag/index')?></li>
+<li><?php echo $html->link('View Names', '/names/index/');?></li>
+<li><?php echo $html->link('Add Names', '/names/add/');?></li>
+</ul>

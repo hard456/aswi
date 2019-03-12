@@ -1,0 +1,1 @@
+a:3:{i:0;a:4:{s:4:"name";s:12:"id_name_line";s:4:"type";s:7:"integer";s:4:"null";s:2:"NO";s:7:"default";s:50:"nextval('public.name_line_id_name_line_seq'::text)";}i:1;a:4:{s:4:"name";s:7:"id_name";s:4:"type";s:7:"integer";s:4:"null";s:2:"NO";s:7:"default";N;}i:2;a:4:{s:4:"name";s:7:"id_line";s:4:"type";s:7:"integer";s:4:"null";s:2:"NO";s:7:"default";N;}}

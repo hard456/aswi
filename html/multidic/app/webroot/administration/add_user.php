@@ -1,0 +1,180 @@
+<?php
+
+require_once("./administration/user.php");
+
+if (!Empty($action) && $action == "insert_new_user") {
+
+  $zobrazit_znovu = true;
+  
+  if (Empty($name)) {
+    print_hlasku("Jméno musíte vyplnit");
+  }
+  else if (Empty($surname)) {
+    print_hlasku("Příjmení musíte vyplnit");
+  }
+  else if (Empty($email)) {
+    print_hlasku("E-mail musíte vyplnit");
+  }
+  else if (!ERegI("^[^.]+(\.[^.]+)*@([^.]+[.])+[a-z]{2,5}$", $email)) {
+    print_hlasku("E-mailová adresa není ve správném tvaru.");
+  }
+  else if (Empty($privileges)) {
+    print_hlasku("Práva musíte vyplnit");
+  }
+  else if ($privileges != 1 && $privileges != 2 && $privileges != 3) {
+    print_hlasku("Práva: Zadejte 1 = jen čtení, 2 = čtení i zápis nebo 3 = admin.");
+  }
+  else if (Empty($nick)) {
+    print_hlasku("Nick musíte vyplnit");
+  }
+  else if (Empty($password) || Empty($password2)) {
+    print_hlasku("Heslo i heslo pro kontrolu musíte vyplnit");
+  }
+  else if ($password != $password2) {
+    print_hlasku("Heslo a heslo pro kontrolu se neshoduje");
+  }
+  else {
+    if (nick_exists($nick)) {
+      print_hlasku("Uživatel s takovým nickem již existuje, zvolte si prosím jiný");
+    }
+    else {
+      insert_user($name, $surname, $city, $email, $nationality, $privileges, $nick, $password);
+      $zobrazit_znovu = false;
+    }
+  }
+}
+
+function znova($string) {
+  global $zobrazit_znovu;
+  if ($zobrazit_znovu)
+    echo ' value="'.$string.'"';
+}
+?>
+<script language="JavaScript">
+	function setFocus(object)
+	{
+	   	object.focus();
+	   	object.select();
+	}
+
+  function validate_new_user_form(form) {
+    new_user_form = form;
+
+    if (new_user_form.name.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.name);
+      return false;
+    }
+    if (new_user_form.surname.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.surname);
+      return false;
+    }
+    if (new_user_form.email.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.email);
+      return false;
+    }
+    if(window.RegExp) {
+      re = new RegExp("^[^.]+(\.[^.]+)*@([^.]+[.])+[a-z]{2,5}$");
+      if (!re.test(new_user_form.email.value)) {
+        alert("Zadaná adresa není správnou adresou elektronické pošty!");
+        setFocus(new_user_form.email);
+        return false;
+      }
+    }
+    if (new_user_form.privileges.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.privileges);
+      return false;
+    }
+    if (edit_user_form.privileges.value != "1" && 
+        edit_user_form.privileges.value != "2" &&
+        edit_user_form.privileges.value != "3") {
+      alert("Práva: Zadejte 1 = jen čtení, 2 = čtení i zápis nebo 3 = admin.");
+      setFocus(new_user_form.privileges);
+      return false;
+    }
+    if (new_user_form.nick.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.nick);
+      return false;
+    }
+    if (new_user_form.password.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.password);
+      return false;
+    }
+    if (new_user_form.password2.value == "") {
+      alert("Položku musite vyplnit.");
+      setFocus(new_user_form.password2);
+      return false;
+    }
+    if (new_user_form.password.value != new_user_form.password2.value) {
+      alert("Heslo pro kontorlu se neshoduje...");
+      setFocus(new_user_form.password);
+      return false;
+    }
+    
+    return true;
+  }
+</script>
+
+<table>
+    <thead align="center"> <h3 class="nadpis2">Vlož nového uživatele</h3> </thead>
+    <tbody>
+    <form action="" method="POST" name="new_user_form" onSubmit="return validate_new_user_form(this)">
+      <table border="0">
+      <tr class="akt">
+        <td>jméno*</td>
+        <td><input type="text" name="name"  size="50" maxlength="50"<?php znova($name)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>příjmení*</td>
+        <td><input type="text" name="surname"  size="50" maxlength="50"<?php znova($surname)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>město</td>
+        <td><input type="text" name="city"  size="50" maxlength="70"<?php znova($city)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>e-mail*</td>
+        <td><input type="text" name="email"  size="50" maxlength="80"<?php znova($email)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>národnost</td>
+        <td><input type="text" name="nationality"  size="50" maxlength="30"<?php znova($nationality)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>práva*</td>
+        <td><?php  echo get_privileges_chooser($privileges); ?></td>
+      </tr>
+      <tr class="akt">
+        <td>nick*</td>
+        <td><input type="text" name="nick"  size="50" maxlength="30"<?php znova($nick)?> /></td>
+      </tr>
+      <tr class="akt">
+        <td>heslo*</td>
+        <td><input type="password" name="password"  size="50" maxlength="100" onFocus="setFocus(this)" /></td>
+      </tr>
+      <tr class="akt">
+        <td>heslo znovu*</td>
+        <td><input type="password" name="password2"  size="50" maxlength="100" onFocus="setFocus(this)" /></td>
+      </tr>
+      <tr class="nadpis_sekce">
+        <td>
+          <input type="hidden" name="action" value="insert_new_user">
+        </td>
+        <td><input type="submit" value="Vlož"></td>
+      </tr>
+    </form>
+    </tbody>
+  </table>
+  
+  <script language="javascript">
+				<!--
+					var focus = document.new_user_form.name;
+  				focus.focus();
+				-->
+  </script>
+

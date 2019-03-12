@@ -1,0 +1,20 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+<h2>New Surface Type</h2>
+<form action="<?php echo $html->url('/surface_type/add'); ?>" method="post">
+<div class="optional">
+	<?php echo $form->labelTag('SurfaceType/surface_type', 'Surface Type');?>
+ 	<?php echo $html->input('SurfaceType/surface_type', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('SurfaceType/surface_type', 'Please enter the Surface Type.');?>
+</div>
+<div class="optional">
+	<?php echo $form->labelTag('SurfaceType/sorter', 'Sorter');?>
+ 	<?php echo $html->input('SurfaceType/sorter', array('size' => '60'));?>
+	<?php echo $html->tagErrorMsg('SurfaceType/sorter', 'Please enter the Sorter.');?>
+</div>
+<div class="submit">
+	<?php echo $html->submit('Add');?>
+</div>
+</form>
+<ul class="actions">
+<li><?php echo $html->link('List Surface Type', '/surface_type/index')?></li>
+</ul>

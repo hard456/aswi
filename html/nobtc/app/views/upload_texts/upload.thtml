@@ -1,0 +1,4 @@
+<?php echo $this->renderElement('admin_navigace'); ?>
+
+<h1>Done</h1>
+<p>Content of your file was saved in form, you have seen in previous step.</p>

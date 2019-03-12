@@ -1,0 +1,29 @@
+<h2>Encoding of Old Babylonian Text Corpus, OB Dictionary and List of OB Signs</h2>
+
+<p>The Old Babylonian Akkadian Texts in transliteration and other textual material
+on this site are because of the diacritical signs, emphatics etc. encoded
+in the <a href="http://www.unicode.org">Unicode UTF-8 standard</a>.</p>
+
+<p>If you would have any troubles to see special characters etc., just install
+a font with full support of Unicode encodings. In operating systems like
+Windows 9x and above you can use a font by Microsoft
+<a	href="http://www.flwi.rug.ac.be/latijnengrieks/basic_files/ARIALUNI.zip"
+	onClick="this.target=_blank">Arial Unicode MS</A>, or you
+can look at a web page dedicated to possible problems connected with
+<a	href="http://www.unicode.org/help/display_problems.html"
+	onClick="this.target=_blank">Unicode</a>. <br /><br />
+
+We tested following fonts, where the display of special characters was
+without problems found yet: <b>Arial Unicode MS, Lucida Sans Unicode, Code2000
+and Titus Cyberbit Basic</b>. If you find other let us know, we will add them
+to the list.
+<br /><br />
+We have had a possibility to test the readability on platforms MAC OS X
+and Linux RedHat with X-Windows and found no problems to view the special
+unicode characters there. Anyway we welcome any feedback in this or other respects.</p>
+<p>If you would have any insoluble trouble with the display of special
+characters, don't hesitate and contact us on this e-mail address:
+<a href="mailto:rahman (a) gmail (dot) com">administrator of OBTC</a>
+with the short description of your operating system, web browser name and version
+and font used.</p>
+<br />

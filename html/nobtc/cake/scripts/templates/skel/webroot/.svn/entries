@@ -1,0 +1,89 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/scripts/templates/skel/webroot
+svn://192.168.2.102
+
+
+
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+files
+dir
+
+css
+dir
+
+.htaccess
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+080811ae38f2352a0db98293f335ac65
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+img
+dir
+
+js
+dir
+
+index.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+673f40b4a0ed15a9ef2bb9a88f6975a0
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+css.php
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+520de0731bb8e89458acf2137d143dca
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+favicon.ico
+file
+
+
+
+
+2007-07-02T11:17:50.000000Z
+c0533ae5d0ed638ba3fb3485d8250a28
+2007-07-02T10:19:23.798500Z
+7
+jara
+has-props
+

@@ -1,0 +1,34 @@
+<h1>Transliteration info</h1>
+
+<?php if ($transliteration_count > 0): ?>
+
+<?php
+		echo $this->renderElement('catalogue_card',
+        	array(
+        		'found_cat'=> $found_cat,
+        		'id_transliteration'=> $id_transliteration,
+        		'references'=> $references,
+        	)
+        );
+
+        echo $this->renderElement('transliteration_data_card',
+        	array(
+        		'id_transliteration'=> $id_transliteration,
+        		'photos'=> $photos,
+        		'handcopies'=> $handcopies,
+        		'object_type_array' => $object_type_array,//
+        		'surface_type_array' => $surface_type_array,
+        		'POST' => $POST,
+        	)
+        );
+
+        echo $this->renderElement('rev_history',
+        	array(
+        		'rev_history'=> $rev_history,
+        	)
+        );
+
+?>
+<?php else:?>
+    Not found
+<?php endif;?>

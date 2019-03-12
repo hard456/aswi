@@ -1,0 +1,82 @@
+8
+
+dir
+304
+svn://192.168.2.102/zihos/trunk/cake/libs/model
+svn://192.168.2.102
+
+
+
+2007-09-24T10:48:20.708360Z
+299
+jara
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f333c2eb-830c-4224-a912-c0072030b247
+
+connection_manager.php
+file
+
+
+
+
+2007-07-02T11:17:52.000000Z
+0a846f92cb6409b8a7a4fc5dfc56fab3
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+model_php4.php
+file
+
+
+
+
+2007-07-02T11:17:52.000000Z
+371c884149ea979136d1841947839f0a
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+model_php5.php
+file
+
+
+
+
+2007-09-24T10:42:10.000000Z
+9c91471c67600234db4a33ee04a6aefe
+2007-09-24T10:48:20.708360Z
+299
+jara
+
+dbo
+dir
+
+model.php
+file
+
+
+
+
+2007-07-02T11:17:52.000000Z
+0faf9fae6fb14c5d08e008ceaf53a20d
+2007-07-02T10:19:23.798500Z
+7
+jara
+
+datasources
+dir
+
