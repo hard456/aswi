@@ -1,0 +1,11 @@
+version: '2'
+services:
+  server:
+    container_name: klinopis.local
+    ports:
+      - '80:80'
+    build:
+      context: ./
+      dockerfile: dockerfile
+    volumes:
+      - ./../:/var/www/html/

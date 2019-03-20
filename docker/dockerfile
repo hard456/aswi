@@ -1,0 +1,21 @@
+FROM debian:stretch
+
+MAINTAINER Filip Jani <fjani@students.zcu.cz>
+
+#Nastavení Debianu
+ENV DEBIAN_FRONTEND=nointeractive
+
+RUN sed -i "s/^exit 101$/exit 0/" /usr/sbin/policy-rc.d
+
+RUN apt-get update && \
+    apt-get install -y apache2 php7.0
+
+COPY ./conf.d/apache/apache2.conf /etc/apache2
+COPY ./conf.d/apache/000-default.conf /etc/apache2/sites-enabled
+
+EXPOSE 80
+
+COPY ./conf.d/bash/start.sh /usr/local/bin/
+RUN sed -i 's/\r$//' /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+CMD /usr/local/bin/start.sh
