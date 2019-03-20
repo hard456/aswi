@@ -8,10 +8,13 @@ ENV DEBIAN_FRONTEND=nointeractive
 RUN sed -i "s/^exit 101$/exit 0/" /usr/sbin/policy-rc.d
 
 RUN apt-get update && \
-    apt-get install -y apache2 php7.0
+    apt-get install -y apache2 php7.0 php7.0-zip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml curl git unzip
 
 COPY ./conf.d/apache/apache2.conf /etc/apache2
 COPY ./conf.d/apache/000-default.conf /etc/apache2/sites-enabled
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 EXPOSE 80
 
