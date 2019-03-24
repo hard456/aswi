@@ -1,0 +1,16 @@
+services:
+    - Model\Repository\Repository
+    - Model\Repository\BookRepository
+    - Model\Repository\BookTypeRepository
+    - Model\Repository\LineRepository
+    - Model\Repository\LitReferenceRepository
+    - Model\Repository\MuseumRepository
+    - Model\Repository\ObjectTypeRepository
+    - Model\Repository\OriginRepository
+    - Model\Repository\RevHistoryRepository
+    - Model\Repository\SurfaceRepository
+    - Model\Repository\SurfaceTypeRepository
+    - Model\Repository\TransliterationRepository
+    - Model\Repository\UserLogRepository
+    - Model\Repository\UserRepository
+    - Model\Repository\UserRoleRepository
