@@ -1,6 +1,6 @@
 version: '2'
 services:
-  server:
+  klinopis:
     container_name: klinopis.local
     ports:
       - '80:80'
