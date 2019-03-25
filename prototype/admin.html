@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Old Babylonian Text Corpus >> PROTOTYP</title>
+    <style>
+        .header-logo {
+            background-color: #006666;
+            color: white;
+            padding: 16px;
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        .display-4 a {
+            color: white;
+        }
+
+        .display-4 a:hover {
+            text-decoration: none;
+        }
+
+        .display-4 a:active {
+            color: white;
+        }
+
+        .display-4 a:visited {
+            color: white;
+        }
+
+        .display-5 {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .content {
+            margin: 32px 64px;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height + margin */
+            margin-bottom: 96px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 64px;
+            padding: 8px;
+            background-color: #003366;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .search-options .form-group.row {
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar.navbar-expand-lg {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .pagination-header {
+            margin-bottom: 0;
+            margin-top: 1rem;
+        }
+
+        .pagination-header ul {
+            margin-bottom: 0;
+        }
+
+        .linefound {
+            font-weight: bold;
+        }
+
+        .found {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .page-link {
+            color: #003366;
+        }
+
+        .page-item.active .page-link {
+            background-color: #003366;
+            border-color: #003366;
+        }
+
+        .nav .nav-item a {
+            color: #003366;
+        }
+
+        ul.nav {
+            background-color: #e5e5e5;
+            padding: 0 1rem;
+        }
+    </style>
+</head>
+<body>
+<!--Navbar-->
+<div class="jumbotron jumbotron-fluid header-logo">
+    <div class="container text-center">
+        <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="search-texts.html">Search & edit texts <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Search dictionary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Text catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact & members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Input new text</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+    </ul>
+    <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>Medici</strong>
+        </span>
+    <div class="navbar-nav nav-item">
+        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="#">Change Password</a>
+    </div>
+</nav>
+
+<ul class="nav">
+    <li class="nav-item"><a href="#" class="nav-link" title="Users">
+        Users </a></li>
+    <li class="nav-item"><a href="#" class="nav-link active" title="Groups">
+        Groups </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Rules">
+        Rules </a></li>
+
+    <li class="nav-item"><a href="#" class="nav-link" title="Book">
+        Book </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Transliteration">
+        Transliteration </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Book type">
+        Book type </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Object type">
+        Object&nbsp;type </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Surface type">
+        Surface&nbsp;type </a></li>
+
+    <li class="nav-item"><a href="#" class="nav-link" title="Museum">
+        Museum </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Origin">
+        Origin </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Upload">
+        Upload&nbsp;texts </a></li>
+    <li class="nav-item"><a href="#" class="nav-link" title="Replace">
+        Mass&nbsp;replace </a></li>
+</ul>
+
+<!--Content-->
+<div class="content">
+    <div class="display-5">Administrace - Role</div>
+
+    <table class="table table-striped" style="margin-top: 2rem">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Role</th>
+            <th scope="col">Úroveň zabezpečení</th>
+            <th scope="col">Akce</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>admin</td>
+            <td>99</td>
+            <td class="actions">
+                <a href="#">Detail</a>
+                <a href="#">Uprav</a>
+                <a href="#" onclick="return confirm('Opravdu chcete vybranou roli smazat?');">Smaž</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>anonymous</td>
+            <td>1</td>
+            <td class="actions">
+                <a href="#">Detail</a>
+                <a href="#">Uprav</a>
+                <a href="#" onclick="return confirm('Opravdu chcete vybranou roli smazat?');">Smaž</a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>User</td>
+            <td>20</td>
+            <td class="actions">
+                <a href="#">Detail</a>
+                <a href="#">Uprav</a>
+                <a href="#" onclick="return confirm('Opravdu chcete vybranou roli smazat?');">Smaž</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="text-center">
+            © Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-2005<br>
+            Created by Medici - Faculty of Applied Science - University of West Bohemia in Pilsen
+        </div>
+    </div>
+</footer>
+</body>
+</html>

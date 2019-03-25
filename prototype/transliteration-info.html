@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Old Babylonian Text Corpus >> PROTOTYP</title>
+    <style>
+        .header-logo {
+            background-color: #006666;
+            color: white;
+            padding: 16px;
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        .display-4 a {
+            color: white;
+        }
+
+        .display-4 a:hover {
+            text-decoration: none;
+        }
+
+        .display-4 a:active {
+            color: white;
+        }
+
+        .display-4 a:visited {
+            color: white;
+        }
+
+        .display-5 {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .display-6 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .content {
+            margin: 32px 64px;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height + margin */
+            margin-bottom: 96px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 64px;
+            padding: 8px;
+            background-color: #003366;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .search-options .form-group.row {
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar.navbar-expand-lg {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<!--Navbar-->
+<div class="jumbotron jumbotron-fluid header-logo">
+    <div class="container text-center">
+        <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="search-texts.html">Search & edit texts <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Search dictionary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Text catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact & members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Input new text</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+    </ul>
+    <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>Medici</strong>
+        </span>
+    <div class="navbar-nav nav-item">
+        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="#">Change Password</a>
+    </div>
+</nav>
+
+<!--Content-->
+<div class="content">
+    <div class="display-5">Transliteration info</div>
+    <hr>
+
+    <div class="display-6">
+        <div class="text-muted">Catalogue information</div>
+    </div>
+    <div>
+
+        <div>
+            <a href="/nobtc/app/webroot/book/edit/5">edit book</a> |
+            <a href="/nobtc/app/webroot/transliteration/edit/34">edit transliteration info</a>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <dl class="row">
+
+            <dt class="col-sm-3">Book abrev.</dt>
+            <dd class="col-sm-9">RIME_04</dd>
+
+            <dt class="col-sm-3">Book name</dt>
+            <dd class="col-sm-9">The Royal Inscriptions of Mesopotamia, Early periods</dd>
+
+            <dt class="col-sm-3">Book subtitle</dt>
+            <dd class="col-sm-9">Old Babylonian Period (2003-1595 BC)</dd>
+
+            <dt class="col-sm-3">Book author</dt>
+            <dd class="col-sm-9">Douglas Frayne</dd>
+
+            <dt class="col-sm-3">Place of pub.</dt>
+            <dd class="col-sm-9">Toronto - Buffalo - London</dd>
+
+            <dt class="col-sm-3">Date of pub.</dt>
+            <dd class="col-sm-9">1990</dd>
+
+            <dt class="col-sm-3">Pages</dt>
+            <dd class="col-sm-9">6-829</dd>
+
+            <dt class="col-sm-3">Book desc.</dt>
+            <dd class="col-sm-9">Data input by N. Nováková and L. Pecha, corrections by Jana Kořínková and N. Nováková.</dd>
+
+            <dt class="col-sm-3">Volume</dt>
+            <dd class="col-sm-9">4</dd>
+
+            <dt class="col-sm-3">Volume number</dt>
+            <dd class="col-sm-9"></dd>
+
+            <dt class="col-sm-3">Book type</dt>
+            <dd class="col-sm-9">royal inscription</dd>
+
+            <dt class="col-sm-3">Chapter</dt>
+            <dd class="col-sm-9">E4.03.07.0009</dd>
+
+            <dt class="col-sm-3">Museum</dt>
+            <dd class="col-sm-9">Vorderasiatische Museum, Berlin</dd>
+
+            <dt class="col-sm-3">Museum no.</dt>
+            <dd class="col-sm-9">VAT 1433</dd>
+
+            <dt class="col-sm-3">Reg. (Excavation) no.</dt>
+            <dd class="col-sm-9"></dd>
+
+            <dt class="col-sm-3">Date</dt>
+            <dd class="col-sm-9">Samsu-iluna, year 31</dd>
+
+            <dt class="col-sm-3">Origin (Ancient name / Modern name)</dt>
+            <dd class="col-sm-9"> /</dd>
+
+            <dt class="col-sm-3">Note</dt>
+            <dd class="col-sm-9"></dd>
+
+            <dt class="col-sm-3">References (handcopy)</dt>
+            <dd class="col-sm-9">VAS 16 , no. 156<br></dd>
+
+        </dl>
+    </div>
+
+    <hr>
+    <div class="display-6">
+        <div class="text-muted">Transliteration data</div>
+    </div>
+
+
+    <a href="/nobtc/app/webroot/transliteration/edit_transliteration/34">edit</a>
+
+    <div class="container-fluid">
+            <b>tablet</b> <br>
+            <div class="noname" id="tablet-div">
+
+                <i>obverse</i> <br>
+                1. um-ma &lt;DIŠ:&gt;i-bi₂-i₃-lum            <!--f--> <br>
+                2. a-wi-lu-um            <!--f--> <br>
+                3. mi-i-ma            <!--f--> <br>
+                4. iš-tu ti-in-šu            <!--f--> <br>
+                5. tu-ga-da-u₂            <!--f--> <br>
+                6. KU₃ BI/AM i₃-na ba-ab-ti-im            <!--f--> <br>
+                7. na-a-ti            <!--f--> <br>
+                8. a-ti a-wa-at-ga            <!--f--> <br>
+                <hr>
+                <i>reverse</i> <br>
+                9. i₃-la-ga-na            <!--f--> <br>
+                10. a-na ma-ma-na            <!--f--> <br>
+                11. u₂-la a-ra-ga-am            <!--f--> <br>
+                12. a-na ba-ab-ti-šu x            <!--f--> <br>
+                13. e-ga-la-am ša-al            <!--f--> <br>
+                14. a-wa-at-ga            <!--f--> <br>
+                15. li-ir-ḫi-ṣa-am            <!--f--> <br>
+                16. aš₂-ra-ki-am a-šu-mi            <!--f--> <br>
+                17. ba-ab-ti-šu            <!--f--> <br>
+                18. a-na ar-ši-iḫ            <!--f--> <br>
+                <hr>
+                <i>left edge</i> <br>
+                19. qi₂-bi₂-lu-um            <!--f--> <br>
+                20. pi-laḫ₃ si x            <!--f--> <br>
+                <hr>
+
+            </div>
+            <b>envelope</b> <br>
+            <div class="noname" id="envelope-div">
+                <i>obverse</i> <br>
+                1. DUB &lt;DIŠ:&gt;i-b(i₂-i₃-lum)            <!--f--> <br>
+                2. a-na &lt;DIŠ:&gt;šu-(i₃-li₂)            <!--f--> <br>
+            </div>
+        </div>
+
+    <hr>
+    <div class="display-6">
+        <div class="text-muted">Revision history</div>
+    </div>
+    <div class="container-fluid">
+        <br>
+        2006-01-06 - Imported in June 2006 from OBTC verse 1 <br>
+        2007-01-24 - Edited catalogue information. sk01 <br>
+        2007-06-21 - Edited transliteration. ks01 <br>
+    </div>
+</div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="text-center">
+            © Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-2005<br>
+            Created by Medici - Faculty of Applied Science - University of West Bohemia in Pilsen
+        </div>
+    </div>
+</footer>
+</body>
+</html>
