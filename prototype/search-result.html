@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <title>Old Babylonian Text Corpus >> PROTOTYP</title>
+    <style>
+        .header-logo {
+            background-color: #006666;
+            color: white;
+            padding: 16px;
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        .display-4 a {
+            color: white;
+        }
+
+        .display-4 a:hover {
+            text-decoration: none;
+        }
+
+        .display-4 a:active {
+            color: white;
+        }
+
+        .display-4 a:visited {
+            color: white;
+        }
+
+        .display-5 {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .content {
+            margin: 32px 64px;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height + margin */
+            margin-bottom: 96px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 64px;
+            padding: 8px;
+            background-color: #003366;
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .search-options .form-group.row {
+            margin-bottom: 0.5rem;
+        }
+
+        .navbar.navbar-expand-lg {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .pagination-header {
+            margin-bottom: 0;
+            margin-top: 1rem;
+        }
+
+        .pagination-header ul {
+            margin-bottom: 0;
+        }
+
+        .linefound {
+            font-weight: bold;
+        }
+
+        .found {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .page-link {
+            color: #003366;
+        }
+
+        .page-item.active .page-link {
+            background-color: #003366;
+            border-color: #003366;
+        }
+    </style>
+</head>
+<body>
+<!--Navbar-->
+<div class="jumbotron jumbotron-fluid header-logo">
+    <div class="container text-center">
+        <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="search-texts.html">Search & edit texts <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Search dictionary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Text catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact & members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Input new text</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+    </ul>
+    <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>Medici</strong>
+        </span>
+    <div class="navbar-nav nav-item">
+        <a class="nav-link" href="#">Logout</a>
+        <a class="nav-link" href="#">Change Password</a>
+    </div>
+</nav>
+
+<!--Content-->
+<div class="content">
+    <div class="display-5">Search in texts - Results</div>
+
+    <div class="row h-100 pagination-header">
+        <div class="col my-auto">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span></a></li>
+                    <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&lsaquo;</span>
+                        <span class="sr-only">Previous</span></a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&rsaquo;</span>
+                        <span class="sr-only">Next</span></a></li>
+                    <li class="page-item"><a class="page-link" href="#"><span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span></a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col text-right my-auto">
+            <span class="text-muted align-middle">
+                Total count: 23655. Showing page 1 of 4731 (5 results per site).
+            </span>
+        </div>
+    </div>
+
+
+
+
+    <hr>
+
+    <a href="transliteration-info.html">
+
+        RIME_04, E4.03.07.0009</a>
+    <div>
+        <span class="lineno">1'.</span>
+        <span class="line">[...] x x [...] </span>
+    </div>
+
+    <!-- main found line -->
+    <div>
+        <span class="lineno linefound">2'.</span>
+        <span class="line">[...] a-bi a-bi-<span class="found">šu</span></span>
+    </div>
+    <!-- end of main found line -->
+
+    <div>
+        <span class="lineno">3'.</span>
+        <span class="line">&lt;diŠ:>?[...]-bi-ga &lt;diŠ:>?ḫa-ar-ḫa-ar &lt;diŠ:>?ma-da-ra &lt;/diŠ:>&lt;/diŠ:>&lt;/diŠ:></span>
+    </div>
+
+
+    <hr>
+
+
+    <a href="transliteration-info.html">
+
+        RIME_04, E4.03.07.0009</a>
+    <div>
+        <span class="lineno">7'.</span>
+        <span class="line">[š]a 60 + 20 + 4 GU₂ ši-bi-ir-tam </span>
+    </div>
+
+    <!-- main found line -->
+    <div>
+        <span class="lineno linefound">8'.</span>
+        <span class="line">iš-ti-a-at <span class="found">šu</span>-uk-lu-ul-tam</span>
+    </div>
+    <!-- end of main found line -->
+
+    <div>
+        <span class="lineno">9'.</span>
+        <span class="line">i-na &lt;on:>E₂.TUR₃.KALAM.MA &lt;/on:></span>
+    </div>
+
+
+    <hr>
+
+
+    <a href="transliteration-info.html">
+
+        RIME_04, E4.03.07.0009</a>
+    <div>
+        <span class="lineno">13'.</span>
+        <span class="line">⌈ša⌉ 60 + ⌈20 + 4⌉ GU₂ ši-bi-ir-tam iš-ti-a-at </span>
+    </div>
+
+    <!-- main found line -->
+    <div>
+        <span class="lineno linefound">14'.</span>
+        <span class="line">[<span class="found">š]u</span>-[u]k-lu-ul-tam</span>
+    </div>
+    <!-- end of main found line -->
+
+    <div>
+        <span class="lineno">15'.</span>
+        <span class="line">[i-n]a &lt;on:>E₂.TUR₃.KALAM.MA &lt;/on:></span>
+    </div>
+
+
+    <hr>
+
+
+    <a href="transliteration-info.html">
+
+        RIME_04, E4.03.07.0009</a>
+    <div>
+        <span class="lineno">16'.</span>
+        <span class="line">[u]š-za-az-zu </span>
+    </div>
+
+    <!-- main found line -->
+    <div>
+        <span class="lineno linefound">17'.</span>
+        <span class="line">[<span class="found">š]u</span>-mi ki-ma &lt;DIŠ:&gt;sa-am-su-i-lu-na</span>
+    </div>
+    <!-- end of main found line -->
+
+    <div>
+        <span class="lineno">18'.</span>
+        <span class="line">[...] x ⌈li-IK⌉-x [...] </span>
+    </div>
+
+
+    <hr>
+
+
+    <a href="transliteration-info.html">
+
+        RIME_04, E4.05.15.0002</a>
+    <div>
+        <span class="lineno">4.</span>
+        <span class="line">DUMU &lt;diŠ:>D:i-pi₂-iq-D:IŠKUR &lt;/diŠ:></span>
+    </div>
+
+    <!-- main found line -->
+    <div>
+        <span class="lineno linefound">5.</span>
+        <span class="line">a-na ba-la-ṭi-<span class="found">šu</span></span>
+    </div>
+    <!-- end of main found line -->
+
+    <div>
+        <span class="lineno">6.</span>
+        <span class="line">[i-qi₂-iš] </span>
+    </div>
+
+
+</div>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="text-center">
+            © Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-2005<br>
+            Created by Medici - Faculty of Applied Science - University of West Bohemia in Pilsen
+        </div>
+    </div>
+</footer>
+</body>
+</html>

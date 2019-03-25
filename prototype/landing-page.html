@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>Old Babylonian Text Corpus >> PROTOTYP</title>
+    <style>
+        .header-logo {
+            background-color: #006666;
+            color: white;
+            padding: 16px;
+            font-size: 2rem;
+            margin-bottom: 0;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        .display-4 a {
+            color: white;
+        }
+
+        .display-4 a:hover {
+            text-decoration: none;
+        }
+
+        .display-4 a:active {
+            color: white;
+        }
+
+        .display-4 a:visited {
+            color: white;
+        }
+
+        .display-5 {
+            font-size: 2rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .content {
+            margin: 32px 64px;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        body {
+            /* Margin bottom by footer height + margin */
+            margin-bottom: 96px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 64px;
+            padding: 8px;
+            background-color: #003366;
+            color: rgba(255,255,255,.5);
+        }
+
+        .navbar.navbar-expand-lg {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!--Navbar-->
+    <div class="jumbotron jumbotron-fluid header-logo">
+        <div class="container text-center">
+            <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="search-texts.html">Search & edit texts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Search dictionary</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Text catalogue</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact & members</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Input new text</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin.html">Admin</a>
+            </li>
+        </ul>
+        <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>Medici</strong>
+        </span>
+        <div class="navbar-nav nav-item">
+            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="#">Change Password</a>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <div class="content">
+        <div class="display-5">Old Babylonian Text Corpus by Cuneiform Circle</div>
+        <hr>
+
+            <div class="row">
+                <div class="col">
+                    <dl class="row">
+                        <dt class="col-sm-3">OB motto</dt>
+                        <dd class="col-sm-9">a-na D:na-bi-um-ma-lik a-wi-lim dam-qí-im ša D:AMAR.UTU ù D:na-bi-um GI.DUB.BA-šu ú-še-še-ru (AbB 3,33,1-4)</dd>
+                    </dl>
+
+                    <div class="alert alert-primary">
+                        If you have interest in Old Babylonian Akkadian Texts, don't hesitate to join us! You are welcome!
+                    </div>
+                </div>
+                <div class="col">
+                        <form method="get" action="/utf/utf/show2boger.php" onclick="this.target='_blank'" target="_blank">
+                            <p class="blue">
+                                <label for="borger">Input Borger's ABZ number:</label>
+                                <input class="td5" type="text" id="borger" name="borger" size="3" value="333">
+                                <input class="tlacitko2" type="submit" value=" find ">
+                            </p>
+                            <p class="blue">
+                                This is a quick search to find variants of signs according to Borger's number from Old Babylonian Graphemic Analyses.
+                                <a class="noline" href="/utf/utf/signs.html" onclick="this.target='_blank'">
+                                    Click here for an advanced search.</a>
+
+                            </p>
+                            <p>
+                                <a class="noline" href="/utf/utf/signs.html" target="blank">
+                                    <img src="http://sp105p02-kbs.ff.zcu.cz/img/gar3.gif" width="335" height="35" alt="signs">
+                                </a>
+                            </p>
+                        </form>
+                </div>
+            </div>
+
+        <hr>
+
+        <p>Cuneiform Circle is a community of scholars engaged in the study of the Old Babylonian Akkadian. Our main goal is to create an Old Babylonian Text Corpus, an Old Babylonian Dictionary, and a List of Old Babylonian Cuneiform Signs.</p>
+
+        <p>The Old Babylonian Text Corpus (OBTC) comprises a large text database of the Old Babylonian Akkadian Language (currently 144097 text lines, letters, documents, legal texts, royal inscriptions, omina, mathematical texts etc.).</p>
+
+        <p><strong>All texts are available for search according to sign-chains (transliteration). The search engine in Old Babylonian Text Corpus verse 1 is available for everybody but the search is restricted to the following texts: Codex Hammurapi and AbB 5. The search in all 144097 lines of OBTC verse 2 is available for members only (see how to become a member) .</strong></p>
+
+        <p><strong>Our service includes unique searchable lists of Old Babylonian Signs Variants as appearing in the hand copies selected for the graphemic analysis.</strong></p>
+
+        <p>The work on the project is in progress. We have started in 1988-89 and have accomplished significant advances since. We are currently working towards improving the quality and scope of our databases. The full access to all materials and sources is given to active members only ( see our policy ).</p>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                © Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-2005<br>
+                Created by Medici - Faculty of Applied Science - University of West Bohemia in Pilsen
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
