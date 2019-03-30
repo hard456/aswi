@@ -1,0 +1,5 @@
+services:
+    # Gridy
+    - App\Components\IExampleGirdFactory
+
+    # Formuláře
