@@ -15,6 +15,7 @@ COPY ./conf.d/apache/000-default.conf /etc/apache2/sites-enabled
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN a2enmod rewrite
 
 EXPOSE 80
 

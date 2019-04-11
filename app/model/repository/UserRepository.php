@@ -2,6 +2,8 @@
 
 namespace Model\Repository;
 
+use Nette\Database\Table\ActiveRow;
+
 /**
  * Repository pro práci s tabulkou `user`
  *
@@ -21,4 +23,15 @@ class UserRepository extends Repository
     const COLUMN_EMAIL = 'email';
     const COLUMN_CREATED = 'created';
     const COLUMN_UPDATED = 'updated';
+
+    /**
+     * Nalezne uživatele v DB podle uživatelského jména
+     *
+     * @param string $username
+     * @return ActiveRow|false
+     */
+    public function findByUsername(string $username): ActiveRow
+    {
+        return $this->findBy([self::COLUMN_USERNAME => $username])->fetch();
+    }
 }
