@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
 
-    <title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+    <title>{ifset title}{include title|stripHtml} | {/ifset}Old Babylonian Text Corpus</title>
 
     <!-- jQuery -->
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.js"
@@ -40,22 +38,75 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="{$basePath}/css/front/style.css">
 
     <script src="https://nette.github.io/resources/js/netteForms.min.js"></script>
     <script src="{$basePath}/js/nette.ajax.js"></script>
+
 </head>
-
 <body>
-<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+<!--Navbar-->
+<div class="jumbotron jumbotron-fluid header-logo">
+    <div class="container text-center">
+        <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="search-texts.html">Search & edit texts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Search dictionary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Text catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact & members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Input new text</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+    </ul>
+    {if $user->loggedIn}
+    <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>{$user->getIdentity()->username}</strong>
+        </span>
+    {/if}
+    <div class="navbar-nav nav-item">
+        {if $user->loggedIn}
+            <a class="nav-link" n:href="Homepage:logout">Logout</a>
+            <a class="nav-link" href="#">Change Password</a>
+        {else}
+            <a class="nav-link" n:href="Homepage:login">Login</a>
+        {/if}
+    </div>
+</nav>
 
-{include content}
+<!--Content-->
+<div class="content">
+    <div n:foreach="$flashes as $flash" n:class="alert, 'alert-' . $flash->type">{$flash->message}</div>
 
-{block scripts}
-    <script>
-        $(function () {
-            $.nette.init();
-        });
-    </script>
-{/block}
+    {include content}
+</div>
+
+{ifset scripts}{include scripts}{/ifset}
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="text-center">
+            © Furat Rahman - Faculty of Philosophy - University of West Bohemia in Pilsen and Cuneiform Circle 2002-2005<br>
+            Created by Medici - Faculty of Applied Science - University of West Bohemia in Pilsen
+        </div>
+    </div>
+</footer>
 </body>
 </html>

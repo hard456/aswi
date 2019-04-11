@@ -3,3 +3,4 @@ services:
     - App\Components\IExampleGirdFactory
 
     # Formuláře
+    - App\Components\ILoginFormFactory

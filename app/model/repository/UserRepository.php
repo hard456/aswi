@@ -1,6 +1,8 @@
 <?php
 
-namespace Model\Repository;
+namespace App\Model\Repository;
+
+use Nette\Database\Table\ActiveRow;
 
 /**
  * Repository pro práci s tabulkou `user`
@@ -21,4 +23,15 @@ class UserRepository extends Repository
     const COLUMN_EMAIL = 'email';
     const COLUMN_CREATED = 'created';
     const COLUMN_UPDATED = 'updated';
+
+    /**
+     * Nalezne uživatele v DB podle loginu
+     *
+     * @param string $login
+     * @return ActiveRow|false
+     */
+    public function findByLogin(string $login)
+    {
+        return $this->findBy([self::COLUMN_LOGIN => $login])->fetch();
+    }
 }
