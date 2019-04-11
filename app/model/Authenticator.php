@@ -1,9 +1,9 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
-use Model\Repository\UserRepository;
-use Model\Repository\UserRoleRepository;
+use App\Model\Repository\UserRepository;
+use App\Model\Repository\UserRoleRepository;
 use Nette\Security\AuthenticationException;
 use Nette\Security\IAuthenticator;
 use Nette\Security\Identity;
@@ -32,9 +32,9 @@ class Authenticator implements IAuthenticator
      */
     function authenticate(array $credentials)
     {
-        list($username, $password) = $credentials;
+        list($login, $password) = $credentials;
 
-        $row = $this->userRepository->findByUsername($username);
+        $row = $this->userRepository->findByLogin($login);
         if(!$row){
             throw new AuthenticationException('Uživatel nebyl nalezen.');
         }
@@ -49,6 +49,6 @@ class Authenticator implements IAuthenticator
         $roles = $row->related(UserRoleRepository::TABLE_NAME, UserRoleRepository::COLUMN_USER_ID)
             ->fetchField(UserRoleRepository::COLUMN_ROLE_ID);
 
-        return new Identity($row->{UserRepository::COLUMN_ID}, $roles);
+        return new UserIdentity($row->{UserRepository::COLUMN_ID}, $row->{UserRepository::COLUMN_USERNAME}, $roles);
     }
 }

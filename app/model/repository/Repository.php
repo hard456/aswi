@@ -1,6 +1,6 @@
 <?php
 
-namespace Model\Repository;
+namespace App\Model\Repository;
 
 use Nette;
 

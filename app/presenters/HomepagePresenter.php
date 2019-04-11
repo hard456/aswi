@@ -3,6 +3,8 @@
 namespace App\Presenters;
 
 use App\Components\IExampleGirdFactory;
+use App\Components\ILoginFormFactory;
+use App\Enum\EFlashMessage;
 use Nette;
 
 
@@ -10,19 +12,56 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
     /** @var IExampleGirdFactory  */
     private $exampleGridFactory;
+    /** @var ILoginFormFactory */
+    private $loginFormFactory;
 
-    public function __construct(IExampleGirdFactory $exampleGridFactory)
+    public function __construct(IExampleGirdFactory $exampleGridFactory, ILoginFormFactory $loginFormFactory)
     {
         parent::__construct();
 
         $this->exampleGridFactory = $exampleGridFactory;
+        $this->loginFormFactory = $loginFormFactory;
     }
 
-    public function actionDefault(){
+    public function actionDefault()
+    {
 
     }
 
-    public function createComponentDataGrid(){
+    public function actionLogin()
+    {
+        if ($this->user->isLoggedIn())
+        {
+            $this->redirect('Homepage:default');
+        }
+    }
+
+    public function actionLogout()
+    {
+        if ($this->getUser()->isLoggedIn())
+        {
+            $this->user->logout(true);
+
+            $this->flashMessage('Odhlášení bylo úspěšné.', EFlashMessage::SUCCESS);
+            $this->redirect('Homepage:default');
+        }
+    }
+
+    /**
+     * Komponenta přihlašovacího formuláře
+     *
+     * @return \App\Components\LoginForm
+     */
+    public function createComponentLoginForm()
+    {
+        return $this->loginFormFactory->create();
+    }
+
+    /**
+     * Vytvoření ukázkového gridu
+     */
+    public function createComponentDataGrid()
+    {
         return $this->exampleGridFactory->create();
     }
 }

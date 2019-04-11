@@ -1,11 +1,58 @@
-{* This is the welcome page, you can delete it *}
-
 {block content}
+<div class="display-5">Old Babylonian Text Corpus by Cuneiform Circle</div>
+<hr>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            {control dataGrid}
+<div class="row">
+    <div class="col">
+        <dl class="row">
+            <dt class="col-sm-3">OB motto</dt>
+            <dd class="col-sm-9">a-na D:na-bi-um-ma-lik a-wi-lim dam-qí-im ša D:AMAR.UTU ù D:na-bi-um GI.DUB.BA-šu ú-še-še-ru (AbB 3,33,1-4)</dd>
+        </dl>
+
+        <div class="alert alert-primary">
+            If you have interest in Old Babylonian Akkadian Texts, don't hesitate to join us! You are welcome!
         </div>
     </div>
+    <div class="col">
+        <form method="get" action="/utf/utf/show2boger.php" onclick="this.target='_blank'" target="_blank">
+            <p class="blue">
+                <label for="borger">Input Borger's ABZ number:</label>
+                <input class="td5" type="text" id="borger" name="borger" size="3" value="333">
+                <input class="tlacitko2" type="submit" value=" find ">
+            </p>
+            <p class="blue">
+                This is a quick search to find variants of signs according to Borger's number from Old Babylonian Graphemic Analyses.
+                <a class="noline" href="/utf/utf/signs.html" onclick="this.target='_blank'">
+                    Click here for an advanced search.</a>
+
+            </p>
+            <p>
+                <a class="noline" href="/utf/utf/signs.html" target="blank">
+                    <img src="http://sp105p02-kbs.ff.zcu.cz/img/gar3.gif" width="335" height="35" alt="signs">
+                </a>
+            </p>
+        </form>
+    </div>
 </div>
+
+<hr>
+
+<p>Cuneiform Circle is a community of scholars engaged in the study of the Old Babylonian Akkadian. Our main goal is to create an Old Babylonian Text Corpus, an Old Babylonian Dictionary, and a List of Old Babylonian Cuneiform Signs.</p>
+
+<p>The Old Babylonian Text Corpus (OBTC) comprises a large text database of the Old Babylonian Akkadian Language (currently 144097 text lines, letters, documents, legal texts, royal inscriptions, omina, mathematical texts etc.).</p>
+
+<p><strong>All texts are available for search according to sign-chains (transliteration). The search engine in Old Babylonian Text Corpus verse 1 is available for everybody but the search is restricted to the following texts: Codex Hammurapi and AbB 5. The search in all 144097 lines of OBTC verse 2 is available for members only (see how to become a member) .</strong></p>
+
+<p><strong>Our service includes unique searchable lists of Old Babylonian Signs Variants as appearing in the hand copies selected for the graphemic analysis.</strong></p>
+
+<p>The work on the project is in progress. We have started in 1988-89 and have accomplished significant advances since. We are currently working towards improving the quality and scope of our databases. The full access to all materials and sources is given to active members only ( see our policy ).</p>
+{/block}
+
+{block scripts}
+    <script>
+        $(function ()
+        {
+            $.nette.init();
+        });
+    </script>
+{/block}

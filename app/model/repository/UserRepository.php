@@ -1,6 +1,6 @@
 <?php
 
-namespace Model\Repository;
+namespace App\Model\Repository;
 
 use Nette\Database\Table\ActiveRow;
 
@@ -25,13 +25,13 @@ class UserRepository extends Repository
     const COLUMN_UPDATED = 'updated';
 
     /**
-     * Nalezne uživatele v DB podle uživatelského jména
+     * Nalezne uživatele v DB podle loginu
      *
-     * @param string $username
+     * @param string $login
      * @return ActiveRow|false
      */
-    public function findByUsername(string $username): ActiveRow
+    public function findByLogin(string $login)
     {
-        return $this->findBy([self::COLUMN_USERNAME => $username])->fetch();
+        return $this->findBy([self::COLUMN_LOGIN => $login])->fetch();
     }
 }

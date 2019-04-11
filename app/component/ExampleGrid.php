@@ -5,7 +5,7 @@ namespace App\Components;
 
 
 use App\Utils\DataGrid\DataGrid;
-use Model\Repository\LineRepository;
+use App\Model\Repository\LineRepository;
 use Ublaboo\DataGrid\Exception\DataGridException;
 
 /**
