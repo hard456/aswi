@@ -71,9 +71,11 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Input new text</a>
         </li>
+        {if $user->loggedIn && $user->isInRole(\App\Enum\EUserRole::ADMIN)}
         <li class="nav-item">
             <a class="nav-link" n:href=":Admin:Default:">Admin</a>
         </li>
+        {/if}
     </ul>
     {if $user->loggedIn}
     <span class="navbar-text" style="padding-right: 1rem">
