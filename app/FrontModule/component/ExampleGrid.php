@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Components;
+namespace App\FrontModule\Components;
 
 
 use App\Utils\DataGrid\DataGrid;

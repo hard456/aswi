@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Presenters;
+namespace App\FrontModule\Presenters;
 
-use App\Components\IExampleGirdFactory;
-use App\Components\ILoginFormFactory;
+use App\FrontModule\Components\IExampleGirdFactory;
+use App\FrontModule\Components\ILoginFormFactory;
 use App\Enum\EFlashMessage;
 use Nette;
 
@@ -50,7 +50,7 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     /**
      * Komponenta přihlašovacího formuláře
      *
-     * @return \App\Components\LoginForm
+     * @return \App\FrontModule\Components\LoginForm
      */
     public function createComponentLoginForm()
     {
