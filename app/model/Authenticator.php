@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Model\Repository\RoleRepository;
 use App\Model\Repository\UserRepository;
 use App\Model\Repository\UserRoleRepository;
 use Nette\Security\AuthenticationException;
@@ -46,9 +47,12 @@ class Authenticator implements IAuthenticator
             throw new AuthenticationException('Nesprávné heslo.');
         }
 
-        $roles = $row->related(UserRoleRepository::TABLE_NAME, UserRoleRepository::COLUMN_USER_ID)
-            ->fetchField(UserRoleRepository::COLUMN_ROLE_ID);
+        $userRoles = $row->related(UserRoleRepository::TABLE_NAME, UserRoleRepository::COLUMN_USER_ID)->fetchAll();
+        foreach ($userRoles as $userRole)
+        {
+            $roles[] = $userRole->ref(RoleRepository::TABLE_NAME, UserRoleRepository::COLUMN_ROLE_ID)->{RoleRepository::COLUMN_NAME};
+        }
 
-        return new UserIdentity($row->{UserRepository::COLUMN_ID}, $row->{UserRepository::COLUMN_USERNAME}, $roles);
+        return new Identity($row->{UserRepository::COLUMN_ID}, $roles, $row);
     }
 }

@@ -48,7 +48,7 @@
 <!--Navbar-->
 <div class="jumbotron jumbotron-fluid header-logo">
     <div class="container text-center">
-        <div class="display-4"><a href="landing-page.html">Old Babylonian Text Corpus</a></div>
+        <div class="display-4"><a n:href=":Front:Homepage:">Old Babylonian Text Corpus</a></div>
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
@@ -71,9 +71,11 @@
         <li class="nav-item">
             <a class="nav-link" href="#">Input new text</a>
         </li>
+        {if $user->loggedIn && $user->isInRole(\App\Enum\EUserRole::ADMIN)}
         <li class="nav-item">
-            <a class="nav-link" href="admin.html">Admin</a>
+            <a class="nav-link" n:href=":Admin:Default:">Admin</a>
         </li>
+        {/if}
     </ul>
     {if $user->loggedIn}
     <span class="navbar-text" style="padding-right: 1rem">

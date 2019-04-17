@@ -1,6 +1,6 @@
 services:
     # Gridy
-    - App\Components\IExampleGirdFactory
+    - App\FrontModule\Components\IExampleGirdFactory
 
     # Formuláře
-    - App\Components\ILoginFormFactory
+    - App\FrontModule\Components\ILoginFormFactory
