@@ -6,3 +6,4 @@ services:
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
     - App\AdminModule\Components\IUserEditFormFactory
+    - App\Components\ITransliterationSearchFormFactory
