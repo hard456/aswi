@@ -1,11 +1,13 @@
-<div class="col-3">
-    {form form class => 'form'}
-        {label \App\Model\Repository\UserRepository::COLUMN_LOGIN}
-        {input \App\Model\Repository\UserRepository::COLUMN_LOGIN class => 'form-control'}
+<div class="row">
+    <div class="col-3">
+        {form form class => 'form'}
+            {label \App\Model\Repository\UserRepository::COLUMN_LOGIN}
+            {input \App\Model\Repository\UserRepository::COLUMN_LOGIN class => 'form-control'}
 
-        {label \App\Model\Repository\UserRepository::COLUMN_PASSWORD}
-        {input \App\Model\Repository\UserRepository::COLUMN_PASSWORD class => 'form-control'}
+            {label \App\Model\Repository\UserRepository::COLUMN_PASSWORD}
+            {input \App\Model\Repository\UserRepository::COLUMN_PASSWORD class => 'form-control'}
 
-        {input submit class => 'form-control btn btn-success mt-4'}
-    {/form}
+            {input submit class => 'form-control btn btn-success mt-4'}
+        {/form}
+    </div>
 </div>

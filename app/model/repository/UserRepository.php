@@ -34,4 +34,15 @@ class UserRepository extends Repository
     {
         return $this->findBy([self::COLUMN_LOGIN => $login])->fetch();
     }
+
+    /**
+     * Nalezne uživatele v DB podle jeho ID
+     *
+     * @param int $id
+     * @return \Nette\Database\Table\Selection
+     */
+    public function findById(int $id)
+    {
+        return $this->findBy([self::COLUMN_ID => $id]);
+    }
 }

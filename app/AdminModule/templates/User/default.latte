@@ -1,0 +1,14 @@
+{block content}
+<div class="row">
+    <div class="col-11">
+        <h4>Administrace - Seznam uživatelů</h4>
+    </div>
+    <div class="col-1">
+        <a n:href="User:add" class="btn btn-sm btn-success"><span class="fa fa-fw fa-plus"></span> Přidat uživatele</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 offset-1">
+        {control userGrid}
+    </div>
+</div>

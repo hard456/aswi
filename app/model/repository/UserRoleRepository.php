@@ -16,4 +16,21 @@ class UserRoleRepository extends Repository
     /** Sloupečky tabulky */
     const COLUMN_USER_ID = 'user_id';
     const COLUMN_ROLE_ID = 'role_id';
+
+    /**
+     * Přiřadí roli novému uživateli
+     *
+     * @param int $userId
+     * @param int $roleId
+     * @return bool|int|\Nette\Database\Table\ActiveRow
+     */
+    public function addNew(int $userId, int $roleId)
+    {
+        return $this->insert(
+            [
+                UserRoleRepository::COLUMN_USER_ID => $userId,
+                UserRoleRepository::COLUMN_ROLE_ID => $roleId
+            ]
+        );
+    }
 }

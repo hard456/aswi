@@ -15,3 +15,5 @@ services:
     - App\Model\Repository\UserLogRepository
     - App\Model\Repository\UserRepository
     - App\Model\Repository\UserRoleRepository
+
+    - App\Model\Facade\UserFacade
