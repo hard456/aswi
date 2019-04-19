@@ -5,9 +5,14 @@ namespace App\FrontModule\Presenters;
 
 
 use App\FrontModule\Components\ITransliterationSearchFormFactory;
+use App\Model\Repository\LineRepository;
+use App\Model\Repository\LitReferenceRepository;
+use App\Model\Repository\RevHistoryRepository;
 use App\Model\Repository\TransliterationRepository;
 use App\Model\TransliterationSearchModel;
 use Nette\Application\UI\Presenter;
+use Nette\SmartObject;
+use Tracy\Debugger;
 
 class TransliterationPresenter extends Presenter
 {
@@ -20,10 +25,22 @@ class TransliterationPresenter extends Presenter
     /** @var TransliterationSearchModel */
     private $transliterationSearchModel;
 
+    /** @var LitReferenceRepository */
+    private $litReferenceRepository;
+
+    /** @var RevHistoryRepository */
+    private $revHistoryRepository;
+
+    /** @var LineRepository */
+    private $lineRepository;
+
     public function __construct(
         ITransliterationSearchFormFactory $transliterationSearchFormFactory,
         TransliterationRepository $transliterationRepository,
-        TransliterationSearchModel $transliterationSearchModel
+        TransliterationSearchModel $transliterationSearchModel,
+        LitReferenceRepository $litReferenceRepository,
+        RevHistoryRepository $revHistoryRepository,
+        LineRepository $lineRepository
     )
     {
         parent::__construct();
@@ -31,6 +48,9 @@ class TransliterationPresenter extends Presenter
         $this->transliterationSearchFormFactory = $transliterationSearchFormFactory;
         $this->transliterationRepository = $transliterationRepository;
         $this->transliterationSearchModel = $transliterationSearchModel;
+        $this->litReferenceRepository = $litReferenceRepository;
+        $this->revHistoryRepository = $revHistoryRepository;
+        $this->lineRepository = $lineRepository;
     }
 
 
@@ -56,6 +76,27 @@ class TransliterationPresenter extends Presenter
         $resultRows = $this->transliterationRepository->transliterationsFulltextSearch($searchTerms);
 
         $this->template->resultRows = $resultRows;
+    }
+
+    public function actionView($id)
+    {
+        $transliteration = $this->transliterationRepository->getTransliterationDetail($id);
+        if(!$transliteration)
+        {
+            $this->presenter->flashMessage('Transliteration not found');
+            $this->redirect('Transliteration:search');
+        }
+        $lines = $this->lineRepository->getAllLinesForTransliteration($id);
+        $lineArray = [];
+        foreach ($lines as $line)
+        {
+            $lineArray[$line->object_type][$line->surface_type][] = array('transliteration' => $line->transliteration, 'line_number' => $line->line_number);
+        }
+
+        $this->template->transliteration = $transliteration;
+        $this->template->litReferences = $this->litReferenceRepository->findBy([LitReferenceRepository::COLUMN_TRANSLITERATION_ID => $id]);
+        $this->template->revisionHistory = $this->revHistoryRepository->findBy([RevHistoryRepository::COLUMN_TRANSLITERATION_ID => $id]);
+        $this->template->lineArray = $lineArray;
     }
 
     public function createComponentTransliterationSearchForm()
