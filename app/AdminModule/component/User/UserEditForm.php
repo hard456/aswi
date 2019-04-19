@@ -10,7 +10,7 @@ use App\Model\Repository\RoleRepository;
 use App\Model\Repository\UserRepository;
 use App\Model\Repository\UserRoleRepository;
 use Nette\Application\UI\Control;
-use Nette\Application\UI\Form;
+use App\Utils\Form;
 
 class UserEditForm extends Control
 {
@@ -70,16 +70,15 @@ class UserEditForm extends Control
 
         $password = $this->form->addPassword(UserRepository::COLUMN_PASSWORD, 'Heslo');
         $passwordConfirm = $this->form->addPassword(self::PASSWORD_CONFIRM, 'Potvrzení hesla')
-            ->addRule(Form::EQUAL, 'Hesla se musejí shodovat.', $this->form[UserRepository::COLUMN_PASSWORD]);
+            ->addConditionOn($password, Form::FILLED, TRUE)
+            ->addRule(Form::EQUAL, 'Hesla se musejí shodovat.', $password)
+            ->addRule(Form::REQUIRED, 'Pole %label je povinné')
+            ->endCondition();
 
         if (empty($this->userId))
         {
-            $password->setRequired(TRUE);
-            $passwordConfirm->setRequired(TRUE);
-        } else
-        {
-            $password->setRequired(FALSE);
-            $passwordConfirm->setRequired(FALSE);
+            $password->addRule(Form::REQUIRED, 'Pole %label je povinné', TRUE);
+            $passwordConfirm->addRule(Form::REQUIRED, 'Pole %label je povinné');
         }
 
         $this->form->addSelect(UserRoleRepository::COLUMN_ROLE_ID, 'Role uživatele', $this->getRoles())
