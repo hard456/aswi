@@ -16,4 +16,10 @@ class ELogicalConditions
         self::OR => 'OR',
         self::AND_NOT => 'AND NOT'
     ];
+
+    public static $whereCondition = [
+        self::AND => 'AND',
+        self::OR => 'OR',
+        self::AND_NOT => 'AND NOT'
+    ];
 }

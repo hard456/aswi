@@ -2,6 +2,8 @@
 
 namespace App\Model\Repository;
 
+use App\Enum\ELogicalConditions;
+
 /**
  * Repository pro práci s tabulkou `transliteration`
  *
@@ -25,4 +27,29 @@ class TransliterationRepository extends Repository
     const COLUMN_REG_NO = 'reg_no';
     const COLUMN_DATE = 'date';
     const COLUMN_NOTE = 'note';
+
+    public function transliterationsFulltextSearch($queryParams)
+    {
+        $where = '';
+        $whereArgs = [];
+
+        if($queryParams['exact_match'])
+        {
+            $where .= "l.transliteration LIKE '%?%' ";
+            $whereArgs[] = $queryParams['word1'];
+        }
+        else
+        {
+            $where .= "l.transliteration LIKE '%?%' ";
+            $whereArgs[] = $queryParams['word1'];
+        }
+
+        $query = "SELECT b.book_abrev, t.chapter, l.transliteration, l.line_number FROM transliteration t
+                  LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
+                  LEFT JOIN line l ON l.id_surface = s.id_surface
+                  LEFT JOIN book b on t.id_book = b.id_book
+                  WHERE " . $where;
+
+        return $this->context->queryArgs($query, $whereArgs);
+    }
 }
