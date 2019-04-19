@@ -45,8 +45,7 @@ class TransliterationRepository extends Repository
         }
         else
         {
-            // padá při zadávání diakritiky?
-            $splitWord = str_split($queryParams['word1']);
+            $splitWord = preg_split('//u', $queryParams['word1'], -1, PREG_SPLIT_NO_EMPTY);
             $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
             $where .= "l.transliteration REGEXP ? ";
             $whereArgs[] = $regex;
