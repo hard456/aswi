@@ -107,3 +107,11 @@ li.nav-item .active{
     border-color: #003366;
     color: #FAFAFA;
 }
+
+.ul-alert{
+    margin-bottom: 0;
+}
+
+.required{
+    font-weight: bold;
+}

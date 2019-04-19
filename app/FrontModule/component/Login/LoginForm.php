@@ -6,8 +6,8 @@ namespace App\FrontModule\Components;
 
 use App\Enum\EFlashMessage;
 use App\Model\Repository\UserRepository;
+use App\Utils\Form;
 use Nette\Application\UI\Control;
-use Nette\Application\UI\Form;
 use Nette\Security\AuthenticationException;
 
 class LoginForm extends Control
@@ -22,8 +22,10 @@ class LoginForm extends Control
     {
         $form = new Form;
 
-        $form->addText(UserRepository::COLUMN_LOGIN, 'Login');
-        $form->addPassword(UserRepository::COLUMN_PASSWORD, 'Password');
+        $form->addText(UserRepository::COLUMN_LOGIN, 'Login')
+            ->setRequired('Pole %label je povinné.');
+        $form->addPassword(UserRepository::COLUMN_PASSWORD, 'Password')
+            ->setRequired('Pole %label je povinné.');;
 
         $form->addSubmit('submit', 'Login');
 
