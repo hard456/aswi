@@ -28,6 +28,11 @@ class TransliterationRepository extends Repository
     const COLUMN_DATE = 'date';
     const COLUMN_NOTE = 'note';
 
+    /**
+     * Vyhledává texty podle slov v řádcích textu
+     * @param $queryParams array podmínky pro hledaný text
+     * @return \Nette\Database\ResultSet
+     */
     public function transliterationsFulltextSearch($queryParams)
     {
         $where = '';
@@ -35,13 +40,28 @@ class TransliterationRepository extends Repository
 
         if($queryParams['exact_match'])
         {
-            $where .= "l.transliteration LIKE '%?%' ";
-            $whereArgs[] = $queryParams['word1'];
+            $where .= "l.transliteration LIKE ? ";
+            $whereArgs[] = "%" . $queryParams['word1'] . "%";
         }
         else
         {
-            $where .= "l.transliteration LIKE '%?%' ";
-            $whereArgs[] = $queryParams['word1'];
+            // padá při zadávání diakritiky?
+            $splitWord = str_split($queryParams['word1']);
+            $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
+            $where .= "l.transliteration REGEXP ? ";
+            $whereArgs[] = $regex;
+        }
+
+        if($queryParams['word2_condition'])
+        {
+            $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
+            $whereArgs[] = "%" . $queryParams['word2'] . "%";
+        }
+
+        if($queryParams['word3_condition'])
+        {
+            $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
+            $whereArgs[] = "%" . $queryParams['word3'] . "%";
         }
 
         $query = "SELECT b.book_abrev, t.chapter, l.transliteration, l.line_number FROM transliteration t
