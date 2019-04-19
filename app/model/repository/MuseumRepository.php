@@ -15,6 +15,17 @@ class MuseumRepository extends Repository
 
     /** Sloupečky tabulky */
     const COLUMN_ID = 'id_museum';
-    const COLUMN_TITLE = 'museum';
+    const COLUMN_NAME = 'museum';
     const COLUMN_PLACE = 'place';
+
+    /**
+     * Najde muzeum podle jména v DB
+     *
+     * @param string $name
+     * @return \Nette\Database\Table\Selection
+     */
+    public function findByName(string $name)
+    {
+        return $this->findBy([self::COLUMN_NAME => $name]);
+    }
 }

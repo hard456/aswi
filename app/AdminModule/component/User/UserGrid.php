@@ -19,7 +19,7 @@ class UserGrid extends DataGrid
     {
         $this->userRepository = $userRepository;
 
-        parent::__construct(NULL, NULL);
+        parent::__construct();
     }
 
     /**
@@ -61,8 +61,6 @@ class UserGrid extends DataGrid
             ->setConfirm('Opravdu chcete uživatele "%s" odstranit?', UserRepository::COLUMN_LOGIN)
             ->setTitle('Odstranit')
             ->setClass('btn btn-xs btn-danger ajax');
-
-        $this->setDefaultPerPage(20);
     }
 }
 

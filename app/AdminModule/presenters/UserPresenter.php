@@ -35,8 +35,6 @@ class UserPresenter extends BaseAdminPresenter
         $this->userFacade = $userFacade;
     }
 
-    public function actionAdd(){}
-
     public function actionEdit(int $id)
     {
         $this['userEditForm']->setUser($id);
