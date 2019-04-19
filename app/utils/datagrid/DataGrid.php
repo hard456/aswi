@@ -22,6 +22,7 @@ abstract class DataGrid extends BaseDataGrid
      * DataGrid konstruktor.
      * @param IContainer|null $parent
      * @param null $name
+     * @throws DataGridException
      */
     public function __construct(IContainer $parent = null, $name = null)
     {
@@ -32,7 +33,7 @@ abstract class DataGrid extends BaseDataGrid
             'ublaboo_datagrid.no_item_found' => 'Žádné položky nenalezeny.',
             'ublaboo_datagrid.here' => 'zde',
             'ublaboo_datagrid.items' => 'Položky',
-            'ublaboo_datagrid.all' => 'všechny',
+            'ublaboo_datagrid.all' => 'vše',
             'ublaboo_datagrid.from' => 'z',
             'ublaboo_datagrid.reset_filter' => 'Resetovat filtr',
             'ublaboo_datagrid.group_actions' => 'Hromadné akce',
@@ -161,5 +162,23 @@ abstract class DataGrid extends BaseDataGrid
         });
 
         return $filterText;
+    }
+
+    /**
+     * Fixnutí zobrazování všech záznamů v českém překladu gridu
+     *
+     * @return int
+     */
+    public function getPerPage()
+    {
+        $items_per_page_list = array_keys($this->getItemsPerPageList());
+
+        $per_page = $this->per_page ?: reset($items_per_page_list);
+
+        if (($per_page !== 'all' && !in_array((int) $this->per_page, $items_per_page_list, true))
+            || ($per_page === 'all' && !in_array($this->per_page, $items_per_page_list, true))) {
+            $per_page = reset($items_per_page_list);
+        }
+        return $per_page;
     }
 }
