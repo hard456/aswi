@@ -42,8 +42,13 @@ class SurfaceTypeGrid extends DataGrid
         $this->addColumnText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type');
         $this->addColumnText(SurfaceTypeRepository::COLUMN_SORTER, 'Sort Position');
 
-        $this->addAction('edit', 'upravit', 'Surface:editType', ['id' => SurfaceTypeRepository::COLUMN_ID])
+        $this->addAction('edit', 'edit', 'Surface:editType', ['id' => SurfaceTypeRepository::COLUMN_ID])
             ->setTitle('Edit');
+
+        $this->addAction('delete', 'smazat', 'Surface:deleteType', ['id' => SurfaceTypeRepository::COLUMN_ID])
+            ->setConfirm('Do you really want to delete surface type "%s"?', SurfaceTypeRepository::COLUMN_SURFACE_TYPE)
+            ->setTitle('Delete')
+            ->setClass('btn btn-xs btn-danger ajax');
 
         $this->setDefaultPerPage(20);
     }
