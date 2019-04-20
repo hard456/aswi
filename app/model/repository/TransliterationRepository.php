@@ -3,7 +3,7 @@
 namespace App\Model\Repository;
 
 use App\Enum\ELogicalConditions;
-use Tracy\Debugger;
+use Nette\Utils\ArrayHash;
 
 /**
  * Repository pro práci s tabulkou `transliteration`
@@ -31,10 +31,10 @@ class TransliterationRepository extends Repository
 
     /**
      * Vyhledává texty podle slov v řádcích textu
-     * @param $queryParams array podmínky pro hledaný text
+     * @param ArrayHash $queryParams objekt s podmínkami pro hledaný text
      * @return \Nette\Database\ResultSet
      */
-    public function transliterationsFulltextSearch($queryParams)
+    public function transliterationsFulltextSearch(ArrayHash $queryParams)
     {
         $where = '';
         $whereArgs = [];
@@ -93,14 +93,27 @@ class TransliterationRepository extends Repository
         return $this->context->queryArgs($query, $whereArgs);
     }
 
-    private function prepareSearchRegExp($word)
+    /**
+     * Vytváří regulární výraz z hledaného slova, escapuje regexp znaky
+     * @param $word string hledané slovo
+     * @return string Regexp
+     */
+    private function prepareSearchRegExp(string $word)
     {
         $splitWord = preg_split('//u',$word, -1, PREG_SPLIT_NO_EMPTY);
+        foreach ($splitWord as &$char)
+        {
+            $char = preg_quote($char);
+        }
         $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
         return $regex;
     }
 
-    public function getTransliterationDetail($id)
+    /**
+     * @param int $id id transliterace
+     * @return bool|\Nette\Database\IRow|\Nette\Database\Row
+     */
+    public function getTransliterationDetail(int $id)
     {
         return $this->context->query(
             "SELECT 

@@ -5,6 +5,7 @@ namespace App\Model;
 
 use Nette\Http\Session;
 use Nette\Http\SessionSection;
+use Nette\Utils\ArrayHash;
 
 class TransliterationSearchModel
 {
@@ -28,11 +29,14 @@ class TransliterationSearchModel
         return $this->section;
     }
 
-    public function setSearchTerms($searchTerms)
+    public function setSearchTerms(ArrayHash $searchTerms)
     {
         $this->section->searchTerms = $searchTerms;
     }
 
+    /**
+     * @return null|ArrayHash
+     */
     public function getSearchTerms()
     {
         return $this->section->searchTerms;

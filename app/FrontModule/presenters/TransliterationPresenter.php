@@ -11,8 +11,6 @@ use App\Model\Repository\RevHistoryRepository;
 use App\Model\Repository\TransliterationRepository;
 use App\Model\TransliterationSearchModel;
 use Nette\Application\UI\Presenter;
-use Nette\SmartObject;
-use Tracy\Debugger;
 
 class TransliterationPresenter extends Presenter
 {

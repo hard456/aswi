@@ -6,6 +6,7 @@ use App\Enum\ELogicalConditions;
 use App\Model\TransliterationSearchModel;
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
+use Nette\Utils\ArrayHash;
 
 class TransliterationSearchForm extends Control
 {
@@ -50,6 +51,7 @@ class TransliterationSearchForm extends Control
 
     public function formSuccess(Form $form)
     {
+        /** @var ArrayHash $values */
         $values = $form->getValues();
         $this->transliterationSearchModel->setSearchTerms($values);
         $this->presenter->redirect('Transliteration:searchResult');
