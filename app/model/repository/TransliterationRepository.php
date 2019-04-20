@@ -2,6 +2,9 @@
 
 namespace App\Model\Repository;
 
+use App\Enum\ELogicalConditions;
+use Nette\Utils\ArrayHash;
+
 /**
  * Repository pro práci s tabulkou `transliteration`
  *
@@ -25,4 +28,113 @@ class TransliterationRepository extends Repository
     const COLUMN_REG_NO = 'reg_no';
     const COLUMN_DATE = 'date';
     const COLUMN_NOTE = 'note';
+
+    /**
+     * Vyhledává texty podle slov v řádcích textu
+     * @param ArrayHash $queryParams objekt s podmínkami pro hledaný text
+     * @return \Nette\Database\ResultSet
+     */
+    public function transliterationsFulltextSearch(ArrayHash $queryParams)
+    {
+        $where = '';
+        $whereArgs = [];
+
+        if($queryParams['exact_match'])
+        {
+            $where .= "l.transliteration LIKE ? ";
+            $whereArgs[] = "%" . $queryParams['word1'] . "%";
+        }
+        else
+        {
+            $where .= "l.transliteration REGEXP ? ";
+            $whereArgs[] = $this->prepareSearchRegExp($queryParams['word1']);
+        }
+
+        if($queryParams['word2_condition'])
+        {
+            if($queryParams['exact_match'])
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
+                $whereArgs[] = "%" . $queryParams['word2'] . "%";
+            }
+            else
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
+                $whereArgs[] = $this->prepareSearchRegExp($queryParams['word2']);
+            }
+        }
+
+        if($queryParams['word3_condition'])
+        {
+            if($queryParams['exact_match'])
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
+                $whereArgs[] = "%" . $queryParams['word3'] . "%";
+            }
+            else
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
+                $whereArgs[] = $this->prepareSearchRegExp($queryParams['word3']);
+            }
+        }
+
+        $query = "SELECT 
+                    t.id_transliteration as id, 
+                    b.book_abrev, 
+                    t.chapter, 
+                    l.transliteration, 
+                    l.line_number 
+                  FROM transliteration t
+                  LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
+                  LEFT JOIN line l ON l.id_surface = s.id_surface
+                  LEFT JOIN book b on t.id_book = b.id_book
+                  WHERE " . $where;
+
+        return $this->context->queryArgs($query, $whereArgs);
+    }
+
+    /**
+     * Vytváří regulární výraz z hledaného slova, escapuje regexp znaky
+     * @param $word string hledané slovo
+     * @return string Regexp
+     */
+    private function prepareSearchRegExp(string $word)
+    {
+        $splitWord = preg_split('//u',$word, -1, PREG_SPLIT_NO_EMPTY);
+        foreach ($splitWord as &$char)
+        {
+            $char = preg_quote($char);
+        }
+        $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
+        return $regex;
+    }
+
+    /**
+     * @param int $id id transliterace
+     * @return bool|\Nette\Database\IRow|\Nette\Database\Row
+     */
+    public function getTransliterationDetail(int $id)
+    {
+        return $this->context->query(
+            "SELECT 
+                    t.id_transliteration as id,
+                    t.chapter,
+                    t.museum_no,
+                    t.reg_no,
+                    t.date,
+                    t.note,
+                    b.*, 
+                    bt.book_type,
+                    m.museum,
+                    m.place,
+                    o.*
+                  FROM transliteration t
+                  LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
+                  LEFT JOIN book b on t.id_book = b.id_book
+                  LEFT JOIN book_type bt on t.id_book_type =bt.id_book_type
+                  LEFT JOIN museum m on t.id_museum = m.id_museum
+                  LEFT JOIN origin o on t.id_origin = o.id_origin
+                  WHERE t.id_transliteration = ?", $id
+        )->fetch();
+    }
 }

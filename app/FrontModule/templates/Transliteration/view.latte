@@ -1,0 +1,115 @@
+{block content}
+    <div class="display-5">Transliteration info</div>
+    <hr>
+
+    <div class="display-6">
+        <div class="text-muted">Catalogue information</div>
+    </div>
+    <div>
+
+        <div>
+            <a href="#">edit book</a> |
+            <a href="#">edit transliteration info</a>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <dl class="row">
+
+            <dt class="col-sm-3">Book abrev.</dt>
+            <dd class="col-sm-9">{$transliteration->book_abrev}</dd>
+
+            <dt class="col-sm-3">Book name</dt>
+            <dd class="col-sm-9">{$transliteration->book_name}</dd>
+
+            <dt class="col-sm-3">Book subtitle</dt>
+            <dd class="col-sm-9">{$transliteration->book_subtitle}</dd>
+
+            <dt class="col-sm-3">Book author</dt>
+            <dd class="col-sm-9">{$transliteration->book_autor}</dd>
+
+            <dt class="col-sm-3">Place of publication</dt>
+            <dd class="col-sm-9">{$transliteration->place_of_pub}</dd>
+
+            <dt class="col-sm-3">Date of publication</dt>
+            <dd class="col-sm-9">{$transliteration->date_of_pub}</dd>
+
+            <dt class="col-sm-3">Pages</dt>
+            <dd class="col-sm-9">{$transliteration->pages}</dd>
+
+            <dt class="col-sm-3">Book description</dt>
+            <dd class="col-sm-9">{$transliteration->book_description}</dd>
+
+            <dt class="col-sm-3">Volume</dt>
+            <dd class="col-sm-9">{$transliteration->volume}</dd>
+
+            <dt class="col-sm-3">Volume number</dt>
+            <dd class="col-sm-9">{$transliteration->volume_no}</dd>
+
+            <dt class="col-sm-3">Book type</dt>
+            <dd class="col-sm-9">{$transliteration->book_type}</dd>
+
+            <dt class="col-sm-3">Chapter</dt>
+            <dd class="col-sm-9">{$transliteration->chapter}</dd>
+
+            <dt class="col-sm-3">Museum</dt>
+            <dd class="col-sm-9">{$transliteration->museum}{ifset $transliteration->place}, {$transliteration->place}{/ifset}</dd>
+
+            <dt class="col-sm-3">Museum no.</dt>
+            <dd class="col-sm-9">{$transliteration->museum_no}</dd>
+
+            <dt class="col-sm-3">Reg. (Excavation) no.</dt>
+            <dd class="col-sm-9">{$transliteration->reg_no}</dd>
+
+            <dt class="col-sm-3">Date</dt>
+            <dd class="col-sm-9">{$transliteration->date}</dd>
+
+            <dt class="col-sm-3">Origin (Ancient name / Modern name)</dt>
+            <dd class="col-sm-9">{$transliteration->old_name}/{$transliteration->origin}</dd>
+
+            <dt class="col-sm-3">Note</dt>
+            <dd class="col-sm-9">{$transliteration->note}</dd>
+
+            <dt class="col-sm-3">References (handcopy)</dt>
+            <dd class="col-sm-9">
+                {foreach $litReferences as $reference}
+                    {$reference->series} {$reference->number}, {$reference->plate}<br>
+                {/foreach}
+            </dd>
+
+        </dl>
+    </div>
+
+    <hr>
+    <div class="display-6">
+        <div class="text-muted">Transliteration data</div>
+    </div>
+
+
+    <a href="#">edit</a>
+
+    <div class="container-fluid">
+        {foreach $lineArray as $objectType => $surface}
+            <b>{$objectType}</b> <br>
+            {foreach $surface as $surfaceType => $lines}
+                <div class="noname" id="tablet-div">
+                    <hr>
+
+                    <i>{$surfaceType}</i> <br>
+                    {foreach $lines as $line}
+                        {$line['line_number']}. {$line['transliteration']} <br>
+                    {/foreach}
+                </div>
+            {/foreach}
+        {/foreach}
+    </div>
+    <hr>
+    <div class="display-6">
+        <div class="text-muted">Revision history</div>
+    </div>
+    <div class="container-fluid">
+        {foreach $revisionHistory as $revisionRecord}
+            {$revisionRecord->date|date:'Y-m-d'} {ifset $revisionRecord->name} - {$revisionRecord->name}{/ifset} - {$revisionRecord->description}<br>
+        {/foreach}
+    </div>
+{/block}

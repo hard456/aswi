@@ -1,4 +1,5 @@
 services:
+    #Repository
     - App\Model\Repository\Repository
     - App\Model\Repository\BookRepository
     - App\Model\Repository\BookTypeRepository
@@ -16,4 +17,8 @@ services:
     - App\Model\Repository\UserRepository
     - App\Model\Repository\UserRoleRepository
 
+    #Facade
     - App\Model\Facade\UserFacade
+
+    #Sessions
+    - App\Model\TransliterationSearchModel

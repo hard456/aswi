@@ -2,6 +2,6 @@ parameters:
 
 
 database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
+	dsn: 'mysql:host=filek.cz;dbname=aswi-obtc-new'
 	user:
 	password:
