@@ -46,22 +46,36 @@ class TransliterationRepository extends Repository
         }
         else
         {
-            $splitWord = preg_split('//u', $queryParams['word1'], -1, PREG_SPLIT_NO_EMPTY);
-            $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
             $where .= "l.transliteration REGEXP ? ";
-            $whereArgs[] = $regex;
+            $whereArgs[] = $this->prepareSearchRegExp($queryParams['word1']);
         }
 
         if($queryParams['word2_condition'])
         {
-            $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
-            $whereArgs[] = "%" . $queryParams['word2'] . "%";
+            if($queryParams['exact_match'])
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
+                $whereArgs[] = "%" . $queryParams['word2'] . "%";
+            }
+            else
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
+                $whereArgs[] = $this->prepareSearchRegExp($queryParams['word2']);
+            }
         }
 
         if($queryParams['word3_condition'])
         {
-            $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
-            $whereArgs[] = "%" . $queryParams['word3'] . "%";
+            if($queryParams['exact_match'])
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
+                $whereArgs[] = "%" . $queryParams['word3'] . "%";
+            }
+            else
+            {
+                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
+                $whereArgs[] = $this->prepareSearchRegExp($queryParams['word3']);
+            }
         }
 
         $query = "SELECT 
@@ -77,6 +91,13 @@ class TransliterationRepository extends Repository
                   WHERE " . $where;
 
         return $this->context->queryArgs($query, $whereArgs);
+    }
+
+    private function prepareSearchRegExp($word)
+    {
+        $splitWord = preg_split('//u',$word, -1, PREG_SPLIT_NO_EMPTY);
+        $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
+        return $regex;
     }
 
     public function getTransliterationDetail($id)

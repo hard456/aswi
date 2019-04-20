@@ -35,7 +35,7 @@ class LineRepository extends Repository
                          LEFT JOIN transliteration t on s.id_transliteration = t.id_transliteration
                          LEFT JOIN object_type o on s.id_object_type = o.id_object_type
                   WHERE t.id_transliteration = ?
-                  ORDER BY st.sorter ASC, line_number ASC",
+                  ORDER BY st.sorter ASC, id_line ASC",
             $transliterationId
         );
     }
