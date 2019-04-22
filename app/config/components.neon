@@ -10,3 +10,4 @@ services:
     - App\AdminModule\Components\IUserEditFormFactory
     - App\FrontModule\Components\ITransliterationSearchFormFactory
     - App\AdminModule\Components\IMuseumEditFormFactory
+    - App\AdminModule\Components\IObjectTypeEditFormFactory
