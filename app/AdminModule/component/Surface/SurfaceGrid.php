@@ -20,7 +20,7 @@ class SurfaceTypeGrid extends DataGrid
     {
         $this->surfaceTypeRepository = $surfaceTypeRepository;
 
-        parent::__construct();
+        parent::__construct(FALSE);
 
     }
 
@@ -41,6 +41,8 @@ class SurfaceTypeGrid extends DataGrid
         $this->addColumnNumber(SurfaceTypeRepository::COLUMN_ID, 'ID')->setDefaultHide(TRUE);
         $this->addColumnText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type');
         $this->addColumnText(SurfaceTypeRepository::COLUMN_SORTER, 'Sort Position');
+
+        $this->addFilterText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type');
 
         $this->addAction('edit', 'edit', 'Surface:editType', ['id' => SurfaceTypeRepository::COLUMN_ID])
             ->setTitle('Edit');

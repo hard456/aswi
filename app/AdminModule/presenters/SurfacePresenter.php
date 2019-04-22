@@ -8,7 +8,7 @@ use App\AdminModule\Components\ISurfaceTypeGridFactory;
 use App\Enum\EFlashMessage;
 use App\Model\Repository\SurfaceTypeRepository;
 
-class SurfacePresenter extends BaseAdminPresenter
+class SurfacePresenter extends BaseUserPresenter
 {
     /** @var ISurfaceTypeGridFactory */
     private $surfaceTypeGridFactory;
