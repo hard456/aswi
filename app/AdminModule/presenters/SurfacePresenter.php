@@ -47,6 +47,12 @@ class SurfacePresenter extends BaseUserPresenter
 
     public function actionEditType(int $id)
     {
+        if(!$this->surfaceTypeRepository->findRow($id))
+        {
+            $this->flashMessage('Surface type was not found.', EFlashMessage::ERROR);
+            $this->redirect('Surface:');
+        }
+
         $this->typeId = $id;
         $this->template->id = $id;
     }

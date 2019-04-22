@@ -41,11 +41,12 @@ class SurfaceTypeEditForm extends Control
         $form->addText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type')
             ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
 
-        $form->addText(SurfaceTypeRepository::COLUMN_SORTER, 'Sorter')
+        $form->addInteger(SurfaceTypeRepository::COLUMN_SORTER, 'Sorter')
             ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
 
         $form->addSubmit('submit', 'Save');
 
+        $form->onValidate[] = [$this, 'formValidate'];
         $form->onSuccess[] = [$this, 'formSuccess'];
 
         if($this->typeId)
@@ -54,6 +55,21 @@ class SurfaceTypeEditForm extends Control
         }
 
         return $form;
+    }
+
+    /**
+     * Validace formuláře
+     *
+     * @param Form $form
+     */
+    public function formValidate(Form $form)
+    {
+        $values = $form->getValues();
+
+        if (!is_int($values->sorter))
+        {
+            $form->addError('Sorter must be a number.');
+        }
     }
 
     public function formSuccess(Form $form)
