@@ -39,10 +39,10 @@ class SurfaceTypeEditForm extends Control
         $form = new Form();
 
         $form->addText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type')
-            ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
+            ->addRule(Form::REQUIRED, 'Field %label is required.');
 
         $form->addInteger(SurfaceTypeRepository::COLUMN_SORTER, 'Sorter')
-            ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
+            ->addRule(Form::REQUIRED, 'Field %label is required.');
 
         $form->addSubmit('submit', 'Save');
 
@@ -82,7 +82,7 @@ class SurfaceTypeEditForm extends Control
             $this->presenter->redirect('Surface:');
         } else
         {
-            $this->presenter->flashMessage('Uživatele se nepodařilo upravit.', EFlashMessage::ERROR);
+            $this->presenter->flashMessage('Surface type could not be saved.', EFlashMessage::ERROR);
         }
     }
 }
