@@ -3,6 +3,7 @@ services:
     - App\FrontModule\Components\IExampleGirdFactory
     - App\AdminModule\Components\IUserGridFactory
     - App\AdminModule\Components\IMuseumGridFactory
+    - App\AdminModule\Components\IObjectTypeGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
