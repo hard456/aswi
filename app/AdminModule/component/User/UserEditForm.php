@@ -128,7 +128,7 @@ class UserEditForm extends Control
             $this->presenter->redirect('User:edit', ['id' => $result->{UserRepository::COLUMN_ID}]);
         } else
         {
-            $this->presenter->flashMessage('Uživatele se nepodařilo upravit.', EFlashMessage::ERROR);
+            $form->addError('Uživatele se nepodařilo upravit.');
         }
     }
 

@@ -2,8 +2,10 @@ services:
     # Gridy
     - App\FrontModule\Components\IExampleGirdFactory
     - App\AdminModule\Components\IUserGridFactory
+    - App\AdminModule\Components\IMuseumGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
     - App\AdminModule\Components\IUserEditFormFactory
     - App\FrontModule\Components\ITransliterationSearchFormFactory
+    - App\AdminModule\Components\IMuseumEditFormFactory
