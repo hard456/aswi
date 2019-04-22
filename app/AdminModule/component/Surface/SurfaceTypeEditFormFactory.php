@@ -38,8 +38,11 @@ class SurfaceTypeEditForm extends Control
     {
         $form = new Form();
 
-        $form->addText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type');
-        $form->addText(SurfaceTypeRepository::COLUMN_SORTER, 'Sorter');
+        $form->addText(SurfaceTypeRepository::COLUMN_SURFACE_TYPE, 'Surface Type')
+            ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
+
+        $form->addText(SurfaceTypeRepository::COLUMN_SORTER, 'Sorter')
+            ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
 
         $form->addSubmit('submit', 'Save');
 
