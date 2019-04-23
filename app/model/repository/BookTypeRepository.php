@@ -16,4 +16,16 @@ class BookTypeRepository extends Repository
     /** Sloupečky tabulky */
     const COLUMN_ID = 'id_book_type';
     const COLUMN_BOOK_TYPE = 'book_type';
+
+    /**
+     * Najde záznam podle typu knížky v DB
+     *
+     * @param string $bookType
+     * @return \Nette\Database\Table\Selection
+     */
+    public function findByBookType(string $bookType)
+    {
+        return $this->findBy([self::COLUMN_BOOK_TYPE => $bookType]);
+    }
+
 }
