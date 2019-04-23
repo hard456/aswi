@@ -1,0 +1,16 @@
+{block content}
+    <div class="row">
+        <div class="col-10">
+            <div class="display-5">Surface Types</div>
+        </div>
+        <div class="col-2 text-right">
+            <a n:href="Surface:addType" class="btn btn-sm btn-success"><span class="fa fa-fw fa-plus"></span> New Surface Type</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            {control surfaceTypeGrid}
+        </div>
+    </div>
+
+{/block}

@@ -1,0 +1,11 @@
+{block content}
+<div class="row">
+    <div class="col-10">
+        <div class="display-5">Edit Origin</div>
+    </div>
+    <div class="col-2 text-right">
+        <a n:href="Origin:default" class="btn btn-sm btn-success"><span class="fa fa-fw fa-list"></span> Origin list</a>
+        <a n:href="Origin:delete $id" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this origin?')"><span class="fa fa-fw fa-trash"></span> Delete origin</a>
+    </div>
+</div>
+{control originEditForm}
