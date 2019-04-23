@@ -4,6 +4,7 @@ services:
     - App\AdminModule\Components\IUserGridFactory
     - App\AdminModule\Components\IMuseumGridFactory
     - App\AdminModule\Components\IOriginGridFactory
+    - App\AdminModule\Components\ISurfaceTypeGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
@@ -11,3 +12,5 @@ services:
     - App\FrontModule\Components\ITransliterationSearchFormFactory
     - App\AdminModule\Components\IMuseumEditFormFactory
     - App\AdminModule\Components\IOriginEditFormFactory
+    - App\AdminModule\Components\ISurfaceTypeEditFormFactory
+    - App\AdminModule\Components\IMuseumEditFormFactory
