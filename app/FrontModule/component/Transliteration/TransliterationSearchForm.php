@@ -24,6 +24,8 @@ class TransliterationSearchForm extends Control
     /**
      * TransliterationSearchForm constructor.
      * @param TransliterationSearchModel $transliterationSearchModel
+     * @param BookTypeRepository $bookTypeRepository
+     * @param OriginRepository $originRepository
      */
     public function __construct(
         TransliterationSearchModel $transliterationSearchModel,
@@ -67,11 +69,9 @@ class TransliterationSearchForm extends Control
         $form->addSelect('type_condition', '', ESearchFormOperators::$selectEqualsOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::IS);
         $form->addSelect('type', 'Type', $this->bookTypeRepository->getTypesForSelect());
-//            ->setDefaultValue(ESearchFormOperators::IS);
         $form->addSelect('origin_condition', '', ESearchFormOperators::$selectEqualsOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::IS);
         $form->addSelect('origin', 'Origin', $this->originRepository->getOriginsForSelect());
-
 
         $form->addSelect('registration_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
