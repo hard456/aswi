@@ -2,7 +2,7 @@
 
 namespace App\Model\Repository;
 
-use App\Enum\ELogicalConditions;
+use App\Enum\ESearchFormOperators;
 use Nette\Utils\ArrayHash;
 
 /**
@@ -54,12 +54,12 @@ class TransliterationRepository extends Repository
         {
             if($queryParams['exact_match'])
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
                 $whereArgs[] = "%" . $queryParams['word2'] . "%";
             }
             else
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
                 $whereArgs[] = $this->prepareSearchRegExp($queryParams['word2']);
             }
         }
@@ -68,12 +68,12 @@ class TransliterationRepository extends Repository
         {
             if($queryParams['exact_match'])
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
                 $whereArgs[] = "%" . $queryParams['word3'] . "%";
             }
             else
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
                 $whereArgs[] = $this->prepareSearchRegExp($queryParams['word3']);
             }
         }

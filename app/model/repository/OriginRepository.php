@@ -17,4 +17,15 @@ class OriginRepository extends Repository
     const COLUMN_ID = 'id_origin';
     const COLUMN_ORIGIN = 'origin';
     const COLUMN_OLD_NAME = 'old_name';
+
+    /**
+     * Return all origins for select values
+     * @return array
+     */
+    public function getOriginsForSelect()
+    {
+        $origins = $this->findAll()->fetchPairs(self::COLUMN_ID, self::COLUMN_ORIGIN);
+        $origins[0] = '- NOT SELECTED -';
+        return $origins;
+    }
 }
