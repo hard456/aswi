@@ -57,6 +57,11 @@ class Form extends \Nette\Application\UI\Form
         return parent::addUpload($name, $label, $multiple)->setHtmlAttribute('class', 'form-control');
     }
 
+    public function addInteger($name, $label = null)
+    {
+        return parent::addInteger($name, $label)->setHtmlAttribute('class', 'form-control');
+    }
+
     protected function beforeRender()
     {
         parent::beforeRender();

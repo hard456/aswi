@@ -81,9 +81,9 @@ class Repository
      * Vrací záznam z tabulky podle primárního klíče
      *
      * @param int $id
-     * @return Nette\Database\Table\ActiveRow
+     * @return boolean|Nette\Database\Table\ActiveRow
      */
-    public function findRow(int $id): Nette\Database\Table\ActiveRow
+    public function findRow(int $id)
     {
         return $this->getTable()->get($id);
     }

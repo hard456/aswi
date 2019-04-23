@@ -3,9 +3,11 @@ services:
     - App\FrontModule\Components\IExampleGirdFactory
     - App\AdminModule\Components\IUserGridFactory
     - App\AdminModule\Components\IMuseumGridFactory
+    - App\AdminModule\Components\ISurfaceTypeGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
     - App\AdminModule\Components\IUserEditFormFactory
     - App\FrontModule\Components\ITransliterationSearchFormFactory
+    - App\AdminModule\Components\ISurfaceTypeEditFormFactory
     - App\AdminModule\Components\IMuseumEditFormFactory
