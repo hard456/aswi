@@ -11,7 +11,6 @@ services:
     - App\FrontModule\Components\ILoginFormFactory
     - App\AdminModule\Components\IUserEditFormFactory
     - App\FrontModule\Components\ITransliterationSearchFormFactory
-    - App\AdminModule\Components\IMuseumEditFormFactory
     - App\AdminModule\Components\IObjectTypeEditFormFactory
     - App\AdminModule\Components\IOriginEditFormFactory
     - App\AdminModule\Components\ISurfaceTypeEditFormFactory
