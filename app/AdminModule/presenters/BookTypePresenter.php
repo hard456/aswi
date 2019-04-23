@@ -42,9 +42,9 @@ class BookTypePresenter extends BaseUserPresenter
     }
 
     /**
-     * Handle používaný v MuseumGrid pro smazání muzea
+     * Handle používaný v BookTypeGrid pro smazání typu knihy
      *
-     * @param int $id : ID mazaného muzea
+     * @param int $id : ID mazaného typu knihy
      */
     public function handleDeleteBookType(int $id)
     {
@@ -55,11 +55,13 @@ class BookTypePresenter extends BaseUserPresenter
         }
     }
 
-    public function createComponentBookTypeGrid(){
+    public function createComponentBookTypeGrid()
+    {
         return $this->bookTypeGridFactory->create();
     }
 
-    public function createComponentBookTypeEditForm(){
+    public function createComponentBookTypeEditForm()
+    {
         return $this->bookTypeEditFormFactory->create();
     }
 

@@ -48,7 +48,7 @@ class BookTypeEditForm extends Control
     public function createComponentForm()
     {
         $this->form->addText(BookTypeRepository::COLUMN_BOOK_TYPE, 'Book Type')
-            ->addRule(Form::REQUIRED, 'Pole %label je povinné.');
+            ->addRule(Form::REQUIRED, 'Field %label is required.');
 
         $this->form->addSubmit('submit', 'Save');
 
