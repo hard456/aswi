@@ -28,4 +28,15 @@ class MuseumRepository extends Repository
     {
         return $this->findBy([self::COLUMN_NAME => $name]);
     }
+
+    /**
+     * Vrací muzea podle názvu LIKE % $name %
+     *
+     * @param string $name
+     * @return \Nette\Database\Table\Selection
+     */
+    public function getMuseumsLikeName(string $name)
+    {
+        return $this->findAll()->where(self::COLUMN_NAME . ' LIKE', '%' . $name . '%');
+    }
 }
