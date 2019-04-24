@@ -7,6 +7,7 @@ services:
     - App\AdminModule\Components\IOriginGridFactory
     - App\AdminModule\Components\ISurfaceTypeGridFactory
     - App\AdminModule\Components\IBookTypeGridFactory
+    - App\AdminModule\Components\IBookGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory
@@ -17,3 +18,4 @@ services:
     - App\AdminModule\Components\ISurfaceTypeEditFormFactory
     - App\AdminModule\Components\IMuseumEditFormFactory
     - App\AdminModule\Components\IBookTypeEditFormFactory
+    - App\AdminModule\Components\IBookEditFormFactory
