@@ -30,6 +30,8 @@ class TransliterationRepository extends Repository
     const COLUMN_DATE = 'date';
     const COLUMN_NOTE = 'note';
 
+    const ADJACENT_LINES = [0, 1, 2, 3, 5, 10, 15];
+
     /**
      * Vyhledává texty podle slov v řádcích textu
      * @param ArrayHash $queryParams objekt s podmínkami pro hledaný text

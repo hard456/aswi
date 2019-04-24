@@ -58,4 +58,25 @@
         </div>
 
     {/foreach}
+
+    {control searchSettingsForm}
 {/snippet}
+
+{block scripts}
+    <script>
+        $(document).ready(function () {
+            let limit = $('select[name="limit"]');
+            limit.change(function () {
+                console.log(limit.val());
+                $.nette.ajax({
+                    url: {link changeLimit!},
+                    data: {'limit': limit.val()}
+                })
+            });
+
+            $('select[name="lines"]').change(function () {
+
+            });
+        })
+    </script>
+{/block}

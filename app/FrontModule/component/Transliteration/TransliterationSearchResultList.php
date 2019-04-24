@@ -5,6 +5,7 @@ namespace App\FrontModule\Components;
 
 use App\Model\Repository\TransliterationRepository;
 use App\Model\TransliterationSearchModel;
+use App\Utils\Form;
 use App\Utils\Paginator;
 use Nette\Application\UI\Control;
 use Tracy\Debugger;
@@ -20,7 +21,12 @@ class TransliterationSearchResultList extends Control
     /** @var PaginatorControl */
     private $paginator;
 
+    /**
+     * @var \Nette\Utils\ArrayHash|null
+     * @persistent
+     */
     private $searchTerms;
+
     private $resultRows;
     private $totalCount;
 
@@ -67,6 +73,22 @@ class TransliterationSearchResultList extends Control
     public function handleChangePage($page, $limit)
     {
         $this->paginator = new Paginator($page, $limit);
+        $this->redrawControl('resultList');
+    }
+
+    public function createComponentSearchSettingsForm()
+    {
+        $form = new Form();
+
+        $form->addSelect('limit', 'Results per page: ', Paginator::ALLOWED_LIMITS);
+        $form->addSelect('lines', 'Show adjacent lines', TransliterationRepository::ADJACENT_LINES);
+
+        return $form;
+    }
+
+    public function handleChangeLimit($limit)
+    {
+        $this->paginator = new Paginator(1, Paginator::ALLOWED_LIMITS[$limit]);
         $this->redrawControl('resultList');
     }
 }
