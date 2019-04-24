@@ -10,7 +10,6 @@ use App\Model\TransliterationSearchModel;
 use App\Utils\Form;
 use App\Utils\Paginator;
 use Nette\Application\UI\Control;
-use Tracy\Debugger;
 
 class TransliterationSearchResultList extends Control
 {
@@ -20,7 +19,7 @@ class TransliterationSearchResultList extends Control
     /** @var TransliterationRepository */
     private $transliterationRepository;
 
-    /** @var PaginatorControl */
+    /** @var Paginator */
     private $paginator;
 
     /**
@@ -66,12 +65,46 @@ class TransliterationSearchResultList extends Control
     {
         $this->template->setFile(__DIR__ . '/TransliterationSearchResultList.latte');
 
-        $this->resultRows = $this->transliterationRepository->transliterationsFulltextSearch($this->searchTerms, $this->paginator->getOffset(), $this->paginator->getPageSize());
+        $this->resultRows = $this->transliterationRepository->transliterationsFulltextSearch($this->searchTerms, $this->paginator->getOffset(), $this->paginator->getPageSize())->fetchAll();
         $this->paginator->setPageCount($this->totalCount);
+        $this->highlight();
 
         $this->template->resultRows = $this->resultRows;
         $this->template->paginator = $this->paginator;
         $this->template->render();
+    }
+
+    public function highlight()
+    {
+        foreach ($this->resultRows as $resultRow)
+        {
+            $resultRow->transliteration = str_replace("<", "&lt;", $resultRow->transliteration);
+            $resultRow->transliteration = str_replace(">", "&gt;", $resultRow->transliteration);
+
+            $resultRow->transliteration = preg_replace(
+                "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word1']) . "/",
+                "<span class='found'>$0</span>",
+                $resultRow->transliteration);
+
+            //TODO: dořešit označování slov, když se zadají slova co se překrývají tak se tagy mezi sebou ruší,
+            // viz např. vyhledávání slov 'šu' a 'as'
+
+//            if($this->searchTerms['word2_condition'] === ESearchFormOperators::AND || $this->searchTerms['word2_condition'] === ESearchFormOperators::OR )
+//            {
+//                $resultRow->transliteration = preg_replace(
+//                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word2']) . "/",
+//                    "<span class='found'>$0</span>",
+//                    $resultRow->transliteration);
+//            }
+//
+//            if($this->searchTerms['word3_condition'] === ESearchFormOperators::AND || $this->searchTerms['word3_condition'] === ESearchFormOperators::OR )
+//            {
+//                $resultRow->transliteration = preg_replace(
+//                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word3']) . "/",
+//                    "<span class='found'>$0</span>",
+//                    $resultRow->transliteration);
+//            }
+        }
     }
 
     public function handleChangePage($page, $limit)

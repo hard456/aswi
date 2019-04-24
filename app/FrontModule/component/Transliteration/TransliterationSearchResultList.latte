@@ -63,7 +63,7 @@
         </a>
         <div>
             <span class="linefound">{$result->line_number}.</span>
-            <span>{$result->transliteration}</span>
+            <span>{$result->transliteration|noescape}</span>
         </div>
 
     {/foreach}

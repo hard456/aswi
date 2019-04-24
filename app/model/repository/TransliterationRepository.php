@@ -150,7 +150,7 @@ class TransliterationRepository extends Repository
      * @param $word string hledané slovo
      * @return string Regexp
      */
-    private function prepareSearchRegExp(string $word)
+    public function prepareSearchRegExp(string $word)
     {
         $splitWord = preg_split('//u',$word, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($splitWord as &$char)
