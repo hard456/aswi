@@ -75,7 +75,12 @@
             });
 
             $('select[name="lines"]').change(function () {
+                let lines = this.value;
 
+                $.nette.ajax({
+                    url: {link changeLines!},
+                    data: {'lines': lines}
+                })
             });
         })
     </script>

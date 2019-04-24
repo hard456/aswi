@@ -3,6 +3,8 @@
 namespace App\FrontModule\Components;
 
 
+use App\Enum\EAdjacentLines;
+use App\Enum\EPageLimit;
 use App\Model\Repository\TransliterationRepository;
 use App\Model\TransliterationSearchModel;
 use App\Utils\Form;
@@ -29,6 +31,8 @@ class TransliterationSearchResultList extends Control
 
     private $resultRows;
     private $totalCount;
+
+    private $adjacentLines;
 
     /**
      * TransliterationSearchResultList constructor.
@@ -80,8 +84,10 @@ class TransliterationSearchResultList extends Control
     {
         $form = new Form();
 
-        $form->addSelect('limit', 'Results per page: ', Paginator::ALLOWED_LIMITS);
-        $form->addSelect('lines', 'Show adjacent lines', TransliterationRepository::ADJACENT_LINES);
+        $form->addSelect('limit', 'Results per page: ', EPageLimit::$selectValues)
+            ->setDefaultValue($this->paginator->getPageSize());
+        $form->addSelect('lines', 'Show adjacent lines', EAdjacentLines::$selectValues)
+            ->setDefaultValue($this->adjacentLines);
 
         return $form;
     }
@@ -92,10 +98,27 @@ class TransliterationSearchResultList extends Control
         {
             $limit = $this->presenter->getParameter('limit');
 
-            if($limit)
+            if($limit !== null)
             {
-                $this->paginator = new Paginator(1, Paginator::ALLOWED_LIMITS[$limit]);
+                $this->paginator = new Paginator(1, $limit);
+                $this['searchSettingsForm']->setDefaults(array('limit' => $limit));
                 $this->redrawControl('resultList');
+            }
+        }
+    }
+
+    public function handleChangeLines()
+    {
+        if($this->presenter->isAjax())
+        {
+            $lines = $this->presenter->getParameter('lines');
+
+            if($lines !== null)
+            {
+                $this->adjacentLines = $lines;
+                $this['searchSettingsForm']->setDefaults(array('lines' => $lines));
+                $this->redrawControl('resultList');
+
             }
         }
     }

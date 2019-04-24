@@ -3,6 +3,8 @@
 namespace App\Utils;
 
 
+use App\Enum\EPageLimit;
+
 class Paginator
 {
 
@@ -14,8 +16,6 @@ class Paginator
 
     private $startingPage;
     private $endingPage;
-
-    const ALLOWED_LIMITS = [10, 25, 50, 100];
 
     /**
      * Implementation of spring Data Pageable to paginate and sort JPA queries
@@ -30,7 +30,7 @@ class Paginator
         }
         $this->page = $page;
 
-        foreach (self::ALLOWED_LIMITS as $l)
+        foreach (EPageLimit::$limits as $l)
         {
             if ($l == $limit)
             {
@@ -39,7 +39,7 @@ class Paginator
         }
         if ($this->limit == 0)
         {
-            $this->limit = self::ALLOWED_LIMITS[0];
+            $this->limit = EPageLimit::$defaultLimit;
         }
     }
 
@@ -133,11 +133,6 @@ class Paginator
         $this->itemCount = $itemCount;
         $this->pageCount = ceil($itemCount / $this->getPageSize());
         $this->setPagesList();
-    }
-
-    public function getAllowedLimits()
-    {
-        return self::ALLOWED_LIMITS;
     }
 
     /**
