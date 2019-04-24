@@ -47,7 +47,7 @@ class SurfaceTypeGrid extends DataGrid
         $this->addAction('edit', 'edit', 'Surface:editType', ['id' => SurfaceTypeRepository::COLUMN_ID])
             ->setTitle('Edit');
 
-        $this->addAction('delete', 'smazat', 'Surface:deleteType', ['id' => SurfaceTypeRepository::COLUMN_ID])
+        $this->addAction('delete', 'delete', 'Surface:deleteType', ['id' => SurfaceTypeRepository::COLUMN_ID])
             ->setConfirm('Do you really want to delete surface type "%s"?', SurfaceTypeRepository::COLUMN_SURFACE_TYPE)
             ->setTitle('Delete')
             ->setClass('btn btn-xs btn-danger ajax');
