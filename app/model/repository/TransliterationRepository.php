@@ -37,7 +37,7 @@ class TransliterationRepository extends Repository
      * @param $limit null|int
      * @return \Nette\Database\ResultSet
      */
-    public function transliterationsFulltextSearch(ArrayHash $queryParams, $offset = null, $limit = null)
+    public function transliterationsFulltextSearch(ArrayHash $queryParams,int $offset = null,int $limit = null)
     {
         $where = '';
         $whereArgs = [];
@@ -127,19 +127,15 @@ class TransliterationRepository extends Repository
                   LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
                   LEFT JOIN line l ON l.id_surface = s.id_surface
                   LEFT JOIN book b ON t.id_book = b.id_book
-                  WHERE " . $where;
+                  WHERE " . $where .
+                 " ORDER BY id DESC ";
 
-        if($offset != null && $limit != null)
+        if($offset !== null && $limit !== null)
         {
-            Debugger::barDump('tu');
-            $query .= ' LIMIT ?, ?';
+            $query .= ' LIMIT ?, ? ';
             $whereArgs[] = (int) $offset;
             $whereArgs[] = (int) $limit;
         }
-
-        Debugger::barDump($offset);
-        Debugger::barDump($limit);
-        Debugger::barDump($query);
 
         return $this->context->queryArgs($query, $whereArgs);
     }

@@ -59,8 +59,6 @@ class TransliterationSearchResultList extends Control
         $this->resultRows = $this->transliterationRepository->transliterationsFulltextSearch($this->searchTerms, $this->paginator->getOffset(), $this->paginator->getPageSize());
         $this->paginator->setPageCount($this->totalCount);
 
-        Debugger::barDump($this->paginator->getOffset(), 'offset');
-        Debugger::barDump($this->paginator->getPageSize(), 'limit');
         $this->template->resultRows = $this->resultRows;
         $this->template->paginator = $this->paginator;
         $this->template->render();
