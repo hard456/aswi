@@ -4,7 +4,7 @@
  * Slouží pro vymazání cache po deploy.
  */
 
-include 'app\bootstrap-local.php';
+include 'app/bootstrap-local.php';
 
 function deleteDir($dirPath) {
     if (! is_dir($dirPath)) {
