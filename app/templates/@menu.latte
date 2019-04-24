@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" n:href=":Front:Transliteration:search">Search & edit texts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Search dictionary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Text catalogue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Contact & members</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Input new text</a>
+        </li>
+        {if $user->loggedIn && ($user->isInRole(\App\Enum\EUserRole::ADMIN) || $user->isInRole(\App\Enum\EUserRole::USER))}
+            <li class="nav-item">
+                <a class="nav-link" n:href=":Admin:Default:">Admin</a>
+            </li>
+        {/if}
+    </ul>
+    {if $user->loggedIn}
+        <span class="navbar-text" style="padding-right: 1rem">
+            User: <strong>{$user->getIdentity()->username}</strong>
+        </span>
+    {/if}
+    <div class="navbar-nav nav-item">
+        {if $user->loggedIn}
+            <a class="nav-link" n:href=":Front:Homepage:logout">Logout</a>
+            <a class="nav-link" href="#">Change Password</a>
+        {else}
+            <a class="nav-link" n:href=":Front:Homepage:login">Login</a>
+        {/if}
+    </div>
+</nav>

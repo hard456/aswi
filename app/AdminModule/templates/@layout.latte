@@ -51,74 +51,10 @@
         <div class="display-4"><a n:href=":Front:Homepage:">Old Babylonian Text Corpus</a></div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #003366 !important;">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="search-texts.html">Search & edit texts</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Search dictionary</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Text catalogue</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Catalogue of cuneiform signs</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Contact & members</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Input new text</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" n:href="Default:default">Admin</a>
-        </li>
-    </ul>
-    {if $user->loggedIn}
-    <span class="navbar-text" style="padding-right: 1rem">
-            User: <strong>{$user->getIdentity()->username}</strong>
-        </span>
-    {/if}
-    <div class="navbar-nav nav-item">
-        {if $user->loggedIn}
-            <a class="nav-link" n:href=":Front:Homepage:logout">Logout</a>
-            <a class="nav-link" href="#">Change Password</a>
-        {else}
-            <a class="nav-link" n:href=":Front:Homepage:login">Login</a>
-        {/if}
-    </div>
-</nav>
 
-<ul class="nav">
-    <!-- Aktualní zvýraznění linku se dá udělat takhle -->
-    <!-- - do n:class se dá isLinkCurrent a odkaz na presenter -->
-    <!-- <li class="nav-item"><a n:href="Default:default" n:class="nav-link, $presenter->isLinkCurrent('Default:*') ? active" title="Users">
-            Users </a></li> -->
+{include '../../templates/@menu.latte'}
 
-    <li class="nav-item"><a n:href="User:default" n:class="nav-link, $presenter->isLinkCurrent('User:*') ? active" title="Users">
-            Users </a></li>
-
-    <li class="nav-item"><a n:href="Book:default" n:class="nav-link, $presenter->isLinkCurrent('Book:*') ? active" title="Book">
-            Book </a></li>
-    <li class="nav-item"><a href="#" class="nav-link" title="Transliteration">
-            Transliteration </a></li>
-    <li class="nav-item"><a n:href="BookType:default" n:class="nav-link, $presenter->isLinkCurrent('BookType:*') ? active" title="Book type">
-            Book type </a></li>
-    <li class="nav-item"><a n:href="Object:default" n:class="nav-link, $presenter->isLinkCurrent('Object:*') ? active" title="Object type">
-            Object&nbsp;type </a></li>
-    <li class="nav-item"><a n:href="Surface:" n:class="nav-link, $presenter->isLinkCurrent('Surface:*') ? active" title="Surface type">
-            Surface&nbsp;type </a></li>
-
-    <li class="nav-item"><a n:href="Museum:default" n:class="nav-link, $presenter->isLinkCurrent('Museum:*') ? active" title="Museum">
-            Museum </a></li>
-    <li class="nav-item"><a n:href="Origin:default" n:class="nav-link, $presenter->isLinkCurrent('Origin:*') ? active" title="Origin">
-            Origin </a></li>
-    <li class="nav-item"><a href="#" class="nav-link" title="Upload">
-            Upload&nbsp;texts </a></li>
-    <li class="nav-item"><a href="#" class="nav-link" title="Replace">
-            Mass&nbsp;replace </a></li>
-</ul>
+{include '@adminMenu.latte'}
 
 <!--Content-->
 <div class="content">
