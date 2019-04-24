@@ -4,6 +4,7 @@ namespace App\Model\Repository;
 
 use App\Enum\ESearchFormOperators;
 use Nette\Utils\ArrayHash;
+use Tracy\Debugger;
 
 /**
  * Repository pro práci s tabulkou `transliteration`
@@ -32,9 +33,11 @@ class TransliterationRepository extends Repository
     /**
      * Vyhledává texty podle slov v řádcích textu
      * @param ArrayHash $queryParams objekt s podmínkami pro hledaný text
+     * @param $offset null|int
+     * @param $limit null|int
      * @return \Nette\Database\ResultSet
      */
-    public function transliterationsFulltextSearch(ArrayHash $queryParams)
+    public function transliterationsFulltextSearch(ArrayHash $queryParams, $offset = null, $limit = null)
     {
         $where = '';
         $whereArgs = [];
@@ -126,7 +129,24 @@ class TransliterationRepository extends Repository
                   LEFT JOIN book b ON t.id_book = b.id_book
                   WHERE " . $where;
 
+        if($offset != null && $limit != null)
+        {
+            Debugger::barDump('tu');
+            $query .= ' LIMIT ?, ?';
+            $whereArgs[] = (int) $offset;
+            $whereArgs[] = (int) $limit;
+        }
+
+        Debugger::barDump($offset);
+        Debugger::barDump($limit);
+        Debugger::barDump($query);
+
         return $this->context->queryArgs($query, $whereArgs);
+    }
+
+    public function getTransliterationsFulltextSearchTotalCount($queryParams)
+    {
+        return $this->transliterationsFulltextSearch($queryParams, null, null)->getRowCount();
     }
 
     /**

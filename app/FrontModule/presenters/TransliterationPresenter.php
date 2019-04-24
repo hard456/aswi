@@ -5,6 +5,7 @@ namespace App\FrontModule\Presenters;
 
 
 use App\FrontModule\Components\ITransliterationSearchFormFactory;
+use App\FrontModule\Components\ITransliterationSearchResultListFactory;
 use App\Model\Repository\LineRepository;
 use App\Model\Repository\LitReferenceRepository;
 use App\Model\Repository\RevHistoryRepository;
@@ -32,13 +33,17 @@ class TransliterationPresenter extends Presenter
     /** @var LineRepository */
     private $lineRepository;
 
+    /** @var ITransliterationSearchResultListFactory */
+    private $transliterationSearchResultListFactory;
+
     public function __construct(
         ITransliterationSearchFormFactory $transliterationSearchFormFactory,
         TransliterationRepository $transliterationRepository,
         TransliterationSearchModel $transliterationSearchModel,
         LitReferenceRepository $litReferenceRepository,
         RevHistoryRepository $revHistoryRepository,
-        LineRepository $lineRepository
+        LineRepository $lineRepository,
+        ITransliterationSearchResultListFactory $transliterationSearchResultListFactory
     )
     {
         parent::__construct();
@@ -49,6 +54,7 @@ class TransliterationPresenter extends Presenter
         $this->litReferenceRepository = $litReferenceRepository;
         $this->revHistoryRepository = $revHistoryRepository;
         $this->lineRepository = $lineRepository;
+        $this->transliterationSearchResultListFactory = $transliterationSearchResultListFactory;
     }
 
 
@@ -59,21 +65,7 @@ class TransliterationPresenter extends Presenter
 
     public function actionSearchResult()
     {
-        $searchTerms = $this->transliterationSearchModel->getSearchTerms();
 
-        if (!$searchTerms)
-        {
-            $this->redirect('Transliteration:search');
-        }
-
-        if(!$searchTerms['word1'])
-        {
-            $this->redirect('Transliteration:search');
-        }
-
-        $resultRows = $this->transliterationRepository->transliterationsFulltextSearch($searchTerms);
-
-        $this->template->resultRows = $resultRows;
     }
 
     public function actionView($id)
@@ -100,5 +92,10 @@ class TransliterationPresenter extends Presenter
     public function createComponentTransliterationSearchForm()
     {
         return $this->transliterationSearchFormFactory->create();
+    }
+
+    public function createComponentTransliterationSearchResultList()
+    {
+        return $this->transliterationSearchResultListFactory->create();
     }
 }
