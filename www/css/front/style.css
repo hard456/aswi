@@ -64,3 +64,24 @@ body {
 .required{
     font-weight: bold;
 }
+
+.linefound {
+    font-weight: 600;
+}
+
+.found {
+    font-weight: 600;
+    color: #003366;
+}
+
+.search-settings-select {
+    width: 60px;
+}
+
+.form-group.search-settings-row {
+    margin-bottom: 0;
+}
+
+.results-found {
+    margin-bottom: 0.2em;
+}
