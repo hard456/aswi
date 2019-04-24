@@ -13,13 +13,9 @@ if ($env === 'dev')
     $configurator->enableTracy(__DIR__ . '/../log');
     $configurator->setTempDirectory(__DIR__ . '/../temp');
 }
-
-// CIV prostředí, hovna, sračky, jsou to prostě nejlepčí kucí
+// CIV prostředí
 else
 {
-    $logDir = '/tmp/klinopis/log';
-    $tempDir = '/tmp/klinopis/temp';
-
     if (!file_exists($logDir))
     {
         mkdir($logDir, 0700, TRUE);
