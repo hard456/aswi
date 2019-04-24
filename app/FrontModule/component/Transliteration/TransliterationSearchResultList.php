@@ -86,10 +86,18 @@ class TransliterationSearchResultList extends Control
         return $form;
     }
 
-    public function handleChangeLimit($limit)
+    public function handleChangeLimit()
     {
-        $this->paginator = new Paginator(1, Paginator::ALLOWED_LIMITS[$limit]);
-        $this->redrawControl('resultList');
+        if($this->presenter->isAjax())
+        {
+            $limit = $this->presenter->getParameter('limit');
+
+            if($limit)
+            {
+                $this->paginator = new Paginator(1, Paginator::ALLOWED_LIMITS[$limit]);
+                $this->redrawControl('resultList');
+            }
+        }
     }
 }
 

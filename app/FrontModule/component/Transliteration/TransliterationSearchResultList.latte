@@ -60,17 +60,17 @@
     {/foreach}
 
     {control searchSettingsForm}
-{/snippet}
+
 
 {block scripts}
     <script>
         $(document).ready(function () {
-            let limit = $('select[name="limit"]');
-            limit.change(function () {
-                console.log(limit.val());
+            $('select[name="limit"]').change(function () {
+                let limit = this.value;
+
                 $.nette.ajax({
                     url: {link changeLimit!},
-                    data: {'limit': limit.val()}
+                    data: {'limit': limit}
                 })
             });
 
@@ -80,3 +80,4 @@
         })
     </script>
 {/block}
+{/snippet}
