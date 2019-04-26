@@ -58,13 +58,29 @@
     {foreach $resultRows as $result}
         <hr>
 
-        <a href="{plink Transliteration:view $result->id}">
+        <a href="{plink Transliteration:view $result->id}" class="transliteration-link">
             {$result->book_abrev}, {$result->chapter}
         </a>
+        {ifset $result['adjacentLines']['linesBefore']}
+            {foreach $result['adjacentLines']['linesBefore'] as $lineBefore}
+                <div>
+                    <span>{$lineBefore->line_number}.</span>
+                    <span>{$lineBefore->transliteration}</span>
+                </div>
+            {/foreach}
+        {/ifset}
         <div>
             <span class="linefound">{$result->line_number}.</span>
             <span>{$result->transliteration|noescape}</span>
         </div>
+        {ifset $result['adjacentLines']['linesAfter']}
+            {foreach $result['adjacentLines']['linesAfter'] as $linesAfter}
+                <div>
+                    <span>{$linesAfter->line_number}.</span>
+                    <span>{$linesAfter->transliteration}</span>
+                </div>
+            {/foreach}
+        {/ifset}
 
     {/foreach}
 

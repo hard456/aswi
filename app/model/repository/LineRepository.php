@@ -39,4 +39,40 @@ class LineRepository extends Repository
             $transliterationId
         );
     }
+
+    /**
+     * Returns lines of a surface adjacent to passed line by id
+     * @param $lineId
+     * @param $surfaceId
+     * @param $numberOfLines number of adjacent lines
+     * @return array of arrays of lines before and lines after
+     */
+    public function getAdjacentLines($lineId, $surfaceId, $numberOfLines)
+    {
+        $adjacentLines['linesBefore'] = [];
+        $adjacentLines['linesAfter'] = [];
+        if($numberOfLines < 1)
+        {
+            return $adjacentLines;
+        }
+
+        $linesBefore = $this->getTable()
+            ->select('line_number, transliteration')
+            ->where('id_surface = ? AND id_line < ?', $surfaceId, $lineId)
+            ->limit($numberOfLines)
+            ->order('id_line DESC')
+            ->fetchAll();
+        $adjacentLines['linesBefore'] = array_reverse($linesBefore);
+
+        $linesAfter = $this->getTable()
+            ->select('line_number, transliteration')
+            ->where('id_surface = ? AND id_line > ?', $surfaceId, $lineId)
+            ->limit($numberOfLines)
+            ->order('id_line ASC')
+            ->fetchAll();
+        $adjacentLines['linesAfter'] = $linesAfter;
+
+        return $adjacentLines;
+    }
+
 }

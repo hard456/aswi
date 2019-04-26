@@ -5,6 +5,8 @@ namespace App\FrontModule\Components;
 
 use App\Enum\EAdjacentLines;
 use App\Enum\EPageLimit;
+use App\Enum\ESearchFormOperators;
+use App\Model\Repository\LineRepository;
 use App\Model\Repository\TransliterationRepository;
 use App\Model\TransliterationSearchModel;
 use App\Utils\Form;
@@ -19,6 +21,9 @@ class TransliterationSearchResultList extends Control
     /** @var TransliterationRepository */
     private $transliterationRepository;
 
+    /** @var LineRepository */
+    private $lineRepository;
+
     /** @var Paginator */
     private $paginator;
 
@@ -31,20 +36,49 @@ class TransliterationSearchResultList extends Control
     private $resultRows;
     private $totalCount;
 
-    private $adjacentLines;
+    /**
+     * @persistent
+     */
+    public $adjacentLines;
+
+    /**
+     * @persistent
+     */
+    public $page;
+
+    /**
+     * @persistent
+     */
+    public $limit;
 
     /**
      * TransliterationSearchResultList constructor.
      * @param TransliterationSearchModel $transliterationSearchModel
      * @param TransliterationRepository $transliterationRepository
+     * @param LineRepository $lineRepository
      * @throws \Nette\Application\AbortException
      */
-    public function __construct(TransliterationSearchModel $transliterationSearchModel, TransliterationRepository $transliterationRepository)
+    public function __construct(
+        TransliterationSearchModel $transliterationSearchModel,
+        TransliterationRepository $transliterationRepository,
+        LineRepository $lineRepository
+    )
     {
         parent::__construct();
         $this->transliterationSearchModel = $transliterationSearchModel;
         $this->transliterationRepository = $transliterationRepository;
-        $this->paginator = new Paginator(1, 10);
+        $this->lineRepository = $lineRepository;
+
+        if(!$this->page)
+        {
+            $this->page = 1;
+        }
+
+        if(!$this->limit)
+        {
+            $this->limit = EPageLimit::$defaultLimit;
+        }
+        $this->paginator = new Paginator($this->page, $this->limit);
 
         $this->searchTerms = $this->transliterationSearchModel->getSearchTerms();
         $this->totalCount = $this->transliterationRepository->getTransliterationsFulltextSearchTotalCount($this->searchTerms);
@@ -67,7 +101,15 @@ class TransliterationSearchResultList extends Control
 
         $this->resultRows = $this->transliterationRepository->transliterationsFulltextSearch($this->searchTerms, $this->paginator->getOffset(), $this->paginator->getPageSize())->fetchAll();
         $this->paginator->setPageCount($this->totalCount);
+
         $this->highlight();
+        if(in_array($this->adjacentLines, EAdjacentLines::$lines) && $this->adjacentLines > 0)
+        {
+            foreach ($this->resultRows as &$row)
+            {
+                $row['adjacentLines'] = $this->lineRepository->getAdjacentLines($row['line_id'], $row['surface_id'], $this->adjacentLines);
+            }
+        }
 
         $this->template->resultRows = $this->resultRows;
         $this->template->paginator = $this->paginator;
@@ -78,37 +120,41 @@ class TransliterationSearchResultList extends Control
     {
         foreach ($this->resultRows as $resultRow)
         {
-            $resultRow->transliteration = str_replace("<", "&lt;", $resultRow->transliteration);
-            $resultRow->transliteration = str_replace(">", "&gt;", $resultRow->transliteration);
+            //nejprve escape html znaků, které chceme nechat zobrazovat,
+            //jelikož následně přidáváme html tagy pro vyznačení a výstup v latte nemůže být escapovaný
+            $resultRow->transliteration = htmlspecialchars($resultRow->transliteration);
 
             $resultRow->transliteration = preg_replace(
                 "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word1']) . "/",
                 "<span class='found'>$0</span>",
                 $resultRow->transliteration);
 
-            //TODO: dořešit označování slov, když se zadají slova co se překrývají tak se tagy mezi sebou ruší,
-            // viz např. vyhledávání slov 'šu' a 'as'
+            /**
+             * TODO: dořešit označování slov, když se zadají slova co se překrývají tak se tagy mezi sebou ruší,
+             * viz např. vyhledávání slov 'šu' a 'as'
+             */
+            if($this->searchTerms['word2_condition'] === ESearchFormOperators::AND || $this->searchTerms['word2_condition'] === ESearchFormOperators::OR )
+            {
+                $resultRow->transliteration = preg_replace(
+                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word2']) . "/",
+                    "<span class='found'>$0</span>",
+                    $resultRow->transliteration);
+            }
 
-//            if($this->searchTerms['word2_condition'] === ESearchFormOperators::AND || $this->searchTerms['word2_condition'] === ESearchFormOperators::OR )
-//            {
-//                $resultRow->transliteration = preg_replace(
-//                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word2']) . "/",
-//                    "<span class='found'>$0</span>",
-//                    $resultRow->transliteration);
-//            }
-//
-//            if($this->searchTerms['word3_condition'] === ESearchFormOperators::AND || $this->searchTerms['word3_condition'] === ESearchFormOperators::OR )
-//            {
-//                $resultRow->transliteration = preg_replace(
-//                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word3']) . "/",
-//                    "<span class='found'>$0</span>",
-//                    $resultRow->transliteration);
-//            }
+            if($this->searchTerms['word3_condition'] === ESearchFormOperators::AND || $this->searchTerms['word3_condition'] === ESearchFormOperators::OR )
+            {
+                $resultRow->transliteration = preg_replace(
+                    "/" . $this->transliterationRepository->prepareSearchRegExp($this->searchTerms['word3']) . "/",
+                    "<span class='found'>$0</span>",
+                    $resultRow->transliteration);
+            }
         }
     }
 
     public function handleChangePage($page, $limit)
     {
+        $this->page = $page;
+        $this->limit = $limit;
         $this->paginator = new Paginator($page, $limit);
         $this->redrawControl('resultList');
     }
@@ -149,6 +195,8 @@ class TransliterationSearchResultList extends Control
             if($lines !== null)
             {
                 $this->adjacentLines = $lines;
+                $this->paginator = new Paginator($this->page, $this->limit);
+
                 $this['searchSettingsForm']->setDefaults(array('lines' => $lines));
                 $this->redrawControl('resultList');
 

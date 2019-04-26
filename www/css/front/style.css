@@ -66,12 +66,13 @@ body {
 }
 
 .linefound {
+    color: #003dc7;
     font-weight: 600;
 }
 
 .found {
     font-weight: 600;
-    color: #003366;
+    color: #003dc7;
 }
 
 .search-settings-select {
@@ -84,4 +85,21 @@ body {
 
 .results-found {
     margin-bottom: 0.2em;
+}
+
+.page-link {
+    color: #003dc7;
+}
+
+.page-item.active .page-link {
+    background-color: #003366;
+    border-color: #003366;
+}
+
+.transliteration-link {
+    font-weight: 400;
+}
+
+a {
+    color: #003dc7;
 }

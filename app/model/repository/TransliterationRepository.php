@@ -118,10 +118,12 @@ class TransliterationRepository extends Repository
         }
 
         $query = "SELECT 
-                    t.id_transliteration as id, 
+                    t.id_transliteration as id,
+                    s.id_surface as surface_id, 
                     b.book_abrev, 
                     t.chapter, 
                     l.transliteration, 
+                    l.id_line as line_id,
                     l.line_number 
                   FROM transliteration t
                   LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
