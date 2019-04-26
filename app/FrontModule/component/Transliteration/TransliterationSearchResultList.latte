@@ -47,12 +47,14 @@
             {/if}
 
         </div>
+        {if count($resultRows) > 0}
             {form searchSettingsForm class => "form-inline"}
             <div class="col text-right my-auto">
                 Results per page: {input limit class => "form-control form-control-sm search-settings-select"}<br>
                 Show adjacent lines: {input lines class => "form-control form-control-sm search-settings-select"}
             </div>
             {/form}
+        {/if}
     </div>
 
     {foreach $resultRows as $result}
