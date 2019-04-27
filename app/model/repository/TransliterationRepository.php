@@ -2,8 +2,9 @@
 
 namespace App\Model\Repository;
 
-use App\Enum\ELogicalConditions;
+use App\Enum\ESearchFormOperators;
 use Nette\Utils\ArrayHash;
+use Tracy\Debugger;
 
 /**
  * Repository pro práci s tabulkou `transliteration`
@@ -32,9 +33,11 @@ class TransliterationRepository extends Repository
     /**
      * Vyhledává texty podle slov v řádcích textu
      * @param ArrayHash $queryParams objekt s podmínkami pro hledaný text
+     * @param $offset null|int
+     * @param $limit null|int
      * @return \Nette\Database\ResultSet
      */
-    public function transliterationsFulltextSearch(ArrayHash $queryParams)
+    public function transliterationsFulltextSearch(ArrayHash $queryParams,int $offset = null,int $limit = null)
     {
         $where = '';
         $whereArgs = [];
@@ -54,12 +57,12 @@ class TransliterationRepository extends Repository
         {
             if($queryParams['exact_match'])
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word2_condition']] . " l.transliteration LIKE ? ";
                 $whereArgs[] = "%" . $queryParams['word2'] . "%";
             }
             else
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word2_condition']] . " l.transliteration REGEXP ? ";
                 $whereArgs[] = $this->prepareSearchRegExp($queryParams['word2']);
             }
         }
@@ -68,29 +71,80 @@ class TransliterationRepository extends Repository
         {
             if($queryParams['exact_match'])
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word3_condition']] . " l.transliteration LIKE ? ";
                 $whereArgs[] = "%" . $queryParams['word3'] . "%";
             }
             else
             {
-                $where .= ELogicalConditions::$whereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
+                $where .= ESearchFormOperators::$wordWhereCondition[$queryParams['word3_condition']] . " l.transliteration REGEXP ? ";
                 $whereArgs[] = $this->prepareSearchRegExp($queryParams['word3']);
             }
         }
 
+        if($queryParams['book'])
+        {
+            $where .= ' AND b.book_name' . ESearchFormOperators::$selectLikeOperatorQueryCondition[$queryParams['book_condition']];
+            $whereArgs[] = $this->prepareQueryArgByOperator($queryParams['book'], $queryParams['book_condition']);
+        }
+
+        if($queryParams['museum'])
+        {
+            $where .= ' AND t.museum_no' . ESearchFormOperators::$selectLikeOperatorQueryCondition[$queryParams['museum_condition']];
+            $whereArgs[] = $this->prepareQueryArgByOperator($queryParams['museum'], $queryParams['museum_condition']);
+        }
+
+        if($queryParams['type'])
+        {
+            $where .= ' AND t.id_book_type' . ESearchFormOperators::$selectEqualsOperatorQueryCondition[$queryParams['type_condition']];
+            $whereArgs[] = $queryParams['type'];
+        }
+
+        if($queryParams['origin'])
+        {
+            $where .= ' AND t.id_origin' . ESearchFormOperators::$selectEqualsOperatorQueryCondition[$queryParams['origin_condition']];
+            $whereArgs[] = $queryParams['origin'];
+        }
+
+        if($queryParams['registration'])
+        {
+            $where .= ' AND t.reg_no' . ESearchFormOperators::$selectLikeOperatorQueryCondition[$queryParams['registration_condition']];
+            $whereArgs[] = $this->prepareQueryArgByOperator($queryParams['registration'], $queryParams['registration_condition']);
+        }
+
+        if($queryParams['date'])
+        {
+            $where .= ' AND t.date' . ESearchFormOperators::$selectLikeOperatorQueryCondition[$queryParams['date_condition']];
+            $whereArgs[] = $this->prepareQueryArgByOperator($queryParams['date'], $queryParams['date_condition']);
+        }
+
         $query = "SELECT 
-                    t.id_transliteration as id, 
+                    t.id_transliteration as id,
+                    s.id_surface as surface_id, 
                     b.book_abrev, 
                     t.chapter, 
                     l.transliteration, 
+                    l.id_line as line_id,
                     l.line_number 
                   FROM transliteration t
                   LEFT JOIN surface s ON s.id_transliteration = t.id_transliteration
                   LEFT JOIN line l ON l.id_surface = s.id_surface
-                  LEFT JOIN book b on t.id_book = b.id_book
-                  WHERE " . $where;
+                  LEFT JOIN book b ON t.id_book = b.id_book
+                  WHERE " . $where .
+                 " ORDER BY id DESC ";
+
+        if($offset !== null && $limit !== null)
+        {
+            $query .= ' LIMIT ?, ? ';
+            $whereArgs[] = (int) $offset;
+            $whereArgs[] = (int) $limit;
+        }
 
         return $this->context->queryArgs($query, $whereArgs);
+    }
+
+    public function getTransliterationsFulltextSearchTotalCount($queryParams)
+    {
+        return $this->transliterationsFulltextSearch($queryParams, null, null)->getRowCount();
     }
 
     /**
@@ -98,7 +152,7 @@ class TransliterationRepository extends Repository
      * @param $word string hledané slovo
      * @return string Regexp
      */
-    private function prepareSearchRegExp(string $word)
+    public function prepareSearchRegExp(string $word)
     {
         $splitWord = preg_split('//u',$word, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($splitWord as &$char)
@@ -107,6 +161,27 @@ class TransliterationRepository extends Repository
         }
         $regex = implode("[\[\]⌈⌉?!><\.₁₂₃₄₅₆₇₈₉₀\-\s]*?", $splitWord);
         return $regex;
+    }
+
+    /**
+     * Připraví argument pro dotaz podle zvoleného operátoru
+     * @param $word string
+     * @param $op string operátor pro porovnání s ESearchFormOperators
+     * @return string
+     */
+    private function prepareQueryArgByOperator($word, $op)
+    {
+        switch ($op)
+        {
+            case ESearchFormOperators::CONTAINS:
+                return '%' . $word . '%';
+            case ESearchFormOperators::BEGINS_WITH:
+                return $word . '%';
+            case ESearchFormOperators::ENDS_WITH:
+                return '%' . $word;
+            default:
+                return $word;
+        }
     }
 
     /**

@@ -1,0 +1,112 @@
+{snippet resultList}
+    <div class="row h-100 pagination-header">
+        <div class="col my-auto">
+            <div class="text-muted results-found">
+                Total results found: {$paginator->getItemCount()}
+            </div>
+            {if $paginator->getPageCount() > 1}
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{link changePage!, $paginator->first()->getPageNumber(), $paginator->first()->getPageSize()}">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">First</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{link changePage!, $paginator->previous()->getPageNumber(), $paginator->previous()->getPageSize()}">
+                                <span aria-hidden="true">&lsaquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {for $i = $paginator->getStartingPage(); $i <= $paginator->getEndingPage(); $i++}
+                            <li class="page-item{if $paginator->getPageNumber() == $i} active{/if}">
+                                <a class="page-link" href="{link changePage!, $i, $paginator->getPageSize()}">
+                                    {$i}
+                                </a>
+                            </li>
+                        {/for}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{link changePage!, $paginator->next()->getPageNumber(), $paginator->next()->getPageSize()}">
+                                <span aria-hidden="true">&rsaquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{link changePage!, $paginator->last()->getPageNumber(), $paginator->last()->getPageSize()}">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            {/if}
+
+        </div>
+        {if count($resultRows) > 0}
+            {form searchSettingsForm class => "form-inline"}
+            <div class="col text-right my-auto">
+                Results per page: {input limit class => "form-control form-control-sm search-settings-select"}<br>
+                Show adjacent lines: {input lines class => "form-control form-control-sm search-settings-select"}
+            </div>
+            {/form}
+        {/if}
+    </div>
+
+    {foreach $resultRows as $result}
+        <hr>
+
+        <a href="{plink Transliteration:view $result->id}" class="transliteration-link">
+            {$result->book_abrev}, {$result->chapter}
+        </a>
+        {ifset $result['adjacentLines']['linesBefore']}
+            {foreach $result['adjacentLines']['linesBefore'] as $lineBefore}
+                <div>
+                    <span>{$lineBefore->line_number}.</span>
+                    <span>{$lineBefore->transliteration}</span>
+                </div>
+            {/foreach}
+        {/ifset}
+        <div>
+            <span class="linefound">{$result->line_number}.</span>
+            <span>{$result->transliteration|noescape}</span>
+        </div>
+        {ifset $result['adjacentLines']['linesAfter']}
+            {foreach $result['adjacentLines']['linesAfter'] as $linesAfter}
+                <div>
+                    <span>{$linesAfter->line_number}.</span>
+                    <span>{$linesAfter->transliteration}</span>
+                </div>
+            {/foreach}
+        {/ifset}
+
+    {/foreach}
+
+    {block scripts}
+        <script>
+            $(document).ready(function () {
+                $('select[name="limit"]').change(function () {
+                    let limit = this.value;
+
+                    $.nette.ajax({
+                        url: {link changeLimit!},
+                        data: {'limit': limit}
+                    })
+                });
+
+                $('select[name="lines"]').change(function () {
+                    let lines = this.value;
+
+                    $.nette.ajax({
+                        url: {link changeLines!},
+                        data: {'lines': lines}
+                    })
+                });
+            })
+        </script>
+    {/block}
+{/snippet}

@@ -28,4 +28,14 @@ class BookTypeRepository extends Repository
         return $this->findBy([self::COLUMN_BOOK_TYPE => $bookType]);
     }
 
+    /**
+     * Return all book types for select values
+     * @return array
+     */
+    public function getTypesForSelect()
+    {
+        $types = $this->findAll()->fetchPairs(self::COLUMN_ID, self::COLUMN_BOOK_TYPE);
+        $types[0] = '- NOT SELECTED -';
+        return $types;
+    }
 }

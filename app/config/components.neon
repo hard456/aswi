@@ -19,3 +19,5 @@ services:
     - App\AdminModule\Components\IMuseumEditFormFactory
     - App\AdminModule\Components\IBookTypeEditFormFactory
     - App\AdminModule\Components\IBookEditFormFactory
+
+    - App\FrontModule\Components\ITransliterationSearchResultListFactory
