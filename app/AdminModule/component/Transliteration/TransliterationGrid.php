@@ -75,8 +75,6 @@ class TransliterationGrid extends DataGrid
     {
         $bookRepository = $this->bookRepository;
         $museumRepository = $this->museumRepository;
-        $originRepository = $this->originRepository;
-        $bookTypeRepository = $this->bookTypeRepository;
 
         // ==================
         // Definice sloupečků
@@ -85,28 +83,48 @@ class TransliterationGrid extends DataGrid
         $this->addColumnLink(TransliterationRepository::COLUMN_BOOK_ID, 'Book')
             ->setRenderer(function (ActiveRow $activeRow)
             {
-                $title = $activeRow->ref(BookRepository::TABLE_NAME, BookRepository::COLUMN_ID)->{BookRepository::COLUMN_BOOK_ABREV};
-                return $this->getRendererWithLink($activeRow, $title, 'Book:edit', $activeRow->{TransliterationRepository::COLUMN_BOOK_ID});
+                return $this->getRenderer(
+                    $activeRow,
+                    BookRepository::TABLE_NAME,
+                    BookRepository::COLUMN_ID,
+                    BookRepository::COLUMN_BOOK_ABREV,
+                    TransliterationRepository::COLUMN_BOOK_ID
+                );
             });
         $this->addColumnNumber(TransliterationRepository::COLUMN_CHAPTER, 'Chapter');
         $this->addColumnLink(TransliterationRepository::COLUMN_MUSEUM_ID, 'Museum')
             ->setRenderer(function (ActiveRow $activeRow)
             {
-                $title = $activeRow->ref(MuseumRepository::TABLE_NAME, MuseumRepository::COLUMN_ID)->{MuseumRepository::COLUMN_NAME};
-                return $this->getRendererWithLink($activeRow, $title, 'Museum:edit', $activeRow->{TransliterationRepository::COLUMN_MUSEUM_ID});
+                return $this->getRenderer(
+                    $activeRow,
+                    MuseumRepository::TABLE_NAME,
+                    MuseumRepository::COLUMN_ID,
+                    MuseumRepository::COLUMN_NAME,
+                    TransliterationRepository::COLUMN_MUSEUM_ID
+                );
             });
         $this->addColumnText(TransliterationRepository::COLUMN_MUSEUM_NO, 'Museum No');
         $this->addColumnLink(TransliterationRepository::COLUMN_ORIGIN_ID, 'Origin')
             ->setRenderer(function (ActiveRow $activeRow)
             {
-                $title = $activeRow->ref(OriginRepository::TABLE_NAME, OriginRepository::COLUMN_ID)->{OriginRepository::COLUMN_ORIGIN};
-                return $this->getRendererWithLink($activeRow, $title, 'Origin:edit', $activeRow->{TransliterationRepository::COLUMN_ORIGIN_ID});
+                return $this->getRenderer(
+                    $activeRow,
+                    OriginRepository::TABLE_NAME,
+                    OriginRepository::COLUMN_ID,
+                    OriginRepository::COLUMN_ORIGIN,
+                    TransliterationRepository::COLUMN_ORIGIN_ID
+                );
             });
         $this->addColumnLink(TransliterationRepository::COLUMN_BOOK_TYPE_ID, 'Book Type')
             ->setRenderer(function (ActiveRow $activeRow)
             {
-                $title = $activeRow->ref(BookTypeRepository::TABLE_NAME, BookTypeRepository::COLUMN_ID)->{BookTypeRepository::COLUMN_BOOK_TYPE};
-                return $this->getRendererWithLink($activeRow, $title, 'BookType:edit', $activeRow->{TransliterationRepository::COLUMN_BOOK_TYPE_ID});
+                return $this->getRenderer(
+                    $activeRow,
+                    BookTypeRepository::TABLE_NAME,
+                    BookTypeRepository::COLUMN_ID,
+                    BookTypeRepository::COLUMN_BOOK_TYPE,
+                    TransliterationRepository::COLUMN_BOOK_TYPE_ID
+                );
             });
         $this->addColumnText(TransliterationRepository::COLUMN_REG_NO, 'Reg No');
         $this->addColumnText(TransliterationRepository::COLUMN_DATE, 'Date');
@@ -132,24 +150,13 @@ class TransliterationGrid extends DataGrid
                 $selection->where(MuseumRepository::COLUMN_ID, $museumIds);
             });
         $this->addFilterText(TransliterationRepository::COLUMN_MUSEUM_NO, 'Museum No');
-        $this->addFilterText(TransliterationRepository::COLUMN_ORIGIN_ID, 'Origin')
-            ->setCondition(function (Selection $selection, $value) use ($originRepository)
-            {
-                $originIds = $originRepository->getOriginsLikeName($value)->fetchField(OriginRepository::COLUMN_ID);
-                $originIds = $originIds ? $originIds : NULL;
-
-                $selection->where(OriginRepository::COLUMN_ID, $originIds);
-            });
-        $this->addFilterText(TransliterationRepository::COLUMN_BOOK_TYPE_ID, 'Book Type')
-            ->setCondition(function (Selection $selection, $value) use ($bookTypeRepository)
-            {
-                $bookTypeIds = $bookTypeRepository->getBookTypesLikeType($value)->fetchField(BookTypeRepository::COLUMN_ID);
-                $bookTypeIds = $bookTypeIds ? $bookTypeIds : NULL;
-
-                $selection->where(BookTypeRepository::COLUMN_ID, $bookTypeIds);
-            });
+        $this->addFilterSelect(TransliterationRepository::COLUMN_ORIGIN_ID, 'Origin', $this->getOriginFilterArray());
+        $this->addFilterSelect(TransliterationRepository::COLUMN_BOOK_TYPE_ID, 'Book Type', $this->getBookTypeFilterArray());
         $this->addFilterText(TransliterationRepository::COLUMN_REG_NO, 'Reg No');
         $this->addFilterText(TransliterationRepository::COLUMN_DATE, 'Date');
+
+        // Zakázání zobrazení všech položek, protože jinak se grid sekne a nelze resetovat
+        $this->setItemsPerPageList([10, 20, 50, 100], FALSE);
 
         // =============
         // Definice akcí
@@ -161,6 +168,55 @@ class TransliterationGrid extends DataGrid
             ->setConfirm('Do you really want to delete transliteration?')
             ->setTitle('Delete')
             ->setClass('btn btn-xs btn-danger ajax');
+    }
+
+    /**
+     * Vrací pole s možnostmi pro combobox filtr místa původu
+     *
+     * @return array
+     */
+    private function getOriginFilterArray()
+    {
+        $array = $this->originRepository->findAll()->fetchPairs(OriginRepository::COLUMN_ID, OriginRepository::COLUMN_ORIGIN);
+        sort($array);
+        return $array;
+    }
+
+    /**
+     * Vrací pole s možnostmi pro combobox filtr typu knihy
+     *
+     * @return array
+     */
+    private function getBookTypeFilterArray()
+    {
+        $array = $this->bookTypeRepository->findAll()->fetchPairs(BookTypeRepository::COLUMN_ID, BookTypeRepository::COLUMN_BOOK_TYPE);
+        sort($array);
+        return $array;
+    }
+
+    /**
+     * Vrací renderer pro vlastní zobrazení názvu místo ID cizího klíče v gridu
+     *
+     * @param ActiveRow $activeRow
+     * @param string $key
+     * @param string $throughColumn
+     * @param string $titleColumn
+     * @param string $idColumn
+     * @return string
+     * @throws \Nette\Application\UI\InvalidLinkException
+     */
+    private function getRenderer(ActiveRow $activeRow, string $key, string $throughColumn, string $titleColumn, string $idColumn)
+    {
+        $ref = $activeRow->ref($key, $throughColumn);
+
+        if ($ref)
+        {
+            $title = $ref->{$titleColumn};
+            return $this->getRendererWithLink($activeRow, $title, 'Book:edit', $activeRow->{$idColumn});
+        } else
+        {
+            return "";
+        }
     }
 }
 
