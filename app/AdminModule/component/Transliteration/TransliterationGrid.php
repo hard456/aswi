@@ -88,7 +88,8 @@ class TransliterationGrid extends DataGrid
                     BookRepository::TABLE_NAME,
                     BookRepository::COLUMN_ID,
                     BookRepository::COLUMN_BOOK_ABREV,
-                    TransliterationRepository::COLUMN_BOOK_ID
+                    TransliterationRepository::COLUMN_BOOK_ID,
+                    'Book:edit'
                 );
             });
         $this->addColumnNumber(TransliterationRepository::COLUMN_CHAPTER, 'Chapter');
@@ -100,7 +101,8 @@ class TransliterationGrid extends DataGrid
                     MuseumRepository::TABLE_NAME,
                     MuseumRepository::COLUMN_ID,
                     MuseumRepository::COLUMN_NAME,
-                    TransliterationRepository::COLUMN_MUSEUM_ID
+                    TransliterationRepository::COLUMN_MUSEUM_ID,
+                    'Museum:edit'
                 );
             });
         $this->addColumnText(TransliterationRepository::COLUMN_MUSEUM_NO, 'Museum No');
@@ -112,7 +114,8 @@ class TransliterationGrid extends DataGrid
                     OriginRepository::TABLE_NAME,
                     OriginRepository::COLUMN_ID,
                     OriginRepository::COLUMN_ORIGIN,
-                    TransliterationRepository::COLUMN_ORIGIN_ID
+                    TransliterationRepository::COLUMN_ORIGIN_ID,
+                    'Origin:edit'
                 );
             });
         $this->addColumnLink(TransliterationRepository::COLUMN_BOOK_TYPE_ID, 'Book Type')
@@ -123,7 +126,8 @@ class TransliterationGrid extends DataGrid
                     BookTypeRepository::TABLE_NAME,
                     BookTypeRepository::COLUMN_ID,
                     BookTypeRepository::COLUMN_BOOK_TYPE,
-                    TransliterationRepository::COLUMN_BOOK_TYPE_ID
+                    TransliterationRepository::COLUMN_BOOK_TYPE_ID,
+                    'BookType:edit'
                 );
             });
         $this->addColumnText(TransliterationRepository::COLUMN_REG_NO, 'Reg No');
@@ -202,17 +206,18 @@ class TransliterationGrid extends DataGrid
      * @param string $throughColumn
      * @param string $titleColumn
      * @param string $idColumn
+     * @param string $destination
      * @return string
      * @throws \Nette\Application\UI\InvalidLinkException
      */
-    private function getRenderer(ActiveRow $activeRow, string $key, string $throughColumn, string $titleColumn, string $idColumn)
+    private function getRenderer(ActiveRow $activeRow, string $key, string $throughColumn, string $titleColumn, string $idColumn, string $destination)
     {
         $ref = $activeRow->ref($key, $throughColumn);
 
         if ($ref)
         {
             $title = $ref->{$titleColumn};
-            return $this->getRendererWithLink($activeRow, $title, 'Book:edit', $activeRow->{$idColumn});
+            return $this->getRendererWithLink($activeRow, $title, $destination, $activeRow->{$idColumn});
         } else
         {
             return "";
