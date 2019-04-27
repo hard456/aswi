@@ -153,10 +153,13 @@ class TransliterationSearchResultList extends Control
 
     public function handleChangePage($page, $limit)
     {
-        $this->page = $page;
-        $this->limit = $limit;
-        $this->paginator = new Paginator($page, $limit);
-        $this->redrawControl('resultList');
+        if($this->presenter->isAjax())
+        {
+            $this->page = $page;
+            $this->limit = $limit;
+            $this->paginator = new Paginator($page, $limit);
+            $this->redrawControl('resultList');
+        }
     }
 
     public function createComponentSearchSettingsForm()

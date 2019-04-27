@@ -57,17 +57,6 @@ class TransliterationPresenter extends Presenter
         $this->transliterationSearchResultListFactory = $transliterationSearchResultListFactory;
     }
 
-
-    public function actionSearch()
-    {
-
-    }
-
-    public function actionSearchResult()
-    {
-
-    }
-
     public function actionView($id)
     {
         $transliteration = $this->transliterationRepository->getTransliterationDetail($id);
