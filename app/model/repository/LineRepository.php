@@ -60,7 +60,7 @@ class LineRepository extends Repository
             ->select('line_number, transliteration')
             ->where('id_surface = ? AND id_line < ?', $surfaceId, $lineId)
             ->limit($numberOfLines)
-            ->order('id_line DESC')
+            ->order('line_number * 1 DESC')
             ->fetchAll();
         $adjacentLines['linesBefore'] = array_reverse($linesBefore);
 
@@ -68,7 +68,7 @@ class LineRepository extends Repository
             ->select('line_number, transliteration')
             ->where('id_surface = ? AND id_line > ?', $surfaceId, $lineId)
             ->limit($numberOfLines)
-            ->order('id_line ASC')
+            ->order('line_number * 1 ASC')
             ->fetchAll();
         $adjacentLines['linesAfter'] = $linesAfter;
 
