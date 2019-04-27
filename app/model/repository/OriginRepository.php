@@ -28,4 +28,14 @@ class OriginRepository extends Repository
         $origins[0] = '- NOT SELECTED -';
         return $origins;
     }
+
+    /** Vrací místa původu se názvem LIKE % $name %
+     *
+     * @param string $name
+     * @return \Nette\Database\Table\Selection
+     */
+    public function getOriginsLikeName(string $name)
+    {
+        return $this->findAll()->where(self::COLUMN_ORIGIN . ' LIKE', '%' . $name . '%');
+    }
 }

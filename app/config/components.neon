@@ -8,6 +8,7 @@ services:
     - App\AdminModule\Components\ISurfaceTypeGridFactory
     - App\AdminModule\Components\IBookTypeGridFactory
     - App\AdminModule\Components\IBookGridFactory
+    - App\AdminModule\Components\ITransliterationGridFactory
 
     # Formuláře
     - App\FrontModule\Components\ILoginFormFactory

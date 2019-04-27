@@ -2,6 +2,8 @@
 
 namespace App\Utils\DataGrid;
 
+use App\Model\Repository\BookRepository;
+use Nette\Database\Table\ActiveRow;
 use Nette\Database\Table\Selection;
 use Ublaboo\DataGrid\Column\ColumnDateTime;
 use Ublaboo\DataGrid\Column\ColumnNumber;
@@ -169,6 +171,43 @@ abstract class DataGrid extends BaseDataGrid
         });
 
         return $filterText;
+    }
+
+    /**
+     * Umožnění filtrování sloupečků s odkazem
+     *
+     * @param string $key
+     * @param string $name
+     * @param null $href
+     * @param null $column
+     * @param array|null $params
+     * @return \Ublaboo\DataGrid\Column\ColumnLink|null
+     */
+    public function addColumnLink($key, $name, $href = null, $column = null, array $params = null)
+    {
+        $column = parent::addColumnLink($key, $name, $href, $column, $params);
+        $column->setSortable();
+        $column->setTemplateEscaping(FALSE);
+
+        return $column;
+    }
+
+    /**
+     * Generování odkazu pro tabulky, které jsou přes cizí klíč
+     *
+     * @param ActiveRow $activeRow
+     * @param string $title
+     * @param string $destination
+     * @param int $id
+     * @return string
+     * @throws \Nette\Application\UI\InvalidLinkException
+     */
+    public function getRendererWithLink(ActiveRow $activeRow, string $title, string $destination, int $id): string
+    {
+        $link = $this->presenter->link($destination, ['id' => $id]);
+
+        $title = !empty($title) ? $title : 'empty';
+        return '<a href="' . $link . '">' . $title . '</a>';
     }
 
     /**

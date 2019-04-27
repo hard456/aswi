@@ -26,4 +26,15 @@ class BookRepository extends Repository
     const COLUMN_VOLUME = 'volume';
     const COLUMN_VOLUME_NO = 'volume_no';
     const COLUMN_REVISION_HISTORY = 'revision_history';
+
+    /**
+     * Vrací knihy se zkratkou LIKE % $bookName %
+     *
+     * @param string $bookName
+     * @return \Nette\Database\Table\Selection
+     */
+    public function getBooksLikeBookAbbrev(string $bookName)
+    {
+        return $this->findAll()->where(self::COLUMN_BOOK_ABREV . ' LIKE', '%' . $bookName . '%');
+    }
 }

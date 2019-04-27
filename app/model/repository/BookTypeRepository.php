@@ -38,4 +38,15 @@ class BookTypeRepository extends Repository
         $types[0] = '- NOT SELECTED -';
         return $types;
     }
+
+    /**
+     * Vrací typ knihy LIKE % $name %
+     *
+     * @param string $name
+     * @return \Nette\Database\Table\Selection
+     */
+    public function getBookTypesLikeType(string $name)
+    {
+        return $this->findAll()->where(self::COLUMN_BOOK_TYPE . ' LIKE', '%' . $name . '%');
+    }
 }
