@@ -181,8 +181,7 @@ class TransliterationGrid extends DataGrid
      */
     private function getOriginFilterArray()
     {
-        $array = $this->originRepository->findAll()->fetchPairs(OriginRepository::COLUMN_ID, OriginRepository::COLUMN_ORIGIN);
-        sort($array);
+        $array = $this->originRepository->findAll()->order(OriginRepository::COLUMN_ORIGIN)->fetchPairs(OriginRepository::COLUMN_ID, OriginRepository::COLUMN_ORIGIN);
         return $array;
     }
 
@@ -193,8 +192,7 @@ class TransliterationGrid extends DataGrid
      */
     private function getBookTypeFilterArray()
     {
-        $array = $this->bookTypeRepository->findAll()->fetchPairs(BookTypeRepository::COLUMN_ID, BookTypeRepository::COLUMN_BOOK_TYPE);
-        sort($array);
+        $array = $this->bookTypeRepository->findAll()->order(BookTypeRepository::COLUMN_BOOK_TYPE)->fetchPairs(BookTypeRepository::COLUMN_ID, BookTypeRepository::COLUMN_BOOK_TYPE);
         return $array;
     }
 
