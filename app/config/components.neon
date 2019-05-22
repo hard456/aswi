@@ -22,3 +22,6 @@ services:
     - App\AdminModule\Components\IBookEditFormFactory
 
     - App\FrontModule\Components\ITransliterationSearchResultListFactory
+
+    # Example - smazat při předání!
+    - App\AdminModule\Components\IExampleDynamicFactory

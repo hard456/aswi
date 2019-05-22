@@ -14,3 +14,6 @@ session:
 services:
 	router: App\RouterFactory::createRouter
 	authenticator: App\Model\Authenticator
+
+extensions:
+    replicator: WebChemistry\Forms\Controls\DI\MultiplierExtension
