@@ -12,6 +12,7 @@ use App\Model\Repository\OriginRepository;
 use App\Model\Repository\TransliterationRepository;
 use App\Utils\Form;
 use Nette\Application\UI\Control;
+use Nette\Database\Table\ActiveRow;
 use Nette\Forms\Container;
 
 /**
@@ -60,10 +61,19 @@ class TransliterationEditForm extends Control
     /**
      * TransliterationEditForm constructor.
      * @param TransliterationRepository $transliterationRepository
+     * @param BookRepository $bookRepository
+     * @param MuseumRepository $museumRepository
+     * @param OriginRepository $originRepository
+     * @param BookTypeRepository $bookTypeRepository
+     * @param LitReferenceRepository $litReferenceRepository
      */
-    public function __construct(TransliterationRepository $transliterationRepository, BookRepository $bookRepository,
-                                MuseumRepository $museumRepository, OriginRepository $originRepository,
-                                BookTypeRepository $bookTypeRepository, LitReferenceRepository $litReferenceRepository)
+    public function __construct(TransliterationRepository $transliterationRepository,
+                                BookRepository $bookRepository,
+                                MuseumRepository $museumRepository,
+                                OriginRepository $originRepository,
+                                BookTypeRepository $bookTypeRepository,
+                                LitReferenceRepository $litReferenceRepository
+    )
     {
         parent::__construct();
 
@@ -154,7 +164,7 @@ class TransliterationEditForm extends Control
     /**
      * Zkontroluje jestli není nějaká refence prázná
      *
-     * @param $references pole referencí
+     * @param $references array referencí
      * @return bool
      */
     public function isAnyReferenceEmpty($references)
@@ -173,7 +183,7 @@ class TransliterationEditForm extends Control
     /**
      * Odstraní odebrané reference transliterace
      *
-     * @param $newReferences pole nových transliterací
+     * @param $newReferences array nových transliterací
      */
     public function deleteRemovedReferences($newReferences)
     {
@@ -192,8 +202,8 @@ class TransliterationEditForm extends Control
     /**
      * Zkontroluje jestli je refence v poli referencí
      *
-     * @param $reference reference ke kontrole
-     * @param $newReferences pole referencí
+     * @param $reference ActiveRow reference ke kontrole
+     * @param $newReferences array pole referencí
      * @return bool
      */
     public function isRemovedReference($reference, $newReferences)

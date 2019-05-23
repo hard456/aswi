@@ -43,8 +43,9 @@ class BookRepository extends Repository
      *
      * @return array
      */
-    public function getBookAbbrevForSelect(){
-        return $this->findAll()->fetchPairs(BookRepository::COLUMN_ID,BookRepository::COLUMN_BOOK_ABREV);
+    public function getBookAbbrevForSelect()
+    {
+        return $this->findAll()->fetchPairs(BookRepository::COLUMN_ID, BookRepository::COLUMN_BOOK_ABREV);
     }
 
 }

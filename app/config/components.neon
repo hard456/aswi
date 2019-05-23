@@ -24,6 +24,3 @@ services:
 
     - App\FrontModule\Components\IKeyboard
     - App\FrontModule\Components\ITransliterationSearchResultListFactory
-
-    # Example - smazat při předání!
-    - App\AdminModule\Components\IExampleDynamicFactory
