@@ -21,6 +21,7 @@ services:
     - App\AdminModule\Components\IBookTypeEditFormFactory
     - App\AdminModule\Components\IBookEditFormFactory
 
+    - App\FrontModule\Components\IKeyboard
     - App\FrontModule\Components\ITransliterationSearchResultListFactory
 
     # Example - smazat při předání!

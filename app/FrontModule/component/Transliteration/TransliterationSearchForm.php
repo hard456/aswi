@@ -51,7 +51,8 @@ class TransliterationSearchForm extends Control
         $form = new Form();
 
         $form->addText('word1', 'Word 1')
-            ->addRule(Form::REQUIRED, 'Field %label is required.');
+            ->addRule(Form::REQUIRED, 'Field %label is required.')
+            ->setAttribute("autofocus");
         $form->addText('word2', 'Word 2');
         $form->addSelect('word2_condition', '', ESearchFormOperators::$wordSelectLabels);
         $form->addText('word3', 'Word 3');
@@ -76,6 +77,7 @@ class TransliterationSearchForm extends Control
         $form->addSelect('registration_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
         $form->addText('registration', 'Registration / Ex. number');
+
         $form->addSelect('date_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
         $form->addText('date', 'Date');
