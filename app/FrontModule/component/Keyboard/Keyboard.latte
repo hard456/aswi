@@ -157,15 +157,14 @@
     </div>
 </div>
 
-<script>
-    let lastFocused;
-    let cur_id;
+{block scripts}
+    <script>
+        let lastFocused;
 
-    function setId(id) {
-        cur_id = id;
-    }
+        $("form input[type=text]").focus(function(){ lastFocused = this.id; });
 
-    function keyboardRead(val){
-        document.getElementById(cur_id).value = document.getElementById(cur_id).value+val;
-    }
-</script>
+        function keyboardRead(val) {
+            document.getElementById(lastFocused).value = document.getElementById(lastFocused).value + val;
+        }
+    </script>
+{/block}

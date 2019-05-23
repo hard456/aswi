@@ -4,6 +4,7 @@ namespace App\FrontModule\Presenters;
 
 
 
+use App\FrontModule\Components\IKeyboard;
 use App\FrontModule\Components\ITransliterationSearchFormFactory;
 use App\FrontModule\Components\ITransliterationSearchResultListFactory;
 use App\Model\Repository\LineRepository;
@@ -36,6 +37,9 @@ class TransliterationPresenter extends Presenter
     /** @var ITransliterationSearchResultListFactory */
     private $transliterationSearchResultListFactory;
 
+    /** @var IKeyboard */
+    private $keyboard;
+
     public function __construct(
         ITransliterationSearchFormFactory $transliterationSearchFormFactory,
         TransliterationRepository $transliterationRepository,
@@ -43,7 +47,8 @@ class TransliterationPresenter extends Presenter
         LitReferenceRepository $litReferenceRepository,
         RevHistoryRepository $revHistoryRepository,
         LineRepository $lineRepository,
-        ITransliterationSearchResultListFactory $transliterationSearchResultListFactory
+        ITransliterationSearchResultListFactory $transliterationSearchResultListFactory,
+        IKeyboard $keyboard
     )
     {
         parent::__construct();
@@ -55,6 +60,7 @@ class TransliterationPresenter extends Presenter
         $this->revHistoryRepository = $revHistoryRepository;
         $this->lineRepository = $lineRepository;
         $this->transliterationSearchResultListFactory = $transliterationSearchResultListFactory;
+        $this->keyboard = $keyboard;
     }
 
     public function actionView($id)
@@ -86,5 +92,10 @@ class TransliterationPresenter extends Presenter
     public function createComponentTransliterationSearchResultList()
     {
         return $this->transliterationSearchResultListFactory->create();
+    }
+
+    public function createComponentKeyboard()
+    {
+        return $this->keyboard->create();
     }
 }
