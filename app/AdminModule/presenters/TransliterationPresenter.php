@@ -5,6 +5,7 @@ namespace App\AdminModule\Presenters;
 
 
 use App\AdminModule\Components\ITransliterationGridFactory;
+use App\AdminModule\Components\ITransliterationEditFormFactory;
 use App\Model\Repository\TransliterationRepository;
 
 class TransliterationPresenter extends BaseUserPresenter
@@ -14,11 +15,24 @@ class TransliterationPresenter extends BaseUserPresenter
      */
     private $transliterationGridFactory;
 
+    /**
+     * @var ITransliterationEditFormFactory
+     */
+    private $transliterationEditFormFactory;
+
+    /**
+     * @var TransliterationRepository
+     */
+    private $transliterationRepository;
+
     public function __construct(ITransliterationGridFactory $transliterationGridFactory,
+                                ITransliterationEditFormFactory $transliterationEditFormFactory,
                                 TransliterationRepository $transliterationRepository)
     {
         parent::__construct();
+        $this->transliterationEditFormFactory = $transliterationEditFormFactory;
         $this->transliterationGridFactory = $transliterationGridFactory;
+        $this->transliterationRepository = $transliterationRepository;
     }
 
     /**
@@ -35,8 +49,19 @@ class TransliterationPresenter extends BaseUserPresenter
         }
     }
 
+    public function actionEdit(int $id)
+    {
+        $this['transliterationEditForm']->setTransliteration($id);
+    }
+
     public function createComponentTransliterationGrid()
     {
         return $this->transliterationGridFactory->create();
     }
+
+    public function createComponentTransliterationEditForm()
+    {
+        return $this->transliterationEditFormFactory->create();
+    }
+
 }

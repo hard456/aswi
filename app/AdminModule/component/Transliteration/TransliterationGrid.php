@@ -165,8 +165,8 @@ class TransliterationGrid extends DataGrid
         // =============
         // Definice akcí
         // =============
-//        $this->addAction('edit', 'edit', 'Transliteration:edit', ['id' => TransliterationRepository::COLUMN_ID])
-//            ->setTitle('Edit');
+        $this->addAction('edit', 'edit', 'Transliteration:edit', ['id' => TransliterationRepository::COLUMN_ID])
+            ->setTitle('Edit');
 
         $this->addAction('delete', 'delete', 'deleteTransliteration!', ['id' => TransliterationRepository::COLUMN_ID])
             ->setConfirm('Do you really want to delete transliteration?')
