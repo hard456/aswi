@@ -37,4 +37,14 @@ class BookRepository extends Repository
     {
         return $this->findAll()->where(self::COLUMN_BOOK_ABREV . ' LIKE', '%' . $bookName . '%');
     }
+
+    /**
+     * Vrátí všechny abbrev
+     *
+     * @return array
+     */
+    public function getBookAbbrevForSelect(){
+        return $this->findAll()->fetchPairs(BookRepository::COLUMN_ID,BookRepository::COLUMN_BOOK_ABREV);
+    }
+
 }

@@ -19,4 +19,16 @@ class LitReferenceRepository extends Repository
     const COLUMN_NUMBER = 'number';
     const COLUMN_PLATE = 'plate';
     const COLUMN_TRANSLITERATION_ID = 'id_transliteration';
+
+    /**
+     * Vrátí reference podle id transliterace
+     *
+     * @param int $transliterationId
+     * @return \Nette\Database\Table\Selection
+     */
+    public function findByTransliterationId(int $transliterationId)
+    {
+        return $this->findBy([self::COLUMN_TRANSLITERATION_ID => $transliterationId]);
+    }
+
 }

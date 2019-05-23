@@ -39,4 +39,14 @@ class MuseumRepository extends Repository
     {
         return $this->findAll()->where(self::COLUMN_NAME . ' LIKE', '%' . $name . '%');
     }
+
+    /**
+     * Vrátí názvy muzeí
+     *
+     * @return array
+     */
+    public function getMuseumNameForSelect()
+    {
+        return $this->findAll()->fetchPairs(MuseumRepository::COLUMN_ID,MuseumRepository::COLUMN_NAME);
+    }
 }
