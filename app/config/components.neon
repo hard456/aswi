@@ -20,9 +20,7 @@ services:
     - App\AdminModule\Components\IMuseumEditFormFactory
     - App\AdminModule\Components\IBookTypeEditFormFactory
     - App\AdminModule\Components\IBookEditFormFactory
+    - App\AdminModule\Components\ITransliterationEditFormFactory
 
     - App\FrontModule\Components\IKeyboard
     - App\FrontModule\Components\ITransliterationSearchResultListFactory
-
-    # Example - smazat při předání!
-    - App\AdminModule\Components\IExampleDynamicFactory
