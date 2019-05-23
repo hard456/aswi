@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6018197517a97474da6c1a7c8e26f4fc",
+    "content-hash": "cb338bcaa5ecca136cb052ce84ef77ac",
     "packages": [
+        {
+            "name": "contributte/forms-multiplier",
+            "version": "v3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contributte/forms-multiplier.git",
+                "reference": "c76e4dfb298174bbe0fcdf3b22130271236f69f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contributte/forms-multiplier/zipball/c76e4dfb298174bbe0fcdf3b22130271236f69f6",
+                "reference": "c76e4dfb298174bbe0fcdf3b22130271236f69f6",
+                "shasum": ""
+            },
+            "require": {
+                "nette/forms": "^2.4",
+                "php": ">= 5.6"
+            },
+            "require-dev": {
+                "codeception/codeception": "^2.4",
+                "latte/latte": "^2.3",
+                "nette/application": "^2.3",
+                "nette/di": "^2.3",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.1.0",
+                "webchemistry/testing-helpers": "~1.1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebChemistry\\Forms\\Controls\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Multiplier for nette forms",
+            "keywords": [
+                "Forms",
+                "multiplier",
+                "nette",
+                "webchemistry"
+            ],
+            "time": "2019-03-05T08:14:12+00:00"
+        },
         {
             "name": "latte/latte",
             "version": "v2.4.8",

@@ -1,0 +1,48 @@
+{form form}
+    <div class="row mb-2">
+        <div class="col-1">
+            {label element}
+        </div>
+        <div class="col-9">
+            {input element}
+        </div>
+    </div>
+
+    <div n:multiplier="books">
+        <div class="row mb-2">
+            <div class="col-1"><label n:name="line">Řádka</label></div>
+            <div class="col-3"><input n:name="line" n:class="form-control" required></div>
+            <div class="col-1 offset-1"><label n:name="book">Knížka</label></div>
+            <div class="col-3"><input n:name="book" n:class="form-control"></div>
+            <div class="col-2">{btnRemove 'class' => 'btn btn-danger'}</div>
+        </div>
+    </div>
+
+    {btnCreate books class => 'btn btn-success'}
+
+    <div class="row mt-5">
+        <div class="col-2">
+            {input submit}
+        </div>
+    </div>
+
+    <hr class="mt-5">
+    <h4>Výsledky</h4>
+
+    <code>
+        {snippet results}
+            {ifset $results}
+                {foreach $results as $element => $value}
+                    {if $value instanceof \Nette\Utils\ArrayHash}
+                        {foreach $value as $el => $val}
+                            <b>Element:</b> {$element}[{$el}], <b>value:</b> {var_dump($val)}
+                            <br>
+                        {/foreach}
+                    {else}
+                        <b>Element:</b> {$element}, <b>value:</b> {$value}<br>
+                    {/if}
+                {/foreach}
+            {/ifset}
+        {/snippet}
+    </code>
+{/form}
