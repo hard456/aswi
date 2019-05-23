@@ -44,11 +44,16 @@ class TransliterationPresenter extends BaseUserPresenter
     {
         if ($this->isAjax())
         {
-            $this->transliterationGridFactory->findRow($id)->delete();
+            $this->transliterationRepository->findRow($id)->delete();
             $this['transliterationGrid']->reload();
         }
     }
 
+    /**
+     * Editace informací o transliteraci
+     *
+     * @param int $id
+     */
     public function actionEdit(int $id)
     {
         $this['transliterationEditForm']->setTransliteration($id);
