@@ -52,25 +52,20 @@ class TransliterationSearchForm extends Control
 
         $form->addText('word1', 'Word 1')
             ->addRule(Form::REQUIRED, 'Field %label is required.')
-            ->setAttribute("autofocus")
-            ->setAttribute("onFocus", "setId(this.id)");
-        $form->addText('word2', 'Word 2')
-            ->setAttribute("onFocus", "setId(this.id)");
+            ->setAttribute("autofocus");
+        $form->addText('word2', 'Word 2');
         $form->addSelect('word2_condition', '', ESearchFormOperators::$wordSelectLabels);
-        $form->addText('word3', 'Word 3')
-            ->setAttribute("onFocus", "setId(this.id)");
+        $form->addText('word3', 'Word 3');
         $form->addSelect('word3_condition', '', ESearchFormOperators::$wordSelectLabels);
 
         $form->addCheckbox('exact_match', ' Exact Match');
 
         $form->addSelect('book_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
-        $form->addText('book', 'Book')
-            ->setAttribute("onFocus", "setId(this.id)");
+        $form->addText('book', 'Book');
         $form->addSelect('museum_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
-        $form->addText('museum', 'Museum number')
-            ->setAttribute("onFocus", "setId(this.id)");
+        $form->addText('museum', 'Museum number');
 
         $form->addSelect('type_condition', '', ESearchFormOperators::$selectEqualsOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::IS);
@@ -81,12 +76,11 @@ class TransliterationSearchForm extends Control
 
         $form->addSelect('registration_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
-        $form->addText('registration', 'Registration / Ex. number')
-            ->setAttribute("onFocus", "setId(this.id)");
+        $form->addText('registration', 'Registration / Ex. number');
+
         $form->addSelect('date_condition', '', ESearchFormOperators::$selectLikeOperatorLabels)
             ->setDefaultValue(ESearchFormOperators::CONTAINS);
-        $form->addText('date', 'Date')
-            ->setAttribute("onFocus", "setId(this.id)");
+        $form->addText('date', 'Date');
 
         $form->addSubmit('submit', 'Search');
         $form->onSuccess[] = [$this, 'formSuccess'];
