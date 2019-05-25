@@ -26,4 +26,15 @@ class ObjectTypeRepository extends Repository
     {
         return $this->findAll()->fetchPairs(self::COLUMN_ID, self::COLUMN_OBJECT_TYPE);
     }
+
+    /**
+     * Vrací typ objektu podle názvu
+     *
+     * @param string $name
+     * @return false|\Nette\Database\Table\ActiveRow
+     */
+    public function fetchObjectTypeByName(string $name)
+    {
+        return $this->findBy([self::COLUMN_OBJECT_TYPE => $name])->fetch();
+    }
 }

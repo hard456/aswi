@@ -30,4 +30,14 @@ class SurfaceRepository extends Repository
     {
         return $this->findBy([self::COLUMN_TRANSLITERATION_ID => $id]);
     }
+
+    public function fetchSurface(int $transliterationId, int $objectTypeId, int $surfaceTypeId){
+        return $this->findBy(
+            [
+                self::COLUMN_TRANSLITERATION_ID => $transliterationId,
+                self::COLUMN_OBJECT_TYPE_ID => $objectTypeId,
+                self::COLUMN_SURFACE_TYPE_ID => $surfaceTypeId
+            ]
+        )->fetch();
+    }
 }

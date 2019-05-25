@@ -16,11 +16,12 @@ use WebChemistry\Forms\Controls\Multiplier;
 class TransliterationDataEditForm extends Control
 {
     /** @var int ID transliterace */
-    private $id;
+    private $id = NULL;
 
     /** @var array Pole objektů a typu povrch pro strom dat transliterace */
     private $containers;
 
+    /** @var array Pole s výchozími hodnotami při upravování */
     private $defaults;
 
     /**
@@ -52,13 +53,13 @@ class TransliterationDataEditForm extends Control
         $containers = [];
 
         // Načtení typů objektů a typu povrchů do pole pro vykreslení v šabloně
-        foreach ($objectTypes as $objectType)
+        foreach ($objectTypes as $oId =>$objectType)
         {
-            $containers[$this->transliterationFacade->getInputName($objectType)]['title'] = $objectType;
+            $containers[$oId]['title'] = $objectType;
 
-            foreach ($surfaceTypes as $surfaceType)
+            foreach ($surfaceTypes as $sId => $surfaceType)
             {
-                $containers[$this->transliterationFacade->getInputName($objectType)][$this->transliterationFacade->getInputName($surfaceType)] = $surfaceType;
+                $containers[$oId][$sId] = $surfaceType;
             }
         }
 
@@ -100,6 +101,7 @@ class TransliterationDataEditForm extends Control
                 {
                     $container->addInteger(LineRepository::COLUMN_LINE_NUMBER);
                     $container->addText(LineRepository::COLUMN_TRANSLITERATION);
+                    $container->addHidden(LineRepository::COLUMN_ID);
                 }, 0);
 
                 $multiplier->addCreateButton('Add line', 1, $redrawCallback);
@@ -118,7 +120,7 @@ class TransliterationDataEditForm extends Control
 
     public function formSuccess(Form $form)
     {
-
+        $result = $this->transliterationFacade->saveTransliterationData($this->id, $form->getValues());
     }
 
     /**

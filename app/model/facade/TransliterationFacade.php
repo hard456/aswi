@@ -9,6 +9,7 @@ use App\Model\Repository\ObjectTypeRepository;
 use App\Model\Repository\SurfaceRepository;
 use App\Model\Repository\SurfaceTypeRepository;
 use Nette\Database\Table\ActiveRow;
+use Nette\Utils\ArrayHash;
 
 class TransliterationFacade
 {
@@ -44,12 +45,47 @@ class TransliterationFacade
     /**
      * Uloží data transliterace
      *
-     * @param int $id
-     * @param array $values
+     * @param int|null $id : ID transliterace
+     * @param ArrayHash $formValues
      */
-    public function saveTransliterationData(int $id, array $values)
+    public function saveTransliterationData(int $id, ArrayHash $formValues)
     {
+        // Škaredý zanoření hodnot z formuláře v kontainerech :(
+        foreach ($formValues as $objectTypeId => $surfaceContainers)
+        {
+            foreach ($surfaceContainers as $surfaceTypeId => $inputs)
+            {
+                foreach ($inputs as $key => $values)
+                {
+                    $lineId = (int)$values->{LineRepository::COLUMN_ID};
 
+                    // Editace již existující řádky
+                    if (!empty($lineId))
+                    {
+                        $this->lineRepository->fetchById($lineId)->update($values);
+
+                    } else
+                    {
+                        $surface = $this->surfaceRepository->fetchSurface($id, $objectTypeId, $surfaceTypeId);
+
+                        if ($surface === FALSE)
+                        {
+                            // TODO: předělat do repository
+                            $surface = $this->surfaceRepository->insert(
+                                [
+                                    SurfaceRepository::COLUMN_SURFACE_TYPE_ID => $surfaceTypeId,
+                                    SurfaceRepository::COLUMN_OBJECT_TYPE_ID => $objectTypeId,
+                                    SurfaceRepository::COLUMN_TRANSLITERATION_ID => $id
+                                ]
+                            );
+                        }
+
+                        $values->{LineRepository::COLUMN_SURFACE_ID} = $surface->{SurfaceRepository::COLUMN_ID};
+                        $this->lineRepository->insert($values);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -61,9 +97,6 @@ class TransliterationFacade
     public function getTransliterationData(int $id)
     {
         $surfaces = $this->surfaceRepository->findByTransliterationId($id)->fetchAll();
-
-        $surfaceTypes = $this->surfaceTypeRepository->fetchSurfaceTypes();
-        $objectTypes = $this->objectTypeRepository->fetchObjectTypes();
 
         $defaults = array();
 
@@ -77,14 +110,10 @@ class TransliterationFacade
                 continue;
             }
 
-            // Získání názvu typu povrchu a typu objektu
-            $surfaceType = $surfaceTypes[$surface->{SurfaceRepository::COLUMN_SURFACE_TYPE_ID}];
-            $objectType = $objectTypes[$surface->{SurfaceRepository::COLUMN_OBJECT_TYPE_ID}];
+            $objectId = $surface->{SurfaceRepository::COLUMN_OBJECT_TYPE_ID};
+            $surfaceId = $surface->{SurfaceRepository::COLUMN_SURFACE_TYPE_ID};
 
-            $objectName = $this->getInputName($objectType);
-            $surfaceName = $this->getInputName($surfaceType);
-
-            $defaults[$objectName][$surfaceName] = $lineRows;
+            $defaults[$objectId][$surfaceId] = $lineRows;
         }
 
         return $defaults;
