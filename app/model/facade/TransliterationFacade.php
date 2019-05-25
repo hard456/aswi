@@ -82,7 +82,7 @@ class TransliterationFacade
             $objectType = $objectTypes[$surface->{SurfaceRepository::COLUMN_OBJECT_TYPE_ID}];
 
             $objectName = $this->getInputName($objectType);
-            $surfaceName = $this->getInputName($objectType, $surfaceType);
+            $surfaceName = $this->getInputName($surfaceType);
 
             $defaults[$objectName][$surfaceName] = $lineRows;
         }
@@ -93,12 +93,11 @@ class TransliterationFacade
     /**
      * Vrací název inputu pro formulář
      *
-     * @param string $container
      * @param string|NULL $name
      * @return string
      */
-    public function getInputName(string $container, string $name = NULL)
+    public function getInputName(string $name)
     {
-        return str_replace(' ', '', $container) . str_replace(' ', '', $name);
+        return str_replace(' ', '', $name);
     }
 }

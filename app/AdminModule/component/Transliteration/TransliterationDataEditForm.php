@@ -21,6 +21,8 @@ class TransliterationDataEditForm extends Control
     /** @var array Pole objektů a typu povrch pro strom dat transliterace */
     private $containers;
 
+    private $defaults;
+
     /**
      * @var ObjectTypeRepository
      */
@@ -56,7 +58,7 @@ class TransliterationDataEditForm extends Control
 
             foreach ($surfaceTypes as $surfaceType)
             {
-                $containers[$this->transliterationFacade->getInputName($objectType)][$this->transliterationFacade->getInputName($objectType, $surfaceType)] = $surfaceType;
+                $containers[$this->transliterationFacade->getInputName($objectType)][$this->transliterationFacade->getInputName($surfaceType)] = $surfaceType;
             }
         }
 
@@ -68,6 +70,7 @@ class TransliterationDataEditForm extends Control
         $this->template->setFile(__DIR__ . '/TransliterationDataEditForm.latte');
 
         $this->template->containers = $this->containers;
+        $this->template->defaults = $this->defaults = $this->getDefaults();
 
         $this->template->render();
     }
@@ -99,7 +102,7 @@ class TransliterationDataEditForm extends Control
             }
         }
 
-        $form->setDefaults($this->getDefaults());
+        $form->setDefaults($this->defaults);
 
         $form->onSuccess[] = [$this, 'formSuccess'];
         $form->addSubmit('submit', 'Save');

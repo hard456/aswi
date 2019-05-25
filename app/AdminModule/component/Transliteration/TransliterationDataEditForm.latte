@@ -2,11 +2,19 @@
     {form form class => 'form'}
         {foreach $containers as $containerName => $container}
 
+            {if isset($defaults[$containerName])}
+                {var show = ' show'}
+                {var expanded = 'true'}
+            {else}
+                {var show = ''}
+                {var expanded = 'false'}
+            {/if}
+
             <div class="card mb-1">
 
                 <h5 class="mb-0">
                     <a class="btn btn-link" data-toggle="collapse" data-target="#{$containerName}"
-                       aria-expanded="false">
+                       aria-expanded="{$expanded}">
                         <small>
                             <span class="fa fa-fw fa-plus"></span>
                             <span class="fa fa-fw fa-minus"></span>
@@ -14,7 +22,7 @@
                     </a>
                 </h5>
 
-                <div id="{$containerName}" class="collapse">
+                <div id="{$containerName}" class="collapse{$show}">
                     <div class="card-body">
 
                         {foreach $container as $multiplierName => $multiplier}
@@ -22,10 +30,18 @@
                             {if $multiplierName !== 'title'}
                                 {var name = $containerName . '-' . $multiplierName}
 
+                                {if isset($defaults[$containerName][$multiplierName])}
+                                    {var show = ' show'}
+                                    {var expanded = 'true'}
+                                {else}
+                                    {var show = ''}
+                                    {var expanded = 'false'}
+                                {/if}
+
                                 <div class="card mb-1">
                                     <h5 class="mb-0">
                                         <a class="btn btn-link" data-toggle="collapse" data-target="#{$name}"
-                                           aria-expanded="false" onclick="return false;">
+                                           aria-expanded="{$expanded}" onclick="return false;">
                                             <small>
                                                 <span class="fa fa-fw fa-plus"></span>
                                                 <span class="fa fa-fw fa-minus"></span>
@@ -33,7 +49,7 @@
                                         </a>
                                     </h5>
 
-                                    <div id="{$name}" class="collapse">
+                                    <div id="{$name}" class="collapse{$show}">
                                         <div class="card-body">
                                             <div n:multiplier="$name" n:class="row, mb-2">
                                                 <div class="col-5">
