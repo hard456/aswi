@@ -1,6 +1,6 @@
 {form form}
     <div class="row">
-        <div class="col-4">
+        <div class="col-12">
             <div class="row mb-2">
                 <div class="col-4">
                     {label \App\Model\Repository\TransliterationRepository::COLUMN_BOOK_ID}
@@ -91,18 +91,18 @@
             <div n:multiplier="references">
                 <div class="row mb-2">
 
-                    <div class="col-2">
+                    <div class="col-3">
                         <input n:name="\App\Model\Repository\LitReferenceRepository::COLUMN_SERIES" n:class="form-control"
                                 required></div>
 
-                    <div class="col-2">
+                    <div class="col-3">
                         <input n:name="\App\Model\Repository\LitReferenceRepository::COLUMN_NUMBER" n:class="form-control">
                     </div>
 
-                    <div class="col-2">
+                    <div class="col-3">
                         <input n:name="\App\Model\Repository\LitReferenceRepository::COLUMN_PLATE" n:class="form-control">
                     </div>
-                    <div class="col-2">{btnRemove 'class' => 'btn btn-danger'}</div>
+                    <div class="col-2">{btnRemove 'class' => 'btn btn-danger float-right'}</div>
                 </div>
             </div>
 
@@ -111,7 +111,7 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-4">
+        <div class="col-4 offset-8 float-right">
             {input submit}
         </div>
     </div>

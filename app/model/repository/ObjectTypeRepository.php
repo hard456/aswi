@@ -16,4 +16,14 @@ class ObjectTypeRepository extends Repository
     /** Sloupečky tabulky */
     const COLUMN_ID = 'id_object_type';
     const COLUMN_OBJECT_TYPE = 'object_type';
+
+    /**
+     * Vrací typy objektů pro formulář pro přidávání transliterací
+     *
+     * @return array
+     */
+    public function fetchObjectTypes()
+    {
+        return $this->findAll()->fetchPairs(self::COLUMN_ID, self::COLUMN_OBJECT_TYPE);
+    }
 }
