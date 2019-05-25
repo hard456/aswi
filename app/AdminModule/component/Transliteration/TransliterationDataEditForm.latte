@@ -1,86 +1,88 @@
 {ifset $containers}
-    {form form class => 'form'}
-        {foreach $containers as $containerName => $container}
+    {snippet dataSnippet}
+        {form form class => 'form'}
+            {foreach $containers as $containerName => $container}
 
-            {if isset($defaults[$containerName])}
-                {var show = ' show'}
-                {var expanded = 'true'}
-            {else}
-                {var show = ''}
-                {var expanded = 'false'}
-            {/if}
+                {if isset($defaults[$containerName])}
+                    {var show = ' show'}
+                    {var expanded = 'true'}
+                {else}
+                    {var show = ''}
+                    {var expanded = 'false'}
+                {/if}
 
-            <div class="card mb-1">
+                <div class="card mb-1">
 
-                <h5 class="mb-0">
-                    <a class="btn btn-link" data-toggle="collapse" data-target="#{$containerName}"
-                       aria-expanded="{$expanded}">
-                        <small>
-                            <span class="fa fa-fw fa-plus"></span>
-                            <span class="fa fa-fw fa-minus"></span>
-                        </small> {$container['title']}
-                    </a>
-                </h5>
+                    <h5 class="mb-0">
+                        <a class="btn btn-link" data-toggle="collapse" data-target="#{$containerName}"
+                           aria-expanded="{$expanded}">
+                            <small>
+                                <span class="fa fa-fw fa-plus"></span>
+                                <span class="fa fa-fw fa-minus"></span>
+                            </small> {$container['title']}
+                        </a>
+                    </h5>
 
-                <div id="{$containerName}" class="collapse{$show}">
-                    <div class="card-body">
+                    <div id="{$containerName}" class="collapse{$show}">
+                        <div class="card-body">
 
-                        {foreach $container as $multiplierName => $multiplier}
+                            {foreach $container as $multiplierName => $multiplier}
 
-                            {if $multiplierName !== 'title'}
-                                {var name = $containerName . '-' . $multiplierName}
+                                {if $multiplierName !== 'title'}
+                                    {var name = $containerName . '-' . $multiplierName}
 
-                                {if isset($defaults[$containerName][$multiplierName])}
-                                    {var show = ' show'}
-                                    {var expanded = 'true'}
-                                {else}
-                                    {var show = ''}
-                                    {var expanded = 'false'}
+                                    {if isset($defaults[$containerName][$multiplierName])}
+                                        {var show = ' show'}
+                                        {var expanded = 'true'}
+                                    {else}
+                                        {var show = ''}
+                                        {var expanded = 'false'}
+                                    {/if}
+
+                                    <div class="card mb-1">
+                                        <h5 class="mb-0">
+                                            <a class="btn btn-link" data-toggle="collapse" data-target="#{$name}"
+                                               aria-expanded="{$expanded}" onclick="return false;">
+                                                <small>
+                                                    <span class="fa fa-fw fa-plus"></span>
+                                                    <span class="fa fa-fw fa-minus"></span>
+                                                </small> {$multiplier}
+                                            </a>
+                                        </h5>
+
+                                        <div id="{$name}" class="collapse{$show}">
+                                            <div class="card-body">
+                                                <div n:multiplier="$name" n:class="row, mb-2">
+                                                    <div class="col-5">
+                                                        <input n:name="\App\Model\Repository\LineRepository::COLUMN_LINE_NUMBER" n:class="form-control, form-control-sm">
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <input n:name="\App\Model\Repository\LineRepository::COLUMN_TRANSLITERATION" n:class="form-control, form-control-sm">
+                                                    </div>
+                                                    <div class="col-2">
+                                                        {btnRemove 'class' => 'btn btn-danger btn-sm ajax float-right'}
+                                                    </div>
+                                                </div>
+
+                                                {btnCreate $name 'class' => 'btn btn-info btn-sm ajax'}
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 {/if}
 
-                                <div class="card mb-1">
-                                    <h5 class="mb-0">
-                                        <a class="btn btn-link" data-toggle="collapse" data-target="#{$name}"
-                                           aria-expanded="{$expanded}" onclick="return false;">
-                                            <small>
-                                                <span class="fa fa-fw fa-plus"></span>
-                                                <span class="fa fa-fw fa-minus"></span>
-                                            </small> {$multiplier}
-                                        </a>
-                                    </h5>
+                            {/foreach}
 
-                                    <div id="{$name}" class="collapse{$show}">
-                                        <div class="card-body">
-                                            <div n:multiplier="$name" n:class="row, mb-2">
-                                                <div class="col-5">
-                                                    <input n:name="\App\Model\Repository\LineRepository::COLUMN_LINE_NUMBER" n:class="form-control, form-control-sm">
-                                                </div>
-                                                <div class="col-5">
-                                                    <input n:name="\App\Model\Repository\LineRepository::COLUMN_TRANSLITERATION" n:class="form-control, form-control-sm">
-                                                </div>
-                                                <div class="col-2">
-                                                    {btnRemove 'class' => 'btn btn-danger btn-sm float-right'}
-                                                </div>
-                                            </div>
-
-                                            {btnCreate $name 'class' => 'btn btn-info btn-sm'}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            {/if}
-
-                        {/foreach}
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        {/foreach}
+            {/foreach}
 
-        <div class="row mt-5">
-            <div class="col-4 offset-8 float-right">
-                {input submit}
+            <div class="row mt-5">
+                <div class="col-4 offset-8 float-right">
+                    {input submit}
+                </div>
             </div>
-        </div>
-    {/form}
+        {/form}
+    {/snippet}
 {/ifset}

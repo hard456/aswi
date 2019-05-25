@@ -79,6 +79,11 @@ class TransliterationDataEditForm extends Control
     {
         $form = new Form;
 
+        $redrawCallback = function ()
+        {
+            $this->redrawControl('dataSnippet');
+        };
+
         foreach ($this->containers as $name => $container)
         {
             $cont = $form->addContainer($name);
@@ -97,12 +102,13 @@ class TransliterationDataEditForm extends Control
                     $container->addText(LineRepository::COLUMN_TRANSLITERATION);
                 }, 0);
 
-                $multiplier->addCreateButton('Add line')->setValidationScope([])->addClass('btn btn-primary');
-                $multiplier->addRemoveButton('Delete')->addClass('btn btn-danger');
+                $multiplier->addCreateButton('Add line', 1, $redrawCallback);
+                $multiplier->addRemoveButton('Delete', $redrawCallback);
             }
         }
 
-        $form->setDefaults($this->defaults);
+        $defaults = $this->defaults === NULL ? $this->getDefaults() : $this->defaults;
+        $form->setDefaults($defaults);
 
         $form->onSuccess[] = [$this, 'formSuccess'];
         $form->addSubmit('submit', 'Save');
