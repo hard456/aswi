@@ -42,7 +42,7 @@
                                     <div class="card mb-1">
                                         <h5 class="mb-0">
                                             <a class="btn btn-link" data-toggle="collapse" data-target="#{$name}"
-                                               aria-expanded="{$expanded}" onclick="return false;">
+                                               aria-expanded="{$expanded}">
                                                 <small>
                                                     <span class="fa fa-fw fa-plus"></span>
                                                     <span class="fa fa-fw fa-minus"></span>
@@ -50,7 +50,7 @@
                                             </a>
                                         </h5>
 
-                                        <div id="{$name}" class="collapse{$show}">
+                                        <div id="{$name}" class="collapse{$show}" title="multiplierContent">
                                             <div class="card-body">
                                                 <div n:multiplier="$name" n:class="row, mb-2">
                                                     <input n:name="\App\Model\Repository\LineRepository::COLUMN_ID">
@@ -85,5 +85,43 @@
                 </div>
             </div>
         {/form}
+
+        <script>
+            $(document).ready(function ()
+            {
+                showCollapse();
+            });
+
+            /**
+             * Rozbalení stromu po dynamickém přidání prvků a znovunačtení snippetu
+             */
+            function showCollapse()
+            {
+                // Pro každej multiplier content
+                $('div[title="multiplierContent"]').each(function ()
+                {
+                    // Pokud obsahuje div s třídou .row mb-2, znamená to, že je tam nějaký vstupní prvek
+                    let inputs = $(this).find(".row.mb-2");
+                    if (inputs.length > 0)
+                    {
+                        // Rozbalení seznamu
+                        let id = this.id;
+                        $(this).attr('class', 'collapse show');
+                        $('a[data-target="#' + id + '"]').attr('aria-expanded', 'true');
+
+                        // Rozbalení vrchního seznamu
+                        $(this).parents().each(function ()
+                        {
+                            let thisId = this.id.toString();
+                            if (thisId !== "" && id.toString().includes(thisId))
+                            {
+                                $(this).attr('class', 'collapse show');
+                                $('a[data-target="#' + thisId + '"]').attr('aria-expanded', 'true');
+                            }
+                        })
+                    }
+                })
+            }
+        </script>
     {/snippet}
 {/ifset}

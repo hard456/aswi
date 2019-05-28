@@ -4,6 +4,7 @@
 namespace App\AdminModule\Components;
 
 
+use App\Enum\EFlashMessage;
 use App\Model\Facade\TransliterationFacade;
 use App\Model\Repository\LineRepository;
 use App\Model\Repository\ObjectTypeRepository;
@@ -11,6 +12,7 @@ use App\Model\Repository\SurfaceTypeRepository;
 use App\Utils\Form;
 use Nette\Application\UI\Control;
 use Nette\Forms\Container;
+use Nette\Forms\Controls\SubmitButton;
 use WebChemistry\Forms\Controls\Multiplier;
 
 class TransliterationDataEditForm extends Control
@@ -20,9 +22,6 @@ class TransliterationDataEditForm extends Control
 
     /** @var array Pole objektů a typu povrch pro strom dat transliterace */
     private $containers;
-
-    /** @var array Pole s výchozími hodnotami při upravování */
-    private $defaults;
 
     /**
      * @var ObjectTypeRepository
@@ -53,7 +52,7 @@ class TransliterationDataEditForm extends Control
         $containers = [];
 
         // Načtení typů objektů a typu povrchů do pole pro vykreslení v šabloně
-        foreach ($objectTypes as $oId =>$objectType)
+        foreach ($objectTypes as $oId => $objectType)
         {
             $containers[$oId]['title'] = $objectType;
 
@@ -71,7 +70,7 @@ class TransliterationDataEditForm extends Control
         $this->template->setFile(__DIR__ . '/TransliterationDataEditForm.latte');
 
         $this->template->containers = $this->containers;
-        $this->template->defaults = $this->defaults = $this->getDefaults();
+        $this->template->defaults = $this->getDefaults();
 
         $this->template->render();
     }
@@ -109,8 +108,7 @@ class TransliterationDataEditForm extends Control
             }
         }
 
-        $defaults = $this->defaults === NULL ? $this->getDefaults() : $this->defaults;
-        $form->setDefaults($defaults);
+        $form->setDefaults($this->getDefaults());
 
         $form->onSuccess[] = [$this, 'formSuccess'];
         $form->addSubmit('submit', 'Save');
@@ -120,7 +118,18 @@ class TransliterationDataEditForm extends Control
 
     public function formSuccess(Form $form)
     {
-        $result = $this->transliterationFacade->saveTransliterationData($this->id, $form->getValues());
+        $result = $this->transliterationFacade->saveTransliterationData($this->id, $form);
+
+        // Redirect musí být, jinak se v dynamických prvcích nenačtou IDčka
+        //  a vkládají se nové záznamy místo upravování stávajících
+        if ($result)
+        {
+            $this->presenter->flashMessage('Transliteration data were edited successfully.', EFlashMessage::SUCCESS);
+        } else
+        {
+            $this->presenter->flashMessage('Transliteration data were not edited.', EFlashMessage::ERROR);
+        }
+        $this->presenter->redirect('Transliteration:edit', ['id' => $this->id]);
     }
 
     /**
@@ -144,6 +153,8 @@ class TransliterationDataEditForm extends Control
         {
             return $this->transliterationFacade->getTransliterationData($this->id);
         }
+
+        return [];
     }
 }
 

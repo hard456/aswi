@@ -86,4 +86,15 @@ class LineRepository extends Repository
         return $this->findBy([self::COLUMN_ID => $id])->fetch();
     }
 
+    /**
+     * Vrací počet smazaných řádek
+     *
+     * @param array $lineIds
+     * @return int
+     */
+    public function deleteLines(array $lineIds) : int
+    {
+        return $this->findBy([self::COLUMN_ID => $lineIds])->delete();
+    }
+
 }
