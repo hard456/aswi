@@ -4,6 +4,7 @@
 namespace App\AdminModule\Presenters;
 
 
+use App\AdminModule\Components\ITransliterationDataEditFormFactory;
 use App\AdminModule\Components\ITransliterationGridFactory;
 use App\AdminModule\Components\ITransliterationEditFormFactory;
 use App\Model\Repository\TransliterationRepository;
@@ -25,14 +26,22 @@ class TransliterationPresenter extends BaseUserPresenter
      */
     private $transliterationRepository;
 
+    /**
+     * @var ITransliterationDataEditFormFactory
+     */
+    private $transliterationDataEditFormFactory;
+
     public function __construct(ITransliterationGridFactory $transliterationGridFactory,
                                 ITransliterationEditFormFactory $transliterationEditFormFactory,
-                                TransliterationRepository $transliterationRepository)
+                                TransliterationRepository $transliterationRepository,
+                                ITransliterationDataEditFormFactory $transliterationDataEditFormFactory
+    )
     {
         parent::__construct();
         $this->transliterationEditFormFactory = $transliterationEditFormFactory;
         $this->transliterationGridFactory = $transliterationGridFactory;
         $this->transliterationRepository = $transliterationRepository;
+        $this->transliterationDataEditFormFactory = $transliterationDataEditFormFactory;
     }
 
     /**
@@ -57,6 +66,7 @@ class TransliterationPresenter extends BaseUserPresenter
     public function actionEdit(int $id)
     {
         $this['transliterationEditForm']->setTransliteration($id);
+        $this['transliterationDataEditForm']->setTransliteration($id);
     }
 
     public function createComponentTransliterationGrid()
@@ -67,6 +77,11 @@ class TransliterationPresenter extends BaseUserPresenter
     public function createComponentTransliterationEditForm()
     {
         return $this->transliterationEditFormFactory->create();
+    }
+
+    public function createComponentTransliterationDataEditForm()
+    {
+        return  $this->transliterationDataEditFormFactory->create();
     }
 
 }

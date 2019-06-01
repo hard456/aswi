@@ -75,4 +75,26 @@ class LineRepository extends Repository
         return $adjacentLines;
     }
 
+    /**
+     * Vrací záznam řádku podle ID (z nějakého důvodu mi nefungovalo findRow);
+     *
+     * @param int $id : ID řádky
+     * @return false|\Nette\Database\Table\ActiveRow
+     */
+    public function fetchById(int $id)
+    {
+        return $this->findBy([self::COLUMN_ID => $id])->fetch();
+    }
+
+    /**
+     * Vrací počet smazaných řádek
+     *
+     * @param array $lineIds
+     * @return int
+     */
+    public function deleteLines(array $lineIds) : int
+    {
+        return $this->findBy([self::COLUMN_ID => $lineIds])->delete();
+    }
+
 }

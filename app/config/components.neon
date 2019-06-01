@@ -21,6 +21,7 @@ services:
     - App\AdminModule\Components\IBookTypeEditFormFactory
     - App\AdminModule\Components\IBookEditFormFactory
     - App\AdminModule\Components\ITransliterationEditFormFactory
+    - App\AdminModule\Components\ITransliterationDataEditFormFactory
 
     - App\FrontModule\Components\IKeyboard
     - App\FrontModule\Components\ITransliterationSearchResultListFactory

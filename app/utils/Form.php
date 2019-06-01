@@ -29,37 +29,37 @@ class Form extends \Nette\Application\UI\Form
 
     public function addText($name, $label = null, $cols = null, $maxLength = null)
     {
-        return parent::addText($name, $label, $cols, $maxLength)->setHtmlAttribute('class', 'form-control');
+        return parent::addText($name, $label, $cols, $maxLength)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addSelect($name, $label = null, array $items = null, $size = null)
     {
-        return parent::addSelect($name, $label, $items, $size)->setHtmlAttribute('class', 'form-control');
+        return parent::addSelect($name, $label, $items, $size)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addPassword($name, $label = null, $cols = null, $maxLength = null)
     {
-        return parent::addPassword($name, $label, $cols, $maxLength)->setHtmlAttribute('class', 'form-control');
+        return parent::addPassword($name, $label, $cols, $maxLength)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addEmail($name, $label = null)
     {
-        return parent::addEmail($name, $label)->setHtmlAttribute('class', 'form-control');
+        return parent::addEmail($name, $label)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addTextArea($name, $label = null, $cols = null, $rows = null)
     {
-        return parent::addTextArea($name, $label, $cols, $rows)->setHtmlAttribute('class', 'form-control');
+        return parent::addTextArea($name, $label, $cols, $rows)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addUpload($name, $label = null, $multiple = false)
     {
-        return parent::addUpload($name, $label, $multiple)->setHtmlAttribute('class', 'form-control');
+        return parent::addUpload($name, $label, $multiple)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     public function addInteger($name, $label = null)
     {
-        return parent::addInteger($name, $label)->setHtmlAttribute('class', 'form-control');
+        return parent::addInteger($name, $label)->setHtmlAttribute('class', 'form-control form-control-sm');
     }
 
     protected function beforeRender()
@@ -71,7 +71,7 @@ class Form extends \Nette\Application\UI\Form
             $type = $control->getOption('type');
             if ($type === 'button')
             {
-                $control->getControlPrototype()->addClass('btn btn-success form-control');
+                $control->getControlPrototype()->addClass('btn btn-success btn-sm form-control');
             }
         }
     }

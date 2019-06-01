@@ -94,7 +94,7 @@ class Repository
      * @param array $data
      * @return bool|int|Nette\Database\Table\ActiveRow
      */
-    public function insert(array $data)
+    public function insert($data)
     {
         return $this->getTable()->insert($data);
     }

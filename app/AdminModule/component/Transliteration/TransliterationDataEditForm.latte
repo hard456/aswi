@@ -1,0 +1,127 @@
+{ifset $containers}
+    {snippet dataSnippet}
+        {form form class => 'form'}
+            {foreach $containers as $containerName => $container}
+
+                {if isset($defaults[$containerName])}
+                    {var show = ' show'}
+                    {var expanded = 'true'}
+                {else}
+                    {var show = ''}
+                    {var expanded = 'false'}
+                {/if}
+
+                <div class="card mb-1">
+
+                    <h5 class="mb-0">
+                        <a class="btn btn-link" data-toggle="collapse" data-target="#{$containerName}"
+                           aria-expanded="{$expanded}">
+                            <small>
+                                <span class="fa fa-fw fa-plus"></span>
+                                <span class="fa fa-fw fa-minus"></span>
+                            </small> {$container['title']}
+                        </a>
+                    </h5>
+
+                    <div id="{$containerName}" class="collapse{$show}">
+                        <div class="card-body">
+
+                            {foreach $container as $multiplierName => $multiplier}
+
+                                {if $multiplierName !== 'title'}
+                                    {var name = $containerName . '-' . $multiplierName}
+
+                                    {if isset($defaults[$containerName][$multiplierName])}
+                                        {var show = ' show'}
+                                        {var expanded = 'true'}
+                                    {else}
+                                        {var show = ''}
+                                        {var expanded = 'false'}
+                                    {/if}
+
+                                    <div class="card mb-1">
+                                        <h5 class="mb-0">
+                                            <a class="btn btn-link" data-toggle="collapse" data-target="#{$name}"
+                                               aria-expanded="{$expanded}">
+                                                <small>
+                                                    <span class="fa fa-fw fa-plus"></span>
+                                                    <span class="fa fa-fw fa-minus"></span>
+                                                </small> {$multiplier}
+                                            </a>
+                                        </h5>
+
+                                        <div id="{$name}" class="collapse{$show}" title="multiplierContent">
+                                            <div class="card-body">
+                                                <div n:multiplier="$name" n:class="row, mb-2">
+                                                    <input n:name="\App\Model\Repository\LineRepository::COLUMN_ID">
+                                                    <div class="col-2">
+                                                        <input n:name="\App\Model\Repository\LineRepository::COLUMN_LINE_NUMBER" n:class="form-control, form-control-sm">
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input n:name="\App\Model\Repository\LineRepository::COLUMN_TRANSLITERATION" n:class="form-control, form-control-sm">
+                                                    </div>
+                                                    <div class="col-2">
+                                                        {btnRemove 'class' => 'btn btn-danger btn-sm ajax float-right'}
+                                                    </div>
+                                                </div>
+
+                                                {btnCreate $name 'class' => 'btn btn-info btn-sm ajax'}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                {/if}
+
+                            {/foreach}
+
+                        </div>
+                    </div>
+                </div>
+            {/foreach}
+
+            <div class="row mt-5">
+                <div class="col-4 offset-8 float-right">
+                    {input submit}
+                </div>
+            </div>
+        {/form}
+
+        <script>
+            $(document).ready(function ()
+            {
+                showCollapse();
+            });
+
+            /**
+             * Rozbalení stromu po dynamickém přidání prvků a znovunačtení snippetu
+             */
+            function showCollapse()
+            {
+                // Pro každej multiplier content
+                $('div[title="multiplierContent"]').each(function ()
+                {
+                    // Pokud obsahuje div s třídou .row mb-2, znamená to, že je tam nějaký vstupní prvek
+                    let inputs = $(this).find(".row.mb-2");
+                    if (inputs.length > 0)
+                    {
+                        // Rozbalení seznamu
+                        let id = this.id;
+                        $(this).attr('class', 'collapse show');
+                        $('a[data-target="#' + id + '"]').attr('aria-expanded', 'true');
+
+                        // Rozbalení vrchního seznamu
+                        $(this).parents().each(function ()
+                        {
+                            let thisId = this.id.toString();
+                            if (thisId !== "" && id.toString().includes(thisId))
+                            {
+                                $(this).attr('class', 'collapse show');
+                                $('a[data-target="#' + thisId + '"]').attr('aria-expanded', 'true');
+                            }
+                        })
+                    }
+                })
+            }
+        </script>
+    {/snippet}
+{/ifset}

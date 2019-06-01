@@ -17,4 +17,14 @@ class SurfaceTypeRepository extends Repository
     const COLUMN_ID = 'id_surface_type';
     const COLUMN_SURFACE_TYPE = 'surface_type';
     const COLUMN_SORTER = 'sorter';
+
+    /**
+     * Vrací typy povrchů pro formulář pro přidávání transliterací
+     *
+     * @return array
+     */
+    public function fetchSurfaceTypes()
+    {
+        return $this->findAll()->order(self::COLUMN_SORTER)->fetchPairs(self::COLUMN_ID, self::COLUMN_SURFACE_TYPE);
+    }
 }

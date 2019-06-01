@@ -1,8 +1,30 @@
 {block content}
     <div class="row">
-        <div class="col-12">
+        <div class="col-5">
             <div class="display-5">Edit Transliteration</div>
+
+            <fieldset>
+                <legend>Transliteration information</legend>
+
+                {control transliterationEditForm}
+            </fieldset>
         </div>
     </div>
-    {control transliterationEditForm}
+
+    <div class="row mt-5">
+        <div class="col-5">
+            <fieldset>
+                <legend>Transliteration data</legend>
+
+                {control transliterationDataEditForm}
+            </fieldset>
+        </div>
+    </div>
 {/block}
+
+{block scripts}
+<script>
+    $(function () {
+        $.nette.init();
+    });
+</script>

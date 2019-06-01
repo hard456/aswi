@@ -14,6 +14,8 @@ use App\Utils\Form;
 use Nette\Application\UI\Control;
 use Nette\Database\Table\ActiveRow;
 use Nette\Forms\Container;
+use Nette\Forms\Controls\SubmitButton;
+use WebChemistry\Forms\Controls\Multiplier;
 
 /**
  * Class TransliterationEditForm
@@ -106,7 +108,13 @@ class TransliterationEditForm extends Control
         $this->form->addText(TransliterationRepository::COLUMN_DATE, 'Date');
         $this->form->addText(TransliterationRepository::COLUMN_NOTE, 'Note');
 
+        $redrawCallback = function ()
+        {
+            $this->redrawControl('informationSnippet');
+        };
+
         // Definice dynamických prvků
+        /** @var Multiplier $multiplier */
         $multiplier = $this->form->addMultiplier('references', function (Container $container)
         {
             $container->addHidden(LitReferenceRepository::COLUMN_ID);
@@ -116,8 +124,8 @@ class TransliterationEditForm extends Control
         }, 0);
 
         // Definice tlačítek pro přidání / odebrání řádku
-        $multiplier->addCreateButton('Add')->addClass('btn btn-primary');
-        $multiplier->addRemoveButton('Remove')->addClass('btn btn-danger');
+        $multiplier->addCreateButton('Add', 1, $redrawCallback);
+        $multiplier->addRemoveButton('Remove', $redrawCallback);
 
         $this->form->setDefaults($this->getDefaults());
 

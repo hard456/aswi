@@ -19,6 +19,7 @@ services:
 
     #Facade
     - App\Model\Facade\UserFacade
+    - App\Model\Facade\TransliterationFacade
 
     #Sessions
     - App\Model\TransliterationSearchModel

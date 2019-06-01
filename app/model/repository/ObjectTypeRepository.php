@@ -16,4 +16,25 @@ class ObjectTypeRepository extends Repository
     /** Sloupečky tabulky */
     const COLUMN_ID = 'id_object_type';
     const COLUMN_OBJECT_TYPE = 'object_type';
+
+    /**
+     * Vrací typy objektů pro formulář pro přidávání transliterací
+     *
+     * @return array
+     */
+    public function fetchObjectTypes()
+    {
+        return $this->findAll()->fetchPairs(self::COLUMN_ID, self::COLUMN_OBJECT_TYPE);
+    }
+
+    /**
+     * Vrací typ objektu podle názvu
+     *
+     * @param string $name
+     * @return false|\Nette\Database\Table\ActiveRow
+     */
+    public function fetchObjectTypeByName(string $name)
+    {
+        return $this->findBy([self::COLUMN_OBJECT_TYPE => $name])->fetch();
+    }
 }
