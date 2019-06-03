@@ -4,9 +4,13 @@
 namespace App\AdminModule\Presenters;
 
 
+use App\AdminModule\Components\IBookEditFormFactory;
+use App\AdminModule\Components\IBookOptionFormFactory;
 use App\AdminModule\Components\ITransliterationDataEditFormFactory;
 use App\AdminModule\Components\ITransliterationGridFactory;
 use App\AdminModule\Components\ITransliterationEditFormFactory;
+use App\AdminModule\Components\ITransliterationNewFormFactory;
+use App\FrontModule\Components\IKeyboard;
 use App\Model\Repository\TransliterationRepository;
 
 class TransliterationPresenter extends BaseUserPresenter
@@ -30,11 +34,26 @@ class TransliterationPresenter extends BaseUserPresenter
      * @var ITransliterationDataEditFormFactory
      */
     private $transliterationDataEditFormFactory;
+    /**
+     * @var ITransliterationNewFormFactory
+     */
+    private $transliterationNewFormFactory;
+    /**
+     * @var IBookOptionFormFactory
+     */
+    private $bookOptionFormFactory;
+    /**
+     * @var IKeyboard
+     */
+    private $keyboard;
 
     public function __construct(ITransliterationGridFactory $transliterationGridFactory,
                                 ITransliterationEditFormFactory $transliterationEditFormFactory,
                                 TransliterationRepository $transliterationRepository,
-                                ITransliterationDataEditFormFactory $transliterationDataEditFormFactory
+                                ITransliterationDataEditFormFactory $transliterationDataEditFormFactory,
+                                ITransliterationNewFormFactory $transliterationNewFormFactory,
+                                IBookOptionFormFactory $bookOptionFormFactory,
+                                IKeyboard $keyboard
     )
     {
         parent::__construct();
@@ -42,6 +61,9 @@ class TransliterationPresenter extends BaseUserPresenter
         $this->transliterationGridFactory = $transliterationGridFactory;
         $this->transliterationRepository = $transliterationRepository;
         $this->transliterationDataEditFormFactory = $transliterationDataEditFormFactory;
+        $this->transliterationNewFormFactory = $transliterationNewFormFactory;
+        $this->bookOptionFormFactory = $bookOptionFormFactory;
+        $this->keyboard = $keyboard;
     }
 
     /**
@@ -82,6 +104,21 @@ class TransliterationPresenter extends BaseUserPresenter
     public function createComponentTransliterationDataEditForm()
     {
         return  $this->transliterationDataEditFormFactory->create();
+    }
+
+    public function createComponentTransliterationNewForm()
+    {
+        return $this->transliterationNewFormFactory->create();
+    }
+
+    public function createComponentBookOptionForm()
+    {
+        return $this->bookOptionFormFactory->create();
+    }
+
+    public function createComponentKeyboard()
+    {
+        return $this->keyboard->create();
     }
 
 }

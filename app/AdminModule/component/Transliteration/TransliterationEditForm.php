@@ -93,12 +93,17 @@ class TransliterationEditForm extends Control
     public function render()
     {
         $this->template->setFile(__DIR__ . '/TransliterationEditForm.latte');
+
+        $this->template->addBook = true;
+        if($this->transliterationId == null){
+            $this->template->addBook = false;
+        }
+
         $this->template->render();
     }
 
     public function createComponentForm()
     {
-        $this->form->addSelect(TransliterationRepository::COLUMN_BOOK_ID, 'Book', $this->bookRepository->getBookAbbrevForSelect());
         $this->form->addText(TransliterationRepository::COLUMN_CHAPTER, 'Chapter');
         $this->form->addSelect(TransliterationRepository::COLUMN_MUSEUM_ID, 'Museum', $this->museumRepository->getMuseumNameForSelect());
         $this->form->addText(TransliterationRepository::COLUMN_MUSEUM_NO, 'Museum No');
@@ -127,7 +132,10 @@ class TransliterationEditForm extends Control
         $multiplier->addCreateButton('Add', 1, $redrawCallback);
         $multiplier->addRemoveButton('Remove', $redrawCallback);
 
-        $this->form->setDefaults($this->getDefaults());
+        if($this->transliterationId != null){
+            $this->form->addSelect(TransliterationRepository::COLUMN_BOOK_ID, 'Book', $this->bookRepository->getBookAbbrevForSelect());
+            $this->form->setDefaults($this->getDefaults());
+        }
 
         $this->form->addSubmit('submit', 'Save');
 
@@ -243,15 +251,17 @@ class TransliterationEditForm extends Control
      */
     private function getDefaults()
     {
-        $array = $this->transliterationRepository->findRow($this->transliterationId)->toArray();
-        $references = $this->litReferenceRepository->findByTransliterationId($this->transliterationId)->fetchAll();
+        if($this->transliterationId != null){
+            $array = $this->transliterationRepository->findRow($this->transliterationId)->toArray();
+            $references = $this->litReferenceRepository->findByTransliterationId($this->transliterationId)->fetchAll();
 
-        foreach ($references as $activeRow)
-        {
-            $array['references'][] = $activeRow->toArray();
+            foreach ($references as $activeRow)
+            {
+                $array['references'][] = $activeRow->toArray();
+            }
+
+            return $array;
         }
-
-        return $array;
     }
 
 }

@@ -16,7 +16,7 @@
             <a class="nav-link" href="#">Contact & members</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Input new text</a>
+            <a class="nav-link" n:href=":Admin:Transliteration:new">Input new text</a>
         </li>
         {if $user->loggedIn && ($user->isInRole(\App\Enum\EUserRole::ADMIN) || $user->isInRole(\App\Enum\EUserRole::USER))}
             <li class="nav-item">

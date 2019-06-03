@@ -1,0 +1,49 @@
+{block content}
+
+    <div class="display-5">Enter New Transliteration</div>
+
+
+    <div class="row mt-5">
+        <div class="col-5">
+            <fieldset>
+                <legend>Book information</legend>
+
+                {control bookOptionForm}
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-5">
+            <fieldset>
+                <legend>Transliteration information</legend>
+
+                {control transliterationEditForm}
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-5">
+            <fieldset>
+                <legend>Transliteration data</legend>
+
+                {control transliterationDataEditForm}
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-5">
+            {control keyboard}
+        </div>
+    </div>
+
+{/block}
+
+{block scripts}
+<script>
+    $(function () {
+        $.nette.init();
+    });
+</script>

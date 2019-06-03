@@ -2,6 +2,7 @@
     {form form}
         <div class="row">
             <div class="col-12">
+                {if $addBook == true}
                 <div class="row mb-2">
                     <div class="col-4">
                         {label \App\Model\Repository\TransliterationRepository::COLUMN_BOOK_ID}
@@ -10,7 +11,7 @@
                         {input \App\Model\Repository\TransliterationRepository::COLUMN_BOOK_ID}
                     </div>
                 </div>
-
+                {/if}
                 <div class="row mb-2">
                     <div class="col-4">
                         {label \App\Model\Repository\TransliterationRepository::COLUMN_CHAPTER}

@@ -16,11 +16,11 @@ class BookEditForm extends Control
     /**
      * @var Form
      */
-    private $form;
+    protected $form;
     /**
      * @var BookRepository
      */
-    private $bookRepository;
+    protected $bookRepository;
 
     public function __construct(BookRepository $bookRepository)
     {
